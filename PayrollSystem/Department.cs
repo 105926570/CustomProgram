@@ -12,11 +12,10 @@ namespace PayrollSystem
         private string _departmentName;
         private List<Employee> _employees = new List<Employee> { };
         private List<Manager> _managers = new List<Manager> { };
-        public UsefullUniversalCommands sys = new UsefullUniversalCommands();
 
         public Department()
         {
-            _departmentID = sys.GenerateRandomNumber(99);
+            _departmentID = GenerateRandomNumber(99);
             _departmentName = "Default Department";
         }
 
