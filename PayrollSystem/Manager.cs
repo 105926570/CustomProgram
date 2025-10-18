@@ -43,5 +43,11 @@ namespace PayrollSystem
         {
             managedEmployees = employees;
         }
+
+        public List<Employee> ManagedEmployees
+        {
+            get { return managedEmployees; }
+            set { managedEmployees = value; }
+        }
     }
 }
