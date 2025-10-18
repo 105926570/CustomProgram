@@ -9,7 +9,7 @@ namespace PayrollSystem
 {
     public class UsefullUniversalCommands
     {
-        private DateTime datetime = DateTime.Now;
+        public DateTime datetime = DateTime.Now;
 
         /// <summary>
         /// Generates a random number between the specified lowest and highest numbers using the current time in milliseconds as the seed.
