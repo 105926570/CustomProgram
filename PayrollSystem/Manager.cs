@@ -10,7 +10,8 @@ namespace PayrollSystem
     {
         private List<Employee> managedEmployees = new List<Employee> { };
 
-        public Manager() : base() //Default constructor / Test constructor
+        //Default constructor / Test constructor
+        public Manager() : base() 
         {
             //test employees
             Employee testEmployee1 = new Employee("Micheal", "Stevens");
@@ -22,7 +23,9 @@ namespace PayrollSystem
             managedEmployees.Add(testEmployee3);
         }
 
-        public Manager(int userID, string username, string password, string firstName, string lastName) : base(userID, username, password, firstName, lastName) //All values provided except employees
+        //All values provided except employees
+        public Manager(int userID, string username, string password, string firstName, string lastName)
+        : base(userID, username, password, firstName, lastName)
         {
             //test employees
             Employee testEmployee1 = new Employee("Micheal", "Stevens");
@@ -34,7 +37,9 @@ namespace PayrollSystem
             managedEmployees.Add(testEmployee3);
         }
 
-        public Manager(List<Employee> employees, int userID, string username, string password, string firstName, string lastName) : base(userID, username, password, firstName, lastName) // All values provided
+        // All values provided
+        public Manager(List<Employee> employees, int userID, string username, string password, string firstName, string lastName)
+        : base(userID, username, password, firstName, lastName) 
         {
             managedEmployees = employees;
         }
