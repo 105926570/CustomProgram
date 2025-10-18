@@ -23,5 +23,23 @@ namespace PayrollSystem
         {
         
         }
+
+        public string UsernameProperty
+        {
+            get { return Username; }
+            set { Username = value; }
+        }
+
+        public string PasswordProperty
+        {
+            get { return Password; }
+            set { Password = value; }
+        }
+
+        public int UserIDProperty
+        {
+            get { return UserID; }
+            set { UserID = value; }
+        }
     }
 }
