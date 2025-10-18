@@ -31,5 +31,14 @@ namespace PayrollSystem
             get { return _managedEmployees; }
             set { _managedEmployees = value; }
         }
+
+        public void DisplayManagedEmployees()
+        {
+            Console.WriteLine("Managed Employees for Manager: " + FullName);
+            foreach (Employee emp in ManagedEmployees)
+            {
+                Console.WriteLine("- " + emp.FullName + " (ID: " + emp.EmployeeID + ")");
+            }
+        }
     }
 }
