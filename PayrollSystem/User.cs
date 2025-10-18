@@ -9,17 +9,17 @@ namespace PayrollSystem
     internal class User
     {
         string _Username, _Password;
-        int _UserID;
+        int _EmployeeID;
 
         public User()
         {
         
         }
-        public User(int userID, string username, string password)
+        public User(int employeeID, string username, string password)
         {
         
         }
-        public User(int userID)
+        public User(int employeeID)
         {
         
         }
@@ -38,8 +38,8 @@ namespace PayrollSystem
 
         public int UserIDProperty
         {
-            get { return UserID; }
-            set { UserID = value; }
+            get { return _EmployeeID; }
+            set { _EmployeeID = value; }
         }
     }
 }

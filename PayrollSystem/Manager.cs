@@ -15,13 +15,13 @@ namespace PayrollSystem
         { }
 
         //All values provided except employees
-        public Manager(int userID, string username, string password, string firstName, string lastName)
-        : base(userID, username, password, firstName, lastName)
+        public Manager(int employeeID, string username, string password, string firstName, string lastName)
+        : base(employeeID, username, password, firstName, lastName)
         { }
 
         // All values provided
-        public Manager(List<Employee> employees, int userID, string username, string password, string firstName, string lastName)
-        : base(userID, username, password, firstName, lastName) 
+        public Manager(List<Employee> employees, int employeeID, string username, string password, string firstName, string lastName)
+        : base(employeeID, username, password, firstName, lastName) 
         {
             _managedEmployees = employees;
         }
