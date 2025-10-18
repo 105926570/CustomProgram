@@ -30,5 +30,11 @@ namespace PayrollSystem
             _departmentID = ID;
             _departmentName = name;
         }
+
+        public int ID
+        {
+            get { return _departmentID; }
+            set { _departmentID = value; }
+        }
     }
 }

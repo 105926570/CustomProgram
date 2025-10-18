@@ -47,7 +47,7 @@ namespace PayrollSystem
             set { _Password = value; }
         }
 
-        public int EmployeeID
+        public int ID
         {
             get { return _EmployeeID; }
             set { _EmployeeID = value; }
