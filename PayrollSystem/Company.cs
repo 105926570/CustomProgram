@@ -65,6 +65,5 @@ namespace PayrollSystem
     }
 }
 
-
 /// TODO:
 /// Change it so it is just the largest employee ID + 1 instead of a stupid random number that is annoying and stupid (why didnt i think of that XD)

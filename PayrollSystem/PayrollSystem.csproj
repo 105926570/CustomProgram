@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Admin.cs" />
     <Compile Include="Company.cs" />
+    <Compile Include="Department.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="LoginScreen.cs">
       <SubType>Form</SubType>
