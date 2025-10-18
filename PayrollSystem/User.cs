@@ -25,7 +25,7 @@ namespace PayrollSystem
             _EmployeeID = new Random().Next(9999999); //User ID should be a random number generated when creating a new employee, and not equal to any other existing User ID.
         }
 
-        public User(int employeeID, string username, string password, string firstName, string lastName) //Constructor with all peramaters given manually
+        public User(int employeeID, string username, string password) //Constructor with all peramaters given manually
         {
             _Username = username;
             _Password = password;
