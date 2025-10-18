@@ -14,7 +14,6 @@ namespace PayrollSystem
         [STAThread]
         static void Main()
         {
-            new Manager fart = new Manager(); //to prevent manager class from being optimized out
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginScreen());
