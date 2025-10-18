@@ -23,5 +23,10 @@ namespace PayrollSystem
         {
             _companyName = name; //im not sure why anyone would want to name their company anything but "The Big Company that needs a better name, and also a payroll system", but ok.
         }
+
+        public void CreateEmployee(Employee emp) //This should be the only way to add and create employees
+        {
+            _employees.Add(emp);
+        }
     }
 }
