@@ -20,21 +20,31 @@ namespace PayrollSystem
         private void hidePasswordCheck_CheckedChanged(object sender, EventArgs e)
         {
             if (hidePasswordCheck.Checked == true)
-            { passwordInputBox.PasswordChar = '*'; }
+            {
+                passwordInputBox.PasswordChar = '*';
+            }
             else
-            { passwordInputBox.PasswordChar = '\0'; }
+            {
+                passwordInputBox.PasswordChar = '\0';
+            }
         }
 
         private void hideUserCheck_CheckedChanged(object sender, EventArgs e)
         {
             if (hideUserCheck.Checked == true)
-            { usernameInputBox.PasswordChar = '*'; }
+            {
+                usernameInputBox.PasswordChar = '*';
+            }
             else
-            { usernameInputBox.PasswordChar = '\0'; }
+            {
+                usernameInputBox.PasswordChar = '\0';
+            }
         }
 
         private void LoginScreen_Load(object sender, EventArgs e)
-        { capsLockWarningLabel.Visible = false; }
+        {
+            capsLockWarningLabel.Visible = false;
+        }
 
         private void CapsLock_KeyDown(object sender, KeyEventArgs e)
         {
