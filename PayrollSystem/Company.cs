@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PayrollSystem
 {
-    public class Buisness
+    internal class Company
     {
     }
 }
