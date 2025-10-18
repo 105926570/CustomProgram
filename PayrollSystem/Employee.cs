@@ -63,6 +63,13 @@ namespace PayrollSystem
             get { return _LastName; }
             set { _LastName = value; }
         }
+
+        public void DisplayEmployeeInfo()
+        {
+            Console.WriteLine("Employee ID: " + _EmployeeID);
+            Console.WriteLine("Username: " + _Username);
+            Console.WriteLine("Name: " + FullName);
+        }
     }
 }
 
