@@ -54,3 +54,8 @@ namespace PayrollSystem
         }
     }
 }
+
+/// TODO:
+/// IMPLEMENT PRONOUNS 
+///     AS A CLASS?
+///     AS TWO STRINGS?
