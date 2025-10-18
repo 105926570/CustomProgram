@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PayrollSystem
 {
-    internal class PayHistory
+    public class PayHistory
     {
     }
 }

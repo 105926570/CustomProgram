@@ -14,7 +14,7 @@ namespace PayrollSystem
         EmployeeTaxInfo employeeTaxInfo;
         //Department department;
         //Schedule schedule;
-        //PaycheckHistory paycheckHistory;
+        public PayHistory _payHistory = new PayHistory();
         //TaxInfo EmployeeTaxInfo;
 
         public Employee() : base() //Constructor with default values
@@ -39,7 +39,7 @@ namespace PayrollSystem
         {
             _Username = user.Username;
             _Password = user.Password;
-            _EmployeeID = user.EmployeeID;
+            _EmployeeID = user.ID;
             _FirstName = firstName;
             _LastName = lastName;
         }
@@ -65,9 +65,15 @@ namespace PayrollSystem
             set { _LastName = value; }
         }
 
+        public PayHistory PayHistory
+        {
+            get { return _payHistory; }
+            set { _payHistory = value; }
+        }
+
         public void DisplayEmployeeInfo()
         {
-            Console.WriteLine($"Name: {FullName} - ID: {EmployeeID}");
+            Console.WriteLine($"Name: {FullName} - ID: {_EmployeeID}");
         }
 
         public void DisplayAllEmployeeInfo()
