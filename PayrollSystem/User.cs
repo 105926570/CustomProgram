@@ -49,5 +49,12 @@ namespace PayrollSystem
             get { return _EmployeeID; }
             set { _EmployeeID = value; }
         }
+
+        public void DisplayUserInfo()
+        {
+            Console.WriteLine("Employee ID: " + _EmployeeID);
+            Console.WriteLine("Username: " + _Username);
+            Console.WriteLine("Password: " + _Password);
+        }
     }
 }
