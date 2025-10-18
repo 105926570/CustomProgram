@@ -11,6 +11,7 @@ namespace PayrollSystem
     public class Employee : User
     {
         string _FirstName, _LastName;
+        EmployeeTaxInfo employeeTaxInfo;
         //Department department;
         //Schedule schedule;
         //PaycheckHistory paycheckHistory;
