@@ -10,19 +10,20 @@ namespace PayrollSystem
     {
         public string _Username, _Password;
         public int _EmployeeID;
+        public DateTime datetime = DateTime.Now;
 
         public User()
         {
             _Username = "DefaultUser";
             _Password = "password123";
-            _EmployeeID = new Random().Next(9999999); //User ID should be a random number generated when creating a new employee, and not equal to any other existing User ID.
+            _EmployeeID = new Random(datetime.Millisecond).Next(9999999); //User ID should be a random number generated when creating a new employee, and not equal to any other existing User ID.
         }
 
         public User(string firstName, string lastName) //Constructor with all peramaters given manually
         {
             _Username = "jhondoe123"; //[PREFERABLY]: $"{_FirstName}+{new Random().Next(999)}"; //Generates a username based on first name and a random 3 digit number. Add a check to ensure there is no other username
             _Password = "password123";
-            _EmployeeID = new Random().Next(9999999); //User ID should be a random number generated when creating a new employee, and not equal to any other existing User ID.
+            _EmployeeID = new Random(datetime.Millisecond).Next(9999999); //User ID should be a random number generated when creating a new employee, and not equal to any other existing User ID.
         }
 
         public User(int employeeID, string username, string password) //Constructor with all peramaters given manually
