@@ -37,7 +37,7 @@ namespace PayrollSystem
             Console.WriteLine("Managed Employees for Manager: " + FullName);
             foreach (Employee emp in ManagedEmployees)
             {
-                Console.WriteLine("- " + emp.FullName + " (ID: " + emp.EmployeeID + ")");
+                emp.DisplayEmployeeInfo();
             }
         }
     }

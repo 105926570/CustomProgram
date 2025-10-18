@@ -66,7 +66,7 @@ namespace PayrollSystem
 
         public void DisplayEmployeeInfo()
         {
-            Console.WriteLine("Name: " + FullName);
+            Console.WriteLine($"Name: {FullName} - ID: {EmployeeID}");
         }
 
         public void DisplayAllEmployeeInfo()
