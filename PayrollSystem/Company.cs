@@ -26,6 +26,40 @@ namespace PayrollSystem
 
         public void CreateEmployee(Employee emp) //This should be the only way to add and create employees
         {
+            DateTime datetime = DateTime.Now;
+            bool matchingId = false;
+            bool newIdMatching = false;
+            int randomID = new Random(datetime.Millisecond).Next(9999999);
+            foreach (Employee e in _employees)
+            {
+                if(e.EmployeeID == emp.EmployeeID)
+                {
+                   matchingId = true;
+                }
+            }
+
+            while (matchingId == true)
+            {
+                foreach (Employee e in _employees)
+                {
+                    if (e.EmployeeID == randomID)
+                    {
+                        newIdMatching = true;
+                    }
+                }
+
+                if (newIdMatching == true)
+                {
+                    matchingId = true;
+                    randomID = new Random(datetime.Millisecond).Next(9999999);
+                }
+                else
+                {
+                    matchingId = false;
+                }
+
+                emp.EmployeeID = randomID;
+            }
             _employees.Add(emp);
         }
     }
