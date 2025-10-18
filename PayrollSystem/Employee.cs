@@ -34,6 +34,15 @@ namespace PayrollSystem
             _LastName = lastName;
         }
 
+        public Employee(User user, string firstName, string lastName) : base() //Constructor with an allready made user as an input.
+        {
+            _Username = user.Username;
+            _Password = user.Password;
+            _EmployeeID = user.EmployeeID;
+            _FirstName = firstName;
+            _LastName = lastName;
+        }
+
         public string FullName
         {
             get
