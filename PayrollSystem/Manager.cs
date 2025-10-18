@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace PayrollSystem
 {
-    internal class Manager
+    internal class Manager : Employee
     {
+        private List<Employee> managedEmployees;
     }
 }
