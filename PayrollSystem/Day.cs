@@ -8,5 +8,9 @@ namespace PayrollSystem
 {
     public class Day
     {
+        //start dateTime, end dateTime
+        public List<TimeFrame> _timeFrames;
+
+        // Constructor to initialize the Day with empty TimeFrames
     }
 }
