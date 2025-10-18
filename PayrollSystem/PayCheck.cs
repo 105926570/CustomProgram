@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PayrollSystem
 {
-    internal class PayCheck
+    public class PayCheck
     {
     }
 }
