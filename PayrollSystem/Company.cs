@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,10 +11,12 @@ namespace PayrollSystem
     internal class Company
     {
         public string _companyName;
-        //public List<Department> departments;
+        public List<Department> _departments = new List<Department>();
         public List<Employee> _employees = new List<Employee>();
-        //public Payroll payroll;
-        //public Schedule schedule;
+        public Image _companyLogo;
+        public Color _secondaryColor, _primaryColor, _accentColur;
+        public Payroll _payroll;
+        public Schedule _companySchedule;
 
         public Company()
         {
