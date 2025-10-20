@@ -64,6 +64,7 @@
     <Compile Include="PayHistory.cs" />
     <Compile Include="Payroll.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Pronoun.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Schedule.cs" />
     <Compile Include="TimeFrame.cs" />
