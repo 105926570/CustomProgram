@@ -15,8 +15,8 @@ namespace PayrollSystem
 
         public List<Day> Days
         {
-            get { return _weeks; }
-            set { _weeks = value; }
+            get { return _Days; }
+            set { _Days = value; }
         }
     }
 }
