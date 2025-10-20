@@ -14,8 +14,7 @@ namespace PayrollSystem
         /// </summary>
         public static int GenerateRandomNumber(int highestNumber, int lowestNumber)
         {
-            int randomNumber = new Random(DateTime.Now.Millisecond).Next(lowestNumber, highestNumber);
-            return randomNumber;
+            return new Random(DateTime.Now.Millisecond).Next(lowestNumber, highestNumber);
         }
 
         /// <summary>
@@ -23,8 +22,7 @@ namespace PayrollSystem
         /// </summary>
         public static int GenerateRandomNumber(int highestNumber)
         {
-            int randomNumber = new Random(DateTime.Now.Millisecond).Next(0, highestNumber);
-            return randomNumber;
+            return new Random(DateTime.Now.Millisecond).Next(0, highestNumber)
         }
 
         /// <summary>
@@ -32,8 +30,7 @@ namespace PayrollSystem
         /// </summary>
         public static int GenerateRandomNumberGivenSeed(int highestNumber, int lowestNumber, int seed)
         {
-            int randomNumber = new Random(seed).Next(lowestNumber, highestNumber);
-            return randomNumber;
+            return new Random(seed).Next(lowestNumber, highestNumber);
         }
 
         /// <summary>
@@ -41,8 +38,7 @@ namespace PayrollSystem
         /// </summary>
         public static int GenerateRandomNumberGivenSeed(int highestNumber, int seed)
         {
-            int randomNumber = new Random(seed).Next(0, highestNumber);
-            return randomNumber;
+            return new Random(seed).Next(0, highestNumber); 
         }   
     }
 }
