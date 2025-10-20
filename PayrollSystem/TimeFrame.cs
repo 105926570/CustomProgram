@@ -8,7 +8,8 @@ namespace PayrollSystem
 {
     public class TimeFrame
     {
-        //has a _startTime, _endTime;
+        private int _startTimeHour, _startTimeMinute, _startTimeSecond;
+        private int _endTimeHour, _endTimeMinute, _endTimeSecond;
 
         // Constructor to initialize the TimeFrame with start and end times
     }
