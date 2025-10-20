@@ -12,5 +12,7 @@ namespace PayrollSystem
         public List<TimeFrame> _timeFrames;
 
         // Constructor to initialize the Day with empty TimeFrames
+
+
     }
 }
