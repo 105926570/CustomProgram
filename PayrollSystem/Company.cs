@@ -35,7 +35,7 @@ namespace PayrollSystem
             int randomID = GenerateRandomNumber(9999999);
             foreach (Employee e in _employees)
             {
-                if(e.EmployeeID == emp.EmployeeID)
+                if(e.ID == emp.ID)
                 {
                    matchingId = true;
                 }
@@ -45,7 +45,7 @@ namespace PayrollSystem
             {
                 foreach (Employee e in _employees)
                 {
-                    if (e.EmployeeID == randomID)
+                    if (e.ID == randomID)
                     {
                         newIdMatching = true;
                     }
@@ -54,14 +54,14 @@ namespace PayrollSystem
                 if (newIdMatching == true)
                 {
                     matchingId = true;
-                    randomID = new Random(datetime.Millisecond).Next(9999999);
+                    randomID = GenerateRandomNumber(9999999);
                 }
                 else
                 {
                     matchingId = false;
                 }
 
-                emp.EmployeeID = randomID;
+                emp.ID = randomID;
             }
             _employees.Add(emp);
         }
