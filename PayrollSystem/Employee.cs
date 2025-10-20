@@ -47,14 +47,8 @@ namespace PayrollSystem
             //EmployeeID, username, password are set by a user input.
         }
 
-        public string FullName
-        {
-            get
-            {
-                string s = _FirstName + " " + _LastName;
-                return s;
-            }
-        }
+        //Read only Property
+        public string FullName { get { return _FirstName + " " + _LastName; } }
 
         public string FirstName
         {
