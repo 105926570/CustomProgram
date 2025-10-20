@@ -52,3 +52,6 @@ namespace PayrollSystem
         }
     }
 }
+
+/// IDEAS:
+/// If login text and password text contain something, show login button. otherwise make it invisible.
