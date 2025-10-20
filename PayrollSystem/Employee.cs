@@ -27,21 +27,24 @@ namespace PayrollSystem
         {
             _FirstName = firstName;
             _LastName = lastName;
+            //EmployeeID, username, password are set as their default values in the User default constructor
         }
 
         public Employee(int employeeID, string username, string password, string firstName, string lastName) : base(employeeID, username, password)//Constructor with all peramaters given manually
         {
             _FirstName = firstName;
             _LastName = lastName;
+            //EmployeeID, username, password are set in the base constructor, using values from the employee constructor.
         }
 
-        public Employee(User user, string firstName, string lastName) : base() //Constructor with an allready made user as an input.
+        public Employee(User user, string firstName, string lastName) //Constructor with an allready made user as an input.
         {
             _Username = user.Username;
             _Password = user.Password;
             _EmployeeID = user.ID;
             _FirstName = firstName;
             _LastName = lastName;
+            //EmployeeID, username, password are set by a user input.
         }
 
         public string FullName
