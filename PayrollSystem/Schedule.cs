@@ -17,5 +17,10 @@ namespace PayrollSystem
             get { return _months; } 
             set { _months = value; }
         }
+        
+        public Month MonthFromIndex(int index)
+        {
+            return _months[index];
+        }
     }
 }
