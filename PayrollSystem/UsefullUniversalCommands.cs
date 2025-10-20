@@ -25,7 +25,7 @@ namespace PayrollSystem
         /// </summary>
         public static int GenerateRandomNumber(int highestNumber)
         {
-            return new Random(DateTime.Now.Millisecond).Next(0, highestNumber)
+            return new Random(DateTime.Now.Millisecond).Next(0, highestNumber);
         }
 
         /// <summary>
