@@ -37,11 +37,12 @@
             this.capsLockWarningLabel = new System.Windows.Forms.Label();
             this.hideUserCheck = new System.Windows.Forms.CheckBox();
             this.loginPageTitleLabel = new System.Windows.Forms.Label();
+            this.welcomeLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // loginButton
             // 
-            this.loginButton.Location = new System.Drawing.Point(12, 178);
+            this.loginButton.Location = new System.Drawing.Point(157, 270);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(187, 94);
             this.loginButton.TabIndex = 0;
@@ -51,7 +52,7 @@
             // userameLabel
             // 
             this.userameLabel.AutoSize = true;
-            this.userameLabel.Location = new System.Drawing.Point(7, 51);
+            this.userameLabel.Location = new System.Drawing.Point(152, 143);
             this.userameLabel.Name = "userameLabel";
             this.userameLabel.Size = new System.Drawing.Size(116, 25);
             this.userameLabel.TabIndex = 1;
@@ -60,7 +61,7 @@
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(7, 113);
+            this.passwordLabel.Location = new System.Drawing.Point(152, 205);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(112, 25);
             this.passwordLabel.TabIndex = 2;
@@ -68,14 +69,14 @@
             // 
             // usernameInputBox
             // 
-            this.usernameInputBox.Location = new System.Drawing.Point(12, 79);
+            this.usernameInputBox.Location = new System.Drawing.Point(157, 171);
             this.usernameInputBox.Name = "usernameInputBox";
             this.usernameInputBox.Size = new System.Drawing.Size(300, 31);
             this.usernameInputBox.TabIndex = 3;
             // 
             // passwordInputBox
             // 
-            this.passwordInputBox.Location = new System.Drawing.Point(12, 141);
+            this.passwordInputBox.Location = new System.Drawing.Point(157, 233);
             this.passwordInputBox.Name = "passwordInputBox";
             this.passwordInputBox.PasswordChar = '*';
             this.passwordInputBox.Size = new System.Drawing.Size(300, 31);
@@ -86,7 +87,7 @@
             this.hidePasswordCheck.AutoSize = true;
             this.hidePasswordCheck.Checked = true;
             this.hidePasswordCheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.hidePasswordCheck.Location = new System.Drawing.Point(318, 143);
+            this.hidePasswordCheck.Location = new System.Drawing.Point(463, 235);
             this.hidePasswordCheck.Name = "hidePasswordCheck";
             this.hidePasswordCheck.Size = new System.Drawing.Size(188, 29);
             this.hidePasswordCheck.TabIndex = 5;
@@ -100,7 +101,7 @@
             this.capsLockWarningLabel.BackColor = System.Drawing.SystemColors.Control;
             this.capsLockWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.capsLockWarningLabel.ForeColor = System.Drawing.Color.Maroon;
-            this.capsLockWarningLabel.Location = new System.Drawing.Point(116, 113);
+            this.capsLockWarningLabel.Location = new System.Drawing.Point(261, 205);
             this.capsLockWarningLabel.Name = "capsLockWarningLabel";
             this.capsLockWarningLabel.Size = new System.Drawing.Size(270, 25);
             this.capsLockWarningLabel.TabIndex = 6;
@@ -109,7 +110,7 @@
             // hideUserCheck
             // 
             this.hideUserCheck.AutoSize = true;
-            this.hideUserCheck.Location = new System.Drawing.Point(318, 79);
+            this.hideUserCheck.Location = new System.Drawing.Point(463, 171);
             this.hideUserCheck.Name = "hideUserCheck";
             this.hideUserCheck.Size = new System.Drawing.Size(192, 29);
             this.hideUserCheck.TabIndex = 7;
@@ -130,11 +131,22 @@
             this.loginPageTitleLabel.TabIndex = 8;
             this.loginPageTitleLabel.Text = "LOGIN PAGE";
             // 
+            // welcomeLabel
+            // 
+            this.welcomeLabel.AutoSize = true;
+            this.welcomeLabel.Location = new System.Drawing.Point(175, 66);
+            this.welcomeLabel.Name = "welcomeLabel";
+            this.welcomeLabel.Size = new System.Drawing.Size(391, 50);
+            this.welcomeLabel.TabIndex = 9;
+            this.welcomeLabel.Text = "Welcome\r\nPlease log-in with your company details";
+            this.welcomeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.welcomeLabel);
             this.Controls.Add(this.loginPageTitleLabel);
             this.Controls.Add(this.hideUserCheck);
             this.Controls.Add(this.capsLockWarningLabel);
@@ -165,6 +177,7 @@
         private System.Windows.Forms.Label capsLockWarningLabel;
         private System.Windows.Forms.CheckBox hideUserCheck;
         private System.Windows.Forms.Label loginPageTitleLabel;
+        private System.Windows.Forms.Label welcomeLabel;
     }
 }
 
