@@ -9,6 +9,9 @@ namespace PayrollSystem
 {
     public static class UsefullUniversalCommands
     {
+        // RANDOM NUMBER GENERATION METHODS
+        #region "Random Number Generation"
+
         /// <summary>
         /// Generates a random number between the specified lowest and highest numbers using the current time in milliseconds as the seed.
         /// </summary>
@@ -39,6 +42,8 @@ namespace PayrollSystem
         public static int GenerateRandomNumberGivenSeed(int highestNumber, int seed)
         {
             return new Random(seed).Next(0, highestNumber); 
-        }   
+        }
+
+        #endregion
     }
 }
