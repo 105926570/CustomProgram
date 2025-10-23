@@ -11,7 +11,6 @@ namespace PayrollSystem
         public int TaxBracket;
         public EmployeeTaxInfo() { }
 
-
         //Ensure that the following tax brackets are implemented in the payroll calculations:
 
         ///         Australian Tax Brackets for the 2023-2024 financial year

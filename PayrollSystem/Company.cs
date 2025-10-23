@@ -10,7 +10,7 @@ namespace PayrollSystem
 {
     internal class Company
     {
-        public string _companyName;
+        private string _companyName;
         public List<Department> _departments = new List<Department>();
         public List<Employee> _employees = new List<Employee>();
         public Image _companyLogo;
@@ -27,6 +27,13 @@ namespace PayrollSystem
         {
             _companyName = name; //im not sure why anyone would want to name their company anything but "The Big Company that needs a better name, and also a payroll system", but ok.
         }
+
+        public string Name
+        {
+            get { return _companyName; }
+            set { _companyName = value; }
+        }
+
 
         public void CreateEmployee(Employee emp) //This should be the only way to add and create employees
         {
