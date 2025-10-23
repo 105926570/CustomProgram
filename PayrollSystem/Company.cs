@@ -13,7 +13,7 @@ namespace PayrollSystem
         private string _companyName;
         private List<Department> _departments = new List<Department>();
         private List<Employee> _employees = new List<Employee>();
-        public Image _companyLogo;
+        private Image _companyLogo;
         public Color _secondaryColor, _primaryColor, _accentColur;
         public Payroll _payroll;
         public Schedule _companySchedule;
@@ -44,6 +44,12 @@ namespace PayrollSystem
         {
             get { return _employees; }
             set { _employees = value; }
+        }
+
+        public Image Logo
+        {
+            get { return _companyLogo; }
+            set { _companyLogo = value; }
         }
 
         public void CreateEmployee(Employee emp) //This should be the only way to add and create employees
