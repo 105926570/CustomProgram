@@ -8,6 +8,16 @@ namespace PayrollSystem
 {
     public class ProgramSystem
     {
+        private String _rootFilePath;
 
+        public ProgramSystem()
+        {
+            _rootFilePath = "C:/SystemFilesForLeEpicProgram";
+        }
+
+        public ProgramSystem(string rootFilePath)
+        {
+            _rootFilePath = rootFilePath;
+        }
     }
 }
