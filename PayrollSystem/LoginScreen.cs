@@ -50,6 +50,13 @@ namespace PayrollSystem
         {
             capsLockWarningLabel.Visible = Control.IsKeyLocked(Keys.CapsLock);
         }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            // Search account database for matching usernames and passwords.
+            // if found, load data employee data and add to active employee session.
+            // else return error message.
+        }
     }
 }
 
