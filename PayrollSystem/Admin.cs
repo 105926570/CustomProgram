@@ -9,5 +9,11 @@ namespace PayrollSystem
 {
     internal class Admin : Employee
     {
+        private int _privliage;
+
+        public int Privliage
+        {
+            get { return _privliage; }
+        }
     }
 }
