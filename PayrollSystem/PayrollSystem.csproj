@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.cs" />
-    <Compile Include="ApplicationSystem.cs" />
     <Compile Include="Company.cs" />
     <Compile Include="Day.cs" />
     <Compile Include="Department.cs" />

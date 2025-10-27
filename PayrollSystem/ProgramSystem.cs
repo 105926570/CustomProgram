@@ -9,6 +9,7 @@ namespace PayrollSystem
     public class ProgramSystem
     {
         private String _rootFilePath;
+        private Employee _activeEmployee;
 
         public ProgramSystem()
         {
@@ -18,6 +19,12 @@ namespace PayrollSystem
         public ProgramSystem(string rootFilePath)
         {
             _rootFilePath = rootFilePath;
+        }
+
+        public Employee ActiveEmployee
+        {
+            get { return _activeEmployee; }
+            set { _activeEmployee = value; }
         }
 
         public void EncryptData()
