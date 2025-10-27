@@ -16,17 +16,20 @@ namespace PayrollSystem
         //Schedule schedule;
         public PayHistory _payHistory = new PayHistory();
         //TaxInfo EmployeeTaxInfo;
+        private int _privilege; // Privilege level of a regular employee is level 0
 
         public Employee() : base() //Constructor with default values
         {
             _FirstName = "Jhon";
             _LastName = "Doe";
+            _privilege = 0;
         }
 
         public Employee(string firstName, string lastName) :base() //Constructor with all peramaters given manually
         {
             _FirstName = firstName;
             _LastName = lastName;
+            _privilege = 0;
             //EmployeeID, username, password are set as their default values in the User default constructor
         }
 
@@ -34,6 +37,7 @@ namespace PayrollSystem
         {
             _FirstName = firstName;
             _LastName = lastName;
+            _privilege = 0;
             //EmployeeID, username, password are set in the base constructor, using values from the employee constructor.
         }
 
@@ -44,6 +48,7 @@ namespace PayrollSystem
             _EmployeeID = user.ID;
             _FirstName = firstName;
             _LastName = lastName;
+            _privilege = 0;
             //EmployeeID, username, password are set by a user input.
         }
 
@@ -66,6 +71,11 @@ namespace PayrollSystem
         {
             get { return _payHistory; }
             set { _payHistory = value; }
+        }
+
+        public int Privilege
+        {
+            get { return _privilege; }
         }
 
         public void DisplayEmployeeInfo()
