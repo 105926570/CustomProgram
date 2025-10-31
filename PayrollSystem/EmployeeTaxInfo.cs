@@ -3,13 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PayrollSystem
 {
-    internal class EmployeeTaxInfo
+    public class EmployeeTaxInfo
     {
-        public int TaxBracket;
+        private int _taxBracket;
+        private double _yearlyIncome;
         public EmployeeTaxInfo() { }
+
+        public void CalculateTaxBracket()
+        {
+            if (_yearlyIncome < 18200)
+            {
+                _taxBracket = 0;
+            }
+            else if (_yearlyIncome < 45000)
+        }
 
         //Ensure that the following tax brackets are implemented in the payroll calculations:
 
