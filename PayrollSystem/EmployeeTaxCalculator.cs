@@ -2,76 +2,91 @@
 
 namespace PayrollSystem
 {
-
     public class EmployeeTaxCalculator
     {
+
         private readonly float[] bracketStarts = new float[] { 0, 18200, 45000, 135000, 190000 }; //if above, then the index of that number is the tax bracket
         private readonly float[] taxPercentages = new float[] { 0f, 0.16f, 0.30f, 0.37f, 0.45f };
         private int _taxBracket = 0;
         private float _yearlyIncome = 0.0f;
+
+
         public EmployeeTaxCalculator(float yearlyIncome) 
         {
             _yearlyIncome = yearlyIncome;
         }
 
-        public int CalculateTaxBracket(float yearlyIncome)
+
+
+        public float AmountToBeTaxedAtEndOfYear(float yearlyIncome) //This is the function run when generating tax.
         {
-            int i = 0;
-            foreach (int money in bracketStarts)
-            {
-                if (yearlyIncome > money)
-                {
-                    return i;
-                }
-            }
-            return 5;//if it is greater than all of them, return a 5. the highest tax bracket number.
+            int taxBracketNumber = CalculateTaxBracket(yearlyIncome);
+            float yearlyTax = Calculator(taxBracketNumber, yearlyIncome);
+            return yearlyTax;
         }
 
-        public float CalculateRemainderIncome(float yearlyIncome, int taxBracketNumber)
+
+
+        private int CalculateTaxBracket(float yearlyIncome)
         {
-            float remainder;
-            remainder = yearlyIncome - bracketStarts[taxBracketNumber];
+            if (/*yearlyIncome > bracketStarts[0] &&*/ yearlyIncome <= bracketStarts[1])
+            {
+                return 0;
+            }
+            else if (yearlyIncome > bracketStarts[1] && yearlyIncome <= bracketStarts[2])
+            {
+                return 1;
+            }
+            else if (yearlyIncome > bracketStarts[2] && yearlyIncome <= bracketStarts[3])
+            {
+                return 2;
+            }
+            else if (yearlyIncome > bracketStarts[3] && yearlyIncome <= bracketStarts[4])
+            {
+                return 3;
+            }
+            else
+            {
+                return 4;
+            }
+        }
+
+
+        private float Calculator(int taxBracketNumber, float yearlyIncome)
+        {
+            float taxToPay = 0f;
+
+            float baseTax = CalculateBaseTax(taxBracketNumber);
+            float extraInBracket = FindFinalTax(baseTax,  taxBracketNumber, yearlyIncome);
+
+            return baseTax + extraInBracket;
+        }
+
+
+        private float CalculateBaseTax(int taxBracket)
+        {
+            int currentInLoop = 0;
+            int targetInt = taxBracket - 1;
+            float baseTax = 0f;
+
+            while (currentInLoop < targetInt)
+            {
+                baseTax += bracketStarts[currentInLoop] * taxPercentages[currentInLoop];
+            }
+            return baseTax;
+        }
+
+
+        private float FindFinalTax(float baseTax, int taxBracketNumber, float yearlyIncome)
+        {
+            float remainder = yearlyIncome - baseTax;
+            remainder = remainder * taxPercentages[taxBracketNumber];
             return remainder;
         }
 
-        public float calculateTaxRate(int bracketIndex) // not yet needed, but functionality exists for proper tax calculation, including additional tax as a result of income on the base tax rate
-        {
-            return taxPercentages[bracketIndex];
-        }
 
-        public float AmountToBeTaxedAtEndOfYear(float taxPercentage, int taxBracketNumber, float yearlyIncome)
-        {
-            float taxToPay = (yearlyIncome * taxPercentage);
 
-            switch (taxBracketNumber)
-            {
-                case 0:
-                    break;
-                case 1:
-                    taxToPay += (yearlyIncome - bracketStarts[1]) * 0.16f;
-                    break;
-                case 2:
-                    taxToPay += 4288f + (yearlyIncome - bracketStarts[2]) * 0.30f;
-                    break;
-                case 3:
-                    taxToPay += 31288f + (yearlyIncome - bracketStarts[3]) * 0.37f;
-                    break;
-                case 4:
-                    taxToPay += 51638f + (yearlyIncome - bracketStarts[4]) * 0.45f;
-                    break;
-            }
-            return taxToPay;
-        }
-
-        public float AmountToBeTaxedAtEndOfYear(float yearlyIncome)
-        {
-            int taxBracketNumber = CalculateTaxBracket(yearlyIncome);
-            float taxPercentage = calculateTaxRate(taxBracketNumber);
-            float thing = AmountToBeTaxedAtEndOfYear(taxPercentage, taxBracketNumber, yearlyIncome);
-            return thing;
-        }
-
-        //properties:
+    //properties:
         public float YearlyIncome
         {
             set { _yearlyIncome = value;  }
@@ -86,11 +101,11 @@ namespace PayrollSystem
 }
 
 //
-// Todo:
-//  - remake this entire function because apparently i have no idea how tax is calculated and that this is wrong
-//       :(
+// Use this website to test code output:
 //
-//    https://www.ato.gov.au/single-page-applications/calculatorsandtools?anchor=STC#STC/report
+//  https://www.ato.gov.au/single-page-applications/calculatorsandtools?anchor=STC#STC/report
+//
+// Todo:
 //
 //  - make it so that when the yearly income is changed, the yearly tax is updated straight away, in case any references to the employee tax infos tax-to-pay are referred to.
 //
