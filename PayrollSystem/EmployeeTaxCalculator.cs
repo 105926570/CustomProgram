@@ -84,7 +84,11 @@ namespace PayrollSystem
         //properties:
         public double YearlyIncome
         {
-            set { _yearlyIncome = value; }
+            set
+            {
+                _yearlyIncome = value;
+                _taxBracket = CalculateTaxBracket(_yearlyIncome); // update bracket automatically
+            }
             get { return _yearlyIncome; }
         }
 
@@ -101,8 +105,6 @@ namespace PayrollSystem
 //  https://www.ato.gov.au/single-page-applications/calculatorsandtools?anchor=STC#STC/report
 //
 // Todo:
-//
-//  - make it so that when the yearly income is changed, the yearly tax is updated straight away, in case any references to the employee tax infos tax-to-pay are referred to.
 //
 //
 //Ensure that the following tax brackets are implemented in the payroll calculations:
