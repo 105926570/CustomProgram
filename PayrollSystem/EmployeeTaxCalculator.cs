@@ -17,14 +17,17 @@ namespace PayrollSystem
         }
 
 
-
         public float AmountToBeTaxedAtEndOfYear(float yearlyIncome) //This is the function run when generating tax.
-        {
+        { 
+            float yearlyTax = 0f;
             int taxBracketNumber = CalculateTaxBracket(yearlyIncome);
-            float yearlyTax = Calculator(taxBracketNumber, yearlyIncome);
+
+            float baseTax = CalculateBaseTax(taxBracketNumber);
+            float extraInBracket = FindFinalTax(baseTax, taxBracketNumber, yearlyIncome);
+            yearlyTax = baseTax + extraInBracket;
+
             return yearlyTax;
         }
-
 
 
         private int CalculateTaxBracket(float yearlyIncome)
@@ -50,18 +53,6 @@ namespace PayrollSystem
                 return 4;
             }
         }
-
-
-        private float Calculator(int taxBracketNumber, float yearlyIncome)
-        {
-            float taxToPay = 0f;
-
-            float baseTax = CalculateBaseTax(taxBracketNumber);
-            float extraInBracket = FindFinalTax(baseTax,  taxBracketNumber, yearlyIncome);
-
-            return baseTax + extraInBracket;
-        }
-
 
         private float CalculateBaseTax(int taxBracket)
         {
