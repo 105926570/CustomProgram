@@ -6,6 +6,7 @@ namespace PayrollSystem
     public class EmployeeTaxCalculator
     {
         private float[] bracketStarts = new float[] { 0, 18200, 45000, 135000, 190000 }; //if above, then the index of that number is the tax bracket
+        private float[] taxPercentages = new float[] { 0f, 0.16f, 0.30f, 0.37f, 0.45f };
         public EmployeeTaxCalculator() { }
 
         public int CalculateTaxBracket(float yearlyIncome)
@@ -30,21 +31,7 @@ namespace PayrollSystem
 
         public float calculateTaxRate(int bracketIndex) // not yet needed, but functionality exists for proper tax calculation, including additional tax as a result of income on the base tax rate
         {
-            switch (bracketIndex)
-            {
-                case 0:
-                    return 0.0f;
-                case 1:
-                    return 0.16f;            
-                case 2:
-                    return 0.30f;
-                case 3:
-                    return 0.37f;                 
-                case 4:
-                    return 0.45f;
-                default:
-                    return 0.0f;
-            }
+            return taxPercentages[bracketIndex];
         }
 
         public float AmountToBeTaxedAtEndOfYear(float taxPercentage, int taxBracketNumber, float yearlyIncome)
