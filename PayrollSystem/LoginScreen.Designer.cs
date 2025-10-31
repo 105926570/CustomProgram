@@ -38,6 +38,9 @@
             this.hideUserCheck = new System.Windows.Forms.CheckBox();
             this.loginPageTitleLabel = new System.Windows.Forms.Label();
             this.welcomeLabel = new System.Windows.Forms.Label();
+            this.btnLoginAsAdmn = new System.Windows.Forms.Button();
+            this.btnLoginAsMngr = new System.Windows.Forms.Button();
+            this.btnLoginAsEmp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // loginButton
@@ -142,11 +145,44 @@
             this.welcomeLabel.Text = "Welcome\r\nPlease log-in with your company details";
             this.welcomeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnLoginAsAdmn
+            // 
+            this.btnLoginAsAdmn.Location = new System.Drawing.Point(364, 280);
+            this.btnLoginAsAdmn.Name = "btnLoginAsAdmn";
+            this.btnLoginAsAdmn.Size = new System.Drawing.Size(187, 94);
+            this.btnLoginAsAdmn.TabIndex = 10;
+            this.btnLoginAsAdmn.Tag = "debug";
+            this.btnLoginAsAdmn.Text = "Login As Admin";
+            this.btnLoginAsAdmn.UseVisualStyleBackColor = true;
+            // 
+            // btnLoginAsMngr
+            // 
+            this.btnLoginAsMngr.Location = new System.Drawing.Point(548, 280);
+            this.btnLoginAsMngr.Name = "btnLoginAsMngr";
+            this.btnLoginAsMngr.Size = new System.Drawing.Size(187, 94);
+            this.btnLoginAsMngr.TabIndex = 11;
+            this.btnLoginAsMngr.Tag = "debug";
+            this.btnLoginAsMngr.Text = "Login As Manager";
+            this.btnLoginAsMngr.UseVisualStyleBackColor = true;
+            // 
+            // btnLoginAsEmp
+            // 
+            this.btnLoginAsEmp.Location = new System.Drawing.Point(482, 366);
+            this.btnLoginAsEmp.Name = "btnLoginAsEmp";
+            this.btnLoginAsEmp.Size = new System.Drawing.Size(187, 94);
+            this.btnLoginAsEmp.TabIndex = 12;
+            this.btnLoginAsEmp.Tag = "debug";
+            this.btnLoginAsEmp.Text = "Login As Employee";
+            this.btnLoginAsEmp.UseVisualStyleBackColor = true;
+            // 
             // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnLoginAsEmp);
+            this.Controls.Add(this.btnLoginAsMngr);
+            this.Controls.Add(this.btnLoginAsAdmn);
             this.Controls.Add(this.welcomeLabel);
             this.Controls.Add(this.loginPageTitleLabel);
             this.Controls.Add(this.hideUserCheck);
@@ -179,6 +215,9 @@
         private System.Windows.Forms.CheckBox hideUserCheck;
         private System.Windows.Forms.Label loginPageTitleLabel;
         private System.Windows.Forms.Label welcomeLabel;
+        private System.Windows.Forms.Button btnLoginAsAdmn;
+        private System.Windows.Forms.Button btnLoginAsMngr;
+        private System.Windows.Forms.Button btnLoginAsEmp;
     }
 }
 
