@@ -57,6 +57,11 @@ namespace PayrollSystem
             // if found, load data employee data and add to active employee session.
             // else return error message.
         }
+
+        private void btnLoginAsAdmn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

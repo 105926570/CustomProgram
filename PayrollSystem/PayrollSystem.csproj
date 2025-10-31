@@ -63,11 +63,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.cs" />
+    <Compile Include="AdminDebug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminDebug.Designer.cs">
+      <DependentUpon>AdminDebug.cs</DependentUpon>
+    </Compile>
     <Compile Include="ApplicationSystem.cs" />
     <Compile Include="Company.cs" />
     <Compile Include="Day.cs" />
     <Compile Include="Department.cs" />
     <Compile Include="Employee.cs" />
+    <Compile Include="EmployeeDebug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeDebug.Designer.cs">
+      <DependentUpon>EmployeeDebug.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeTaxCalculator.cs" />
     <Compile Include="EmployeeTaxInfo.cs" />
     <Compile Include="LoginScreen.cs">
@@ -77,6 +89,12 @@
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager.cs" />
+    <Compile Include="ManagerDebug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagerDebug.Designer.cs">
+      <DependentUpon>ManagerDebug.cs</DependentUpon>
+    </Compile>
     <Compile Include="Month.cs" />
     <Compile Include="PayCheck.cs" />
     <Compile Include="PayHistory.cs" />

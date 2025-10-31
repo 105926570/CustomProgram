@@ -154,6 +154,7 @@
             this.btnLoginAsAdmn.Tag = "debug";
             this.btnLoginAsAdmn.Text = "Login As Admin";
             this.btnLoginAsAdmn.UseVisualStyleBackColor = true;
+            this.btnLoginAsAdmn.Click += new System.EventHandler(this.btnLoginAsAdmn_Click);
             // 
             // btnLoginAsMngr
             // 
