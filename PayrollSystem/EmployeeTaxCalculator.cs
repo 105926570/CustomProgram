@@ -62,26 +62,9 @@ namespace PayrollSystem
         {
             int taxBracketNumber = CalculateTaxBracket(yearlyIncome);
             float taxPercentage = calculateTaxRate(taxBracketNumber);
-            float taxToPay = (yearlyIncome * taxPercentage);
+            float thing = AmountToBeTaxedAtEndOfYear(taxPercentage, taxBracketNumber, yearlyIncome);
 
-            switch (taxBracketNumber)
-            {
-                case 0:
-                    return 0f;
-                case 1:
-                    taxToPay += (yearlyIncome - bracketStarts[1]) * 0.16f;
-                    break;
-                case 2:
-                    taxToPay += 4288f + (yearlyIncome - bracketStarts[2]) * 0.30f;
-                    break;
-                case 3:
-                    taxToPay += 31288f + (yearlyIncome - bracketStarts[3]) * 0.37f;
-                    break;
-                case 4:
-                    taxToPay += 51638f + (yearlyIncome - bracketStarts[4]) * 0.45f;
-                    break;
-            }
-            return taxToPay;
+            return thing;
         }
     }
 }
