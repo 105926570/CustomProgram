@@ -22,7 +22,11 @@ namespace PayrollSystem
         {
             int taxBracket = CalculateTaxBracket(yearlyIncome);
             return Calc(yearlyIncome, taxBracket);
+        }
 
+        public double AmountToBeTaxedAtEndOfYearRounded(double yearlyIncome) //This is the function run when generating tax.
+        {
+            return Math.Round(AmountToBeTaxedAtEndOfYear(yearlyIncome), 2);
         }
 
 
