@@ -67,7 +67,7 @@ namespace PayrollSystem
             switch (taxBracketNumber)
             {
                 case 0:
-                    break;
+                    return 0f;
                 case 1:
                     taxToPay += (yearlyIncome - bracketStarts[1]) * 0.16f;
                     break;
