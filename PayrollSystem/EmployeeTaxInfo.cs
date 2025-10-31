@@ -7,20 +7,13 @@ using System.Windows.Forms;
 
 namespace PayrollSystem
 {
-    public class EmployeeTaxInfo
+    public class EmployeeTaxInfo : EmployeeTaxCalculator
     {
-        private int _taxBracket;
-        private double _yearlyIncome;
-        public EmployeeTaxInfo() { }
+        private EmployeeTaxCalculator _taxCalculator;
 
-        public void CalculateTaxBracket()
-        {
-            if (_yearlyIncome < 18200)
-            {
-                _taxBracket = 0;
-            }
-            else if (_yearlyIncome < 45000)
-        }
+        public EmployeeTaxInfo(float yearlyIncome) : base(yearlyIncome)
+        { }
+
 
         //Ensure that the following tax brackets are implemented in the payroll calculations:
 

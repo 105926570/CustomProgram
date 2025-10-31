@@ -7,7 +7,12 @@ namespace PayrollSystem
     {
         private readonly float[] bracketStarts = new float[] { 0, 18200, 45000, 135000, 190000 }; //if above, then the index of that number is the tax bracket
         private readonly float[] taxPercentages = new float[] { 0f, 0.16f, 0.30f, 0.37f, 0.45f };
-        public EmployeeTaxCalculator() { }
+        private int _taxBracket = 0;
+        private float _yearlyIncome = 0.0f;
+        public EmployeeTaxCalculator(float yearlyIncome) 
+        {
+            _yearlyIncome = yearlyIncome;
+        }
 
         public int CalculateTaxBracket(float yearlyIncome)
         {
@@ -63,8 +68,19 @@ namespace PayrollSystem
             int taxBracketNumber = CalculateTaxBracket(yearlyIncome);
             float taxPercentage = calculateTaxRate(taxBracketNumber);
             float thing = AmountToBeTaxedAtEndOfYear(taxPercentage, taxBracketNumber, yearlyIncome);
-
             return thing;
+        }
+
+        //properties:
+        public float YearlyIncome
+        {
+            set { _yearlyIncome = value;  }
+            get { return _yearlyIncome;  }
+        }
+
+        public int TaxBracket
+        {
+            get { return _taxBracket; }
         }
     }
 }
