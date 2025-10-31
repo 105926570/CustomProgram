@@ -85,7 +85,12 @@ namespace PayrollSystem
     }
 }
 
-// Todo. remake this entire function because apparently i have no idea how tax is calculated and that this is wrong
+//
+// Todo:
+//  - remake this entire function because apparently i have no idea how tax is calculated and that this is wrong
 //       :(
 //
-// https://www.ato.gov.au/single-page-applications/calculatorsandtools?anchor=STC#STC/report
+//    https://www.ato.gov.au/single-page-applications/calculatorsandtools?anchor=STC#STC/report
+//
+//  - make it so that when the yearly income is changed, the yearly tax is updated straight away, in case any references to the employee tax infos tax-to-pay are referred to.
+//
