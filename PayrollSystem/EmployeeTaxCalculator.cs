@@ -85,3 +85,8 @@ namespace PayrollSystem
         }
     }
 }
+
+// Todo. remake this entire function because apparently i have no idea how tax is calculated and that this is wrong
+//       :(
+//
+// https://www.ato.gov.au/single-page-applications/calculatorsandtools?anchor=STC#STC/report
