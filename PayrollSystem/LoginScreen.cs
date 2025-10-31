@@ -63,6 +63,11 @@ namespace PayrollSystem
             AdminDebug newForm = new AdminDebug();  // create the new form
             newForm.Show();
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
 

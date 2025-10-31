@@ -41,6 +41,7 @@
             this.btnLoginAsAdmn = new System.Windows.Forms.Button();
             this.btnLoginAsMngr = new System.Windows.Forms.Button();
             this.btnLoginAsEmp = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // loginButton
@@ -176,11 +177,23 @@
             this.btnLoginAsEmp.Text = "Login As Employee";
             this.btnLoginAsEmp.UseVisualStyleBackColor = true;
             // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.RosyBrown;
+            this.btnExit.Location = new System.Drawing.Point(641, 12);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(147, 52);
+            this.btnExit.TabIndex = 13;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLoginAsEmp);
             this.Controls.Add(this.btnLoginAsMngr);
             this.Controls.Add(this.btnLoginAsAdmn);
@@ -219,6 +232,7 @@
         private System.Windows.Forms.Button btnLoginAsAdmn;
         private System.Windows.Forms.Button btnLoginAsMngr;
         private System.Windows.Forms.Button btnLoginAsEmp;
+        private System.Windows.Forms.Button btnExit;
     }
 }
 
