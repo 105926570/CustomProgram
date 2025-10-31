@@ -5,8 +5,8 @@ namespace PayrollSystem
 
     public class EmployeeTaxCalculator
     {
-        private float[] bracketStarts = new float[] { 0, 18200, 45000, 135000, 190000 }; //if above, then the index of that number is the tax bracket
-        private float[] taxPercentages = new float[] { 0f, 0.16f, 0.30f, 0.37f, 0.45f };
+        private readonly float[] bracketStarts = new float[] { 0, 18200, 45000, 135000, 190000 }; //if above, then the index of that number is the tax bracket
+        private readonly float[] taxPercentages = new float[] { 0f, 0.16f, 0.30f, 0.37f, 0.45f };
         public EmployeeTaxCalculator() { }
 
         public int CalculateTaxBracket(float yearlyIncome)
