@@ -1,36 +1,32 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace PayrollSystem
 {
     public class EmployeeTaxCalculator
     {
 
-        private readonly float[] bracketStarts = new float[] { 0, 18200, 45000, 135000, 190000 }; //if above, then the index of that number is the tax bracket
-        private readonly float[] taxPercentages = new float[] { 0f, 0.16f, 0.30f, 0.37f, 0.45f };
+        private readonly double[] bracketStarts = new double[] { 0, 18200, 45000, 135000, 190000 }; //if above, then the index of that number is the tax bracket
+        private readonly double[] taxPercentages = new double[] { 0f, 0.16f, 0.30f, 0.37f, 0.45f };
         private int _taxBracket = 0;
-        private float _yearlyIncome = 0.0f;
+        private double _yearlyIncome = 0.0;
 
 
-        public EmployeeTaxCalculator(float yearlyIncome) 
+        public EmployeeTaxCalculator(double yearlyIncome)
         {
             _yearlyIncome = yearlyIncome;
         }
 
 
-        public float AmountToBeTaxedAtEndOfYear(float yearlyIncome) //This is the function run when generating tax.
-        { 
-            float yearlyTax = 0f;
-            int taxBracketNumber = CalculateTaxBracket(yearlyIncome);
+        public double AmountToBeTaxedAtEndOfYear(double yearlyIncome) //This is the function run when generating tax.
+        {
+            int taxBracket = CalculateTaxBracket(yearlyIncome);
+            return Calc(yearlyIncome, taxBracket);
 
-            float baseTax = CalculateBaseTax(taxBracketNumber);
-            float extraInBracket = FindFinalTax(baseTax, taxBracketNumber, yearlyIncome);
-            yearlyTax = baseTax + extraInBracket;
-
-            return yearlyTax;
         }
 
 
-        private int CalculateTaxBracket(float yearlyIncome)
+        private int CalculateTaxBracket(double yearlyIncome)
         {
             if (/*yearlyIncome > bracketStarts[0] &&*/ yearlyIncome <= bracketStarts[1])
             {
@@ -52,36 +48,47 @@ namespace PayrollSystem
             {
                 return 4;
             }
-        }
 
-        private float CalculateBaseTax(int taxBracket)
-        {
-            int currentInLoop = 0;
-            int targetInt = taxBracket - 1;
-            float baseTax = 0f;
-
-            while (currentInLoop < targetInt)
-            {
-                baseTax += bracketStarts[currentInLoop] * taxPercentages[currentInLoop];
-            }
-            return baseTax;
         }
 
 
-        private float FindFinalTax(float baseTax, int taxBracketNumber, float yearlyIncome)
+    private double Calc(double yearlyIncome, int taxBracket)
+    {
+        double remainder = yearlyIncome - bracketStarts[taxBracket];
+
+        switch (taxBracket)
         {
-            float remainder = yearlyIncome - baseTax;
-            remainder = remainder * taxPercentages[taxBracketNumber];
-            return remainder;
+            case 1:
+                return remainder * taxPercentages[taxBracket];
+
+            case 2:
+                return (remainder * taxPercentages[taxBracket])
+                     + ((bracketStarts[2] - bracketStarts[1]) * taxPercentages[1]);
+
+            case 3:
+                return (remainder * taxPercentages[taxBracket])
+                     + ((bracketStarts[3] - bracketStarts[2]) * taxPercentages[2])
+                     + ((bracketStarts[2] - bracketStarts[1]) * taxPercentages[1]);
+
+            case 4:
+                return (remainder * taxPercentages[taxBracket])
+                     + ((bracketStarts[4] - bracketStarts[3]) * taxPercentages[3])
+                     + ((bracketStarts[3] - bracketStarts[2]) * taxPercentages[2])
+                     + ((bracketStarts[2] - bracketStarts[1]) * taxPercentages[1]);
+            default:
+                return 0.0;
         }
+    }
 
 
 
-    //properties:
-        public float YearlyIncome
+
+
+        //properties:
+        public double YearlyIncome
         {
-            set { _yearlyIncome = value;  }
-            get { return _yearlyIncome;  }
+            set { _yearlyIncome = value; }
+            get { return _yearlyIncome; }
         }
 
         public int TaxBracket
