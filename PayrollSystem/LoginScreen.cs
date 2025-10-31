@@ -60,7 +60,8 @@ namespace PayrollSystem
 
         private void btnLoginAsAdmn_Click(object sender, EventArgs e)
         {
-
+            AdminDebug newForm = new AdminDebug();  // create the new form
+            newForm.Show();
         }
     }
 }

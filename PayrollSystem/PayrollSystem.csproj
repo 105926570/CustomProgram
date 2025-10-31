@@ -108,8 +108,17 @@
     <Compile Include="UsefullUniversalCommands.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Week.cs" />
+    <EmbeddedResource Include="AdminDebug.resx">
+      <DependentUpon>AdminDebug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeDebug.resx">
+      <DependentUpon>EmployeeDebug.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginScreen.resx">
       <DependentUpon>LoginScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagerDebug.resx">
+      <DependentUpon>ManagerDebug.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
