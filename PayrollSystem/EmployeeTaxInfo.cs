@@ -10,10 +10,30 @@ namespace PayrollSystem
     public class EmployeeTaxInfo : EmployeeTaxCalculator
     {
         private EmployeeTaxCalculator _taxCalculator;
+        private int _tfn;
 
         public EmployeeTaxInfo(float yearlyIncome) : base(yearlyIncome)
         { }
 
+        public int TFN 
+        {
+            get { return _tfn; } 
+            set 
+            {
+                int i = 0;
+                while (value > 0)
+                {
+                    value /= 10; // Integer division removes the last digit
+                    i++;
+                }
+
+                if (i != 9)
+                {
+                    throw new ArgumentOutOfRangeException("Error: TFN does not have 9 digits in it.");
+                }
+                _tfn = value;                
+            }
+        }
 
         //Ensure that the following tax brackets are implemented in the payroll calculations:
 
