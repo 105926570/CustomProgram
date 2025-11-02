@@ -82,6 +82,12 @@
     </Compile>
     <Compile Include="EmployeeTaxCalculator.cs" />
     <Compile Include="EmployeeTaxInfo.cs" />
+    <Compile Include="fgsifghs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fgsifghs.Designer.cs">
+      <DependentUpon>fgsifghs.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeDebug.resx">
       <DependentUpon>EmployeeDebug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fgsifghs.resx">
+      <DependentUpon>fgsifghs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginScreen.resx">
       <DependentUpon>LoginScreen.cs</DependentUpon>
@@ -154,6 +163,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Generated\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
