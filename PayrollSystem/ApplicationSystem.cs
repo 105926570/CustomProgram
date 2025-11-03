@@ -38,6 +38,8 @@ namespace PayrollSystem
                 string password = reader.ReadLine();
                 string firstname = reader.ReadLine();
                 string lastname = reader.ReadLine();
+
+                Console.WriteLine($"Read employee with this info: {ID.ToString()}, {username}, {password}, {firstname} {lastname}");
                 Employee emp = new Employee(ID, username, password, firstname, lastname);
                 employees.Add(emp);
             }
