@@ -26,11 +26,12 @@ namespace PayrollSystem
 
         public void readLoginFile()
         {
-            StreamReader reader = new StreamReader(_rootFolder + "\\accounts.txt");
             if (!Directory.Exists(_rootFolder))
             {
                 Directory.CreateDirectory(_rootFolder);
             }
+
+            StreamReader reader = new StreamReader(_rootFolder + "\\accounts.txt");
             try
             {
                 int i = File.ReadAllLines(_rootFolder + "\\accounts.txt").Count();
