@@ -16,7 +16,7 @@ namespace PayrollSystem
 
         public ApplicationSystem()
         {
-            _rootFolder = "C:/PayrollSystem";
+            _rootFolder = "C:\\PayrollSystem\\";
         }
 
         public ApplicationSystem(string rootFolder)
