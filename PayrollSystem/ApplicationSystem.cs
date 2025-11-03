@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
 
 namespace PayrollSystem
 {
     internal class ApplicationSystem
     {
         private string _rootFolder; //Root folder where all files are stored
-        private Employee[] employees;
+        private List<Employee> employees = new List<Employee> { };
 
         public ApplicationSystem()
         {
@@ -19,6 +22,29 @@ namespace PayrollSystem
         public ApplicationSystem(string rootFolder)
         {
             _rootFolder = rootFolder;
+        }
+
+        public void readLoginFile(string rootFolder)
+        {
+            StreamReader reader = new StreamReader(rootFolder + "accounts.txt");
+            try
+            {
+                int ID = Convert.ToInt16(reader.ReadLine());
+                string username = reader.ReadLine();
+                string password = reader.ReadLine();
+                string firstname = reader.ReadLine();
+                string lastname = reader.ReadLine();    
+                Employee emp = new Employee(ID, username, password, firstname, lastname);
+                employees.Add(emp);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error when reading employee file: " + ex);
+            }
+            finally 
+            {
+                reader.Close();
+            }
         }
 
         //When the application launches
