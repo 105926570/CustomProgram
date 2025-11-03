@@ -11,30 +11,37 @@ namespace PayrollSystem
 {
     internal class ApplicationSystem
     {
-        private string _rootFolder; //Root folder where all files are stored
+        private string _rootFolder = "C:\\PayrollSystem"; //Root folder where all files are stored
         private List<Employee> employees = new List<Employee> { };
 
         public ApplicationSystem()
         {
             _rootFolder = "C:\\PayrollSystem";
-            checkAllSystemFilesExist();
         }
 
         public ApplicationSystem(string rootFolder)
         {
             _rootFolder = rootFolder;
-            checkAllSystemFilesExist();
         }
 
         public void readLoginFile()
         {
+
+            
+      
+
             if (!Directory.Exists(_rootFolder))
             {
                 Directory.CreateDirectory(_rootFolder);
             }
+            if (!File.Exists(_rootFolder + "\\accounts.txt"))
+            {
 
+                File.Create(_rootFolder + "\\accounts.txt");
+                Console.WriteLine($"The file {_rootFolder + "\\accounts.txt"} does not exist. creating it now...");
+            }
             StreamReader reader = new StreamReader(_rootFolder + "\\accounts.txt");
-            checkSystemFileExists(_rootFolder, "\\accounts.txt");
+
 
             try
             {
@@ -67,17 +74,27 @@ namespace PayrollSystem
             {
                 reader.Close();
             }
+            reader.Close();
         }
 
         public void saveLoginFile(List<Employee> EmployeesToBeSaved)
         {
+            
             if (!Directory.Exists(_rootFolder))
             {
                 Directory.CreateDirectory(_rootFolder);
             }
+            if (!File.Exists(_rootFolder + "\\accounts.txt"))
+            {
+
+                    File.Create(_rootFolder + "\\accounts.txt");
+
+                Console.WriteLine($"The file {_rootFolder + "\\accounts.txt"} does not exist. creating it now...");
+            }
+
 
             StreamWriter writer = new StreamWriter(_rootFolder + "\\accounts.txt");
-            checkSystemFileExists(_rootFolder, "\\accounts.txt");
+            
             try
             {
                 foreach(Employee emp in EmployeesToBeSaved)
@@ -97,23 +114,7 @@ namespace PayrollSystem
             {
                 writer.Close();
             }
-        }
-
-
-        public void checkAllSystemFilesExist()
-        {
-            checkSystemFileExists(_rootFolder, "\\accounts.txt");
-            //add a file existance checker for each nescecary ffile.
-        }
-
-        public void checkSystemFileExists(string filepath, string filename)
-        {
-            string thingo = filepath + filename;
-            if (!File.Exists(thingo))
-            {
-                File.Create(thingo);
-                Console.WriteLine($"The file {filename} does not exist. creating it now...");
-            } 
+            writer.Close();
         }
     }
 }
