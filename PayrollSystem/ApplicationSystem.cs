@@ -33,15 +33,26 @@ namespace PayrollSystem
             }
             try
             {
-                int ID = Convert.ToInt16(reader.ReadLine());
-                string username = reader.ReadLine();
-                string password = reader.ReadLine();
-                string firstname = reader.ReadLine();
-                string lastname = reader.ReadLine();
+                int i = File.ReadLines(rootFolder + "\\accounts.txt").Count();
+                int count = 0;
 
-                Console.WriteLine($"Read employee with this info: {ID.ToString()}, {username}, {password}, {firstname} {lastname}");
-                Employee emp = new Employee(ID, username, password, firstname, lastname);
-                employees.Add(emp);
+                while (i < count) 
+                {
+                    int ID = Convert.ToInt16(reader.ReadLine());
+                    string username = reader.ReadLine();
+                    string password = reader.ReadLine();
+                    string firstname = reader.ReadLine();
+                    string lastname = reader.ReadLine();
+
+                    Console.WriteLine($"Read employee with this info: {ID.ToString()}, {username}, {password}, {firstname} {lastname}");
+                    Employee emp = new Employee(ID, username, password, firstname, lastname);
+                    employees.Add(emp);
+
+                    count += 5;
+                }
+
+                Console.WriteLine($"Read in {count / 5} users");
+
             }
             catch (Exception ex)
             {
