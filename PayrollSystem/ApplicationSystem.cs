@@ -8,5 +8,16 @@ namespace PayrollSystem
 {
     internal class ApplicationSystem
     {
+        private string _rootFolder; //Root folder where all files are stored
+
+        public ApplicationSystem()
+        {
+            _rootFolder = "C:/PayrollSystem";
+        }
+
+        public ApplicationSystem(string rootFolder)
+        {
+            _rootFolder = rootFolder;
+        }
     }
 }
