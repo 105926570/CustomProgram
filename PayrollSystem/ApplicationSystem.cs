@@ -32,6 +32,8 @@ namespace PayrollSystem
             }
 
             StreamReader reader = new StreamReader(_rootFolder + "\\accounts.txt");
+            checkSystemFileExists(_rootFolder, "\\accounts.txt");
+
             try
             {
                 int i = File.ReadAllLines(_rootFolder + "\\accounts.txt").Count();
@@ -74,6 +76,7 @@ namespace PayrollSystem
             }
 
             StreamWriter writer = new StreamWriter(_rootFolder + "\\accounts.txt");
+            checkSystemFileExists(_rootFolder, "\\accounts.txt");
             try
             {
                 foreach(Employee emp in EmployeesToBeSaved)
@@ -100,5 +103,16 @@ namespace PayrollSystem
         // 2. open the accounts.txt file
         // 3. read the accounts.txt file.
         // 4. save the accounts to the application system for access
+    }
+
+        public void checkSystemFileExists(string filepath, string filename)
+        {
+            string thingo = filepath + filename;
+            if (!File.Exists(thingo))
+            {
+                File.Create(thingo);
+                Console.WriteLine($"The file {filename} does not exist. creating it now...");
+}
+        }
     }
 }
