@@ -17,13 +17,13 @@ namespace PayrollSystem
         public ApplicationSystem()
         {
             _rootFolder = "C:\\PayrollSystem";
-            checkAllSystemFilesExist()
+            checkAllSystemFilesExist();
         }
 
         public ApplicationSystem(string rootFolder)
         {
             _rootFolder = rootFolder;
-            checkAllSystemFilesExist()
+            checkAllSystemFilesExist();
         }
 
         public void readLoginFile()
