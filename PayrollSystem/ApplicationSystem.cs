@@ -16,26 +16,49 @@ namespace PayrollSystem
 
         public ApplicationSystem()
         {
-            _rootFolder = "C:/PayrollSystem";
+            _rootFolder = "C:\\PayrollSystem";
+            checkAllSystemFilesExist()
         }
 
         public ApplicationSystem(string rootFolder)
         {
             _rootFolder = rootFolder;
+            checkAllSystemFilesExist()
         }
 
-        public void readLoginFile(string rootFolder)
+        public void readLoginFile()
         {
-            StreamReader reader = new StreamReader(rootFolder + "accounts.txt");
+            if (!Directory.Exists(_rootFolder))
+            {
+                Directory.CreateDirectory(_rootFolder);
+            }
+
+            StreamReader reader = new StreamReader(_rootFolder + "\\accounts.txt");
+            checkSystemFileExists(_rootFolder, "\\accounts.txt");
+
             try
             {
-                int ID = Convert.ToInt16(reader.ReadLine());
-                string username = reader.ReadLine();
-                string password = reader.ReadLine();
-                string firstname = reader.ReadLine();
-                string lastname = reader.ReadLine();
-                Employee emp = new Employee(ID, username, password, firstname, lastname);
-                employees.Add(emp);
+                int i = File.ReadAllLines(_rootFolder + "\\accounts.txt").Count();
+                int count = 0;
+
+                Console.WriteLine($"{i} < {count}");
+                while (i > count) 
+                {
+                    int ID = int.Parse(reader.ReadLine());
+                    string username = reader.ReadLine();
+                    string password = reader.ReadLine();
+                    string firstname = reader.ReadLine();
+                    string lastname = reader.ReadLine();
+
+                    Console.WriteLine($"Read employee with this info: {ID}, {username}, {password}, {firstname} {lastname}");
+
+                    Employee emp = new Employee(ID, username, password, firstname, lastname);
+                    employees.Add(emp);
+
+                    count += 5;
+                }
+
+
             }
             catch (Exception ex)
             {
@@ -47,9 +70,15 @@ namespace PayrollSystem
             }
         }
 
-        public void saveLoginFile(string rootFolder, List<Employee> EmployeesToBeSaved)
+        public void saveLoginFile(List<Employee> EmployeesToBeSaved)
         {
-            StreamWriter writer = new StreamWriter(rootFolder + "accounts.txt");
+            if (!Directory.Exists(_rootFolder))
+            {
+                Directory.CreateDirectory(_rootFolder);
+            }
+
+            StreamWriter writer = new StreamWriter(_rootFolder + "\\accounts.txt");
+            checkSystemFileExists(_rootFolder, "\\accounts.txt");
             try
             {
                 foreach(Employee emp in EmployeesToBeSaved)
@@ -76,5 +105,21 @@ namespace PayrollSystem
         // 2. open the accounts.txt file
         // 3. read the accounts.txt file.
         // 4. save the accounts to the application system for access
+
+        public void checkAllSystemFilesExist()
+        {
+            checkSystemFileExists(_rootFolder, "\\accounts.txt");
+            //add a file existance checker for each nescecary ffile.
+        }
+
+        public void checkSystemFileExists(string filepath, string filename)
+        {
+            string thingo = filepath + filename;
+            if (!File.Exists(thingo))
+            {
+                File.Create(thingo);
+                Console.WriteLine($"The file {filename} does not exist. creating it now...");
+            } 
+        }
     }
 }

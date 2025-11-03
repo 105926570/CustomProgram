@@ -68,6 +68,12 @@ namespace PayrollSystem
         {
             Application.Exit();
         }
+
+        private void btnTesting_Click(object sender, EventArgs e)
+        {
+            TestingPageHub newForm = new TestingPageHub();
+            newForm.Show();
+        }
     }
 }
 

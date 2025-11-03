@@ -42,6 +42,7 @@
             this.btnLoginAsMngr = new System.Windows.Forms.Button();
             this.btnLoginAsEmp = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnTesting = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // loginButton
@@ -188,11 +189,22 @@
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // btnTesting
+            // 
+            this.btnTesting.Location = new System.Drawing.Point(12, 370);
+            this.btnTesting.Name = "btnTesting";
+            this.btnTesting.Size = new System.Drawing.Size(252, 68);
+            this.btnTesting.TabIndex = 14;
+            this.btnTesting.Text = "Testing";
+            this.btnTesting.UseVisualStyleBackColor = true;
+            this.btnTesting.Click += new System.EventHandler(this.btnTesting_Click);
+            // 
             // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnTesting);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLoginAsEmp);
             this.Controls.Add(this.btnLoginAsMngr);
@@ -233,6 +245,7 @@
         private System.Windows.Forms.Button btnLoginAsMngr;
         private System.Windows.Forms.Button btnLoginAsEmp;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnTesting;
     }
 }
 
