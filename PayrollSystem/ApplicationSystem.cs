@@ -24,34 +24,35 @@ namespace PayrollSystem
             _rootFolder = rootFolder;
         }
 
-        public void readLoginFile(string rootFolder)
+        public void readLoginFile()
         {
-            StreamReader reader = new StreamReader(rootFolder + "\\accounts.txt");
-            if (!Directory.Exists(rootFolder))
+            StreamReader reader = new StreamReader(_rootFolder + "\\accounts.txt");
+            if (!Directory.Exists(_rootFolder))
             {
-                Directory.CreateDirectory(rootFolder);
+                Directory.CreateDirectory(_rootFolder);
             }
             try
             {
-                int i = File.ReadLines(rootFolder + "\\accounts.txt").Count();
+                int i = File.ReadAllLines(_rootFolder + "\\accounts.txt").Count();
                 int count = 0;
 
-                while (i < count) 
+                Console.WriteLine($"{i} < {count}");
+                while (i > count) 
                 {
-                    int ID = Convert.ToInt16(reader.ReadLine());
+                    int ID = int.Parse(reader.ReadLine());
                     string username = reader.ReadLine();
                     string password = reader.ReadLine();
                     string firstname = reader.ReadLine();
                     string lastname = reader.ReadLine();
 
-                    Console.WriteLine($"Read employee with this info: {ID.ToString()}, {username}, {password}, {firstname} {lastname}");
+                    Console.WriteLine($"Read employee with this info: {ID}, {username}, {password}, {firstname} {lastname}");
+
                     Employee emp = new Employee(ID, username, password, firstname, lastname);
                     employees.Add(emp);
 
                     count += 5;
                 }
 
-                Console.WriteLine($"Read in {count / 5} users");
 
             }
             catch (Exception ex)
@@ -64,14 +65,14 @@ namespace PayrollSystem
             }
         }
 
-        public void saveLoginFile(string rootFolder, List<Employee> EmployeesToBeSaved)
+        public void saveLoginFile(List<Employee> EmployeesToBeSaved)
         {
-            if (!Directory.Exists(rootFolder))
+            if (!Directory.Exists(_rootFolder))
             {
-                Directory.CreateDirectory(rootFolder);
+                Directory.CreateDirectory(_rootFolder);
             }
 
-            StreamWriter writer = new StreamWriter(rootFolder + "\\accounts.txt");
+            StreamWriter writer = new StreamWriter(_rootFolder + "\\accounts.txt");
             try
             {
                 foreach(Employee emp in EmployeesToBeSaved)

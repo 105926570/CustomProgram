@@ -20,13 +20,11 @@ namespace PayrollSystem
         private void btnTest1_Click(object sender, EventArgs e)
         {
             // setup
-            ApplicationSystem applicationSystem = new ApplicationSystem();
-            List<Employee> emps = new List<Employee> { new Employee(1029274, "bob123", "password123", "Bob", "the fuy") };
+            ApplicationSystem applicationSystem = new ApplicationSystem("C:\\PayrollSystem");
             Company company = new Company();
-            company.Employees = emps;
 
             //test reading
-            applicationSystem.readLoginFile("C:\\PayrollSystem");
+            applicationSystem.readLoginFile();
 
             Console.WriteLine("finsished this test");
         }
@@ -34,13 +32,13 @@ namespace PayrollSystem
         private void cmdTest2_Click(object sender, EventArgs e)
         {
             // setup
-            ApplicationSystem applicationSystem = new ApplicationSystem();
+            ApplicationSystem applicationSystem = new ApplicationSystem("C:\\PayrollSystem");
             List<Employee> emps = new List<Employee> { new Employee(1029274, "bob123", "password123", "Bob", "the fuy") };
             Company company = new Company();
             company.Employees = emps;
 
             //test writing
-            applicationSystem.saveLoginFile("C:\\PayrollSystem", emps);
+            applicationSystem.saveLoginFile(emps);
         }
     }
 }
