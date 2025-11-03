@@ -33,17 +33,41 @@ namespace PayrollSystem
                 string username = reader.ReadLine();
                 string password = reader.ReadLine();
                 string firstname = reader.ReadLine();
-                string lastname = reader.ReadLine();    
+                string lastname = reader.ReadLine();
                 Employee emp = new Employee(ID, username, password, firstname, lastname);
                 employees.Add(emp);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("Error when reading employee file: " + ex);
             }
-            finally 
+            finally
             {
                 reader.Close();
+            }
+        }
+
+        public void saveLoginFile(string rootFolder, List<Employee> EmployeesToBeSaved)
+        {
+            StreamWriter writer = new StreamWriter(rootFolder + "accounts.txt");
+            try
+            {
+                foreach(Employee emp in EmployeesToBeSaved)
+                {
+                    writer.WriteLine(emp.ID);
+                    writer.WriteLine(emp.Username);
+                    writer.WriteLine(emp.Password);
+                    writer.WriteLine(emp.FirstName);
+                    writer.WriteLine(emp.LastName);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error when writing employee file: " + ex);
+            }
+            finally
+            {
+                writer.Close();
             }
         }
 
