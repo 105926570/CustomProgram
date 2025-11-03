@@ -16,7 +16,7 @@ namespace PayrollSystem
 
         public ApplicationSystem()
         {
-            _rootFolder = "C:\\PayrollSystem\\";
+            _rootFolder = "C:\\PayrollSystem";
         }
 
         public ApplicationSystem(string rootFolder)
@@ -26,7 +26,11 @@ namespace PayrollSystem
 
         public void readLoginFile(string rootFolder)
         {
-            StreamReader reader = new StreamReader(rootFolder + "accounts.txt");
+            StreamReader reader = new StreamReader(rootFolder + "\\accounts.txt");
+            if (!Directory.Exists(rootFolder))
+            {
+                Directory.CreateDirectory(rootFolder);
+            }
             try
             {
                 int ID = Convert.ToInt16(reader.ReadLine());
@@ -49,7 +53,12 @@ namespace PayrollSystem
 
         public void saveLoginFile(string rootFolder, List<Employee> EmployeesToBeSaved)
         {
-            StreamWriter writer = new StreamWriter(rootFolder + "accounts.txt");
+            if (!Directory.Exists(rootFolder))
+            {
+                Directory.CreateDirectory(rootFolder);
+            }
+
+            StreamWriter writer = new StreamWriter(rootFolder + "\\accounts.txt");
             try
             {
                 foreach(Employee emp in EmployeesToBeSaved)
