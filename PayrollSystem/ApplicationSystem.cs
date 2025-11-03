@@ -17,11 +17,13 @@ namespace PayrollSystem
         public ApplicationSystem()
         {
             _rootFolder = "C:\\PayrollSystem";
+            checkAllSystemFilesExist()
         }
 
         public ApplicationSystem(string rootFolder)
         {
             _rootFolder = rootFolder;
+            checkAllSystemFilesExist()
         }
 
         public void readLoginFile()
@@ -103,7 +105,12 @@ namespace PayrollSystem
         // 2. open the accounts.txt file
         // 3. read the accounts.txt file.
         // 4. save the accounts to the application system for access
-    }
+
+        public void checkAllSystemFilesExist()
+        {
+            checkSystemFileExists(_rootFolder, "\\accounts.txt");
+            //add a file existance checker for each nescecary ffile.
+        }
 
         public void checkSystemFileExists(string filepath, string filename)
         {
@@ -112,7 +119,7 @@ namespace PayrollSystem
             {
                 File.Create(thingo);
                 Console.WriteLine($"The file {filename} does not exist. creating it now...");
-}
+            } 
         }
     }
 }
