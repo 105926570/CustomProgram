@@ -25,12 +25,22 @@ namespace PayrollSystem
             Company company = new Company();
             company.Employees = emps;
 
-            //test
-            try
-            {
-                applicationSystem.saveLoginFile("C:\\PayrollSystem\\", emps);
-            }
-            catch (Exception ex) { Console.WriteLine(ex);  }
+            //test reading
+            applicationSystem.readLoginFile("C:\\PayrollSystem");
+
+            Console.WriteLine("finsished this test");
+        }
+
+        private void cmdTest2_Click(object sender, EventArgs e)
+        {
+            // setup
+            ApplicationSystem applicationSystem = new ApplicationSystem();
+            List<Employee> emps = new List<Employee> { new Employee(1029274, "bob123", "password123", "Bob", "the fuy") };
+            Company company = new Company();
+            company.Employees = emps;
+
+            //test writing
+            applicationSystem.saveLoginFile("C:\\PayrollSystem", emps);
         }
     }
 }
