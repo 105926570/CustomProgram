@@ -28,6 +28,15 @@ namespace PayrollSystem
             _companyName = name; //im not sure why anyone would want to name their company anything but "The Big Company that needs a better name, and also a payroll system", but ok.
         }
 
+        public Company(string CompanyName, List<Department> departments, List<Employee> employees, Payroll payroll, Schedule companySchedule)
+        {
+            _companyName = CompanyName;
+            _departments = departments;
+            _employees = employees;
+            _payroll = payroll;
+            _companySchedule = companySchedule;
+        }
+
         public string Name
         {
             get { return _companyName; }
