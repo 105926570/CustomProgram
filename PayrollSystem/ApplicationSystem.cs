@@ -41,7 +41,6 @@ namespace PayrollSystem
                 int i = File.ReadAllLines(_rootFolder + "\\accounts.txt").Count();
                 int count = 0;
 
-                Console.WriteLine($"{i} < {count}");
                 while (i > count) 
                 {
                     int ID = int.Parse(reader.ReadLine());
@@ -100,11 +99,6 @@ namespace PayrollSystem
             }
         }
 
-        //When the application launches
-        // 1. open the root folder
-        // 2. open the accounts.txt file
-        // 3. read the accounts.txt file.
-        // 4. save the accounts to the application system for access
 
         public void checkAllSystemFilesExist()
         {
