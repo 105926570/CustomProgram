@@ -26,7 +26,6 @@ namespace PayrollSystem
 
             //test reading
             applicationSystem.readLoginFile();
-
             Console.WriteLine("finsished this test");
         }
 
@@ -34,7 +33,7 @@ namespace PayrollSystem
         {
             // setup
             ApplicationSystem applicationSystem = new ApplicationSystem("C:\\PayrollSystem");
-            List<Employee> emps = new List<Employee> { new Employee(1029274, "bob123", "password123", "Bob", "the fuy") };
+            List<Employee> emps = new List<Employee> { new Employee(GenerateRandomNumber(999999999), "bob123", "password123", "Bob", "the fuy") };
             Company company = new Company();
             company.Employees = emps;
 
@@ -70,8 +69,6 @@ namespace PayrollSystem
                 new Employee(), // 9
                 new Employee(), // 10
             };
-
-
         }
     }
 }
