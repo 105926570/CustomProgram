@@ -37,7 +37,7 @@ namespace PayrollSystem
             if (!File.Exists(_rootFolder + "\\accounts.txt"))
             {
 
-                File.Create(_rootFolder + "\\accounts.txt");
+                File.Create(_rootFolder + "\\accounts.txt").Dispose();
                 Console.WriteLine($"The file {_rootFolder + "\\accounts.txt"} does not exist. creating it now...");
             }
             StreamReader reader = new StreamReader(_rootFolder + "\\accounts.txt");
@@ -87,7 +87,7 @@ namespace PayrollSystem
             if (!File.Exists(_rootFolder + "\\accounts.txt"))
             {
 
-                    File.Create(_rootFolder + "\\accounts.txt");
+                    File.Create(_rootFolder + "\\accounts.txt").Dispose();
 
                 Console.WriteLine($"The file {_rootFolder + "\\accounts.txt"} does not exist. creating it now...");
             }
