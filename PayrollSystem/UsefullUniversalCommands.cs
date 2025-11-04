@@ -44,6 +44,36 @@ namespace PayrollSystem
             return new Random(seed).Next(0, highestNumber); 
         }
 
+        public static List<int> GenerateANumberOfUniqueNumbers(int highestNumber, int desiredNumberOfNumbers) 
+        { 
+            List<int> numbers = new List<int>();
+            int i = 0;
+            int num;
+
+            while (i < desiredNumberOfNumbers)
+            {
+                //generate number
+                //check if its unique
+                //  if yes, add it to array again
+                //   if no, do nothing
+
+                num = GenerateRandomNumber(highestNumber);
+
+                bool unique = true;
+
+                foreach (int numb in numbers) 
+                { 
+                    if (numb == num) unique = false;
+                }
+                if (unique)
+                {
+                    numbers.Add(num);
+                    i++;
+                }
+            }
+            return numbers;
+        }
+
         #endregion
     }
 }
