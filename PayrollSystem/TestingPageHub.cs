@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static PayrollSystem.UsefullUniversalCommands;
 
 namespace PayrollSystem
 {
@@ -39,6 +40,38 @@ namespace PayrollSystem
 
             //test writing
             applicationSystem.saveLoginFile(emps);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //Generate 100 random numbers
+            List<int> randomNumbers = GenerateANumberOfUniqueNumbers(999999999, 100);
+
+            //Print all numbers for testing - to be removed later
+            foreach (int i in randomNumbers) Console.WriteLine($"{i}");
+
+            //Create Company
+            Company company = new Company();
+
+            //Create Departments
+            List<Department> departments = new List<Department> { new Department("Department 1", randomNumbers[0]), new Department("Department 2", randomNumbers[1]) };
+
+            //Create example Employees (10)
+            List<Employee> testEmps = new List<Employee>()
+            {
+                new Employee(), // 1
+                new Employee(), // 2
+                new Employee(), // 3
+                new Employee(), // 4
+                new Employee(), // 5
+                new Employee(), // 6
+                new Employee(), // 7
+                new Employee(), // 8
+                new Employee(), // 9
+                new Employee(), // 10
+            };
+
+
         }
     }
 }
