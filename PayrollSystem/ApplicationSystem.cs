@@ -14,32 +14,15 @@ namespace PayrollSystem
         private string _rootFolder = "C:\\PayrollSystem"; //Root folder where all files are stored
         private List<Employee> employees = new List<Employee> { };
 
-        public ApplicationSystem()
-        {
-            _rootFolder = "C:\\PayrollSystem";
-        }
+        public ApplicationSystem() //Default Constructor
+            { _rootFolder = "C:\\PayrollSystem"; }
 
-        public ApplicationSystem(string rootFolder)
-        {
-            _rootFolder = rootFolder;
-        }
+        public ApplicationSystem(string rootFolder) //Constructor given a directory
+            { _rootFolder = rootFolder; }
 
         public void readLoginFile()
         {
-
-            
-      
-
-            if (!Directory.Exists(_rootFolder))
-            {
-                Directory.CreateDirectory(_rootFolder);
-            }
-            if (!File.Exists(_rootFolder + "\\accounts.txt"))
-            {
-
-                File.Create(_rootFolder + "\\accounts.txt").Dispose();
-                Console.WriteLine($"The file {_rootFolder + "\\accounts.txt"} does not exist. creating it now...");
-            }
+            CheckFileExistance(_rootFolder, "\\accounts.txt");
             StreamReader reader = new StreamReader(_rootFolder + "\\accounts.txt");
 
 
@@ -63,41 +46,20 @@ namespace PayrollSystem
 
                     count += 5;
                 }
-
-
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error when reading employee file: " + ex);
-            }
-            finally
-            {
-                reader.Close();
-            }
-            reader.Close();
+            catch (Exception ex) { Console.WriteLine("Error when reading employee file: " + ex); }
+            finally { reader.Close(); }
+            reader.Close();// incase not closed allready
         }
 
         public void saveLoginFile(List<Employee> EmployeesToBeSaved)
         {
-            
-            if (!Directory.Exists(_rootFolder))
-            {
-                Directory.CreateDirectory(_rootFolder);
-            }
-            if (!File.Exists(_rootFolder + "\\accounts.txt"))
-            {
-
-                    File.Create(_rootFolder + "\\accounts.txt").Dispose();
-
-                Console.WriteLine($"The file {_rootFolder + "\\accounts.txt"} does not exist. creating it now...");
-            }
-
-
+            CheckFileExistance(_rootFolder, "\\accounts.txt");
             StreamWriter writer = new StreamWriter(_rootFolder + "\\accounts.txt");
-            
+
             try
             {
-                foreach(Employee emp in EmployeesToBeSaved)
+                foreach (Employee emp in EmployeesToBeSaved)
                 {
                     writer.WriteLine(emp.ID);
                     writer.WriteLine(emp.Username);
@@ -106,15 +68,36 @@ namespace PayrollSystem
                     writer.WriteLine(emp.LastName);
                 }
             }
-            catch (Exception ex)
+            catch (Exception ex) { Console.WriteLine("Error when writing employee file: " + ex); }
+            finally { writer.Close(); }
+            writer.Close(); //incase not closed allready
+        }
+
+        public void CheckFileExistance(string inDirectory, string Filename)
+        {
+            string fullDirectory = inDirectory + Filename;
+
+            if (!Directory.Exists(inDirectory))
             {
-                Console.WriteLine("Error when writing employee file: " + ex);
+                try
+                {
+                    Console.WriteLine($"Directory {inDirectory} does not exist. Creating...");
+                    Directory.CreateDirectory(inDirectory);
+                }
+                catch (Exception ex) { Console.WriteLine($"Failed to create directory: {ex}"); }
+                finally { Console.WriteLine("Done"); }
+                
             }
-            finally
+            if (!File.Exists(fullDirectory))
             {
-                writer.Close();
+                try
+                {
+                    Console.WriteLine($"The file {Filename} does not exist in directory {inDirectory} creating it now...");
+                    File.Create(fullDirectory).Dispose();
+                }
+                catch (Exception ex) { Console.WriteLine($"Failed to create file: {ex}"); }
+                finally { Console.WriteLine("Done"); }
             }
-            writer.Close();
         }
     }
 }
