@@ -51,6 +51,7 @@ namespace PayrollSystem.CallenderSystem
         public WorkedShift(DateTime start, float baseRate, float hoursWorked) :base() 
         {
             _startDateTime = start;
+            _baseRate = baseRate;
             _hoursWorked = hoursWorked;
             _endDateTime = _startDateTime.AddHours(_hoursWorked);
         }
@@ -59,15 +60,6 @@ namespace PayrollSystem.CallenderSystem
         {
             _isCasual = casual;
             _isTraining = training;
-        }
-
-        public WorkedShift(DateTime start, DateTime end, float baseRate, float hoursWorked, bool casual, bool training) :this(start, baseRate, hoursWorked, casual, training)
-        {
-            _endDateTime = end;
-            if (start.CompareTo(end) != hoursWorked) 
-            { 
-                _hoursWorked = start.CompareTo(end);
-            }
         }
 
         public float Earnings
