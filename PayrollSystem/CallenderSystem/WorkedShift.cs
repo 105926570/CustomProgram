@@ -15,7 +15,8 @@ namespace PayrollSystem.CallenderSystem
         private bool _isTraining;
         private bool _isPublicHoliday;
         private bool _isWeekend;
-        
+
+#region Constructors
         //Default constructor
         public WorkedShift()
         {
@@ -28,6 +29,7 @@ namespace PayrollSystem.CallenderSystem
         }
 
 
+    #region Hours worked Not Given
         // Hours Not Worked Constructors
         public WorkedShift(DateTime start, float baseRate) : base()
         {
@@ -47,8 +49,10 @@ namespace PayrollSystem.CallenderSystem
             _endDateTime = end;
             _hoursWorked = end.CompareTo(start);
         }
+    #endregion
 
 
+    #region Hours worked is given
         // Hours Worked Constructors
         public WorkedShift(DateTime start, float baseRate, float hoursWorked) :base() 
         {
@@ -64,12 +68,16 @@ namespace PayrollSystem.CallenderSystem
             _isTraining = training;
         }
 
+    #endregion
+#endregion
 
+#region Properties
         //Properties of a shift that an employee may want to know
         public DateTime startDateTime { get { return _startDateTime; } }
         public DateTime endDateTime { get { return _endDateTime; } }
 
 
+    #region Properties for calculating earnings
         //Properties for calculating earnings
         private float baseEarnings { get { return _baseRate * _hoursWorked; } }
         private float casualBonus { get { return this.baseEarnings * 0.25f; } }
@@ -89,6 +97,8 @@ namespace PayrollSystem.CallenderSystem
                 return earnings;
             }
         }
+    #endregion
+#endregion
     }
 }
 
