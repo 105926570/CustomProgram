@@ -13,6 +13,8 @@ namespace PayrollSystem.CallenderSystem
         private float _hoursWorked;
         private bool _isCasual;
         private bool _isTraining;
+        private bool _isPublicHoliday;
+        private bool _isWeekend;
         
         //Default constructor
         public WorkedShift()
