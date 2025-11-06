@@ -65,6 +65,9 @@ namespace PayrollSystem.CallenderSystem
         }
 
 
+        //Properties of a shift that an employee may want to know
+        public DateTime startDateTime { get { return _startDateTime; } }
+        public DateTime endDateTime { get { return _endDateTime; } }
 
 
         //Properties for calculating earnings
