@@ -82,4 +82,5 @@ namespace PayrollSystem.CallenderSystem
 
 /*
  * TODO:
+ *  Make it so that the multipliers of base rate, base earnings, ect is stored in the company class and can be eddited by a master admin.
  */
