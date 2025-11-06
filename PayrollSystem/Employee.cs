@@ -102,6 +102,7 @@ namespace PayrollSystem
 /// IMPLEMENT PRONOUNS 
 ///     AS A CLASS?
 ///     AS TWO STRINGS?
+///     AS TWO STRINGS?
 /// ADD CONTACT INFORMATION
 ///     PHONE NUMBER
 ///     EMAIL
