@@ -11,6 +11,11 @@ namespace PayrollSystem.CallenderSystem
         private DateTime _startDate, _endDate;
         private List<WorkedShift> _workedShifts;
 
+        public PayPeriod()
+        {
+            _startDate = DateTime.Now;
+            _endDate = _startDate.AddDays(7);
+        }
         public PayPeriod(DateTime startDate)
         {
             _startDate = startDate;
