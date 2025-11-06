@@ -79,6 +79,11 @@ namespace PayrollSystem
             get { return _privilege; }
         }
 
+        public bool IsResident
+        {
+            get { return _isResident; }
+        }
+
         public void DisplayEmployeeInfo()
         {
             Console.WriteLine($"Name: {FullName} - ID: {_EmployeeID}");
