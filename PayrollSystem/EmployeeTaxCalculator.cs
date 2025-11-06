@@ -33,23 +33,14 @@ namespace PayrollSystem
         private int CalculateTaxBracket(double yearlyIncome)
         {
             if (/*yearlyIncome > bracketStarts[0] &&*/ yearlyIncome <= bracketStarts[1])
-            {
                 return 0;
-            }
             else if (yearlyIncome > bracketStarts[1] && yearlyIncome <= bracketStarts[2])
-            {
                 return 1;
-            }
             else if (yearlyIncome > bracketStarts[2] && yearlyIncome <= bracketStarts[3])
-            {
                 return 2;
-            }
             else if (yearlyIncome > bracketStarts[3] && yearlyIncome <= bracketStarts[4])
-            {
                 return 3;
-            }
             else
-            {
                 return 4;
             }
         }
@@ -78,6 +69,7 @@ namespace PayrollSystem
                      + ((bracketStarts[4] - bracketStarts[3]) * taxPercentages[3])
                      + ((bracketStarts[3] - bracketStarts[2]) * taxPercentages[2])
                      + ((bracketStarts[2] - bracketStarts[1]) * taxPercentages[1]);
+
             default:
                 return 0.0;
         }
