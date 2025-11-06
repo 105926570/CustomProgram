@@ -9,7 +9,7 @@ namespace PayrollSystem.CallenderSystem
     internal class PayPeriod
     {
         private DateTime _startDate, _endDate;
-        private List<WorkedShifts> _workedShifts;
+        private List<WorkedShift> _workedShifts;
 
         public PayPeriod(DateTime startDate)
         {
