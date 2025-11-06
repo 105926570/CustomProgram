@@ -75,9 +75,10 @@ namespace PayrollSystem.CallenderSystem
         //Properties of a shift that an employee may want to know
         public DateTime startDateTime { get { return _startDateTime; } }
         public DateTime endDateTime { get { return _endDateTime; } }
+        public DayOfWeek dayOfWeek { get { return _startDateTime.DayOfWeek; } }
 
 
-    #region Properties for calculating earnings
+        #region Properties for calculating earnings
         //Properties for calculating earnings
         private float baseEarnings { get { return _baseRate * _hoursWorked; } }
         private float casualBonus { get { return this.baseEarnings * 0.25f; } }
