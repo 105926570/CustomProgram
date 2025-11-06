@@ -70,7 +70,7 @@ namespace PayrollSystem.CallenderSystem
         private float casualBonus { get { return this.baseEarnings * 0.25f; } }
         private float trainingBonus { get { return this.baseEarnings * 0.25f; } }
         private float weekendBonus { get { return this.baseEarnings * 0.25f; } }
-        private float publicHolidatBonus { get { return this.baseEarnings * 0.25f;  } }
+        private float publicHolidayBonus { get { return this.baseEarnings * 0.25f;  } }
 
         public float Earnings
         {
@@ -80,7 +80,7 @@ namespace PayrollSystem.CallenderSystem
                 if (_isCasual == true) earnings += this.casualBonus;
                 if (_isTraining == true) earnings += this.trainingBonus;
                 if (_isWeekend == true) earnings += this.weekendBonus;
-                if (_isPublicHoliday == true) earnings += this.publicHolidatBonus;
+                if (_isPublicHoliday == true) earnings += this.publicHolidayBonus;
                 return earnings;
             }
         }
