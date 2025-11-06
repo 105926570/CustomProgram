@@ -63,10 +63,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.cs" />
-    <Compile Include="AdminDebug.cs">
+    <Compile Include="Forms\AdminDebug.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminDebug.Designer.cs">
+    <Compile Include="Forms\AdminDebug.Designer.cs">
       <DependentUpon>AdminDebug.cs</DependentUpon>
     </Compile>
     <Compile Include="ApplicationSystem.cs" />
@@ -74,31 +74,31 @@
     <Compile Include="Day.cs" />
     <Compile Include="Department.cs" />
     <Compile Include="Employee.cs" />
-    <Compile Include="EmployeeDebug.cs">
+    <Compile Include="Forms\EmployeeDebug.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EmployeeDebug.Designer.cs">
+    <Compile Include="Forms\EmployeeDebug.Designer.cs">
       <DependentUpon>EmployeeDebug.cs</DependentUpon>
     </Compile>
     <Compile Include="EmployeeTaxCalculator.cs" />
     <Compile Include="EmployeeTaxInfo.cs" />
-    <Compile Include="fgsifghs.cs">
+    <Compile Include="Forms\fgsifghs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fgsifghs.Designer.cs">
+    <Compile Include="Forms\fgsifghs.Designer.cs">
       <DependentUpon>fgsifghs.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginScreen.cs">
+    <Compile Include="Forms\LoginScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginScreen.Designer.cs">
+    <Compile Include="Forms\LoginScreen.Designer.cs">
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager.cs" />
-    <Compile Include="ManagerDebug.cs">
+    <Compile Include="Forms\ManagerDebug.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ManagerDebug.Designer.cs">
+    <Compile Include="Forms\ManagerDebug.Designer.cs">
       <DependentUpon>ManagerDebug.cs</DependentUpon>
     </Compile>
     <Compile Include="Month.cs" />
@@ -106,33 +106,32 @@
     <Compile Include="PayHistory.cs" />
     <Compile Include="Payroll.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="ProgramSystem.cs" />
     <Compile Include="Pronoun.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Schedule.cs" />
-    <Compile Include="TestingPageHub.cs">
+    <Compile Include="Forms\TestingPageHub.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TestingPageHub.Designer.cs">
+    <Compile Include="Forms\TestingPageHub.Designer.cs">
       <DependentUpon>TestingPageHub.cs</DependentUpon>
     </Compile>
     <Compile Include="TimeFrame.cs" />
     <Compile Include="UsefullUniversalCommands.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Week.cs" />
-    <EmbeddedResource Include="AdminDebug.resx">
+    <EmbeddedResource Include="Forms\AdminDebug.resx">
       <DependentUpon>AdminDebug.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmployeeDebug.resx">
+    <EmbeddedResource Include="Forms\EmployeeDebug.resx">
       <DependentUpon>EmployeeDebug.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fgsifghs.resx">
+    <EmbeddedResource Include="Forms\fgsifghs.resx">
       <DependentUpon>fgsifghs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginScreen.resx">
+    <EmbeddedResource Include="Forms\LoginScreen.resx">
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManagerDebug.resx">
+    <EmbeddedResource Include="Forms\ManagerDebug.resx">
       <DependentUpon>ManagerDebug.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -145,7 +144,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="TestingPageHub.resx">
+    <EmbeddedResource Include="Forms\TestingPageHub.resx">
       <DependentUpon>TestingPageHub.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
