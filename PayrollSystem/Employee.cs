@@ -97,6 +97,7 @@ namespace PayrollSystem
     }
 }
 
+///
 /// TODO:
 /// IMPLEMENT PRONOUNS 
 ///     AS A CLASS?
@@ -104,3 +105,4 @@ namespace PayrollSystem
 /// ADD CONTACT INFORMATION
 ///     PHONE NUMBER
 ///     EMAIL
+///     
