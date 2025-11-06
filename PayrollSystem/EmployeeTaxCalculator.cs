@@ -7,7 +7,9 @@ namespace PayrollSystem
     {
 
         private readonly double[] bracketStarts = new double[] { 0, 18200, 45000, 135000, 190000 }; //if above, then the index of that number is the tax bracket
-        private readonly double[] taxPercentages = new double[] { 0f, 0.16f, 0.30f, 0.37f, 0.45f };
+        private readonly double[] taxPercentagesResident = new double[] { 0f, 0.16f, 0.30f, 0.37f, 0.45f };
+        private readonly double[] taxPercentagesNonResident = new double[] { 0.30f, 0.30f, 0.30f, 0.37f, 0.45f };
+        private bool _isResident;
         private int _taxBracket = 0;
         private double _yearlyIncome = 0.0;
 
@@ -21,7 +23,11 @@ namespace PayrollSystem
         public double AmountToBeTaxedAtEndOfYear(double yearlyIncome) //This is the function run when generating tax.
         {
             int taxBracket = CalculateTaxBracket(yearlyIncome);
-            return Calc(yearlyIncome, taxBracket);
+            //Check if user is a resident or not and calculate tax acordingly.
+            if (_isResident == true) //is resident
+                return CalcResident(yearlyIncome, taxBracket);
+            else // not resident
+                return CalcNonResident(yearlyIncome, taxBracket);           
         }
 
         public double AmountToBeTaxedAtEndOfYearRounded(double yearlyIncome) //This is the function run when generating tax.
@@ -42,40 +48,76 @@ namespace PayrollSystem
                 return 3;
             else
                 return 4;
+        }
+
+
+        private double CalcResident(double yearlyIncome, int taxBracket)
+        {
+            double[] taxPercentages = taxPercentagesResident;
+            double remainder = yearlyIncome - bracketStarts[taxBracket];
+
+            switch (taxBracket)
+            {   
+                case 1:
+                    return remainder * taxPercentages[taxBracket];
+
+                case 2:
+                    return (remainder * taxPercentages[taxBracket])
+                         + ((bracketStarts[2] - bracketStarts[1]) * taxPercentages[1]);
+
+                case 3:
+                    return (remainder * taxPercentages[taxBracket])
+                         + ((bracketStarts[3] - bracketStarts[2]) * taxPercentages[2])
+                         + ((bracketStarts[2] - bracketStarts[1]) * taxPercentages[1]);
+
+                case 4:
+                    return (remainder * taxPercentages[taxBracket])
+                         + ((bracketStarts[4] - bracketStarts[3]) * taxPercentages[3])
+                         + ((bracketStarts[3] - bracketStarts[2]) * taxPercentages[2])
+                         + ((bracketStarts[2] - bracketStarts[1]) * taxPercentages[1]);
+
+                default:
+                    return 0.0;
             }
         }
 
 
-    private double Calc(double yearlyIncome, int taxBracket)
-    {
-        double remainder = yearlyIncome - bracketStarts[taxBracket];
-
-        switch (taxBracket)
+        private double CalcNonResident(double yearlyIncome, int taxBracket)
         {
-            case 1:
-                return remainder * taxPercentages[taxBracket];
+            double[] taxPercentages = taxPercentagesNonResident;
+            double remainder = yearlyIncome - bracketStarts[taxBracket];
 
-            case 2:
-                return (remainder * taxPercentages[taxBracket])
-                     + ((bracketStarts[2] - bracketStarts[1]) * taxPercentages[1]);
+            switch (taxBracket)
+            {
+                case 0: // Foreign residents are taxed from the first dollar
+                    return yearlyIncome * taxPercentages[0];
 
-            case 3:
-                return (remainder * taxPercentages[taxBracket])
-                     + ((bracketStarts[3] - bracketStarts[2]) * taxPercentages[2])
-                     + ((bracketStarts[2] - bracketStarts[1]) * taxPercentages[1]);
+                case 1:
+                    return (remainder * taxPercentages[taxBracket])
+                         + (bracketStarts[1] * taxPercentages[0]);
 
-            case 4:
-                return (remainder * taxPercentages[taxBracket])
-                     + ((bracketStarts[4] - bracketStarts[3]) * taxPercentages[3])
-                     + ((bracketStarts[3] - bracketStarts[2]) * taxPercentages[2])
-                     + ((bracketStarts[2] - bracketStarts[1]) * taxPercentages[1]);
+                case 2:
+                    return (remainder * taxPercentages[taxBracket])
+                         + ((bracketStarts[2] - bracketStarts[1]) * taxPercentages[1])
+                         + (bracketStarts[1] * taxPercentages[0]);
 
-            default:
-                return 0.0;
+                case 3:
+                    return (remainder * taxPercentages[taxBracket])
+                         + ((bracketStarts[3] - bracketStarts[2]) * taxPercentages[2])
+                         + ((bracketStarts[2] - bracketStarts[1]) * taxPercentages[1])
+                         + (bracketStarts[1] * taxPercentages[0]);
+
+                case 4:
+                    return (remainder * taxPercentages[taxBracket])
+                         + ((bracketStarts[4] - bracketStarts[3]) * taxPercentages[3])
+                         + ((bracketStarts[3] - bracketStarts[2]) * taxPercentages[2])
+                         + ((bracketStarts[2] - bracketStarts[1]) * taxPercentages[1])
+                         + (bracketStarts[1] * taxPercentages[0]);
+
+                default:
+                    return 0.0;
+            }
         }
-    }
-
-
 
         //properties:
         public double YearlyIncome

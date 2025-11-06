@@ -17,6 +17,7 @@ namespace PayrollSystem
         public PayHistory _payHistory = new PayHistory();
         //TaxInfo EmployeeTaxInfo;
         private int _privilege; // Privilege level of a regular employee is level 0
+        private bool _isResident;
 
         public Employee() : base() //Constructor with default values
         {
