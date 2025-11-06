@@ -14,16 +14,24 @@ namespace PayrollSystem.CallenderSystem
         private bool _isCasual;
         private bool _isTraining;
         
-
-        // Hours Not Worked Constructors
-        public WorkedShift(DateTime start, float baseRate)
+        //Default constructor
+        public WorkedShift()
         {
-            _startDateTime = start;
-            _hoursWorked = 3; //make it company minumum shift length
-            _endDateTime = _startDateTime.AddHours(_hoursWorked);
-            _baseRate = baseRate;
+            _startDateTime = DateTime.Now;
+            _endDateTime = DateTime.Now.AddHours(3);  //make it company minumum shift length
+            _baseRate = 24.95f;  //make it update with adult minimum wage
+            _hoursWorked = 3;//make it company minumum shift length
             _isCasual = false;
             _isTraining = false;
+        }
+
+
+        // Hours Not Worked Constructors
+        public WorkedShift(DateTime start, float baseRate) : base()
+        {
+            _startDateTime = start;
+            _endDateTime = _startDateTime.AddHours(_hoursWorked);
+            _baseRate = baseRate;
         }
 
         public WorkedShift(DateTime start, float baseRate, bool casual, bool training) : this(start, baseRate)
@@ -40,14 +48,11 @@ namespace PayrollSystem.CallenderSystem
 
 
         // Hours Worked Constructors
-        public WorkedShift(DateTime start, float baseRate, float hoursWorked)
+        public WorkedShift(DateTime start, float baseRate, float hoursWorked) :base() 
         {
             _startDateTime = start;
             _hoursWorked = hoursWorked;
             _endDateTime = _startDateTime.AddHours(_hoursWorked);
-            _baseRate = baseRate;
-            _isCasual = false;
-            _isTraining = false;
         }
 
         public WorkedShift(DateTime start, float baseRate, float hoursWorked, bool casual, bool training) : this(start, baseRate, hoursWorked)
