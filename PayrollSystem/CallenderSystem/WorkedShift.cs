@@ -77,7 +77,10 @@ namespace PayrollSystem.CallenderSystem
             get 
             {
                 float earnings = this.baseEarnings;
-                if (_isCasual == true) earnings += casualBonus;
+                if (_isCasual == true) earnings += this.casualBonus;
+                if (_isTraining == true) earnings += this.trainingBonus;
+                if (_isWeekend == true) earnings += this.weekendBonus;
+                if (_isPublicHoliday == true) earnings += this.publicHolidatBonus;
                 return earnings;
             }
         }
