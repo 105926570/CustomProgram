@@ -104,6 +104,7 @@
     <Compile Include="Month.cs" />
     <Compile Include="PayCheck.cs" />
     <Compile Include="PayHistory.cs" />
+    <Compile Include="PayPeriod.cs" />
     <Compile Include="Payroll.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProgramSystem.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="UsefullUniversalCommands.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Week.cs" />
+    <Compile Include="WorkedShift.cs" />
     <EmbeddedResource Include="AdminDebug.resx">
       <DependentUpon>AdminDebug.cs</DependentUpon>
     </EmbeddedResource>
