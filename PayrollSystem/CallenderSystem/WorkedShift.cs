@@ -67,6 +67,7 @@ namespace PayrollSystem.CallenderSystem
         private float baseEarnings { get { return _baseRate * _hoursWorked; } }
         private float casualBonus { get { return this.baseEarnings * 0.25f; } }
         private float weekendBonus { get { return this.baseEarnings * 0.25f; } }
+        private float publicHolidatBonus { get { return this.baseEarnings * 0.25f;  } }
 
         public float Earnings
         {
