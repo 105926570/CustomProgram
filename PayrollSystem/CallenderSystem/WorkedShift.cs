@@ -13,7 +13,33 @@ namespace PayrollSystem.CallenderSystem
         private float _hoursWorked;
         private bool _isCasual;
         private bool _isTraining;
+        
 
+        // Hours Not Worked Constructors
+        public WorkedShift(DateTime start, float baseRate)
+        {
+            _startDateTime = start;
+            _hoursWorked = 3; //make it company minumum shift length
+            _endDateTime = _startDateTime.AddHours(_hoursWorked);
+            _baseRate = baseRate;
+            _isCasual = false;
+            _isTraining = false;
+        }
+
+        public WorkedShift(DateTime start, float baseRate, bool casual, bool training) : this(start, baseRate)
+        {
+            _isCasual = casual;
+            _isTraining = training;
+        }
+
+        public WorkedShift(DateTime start, DateTime end, float baseRate, bool casual, bool training) : this(start, baseRate, casual, training)
+        {
+            _endDateTime = end;
+            _hoursWorked = end.CompareTo(start);
+        }
+
+
+        // Hours Worked Constructors
         public WorkedShift(DateTime start, float baseRate, float hoursWorked)
         {
             _startDateTime = start;
