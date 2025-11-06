@@ -14,20 +14,20 @@ namespace PayrollSystem.CallenderSystem
         private bool _isCasual;
         private bool _isTraining;
 
-        public WorkedShift(float baseRate, float hoursWorked, bool casual, bool training)
+        public WorkedShift(DateTime start, float baseRate, float hoursWorked)
         {
-            _baseRate = baseRate;
+            _startDateTime = start;
             _hoursWorked = hoursWorked;
-            _isCasual = casual;
-            _isTraining = training;
-        }
-
-        public WorkedShift(float baseRate, float hoursWorked)
-        {
+            _endDateTime = _startDateTime.AddHours(_hoursWorked);
             _baseRate = baseRate;
-            _hoursWorked = hoursWorked;
             _isCasual = false;
             _isTraining = false;
+        }
+
+        public WorkedShift(DateTime start, float baseRate, float hoursWorked, bool casual, bool training) : this(start, baseRate, hoursWorked)
+        {
+            _isCasual = casual;
+            _isTraining = training;
         }
 
         public float Earnings
