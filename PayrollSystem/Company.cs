@@ -7,8 +7,8 @@ namespace PayrollSystem
     internal class Company
     {
         private string _companyName;
-        private List<Department> _departments = new List<Department>();
-        private List<Employee> _employees = new List<Employee>();
+        private List<Department> _departments;
+        private List<Employee> _employees;
         private Image _companyLogo;
         private Color _secondaryColor, _primaryColor, _accentColur; //NOT PUBLIC IN ANY WAY YET!!!!
         private Payroll _payroll;
@@ -16,21 +16,25 @@ namespace PayrollSystem
 
         public Company()
         {
-            _companyName = "The Big Company that needs a better name, and also a payroll system";
+            Name = "The Big Company that needs a better name, and also a payroll system";
+            Departments = new List<Department>();
+            Employees = new List<Employee>();
+            CompanyPayroll = new Payroll();
+            CompanySchedule = new Schedule();
         }
 
-        public Company(string name)
+        public Company(string name):this()
         {
-            _companyName = name; //im not sure why anyone would want to name their company anything but "The Big Company that needs a better name, and also a payroll system", but ok.
+            Name = name; //im not sure why anyone would want to name their company anything but "The Big Company that needs a better name, and also a payroll system", but ok.
         }
 
-        public Company(string CompanyName, List<Department> departments, List<Employee> employees, Payroll payroll, Schedule companySchedule)
+        public Company(string companyName, List<Department> departments, List<Employee> employees, Payroll payroll, Schedule companySchedule) : this(companyName)
         {
-            _companyName = CompanyName;
-            _departments = departments;
-            _employees = employees;
-            _payroll = payroll;
-            _companySchedule = companySchedule;
+            Name = companyName;
+            Departments = departments;
+            Employees = employees;
+            CompanyPayroll = payroll;
+            CompanySchedule = companySchedule;
         }
 
         public string Name
@@ -69,27 +73,22 @@ namespace PayrollSystem
             set { _companySchedule = value; }
         }
 
-        public void CreateEmployee(Employee emp) //This should be the only way to add and create employees
+        public void CreateEmployee(Employee employee) //This should be the only way to add and create employees
         {
             bool matchingId = false;
             bool newIdMatching = false;
             int randomID = GenerateRandomNumber(9999999);
-            foreach (Employee e in _employees)
+
+            foreach (Employee emp in Employees)
             {
-                if (e.ID == emp.ID)
-                {
-                    matchingId = true;
-                }
+                if (emp.ID == employee.ID) matchingId = true;
             }
 
             while (matchingId == true)
             {
-                foreach (Employee e in _employees)
+                foreach (Employee emp in Employees)
                 {
-                    if (e.ID == randomID)
-                    {
-                        newIdMatching = true;
-                    }
+                    if (emp.ID == randomID) newIdMatching = true;
                 }
 
                 if (newIdMatching == true)
@@ -97,14 +96,12 @@ namespace PayrollSystem
                     matchingId = true;
                     randomID = GenerateRandomNumber(9999999);
                 }
-                else
-                {
-                    matchingId = false;
-                }
+                else matchingId = false;
 
-                emp.ID = randomID;
+                employee.ID = randomID;
             }
-            _employees.Add(emp);
+
+            Employees.Add(employee);
         }
     }
 }
