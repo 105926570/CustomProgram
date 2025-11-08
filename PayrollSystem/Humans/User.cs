@@ -10,18 +10,20 @@ namespace PayrollSystem
 
         public User()
         {
-            _Username = "DefaultUser";
-            _Password = "password123";
-            _EmployeeID = GenerateRandomNumber(9999999); //User ID should be a random number generated when creating a new employee, and not equal to any other existing User ID.
-            _email = $"{_EmployeeID}@company.com";
+            Username = "DefaultUser";
+            Password = "password123";
+            ID = GenerateRandomNumber(9999999); //User ID should be a random number generated when creating a new employee, and not equal to any other existing User ID.
+            Email = $"{_EmployeeID}@company.com";
         }
 
-        public User(int employeeID, string username, string password) //Constructor with all peramaters given manually
+        public User(string username, string password) : this(username)
+        { 
+            Password = password;
+        }
+
+        public User(string username) : this()
         {
-            _Username = username;
-            _Password = password;
-            _EmployeeID = employeeID; //User ID should be a random number generated when creating a new employee, and not equal to any other existing User ID.
-            _email = $"{_EmployeeID}@company.com";
+            Username = username;
         }
 
         public string Email

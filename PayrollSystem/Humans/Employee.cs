@@ -21,35 +21,15 @@ namespace PayrollSystem
             _schedule = new Schedule();
         }
 
-        public Employee(string firstName, string lastName) : base() //Constructor with all peramaters given manually
-        {
-            _FirstName = firstName;
-            _LastName = lastName;
-            _privilege = 0;
-            //EmployeeID, username, password are set as their default values in the User default constructor
-        }
-
-        public Employee(int employeeID, string username, string password, string firstName, string lastName) : base(employeeID, username, password)//Constructor with all peramaters given manually
-        {
-            _FirstName = firstName;
-            _LastName = lastName;
-            _privilege = 0;
-            //EmployeeID, username, password are set in the base constructor, using values from the employee constructor.
-        }
-
-        public Employee(User user, string firstName, string lastName) //Constructor with an allready made user as an input.
-        {
-            _Username = user.Username;
-            _Password = user.Password;
-            _EmployeeID = user.ID;
-            _FirstName = firstName;
-            _LastName = lastName;
-            _privilege = 0;
-            //EmployeeID, username, password are set by a user input.
-        }
-
         //Read only Property
-        public string FullName { get { return _FirstName + " " + _LastName; } }
+        public string FullName
+        {
+            get
+            {
+                string s = FirstName + " " + LastName;
+                return s;
+            }
+        }
 
         public string FirstName
         {
@@ -72,6 +52,7 @@ namespace PayrollSystem
         public int Privilege
         {
             get { return _privilege; }
+            set { _privilege = value; }
         }
 
         public void DisplayEmployeeInfo()
