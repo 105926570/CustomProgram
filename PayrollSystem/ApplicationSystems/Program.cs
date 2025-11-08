@@ -26,6 +26,7 @@ namespace PayrollSystem
         {
             _rootFolder = "C:\\CustomProgram";
             jsonTesting();
+            ReadJsonObjectFromFile("C:\\CustomProgram\\jsons\\BigBoyTest.json");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginScreen());
@@ -44,6 +45,11 @@ namespace PayrollSystem
             Company company = new Company() { Name = "the big company lol", Employees = h };
             Console.WriteLine("Now... The big boy test...");
             CreateJsonFromObjet(company, _rootFolder + "\\jsons\\BigBoyTest.json");
+
+            //Test reading a JSON then saving what is read
+            string testamondo = Path.GetDirectoryName(_rootFolder + "\\jsons\\BigBoyTest.json");
+            testamondo = testamondo + "\\bigFatTestBruv.json";
+            CreateJsonFromObjet(JsonConvert.DeserializeObject(File.ReadAllText(_rootFolder + "\\jsons\\BigBoyTest.json")), testamondo);
         }
 
 
