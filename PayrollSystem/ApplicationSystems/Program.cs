@@ -119,6 +119,18 @@ namespace PayrollSystem
                 Console.WriteLine($"Unexpected error writing file '{filePath}': {ex.Message}");
             }
         }
+
+        private static void EnsureDirectoryExists(string directory)
+        {
+            string directoryPath = Path.GetDirectoryName(directory); //incase the input references a file's path rather than a directory, then get just the directory.
+
+            if (!string.IsNullOrWhiteSpace(directoryPath) && !Directory.Exists(directoryPath))//if ( the directory path given is valid... ...and...  the directory does not exist)
+            {
+                Console.WriteLine($"Directory '{directoryPath}' does not exist. Creating...");
+                Directory.CreateDirectory(directoryPath); //creates directory
+                Console.WriteLine($"...Directory '{directoryPath}' created successfully.");
+            }
+        }
         #endregion
 
         public static string BytesToString(byte[] dataBytes)
