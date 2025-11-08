@@ -16,21 +16,25 @@ namespace PayrollSystem
         public int TFN
         {
             get { return _tfn; }
-            set
+            set {  _tfn = value; }
+        }
+
+        public bool IsResident
             {
-                int i = 0;
-                while (value > 0)
+            get { return _isResident; }
+            set {  _isResident = value; }
+        }
+
+        public int taxBracket
                 {
-                    value /= 10; // Integer division removes the last digit
-                    i++;
+            get { return _taxBracket; }
+            set { _taxBracket = value; }
                 }
 
-                if (i != 9)
+        public double YearlyIncome
                 {
-                    throw new ArgumentOutOfRangeException("Error: TFN does not have 9 digits in it.");
-                }
-                _tfn = value;
-            }
+            get { return _yearlyIncome; }
+            set { _yearlyIncome = value; }
         }
 
         //Ensure that the following tax brackets are implemented in the payroll calculations:
