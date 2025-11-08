@@ -54,6 +54,19 @@ namespace PayrollSystem
             }
         }
 
+        /// <returns>Returns the root folder directery as a string</returns>
+        public static string RootFolder
+        {
+            get { return _rootFolder; }
+        }
+
+        /// <summary>temp function name</summary>
+        /// <returns>Returns the company loaded in from files.</returns>
+        public static Company CompanyLoadedInFromFiles
+        {
+            get { return _companyLoadedInFromFiles; }
+        }
+
         /// <summary>changes active employee to whatever is given</summary>
         /// <param name="privliage">level of priviliage of the executor. must be => 2.</param>
         /// <param name="newActiveEmployee">the desired employee to become the active employee.</param>
