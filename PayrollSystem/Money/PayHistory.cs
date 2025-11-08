@@ -5,10 +5,13 @@ namespace PayrollSystem
     public class PayHistory
     {
         private List<PayCheck> _payChecks;
-        public PayHistory() { }
+        public PayHistory()
+        {
+            PayChecks = new List<PayCheck> { };
+        }
         public PayHistory(List<PayCheck> payChecks) //Generate the pay history given there is allready a list of paychecks (likely wont be used)
         {
-            this.PayChecks = payChecks;
+            PayChecks = payChecks;
         }
 
         public List<PayCheck> PayChecks
