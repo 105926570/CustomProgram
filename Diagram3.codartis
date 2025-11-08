@@ -1,0 +1,173 @@
+﻿{
+  "Version": 3,
+  "AreNodeDescriptionsVisible": true,
+  "ContainerNodes": [
+    {
+      "Id": 1,
+      "ZIndex": 0,
+      "Name": "PayrollSystem (1.0.0.0)",
+      "FullyQualifiedName": "PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Stereotype": "Assembly",
+      "ToolTip": "assembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "-33.695,-40.8523",
+      "Size": "363.1523,512.5013",
+      "IsPinned": true,
+      "Symbols": [
+        "{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}"
+      ],
+      "NamespaceLevel": 0
+    },
+    {
+      "Id": 2,
+      "ParentId": 1,
+      "ZIndex": 1,
+      "Name": "PayrollSystem",
+      "FullyQualifiedName": "PayrollSystem",
+      "Stereotype": "Namespace",
+      "ToolTip": "namespace PayrollSystem\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "52.4857,-12.0523",
+      "Size": "254.4521,478.7013",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}"
+      ],
+      "NamespaceLevel": 1
+    },
+    {
+      "Id": 3,
+      "ParentId": 2,
+      "ZIndex": 2,
+      "Name": "CallenderSystem",
+      "FullyQualifiedName": "PayrollSystem.CallenderSystem",
+      "Stereotype": "Namespace",
+      "ToolTip": "namespace PayrollSystem.CallenderSystem\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "67.5313,16.7477",
+      "Size": "234.0822,177.3013",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"Namespace\",\"N\":\"CallenderSystem\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}"
+      ],
+      "NamespaceLevel": 2
+    },
+    {
+      "Id": 4,
+      "ParentId": 2,
+      "ZIndex": 3,
+      "Name": "Forms",
+      "FullyQualifiedName": "PayrollSystem.Forms",
+      "Stereotype": "Namespace",
+      "ToolTip": "namespace PayrollSystem.Forms\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "109.0791,254.049",
+      "Size": "100,73.8",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"Namespace\",\"N\":\"Forms\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}"
+      ],
+      "NamespaceLevel": 2
+    },
+    {
+      "Id": 5,
+      "ParentId": 2,
+      "ZIndex": 4,
+      "Name": "Properties",
+      "FullyQualifiedName": "PayrollSystem.Properties",
+      "Stereotype": "Namespace",
+      "ToolTip": "namespace PayrollSystem.Properties\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "133.0438,387.849",
+      "Size": "115.69,73.8",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"Namespace\",\"N\":\"Properties\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}"
+      ],
+      "NamespaceLevel": 2
+    }
+  ],
+  "LeafNodes": [
+    {
+      "Id": 6,
+      "ParentId": 3,
+      "ZIndex": 5,
+      "Name": "PayPeriod",
+      "Stereotype": "Class",
+      "ToolTip": "class PayrollSystem.CallenderSystem.PayPeriod\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "72.5313,45.5477",
+      "MemberAreaSize": "132,0",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"NamedType\",\"N\":\"PayPeriod\",\"C\":{\"K\":\"Namespace\",\"N\":\"CallenderSystem\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+      ],
+      "FullName": "class PayrollSystem.CallenderSystem.PayPeriod",
+      "Description": "",
+      "IsDescriptionVisible": true,
+      "IsAbstract": false,
+      "IsStatic": false,
+      "Accessibility": "Internal",
+      "Origin": "SourceCode",
+      "IsDisposable": false
+    },
+    {
+      "Id": 7,
+      "ParentId": 3,
+      "ZIndex": 6,
+      "Name": "WorkedShift",
+      "Stereotype": "Class",
+      "ToolTip": "class PayrollSystem.CallenderSystem.WorkedShift\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "164.6135,139.049",
+      "MemberAreaSize": "132,0",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"NamedType\",\"N\":\"WorkedShift\",\"C\":{\"K\":\"Namespace\",\"N\":\"CallenderSystem\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+      ],
+      "FullName": "class PayrollSystem.CallenderSystem.WorkedShift",
+      "Description": "",
+      "IsDescriptionVisible": true,
+      "IsAbstract": false,
+      "IsStatic": false,
+      "Accessibility": "Internal",
+      "Origin": "SourceCode",
+      "IsDisposable": false
+    }
+  ],
+  "Connectors": [
+    {
+      "Id": 8,
+      "SourceId": 6,
+      "TargetId": 7,
+      "ZIndex": 7,
+      "Stereotype": "Association",
+      "RoutePoints": [
+        [
+          163.15184996935625,
+          95.547688989114135,
+          true
+        ],
+        [
+          205.99292790358911,
+          139.04900057166347,
+          true
+        ]
+      ],
+      "IsCreatedFromModelItem": true
+    }
+  ],
+  "Labels": [
+    {
+      "Id": 9,
+      "ConnectorId": 8,
+      "ZIndex": 8,
+      "AnchorKind": "End",
+      "AnchorVector": "0,0",
+      "Size": "77.69,17.5",
+      "IsPinned": false,
+      "Entries": [
+        {
+          "TextColumn1": "*",
+          "TextColumn2": "_workedShifts",
+          "Tooltip": "private List<WorkedShift> _workedShifts",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Field\",\"N\":\"_workedShifts\",\"C\":{\"K\":\"NamedType\",\"N\":\"PayPeriod\",\"C\":{\"K\":\"Namespace\",\"N\":\"CallenderSystem\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}}"
+        }
+      ]
+    }
+  ]
+}
