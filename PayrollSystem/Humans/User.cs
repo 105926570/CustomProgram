@@ -61,14 +61,9 @@ namespace PayrollSystem
             set { _EmployeeID = value; }
         }
 
-        public void DisplayUserInfo()
+        public string ReturnUserInfoAsString()
         {
             Console.WriteLine("Displaying user info:");
-            Console.WriteLine(CreateUserInfo());
-        }
-
-        private string CreateUserInfo()
-        {
             return $"Employee ID: {_EmployeeID}\n" +
                    $"Username: {_Username}\n" +
                    $"Password: {_Password}\n" +

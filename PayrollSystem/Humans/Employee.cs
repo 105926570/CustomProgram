@@ -91,7 +91,7 @@ namespace PayrollSystem
 
         public void DisplayAllEmployeeInfo()
         {
-            DisplayUserInfo();
+            Console.WriteLine(ReturnUserInfoAsString());
             Console.WriteLine("Name: " + FullName);
         }
     }
