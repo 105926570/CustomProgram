@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Drawing;
 using static PayrollSystem.UsefullUniversalCommands;
 
@@ -10,7 +11,7 @@ namespace PayrollSystem
         private List<Department> _departments = new List<Department>();
         private List<Employee> _employees = new List<Employee>();
         private Image _companyLogo;
-        public Color _secondaryColor, _primaryColor, _accentColur;
+        private Color _secondaryColor, _primaryColor, _accentColur; //NOT PUBLIC IN ANY WAY YET!!!!
         private Payroll _payroll;
         private Schedule _companySchedule;
 

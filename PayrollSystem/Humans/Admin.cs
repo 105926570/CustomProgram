@@ -12,6 +12,7 @@
         public int Privliage
         {
             get { return _privliage; }
+            set { _privliage = value; } //Problematic. May not be best idea to change privliage without any other security system in place.
         }
     }
 }

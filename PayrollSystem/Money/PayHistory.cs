@@ -4,7 +4,7 @@ namespace PayrollSystem
 {
     public class PayHistory
     {
-        public List<PayCheck> payChecks = new List<PayCheck> { };
+        private List<PayCheck> _payChecks;
         public PayHistory() { }
         public PayHistory(List<PayCheck> payChecks) //Generate the pay history given there is allready a list of paychecks (likely wont be used)
         {
@@ -13,8 +13,8 @@ namespace PayrollSystem
 
         public List<PayCheck> PayChecks
         {
-            get { return payChecks; }
-            set { payChecks = value; }
+            get { return _payChecks; }
+            set { _payChecks = value; }
         }
     }
 }

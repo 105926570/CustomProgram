@@ -4,7 +4,7 @@ namespace PayrollSystem
 {
     public class Schedule
     {
-        public List<Month> _months;
+        private List<Month> _months;
 
         // Constructor to initialize the Schedule with empty months
 
@@ -16,7 +16,7 @@ namespace PayrollSystem
 
         public Month MonthFromIndex(int index)
         {
-            return _months[index];
+            return Months[index];
         }
     }
 }

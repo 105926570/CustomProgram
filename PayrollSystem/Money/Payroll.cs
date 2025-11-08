@@ -4,8 +4,8 @@ namespace PayrollSystem
 {
     internal class Payroll
     {
-        private List<Employee> _employeesOnPayroll = new List<Employee> { };
-        private List<PayHistory> payHistories = new List<PayHistory> { };
+        private List<Employee> _employeesOnPayroll;
+        private List<PayHistory> _payHistories;
 
         /// <summary>
         /// This is just for generating a payroll. run this with company.Employees as the parameter, and it generates the companies payroll. Upoon the creation of an employee, their PayHistory should be created. an Employees payhistory must be consistently updated with schedule, shift, ect. 
@@ -13,11 +13,23 @@ namespace PayrollSystem
         /// <param name="employees"></param>
         public Payroll(List<Employee> employees)
         {
-            _employeesOnPayroll = employees;
-            foreach (Employee e in _employeesOnPayroll)
+            EmployeesOnPayroll = employees;
+            foreach (Employee emp in EmployeesOnPayroll)
             {
-                payHistories.Add(e.PayHistory);
+                PayHistories.Add(emp.PayHistory);
             }
+        }
+
+        public List<Employee> EmployeesOnPayroll
+            {
+            get { return _employeesOnPayroll; }
+            set { _employeesOnPayroll = value; }
+            }
+
+        public List<PayHistory> PayHistories
+        {
+            get { return _payHistories; }
+            set { _payHistories = value; }
         }
     }
 }

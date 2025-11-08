@@ -6,14 +6,14 @@ namespace PayrollSystem
     public class Week
     {
         private DateTime _startDate, EndDate;
-        public List<Day> _Days; //must have 7 days
+        private List<Day> _days; //must have 7 days
 
         // Constructor to initialize the Week with empty days
 
         public List<Day> Days
         {
-            get { return _Days; }
-            set { _Days = value; }
+            get { return _days; }
+            set { _days = value; }
         }
 
         public Day DayOfWeekFromListIndex(int dayOfWeek) //1 = Monday, 2 = Tuesday, ..., 7 = Sunday
@@ -25,7 +25,7 @@ namespace PayrollSystem
             }
             else
             {
-                return _Days[dayOfWeek];
+                return Days[dayOfWeek];
             }
         }
     }

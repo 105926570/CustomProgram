@@ -6,7 +6,7 @@ namespace PayrollSystem
     public class Day
     {
         //start dateTime, end dateTime
-        public List<TimeFrame> _timeFrames;
+        private List<TimeFrame> _timeFrames;
 
         // Constructor to initialize the Day with empty TimeFrames
 
@@ -21,6 +21,12 @@ namespace PayrollSystem
             {
                 return _timeFrames[index];
             }
+        }
+
+        public List<TimeFrame> TimeFrames
+        {
+            get { return _timeFrames; }
+            set { _timeFrames = value; }
         }
     }
 }

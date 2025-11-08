@@ -10,7 +10,7 @@ namespace PayrollSystem
     {
         //This is where the active employees informaton is stored.
         //Upon login, the user is read, and saved to this variable in the program.
-        public static Employee _activeEmployee;
+        private static Employee _activeEmployee;
         private static bool _isLoggedIn;
         //Root folder where all files are stored
         private static string _rootFolder;
