@@ -14,6 +14,7 @@ namespace PayrollSystem
         private static bool _isLoggedIn;
         //Root folder where all files are stored
         private static string _rootFolder;
+        private static string _roamingDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         //Company loaded in from class. this is to be done at the start of main.
         private static Company _companyLoadedInFromFiles;
 
@@ -22,7 +23,8 @@ namespace PayrollSystem
         /// </summary>
         [STAThread]
         static void Main()
-        { 
+        {
+            _rootFolder = Path.Combine(_roamingDataPath, "CustomProgram");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginScreen());
