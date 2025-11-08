@@ -1,9 +1,5 @@
 ﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Linq.Expressions;
 using System.Windows.Forms;
 
 namespace PayrollSystem
@@ -31,47 +27,112 @@ namespace PayrollSystem
             Application.Run(new LoginScreen());
         }
 
-        #region Properties
 
-        /// <summary>returns weather or not a user is active.</summary>
-        /// <example>if the active user is null [no one is active], false is returned. otherwise it returns true</example>
-        /// <returns>True or false, depending on the presence of a active user.</returns>
+        #region Properties
         public static bool isLoggedIn
         {
             get
             {
-                if (_activeEmployee == null) _isLoggedIn = false;
-                else _isLoggedIn = true;
-                return _isLoggedIn;
+                if (_activeEmployee == null)
+                { _isLoggedIn = false; return _isLoggedIn; }
+                return _isLoggedIn = true;
             }
         }
 
-        /// <returns>
-        /// active employee.
-        /// OUTPUT CAN BE NULL IF NO EMPLOYEE IS LOGGED IN
-        /// </returns>
-        public static Employee activeEmployee
+        public static Employee activeEmployee { get { return _activeEmployee; } }
+        public static string RootFolder { get { return _rootFolder; } }
+        public static Company CompanyLoadedInFromFiles { get { return _companyLoadedInFromFiles; } }
+        #endregion
+
+
+        #region reading and writing
+        /// <summary>Reads a file as a byte. convert to whatever format you need after reading.</summary>
+        /// <returns>Array of bytes that is the contents of tile file.</returns>
+        /// <param name="filePath">The path of the file. eg: <example>"C:\\Folder\\OtherFolder\\file.txt"</example></param>
+        /// <param name="fileData">The output byte. Put here the variable you want to equal to the file.</param>
+        public static void ReadFileContents(string filePath, out byte[] fileData)
         {
-            get
+            fileData = Array.Empty<byte>();
+
+            //Check if filePath input is null
+            if (string.IsNullOrEmpty(filePath)) //then file doesn't exist
             {
-                return _activeEmployee;
+                Console.WriteLine($"file path {filePath} is null or empty"); return;
+            }
+
+            //try reading the file
+            try
+            {
+                string directoryPath = Path.GetDirectoryName(filePath);
+
+                //ensure the directory exists
+                if (!string.IsNullOrWhiteSpace(directoryPath) && !Directory.Exists(directoryPath))//if ( the directory path given is valid... ...and...  the directory does not exist)
+                {
+                    Console.WriteLine($"Directory '{directoryPath}' does not exist. Creating...");
+                    Directory.CreateDirectory(directoryPath);
+                    Console.WriteLine("Directory created successfully.");
+                }
+
+                //ensire the file exists
+                if (!File.Exists(filePath))
+                {
+                    Console.WriteLine($"File '{filePath}' does not exist. Creating empty file...");
+                    using (File.Create(filePath)) { } // safely create & close
+                    Console.WriteLine("File created successfully.");
+                }
+
+                //Read the file contents
+                fileData = File.ReadAllBytes(filePath);
+                Console.WriteLine($"Successfully read {fileData.Length} bytes from file '{filePath}'");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to create directory for file '{filePath}'. Details: {ex.Message}");
+                return;
             }
         }
 
-        /// <returns>Root folder directery as a string</returns>
-        public static string RootFolder
+        /// <summary>Writes data to a given filepath</summary>
+        /// <param name="filePath">The path of the file you wish to write too. eg: <example>"C:\\Folder\\OtherFolder\\file.txt"</example></param>
+        /// <param name="data">The data you wish to be written to the file.</param>
+        public static void WriteDataToFile(string filePath, byte[] data)
         {
-            get { return _rootFolder; }
-        }
+            //Check if filePath input is null
+            if (string.IsNullOrEmpty(filePath)) //then file doesn't exist
+            {
+                Console.WriteLine($"file path {filePath} is null or empty"); return;
+            }
 
-        /// <summary>temp function name</summary>
-        /// <returns>company loaded in from files.</returns>
-        public static Company CompanyLoadedInFromFiles
+            try
+            {
+                string directoryPath = Path.GetDirectoryName(filePath);
+
+                //ensure the directory exists
+                if (!string.IsNullOrWhiteSpace(directoryPath) && !Directory.Exists(directoryPath))//if ( the directory path given is valid... ...and...  the directory does not exist)
+                {
+                    Console.WriteLine($"Directory '{directoryPath}' does not exist. Creating...");
+                    Directory.CreateDirectory(directoryPath);
+                    Console.WriteLine("Directory created successfully.");
+                }
+
+                // Write the data
+                File.WriteAllBytes(filePath, data);
+                Console.WriteLine($"Successfully wrote {data.Length} bytes to file '{filePath}'.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error writing file '{filePath}': {ex.Message}");
+            }
+        }
+        #endregion
+
+        /// <summary>reads the bytes of data, and spits it out as a string.</summary>
+        /// <param name="dataBytes">the data to be converted to a string.</param>
+        /// <returns>string in UTF8 Encoding</returns>
+        public static string BytesToString(byte[] dataBytes)
         {
-            get { return _companyLoadedInFromFiles; }
+            return System.Text.Encoding.UTF8.GetString(dataBytes);
         }
-
-    #endregion
 
         /// <summary>changes active employee to whatever is given</summary>
         /// <param name="privliage">level of priviliage of the executor. must be => 2.</param>
@@ -89,168 +150,6 @@ namespace PayrollSystem
         {
             _activeEmployee = null;
         }
-
-        #region Functions for reading in values into memory
-
-        /// <summary>
-        /// reads in the login file and saves the employees to company.
-        /// </summary>
-        public static void readLoginFile()
-        {
-            CheckFileExistance(_rootFolder, "\\accounts.txt");
-            StreamReader reader = new StreamReader(_rootFolder + "\\accounts.txt");
-
-            //check for an exception with loading the file
-            bool succeed = true;
-            try
-            {
-                if (_companyLoadedInFromFiles.Employees == null)
-                    throw new InvalidOperationException();
-
-                List<Employee> employees = _companyLoadedInFromFiles.Employees; //***
-            }
-            catch(InvalidOperationException ex)
-            {
-                MessageBox.Show($"{ex}\n\nNo employees have been asociated with the company");
-                succeed = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"{ex}\n\nerror");
-                succeed = false;
-            }
-
-
-
-            if (succeed)
-            {
-                try
-                {
-                    List<Employee> employees = _companyLoadedInFromFiles.Employees; //***
-                    int i = File.ReadAllLines(_rootFolder + "\\accounts.txt").Count();
-                    int count = 0;
-
-                    while (i > count)
-                    {
-                        int ID = int.Parse(reader.ReadLine());
-                        string username = reader.ReadLine();
-                        string password = reader.ReadLine();
-                        string firstname = reader.ReadLine();
-                        string lastname = reader.ReadLine();
-
-                        Console.WriteLine($"Read employee with this info: {ID}, {username}, {password}, {firstname} {lastname}");
-
-                        Employee emp = new Employee(ID, username, password, firstname, lastname);
-                        employees.Add(emp); //&&&
-
-                        count += 5;
-                    }
-                }
-                catch (Exception ex) { Console.WriteLine("Error when reading employee file: " + ex); }
-                finally { reader.Close(); }
-                reader.Close();// incase not closed allready
-            }
-            reader.Close();
-        }
-
-        /// <summary>
-        /// overites the employee.txt file with all of the employees provided.
-        /// </summary>
-        /// <param name="EmployeesToBeSaved">the list of the employees that must be saved to the file.</param>
-        public static void saveLoginFile(List<Employee> EmployeesToBeSaved)
-        {
-            CheckFileExistance(_rootFolder, "\\accounts.txt");
-            StreamWriter writer = new StreamWriter(_rootFolder + "\\accounts.txt");
-
-            try
-            {
-                foreach (Employee emp in EmployeesToBeSaved)
-                {
-                    writer.WriteLine(emp.ID);
-                    writer.WriteLine(emp.Username);
-                    writer.WriteLine(emp.Password);
-                    writer.WriteLine(emp.FirstName);
-                    writer.WriteLine(emp.LastName);
-                }
-            }
-            catch (Exception ex) { Console.WriteLine("Error when writing employee file: " + ex); }
-            finally { writer.Close(); }
-            writer.Close(); //incase not closed allready
-        }
-
-        /// <summary>Checks that a file exists</summary>
-        /// <param name="inDirectory">directery the file is in</param>
-        /// <param name="Filename">name of file</param>
-        /// <example>("C:\\Location\\Folder", "fileToCheckTheExistanceOf.txt") *notice that the '.txt' is included...</example>
-        public static void CheckFileExistance(string inDirectory, string Filename)
-        {
-            string fullDirectory = inDirectory + Filename;
-
-            if (!Directory.Exists(inDirectory))
-            {
-                try
-                {
-                    Console.WriteLine($"Directory {inDirectory} does not exist. Creating...");
-                    Directory.CreateDirectory(inDirectory);
-                }
-                catch (Exception ex) { Console.WriteLine($"Failed to create directory: {ex}"); }
-                finally { Console.WriteLine("Done"); }
-
-            }
-            if (!File.Exists(fullDirectory))
-            {
-                try
-                {
-                    Console.WriteLine($"The file {Filename} does not exist in directory {inDirectory} creating it now...");
-                    File.Create(fullDirectory).Dispose();
-                }
-                catch (Exception ex) { Console.WriteLine($"Failed to create file: {ex}"); }
-                finally { Console.WriteLine("Done"); }
-            }
-        }
-        #endregion
-
-        #region encryption functions - initially coppied from ProgramSystem.cs
-        //------------------------------------//
-        // ALL OF THESE FUNCTIONS, AS OF NOW  //
-        //    WERE DIRECTLY COPIED FROM       //
-        // PROGRAM SYSTEM, AND MODIFIED SO    //
-        //    THAT IT IS COMPILEABLE          //
-        //------------------------------------//
-
-
-        /// <summary>Encrypts data</summary>
-        /// <output>does nothing at the moment but write a console line.</output>
-        public static void EncryptData()
-        {
-            // Placeholder for encryption logic
-            Console.WriteLine("Data encrypted using root file path: " + _rootFolder);
-        }
-
-        /// <summary>Decrypts data</summary>
-        /// <output>does nothing at the moment but write a console line.</output>
-        public static void DecryptData()
-        {
-            // Placeholder for decryption logic
-            Console.WriteLine("Data decrypted using root file path: " + _rootFolder);
-        }
-
-        /// <summary>Saves data to a file</summary>
-        /// <output>does nothing at the moment but write a console line.</output>
-        public static void SaveData()
-        {
-            // Placeholder for save logic
-            Console.WriteLine("Data saved to root file path: " + _rootFolder);
-        }
-
-        /// <summary>loads data from a file.</summary>
-        /// <output>does nothing at the moment but write a console line.</output>
-        public static void LoadData()
-        {
-            // Placeholder for load logic
-            Console.WriteLine("Data loaded from root file path: " + _rootFolder);
-        }
-        #endregion 
     }
 }
 
