@@ -47,7 +47,7 @@ namespace PayrollSystem
         private void btnOpenEmployeeForm_Click(object sender, EventArgs e)
         {
             string defaultName = "User";
-            if (txtUser.Text != "") defaultName = txtUser.Text;            
+            if (txtUser.Text != "") defaultName = txtUser.Text;
             new EmployeeForm(defaultName).Show();
             this.Close();
         }

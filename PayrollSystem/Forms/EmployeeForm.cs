@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PayrollSystem.Forms
@@ -46,16 +39,16 @@ namespace PayrollSystem.Forms
         //suposed to view the schedule.
         //this can be done by either openning it in a new window, or displaying it on this window.
         private void btnViewSchedule_Click(object sender, EventArgs e)
-        {       
+        {
             MessageBox.Show(
-                        // Body Text
+                            // Body Text
                             $"{e}\n" +
                             $"{sender}\n" +
                             $"\n" +
                             $"{btnViewSchedule.Name}'s function not yet implimented.\n" +
                             $"this dialoguebox aims to demonstrate that the button works, by having it being shown as a temporary output." +
                             $"Press 'OK' to continue...",
-                        // alt text
+                            // alt text
                             $"Temporary Output for {btnViewSchedule.Text}");
         }
     }
