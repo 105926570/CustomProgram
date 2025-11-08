@@ -93,6 +93,14 @@ namespace PayrollSystem
             }
         }
 
+        /// <summary>reads the bytes of data, and spits it out as a string.</summary>
+        /// <param name="dataBytes">the data to be converted to a string.</param>
+        /// <returns>string in UTF8 Encoding</returns>
+        public static string BytesToString(byte[] dataBytes)
+        {
+            return System.Text.Encoding.UTF8.GetString(dataBytes);
+        }
+
         /// <summary>changes active employee to whatever is given</summary>
         /// <param name="privliage">level of priviliage of the executor. must be => 2.</param>
         /// <param name="newActiveEmployee">the desired employee to become the active employee.</param>
