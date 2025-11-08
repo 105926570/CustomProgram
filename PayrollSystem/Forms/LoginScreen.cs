@@ -12,26 +12,16 @@ namespace PayrollSystem
 
         private void hidePasswordCheck_CheckedChanged(object sender, EventArgs e)
         {
+            passwordInputBox.PasswordChar = '\0';
             if (hidePasswordCheck.Checked == true)
-            {
                 passwordInputBox.PasswordChar = '*';
-            }
-            else
-            {
-                passwordInputBox.PasswordChar = '\0';
-            }
         }
 
         private void hideUserCheck_CheckedChanged(object sender, EventArgs e)
         {
+            usernameInputBox.PasswordChar = '\0';
             if (hideUserCheck.Checked == true)
-            {
                 usernameInputBox.PasswordChar = '*';
-            }
-            else
-            {
-                usernameInputBox.PasswordChar = '\0';
-            }
         }
 
         private void LoginScreen_Load(object sender, EventArgs e)
