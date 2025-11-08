@@ -131,6 +131,16 @@ namespace PayrollSystem
                 Console.WriteLine($"...Directory '{directoryPath}' created successfully.");
             }
         }
+
+        private static void EnsureFileExists(string filePath)
+        {
+            if (!File.Exists(filePath))
+            {
+                Console.WriteLine($"File '{filePath}' does not exist. Creating empty file...");
+                using (File.Create(filePath)) { } // safely create & close
+                Console.WriteLine($"...File '{filePath}' created successfully.");
+            }
+        }
         #endregion
 
         public static string BytesToString(byte[] dataBytes)
