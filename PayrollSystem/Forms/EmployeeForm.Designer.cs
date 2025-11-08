@@ -1,6 +1,6 @@
 ﻿namespace PayrollSystem.Forms
 {
-    partial class Employee
+    partial class EmployeeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,6 +31,7 @@
             this.lblWelcome = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
+            this.btnViewSchedule = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,6 +48,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel1.Controls.Add(this.btnViewSchedule);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Location = new System.Drawing.Point(1006, 12);
             this.panel1.Name = "panel1";
@@ -56,13 +58,24 @@
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.RosyBrown;
-            this.btnClose.Location = new System.Drawing.Point(80, 26);
+            this.btnClose.Location = new System.Drawing.Point(53, 18);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(147, 52);
+            this.btnClose.Size = new System.Drawing.Size(181, 78);
             this.btnClose.TabIndex = 14;
             this.btnClose.Text = "Exit";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnViewSchedule
+            // 
+            this.btnViewSchedule.BackColor = System.Drawing.Color.RosyBrown;
+            this.btnViewSchedule.Location = new System.Drawing.Point(53, 124);
+            this.btnViewSchedule.Name = "btnViewSchedule";
+            this.btnViewSchedule.Size = new System.Drawing.Size(181, 78);
+            this.btnViewSchedule.TabIndex = 15;
+            this.btnViewSchedule.Text = "View My Schedule\r\n";
+            this.btnViewSchedule.UseVisualStyleBackColor = false;
+            this.btnViewSchedule.Click += new System.EventHandler(this.btnViewSchedule_Click);
             // 
             // Employee
             // 
@@ -85,5 +98,6 @@
         private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnViewSchedule;
     }
 }

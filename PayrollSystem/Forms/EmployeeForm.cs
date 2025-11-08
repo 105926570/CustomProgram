@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace PayrollSystem.Forms
 {
-    public partial class Employee : Form
+    public partial class EmployeeForm : Form
     {
         private string _welcomeName = "User";
 
         /// <summary>
         /// Initialise with the default name [User]
         /// </summary>
-        public Employee()
+        public EmployeeForm()
         {
             InitializeComponent();
         }
@@ -26,7 +26,7 @@ namespace PayrollSystem.Forms
         /// Initialise with a given name [User]
         /// </summary>
         /// <param name="name"></param>
-        public Employee(string name) : this() //Users name should be included when the menu is launched from the login.
+        public EmployeeForm(string name) : this() //Users name should be included when the menu is launched from the login.
         {
             _welcomeName = name;
         }
@@ -41,6 +41,13 @@ namespace PayrollSystem.Forms
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        //suposed to view the schedule.
+        //this can be done by either openning it in a new window, or displaying it on this window.
+        private void btnViewSchedule_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
     }
 }
