@@ -7,17 +7,18 @@ namespace PayrollSystem
         private string _FirstName, _LastName;
         private EmployeeTaxInfo _employeeTaxInfo;
         //Department department;
-        //Schedule schedule;
+        private Schedule _schedule;
         private PayHistory _payHistory;
-        //TaxInfo EmployeeTaxInfo;
         private int _privilege; // Privilege level of a regular employee is level 0
-        private bool _isResident;
 
         public Employee() : base() //Constructor with default values
         {
             _FirstName = "Jhon";
             _LastName = "Doe";
+            _employeeTaxInfo = new EmployeeTaxInfo();
+            _payHistory = new PayHistory();
             _privilege = 0;
+            _schedule = new Schedule();
         }
 
         public Employee(string firstName, string lastName) : base() //Constructor with all peramaters given manually
@@ -73,14 +74,9 @@ namespace PayrollSystem
             get { return _privilege; }
         }
 
-        public bool IsResident
-        {
-            get { return _isResident; }
-        }
-
         public void DisplayEmployeeInfo()
         {
-            Console.WriteLine($"Name: {FullName} - ID: {_EmployeeID}");
+            Console.WriteLine($"Name: {FullName} - ID: {ID}");
         }
 
         public void DisplayAllEmployeeInfo()
