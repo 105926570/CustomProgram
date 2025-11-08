@@ -70,7 +70,7 @@ namespace PayrollSystem
                     Console.WriteLine("Directory created successfully.");
                 }
 
-                //ensire the file exists
+                //ensure the file exists
                 if (!File.Exists(filePath))
                 {
                     Console.WriteLine($"File '{filePath}' does not exist. Creating empty file...");
