@@ -118,12 +118,6 @@ namespace PayrollSystem
                 Console.WriteLine($"...File '{filePath}' created successfully.");
             }
         }
-
-        private static void directoryChecker(string directory)
-        {
-            EnsureDirectoryExists(directory);
-            EnsureFileExists(directory);
-        }
         #endregion
 
         public static string BytesToString(byte[] dataBytes)
