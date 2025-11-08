@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PayrollSystem.Forms;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using static PayrollSystem.UsefullUniversalCommands;
@@ -63,6 +64,15 @@ namespace PayrollSystem
                 new Employee(), // 9
                 new Employee(), // 10
             };
+        }
+
+        // Open the form and close self.
+        private void btnOpenEmployeeForm_Click(object sender, EventArgs e)
+        {
+            string defaultName = "User";
+            if (txtUser.Text != "") defaultName = txtUser.Text;            
+            new EmployeeForm(defaultName).Show();
+            this.Close();
         }
     }
 }

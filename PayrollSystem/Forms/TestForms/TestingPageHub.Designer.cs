@@ -32,6 +32,9 @@
             this.cmdTest2 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnOpenEmployeeForm = new System.Windows.Forms.Button();
+            this.txtUser = new System.Windows.Forms.TextBox();
+            this.lblExampleName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnTest1
@@ -73,11 +76,41 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "to see the company created, check documentation";
             // 
+            // btnOpenEmployeeForm
+            // 
+            this.btnOpenEmployeeForm.Location = new System.Drawing.Point(473, 14);
+            this.btnOpenEmployeeForm.Name = "btnOpenEmployeeForm";
+            this.btnOpenEmployeeForm.Size = new System.Drawing.Size(199, 85);
+            this.btnOpenEmployeeForm.TabIndex = 5;
+            this.btnOpenEmployeeForm.Text = "open Employee Form";
+            this.btnOpenEmployeeForm.UseVisualStyleBackColor = true;
+            this.btnOpenEmployeeForm.Click += new System.EventHandler(this.btnOpenEmployeeForm_Click);
+            // 
+            // txtUser
+            // 
+            this.txtUser.Location = new System.Drawing.Point(455, 105);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(208, 31);
+            this.txtUser.TabIndex = 6;
+            this.txtUser.Text = "User";
+            // 
+            // lblExampleName
+            // 
+            this.lblExampleName.AutoSize = true;
+            this.lblExampleName.Location = new System.Drawing.Point(301, 108);
+            this.lblExampleName.Name = "lblExampleName";
+            this.lblExampleName.Size = new System.Drawing.Size(148, 25);
+            this.lblExampleName.TabIndex = 7;
+            this.lblExampleName.Text = "desired name:";
+            // 
             // TestingPageHub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblExampleName);
+            this.Controls.Add(this.txtUser);
+            this.Controls.Add(this.btnOpenEmployeeForm);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.cmdTest2);
@@ -95,5 +128,8 @@
         private System.Windows.Forms.Button cmdTest2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnOpenEmployeeForm;
+        private System.Windows.Forms.TextBox txtUser;
+        private System.Windows.Forms.Label lblExampleName;
     }
 }
