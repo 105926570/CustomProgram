@@ -36,30 +36,15 @@ namespace PayrollSystem
         {
             get
             {
-                if (_activeEmployee == null) _isLoggedIn = false;
-                else _isLoggedIn = true;
-                return _isLoggedIn;
+                if (_activeEmployee == null)
+                { _isLoggedIn = false; return _isLoggedIn; }
+                return _isLoggedIn = true;
             }
         }
 
-        public static Employee activeEmployee
-        {
-            get
-            {
-                return _activeEmployee;
-            }
-        }
-
-        public static string RootFolder
-        {
-            get { return _rootFolder; }
-        }
-
-        public static Company CompanyLoadedInFromFiles
-        {
-            get { return _companyLoadedInFromFiles; }
-        }
-
+        public static Employee activeEmployee { get { return _activeEmployee; } }
+        public static string RootFolder { get { return _rootFolder; } }
+        public static Company CompanyLoadedInFromFiles {  get { return _companyLoadedInFromFiles; } }
     #endregion
 
         /// <summary>changes active employee to whatever is given</summary>
