@@ -60,23 +60,8 @@ namespace PayrollSystem
             //try reading the file
             try
             {
-                string directoryPath = Path.GetDirectoryName(filePath);
-
-                //ensure the directory exists
-                if (!string.IsNullOrWhiteSpace(directoryPath) && !Directory.Exists(directoryPath))//if ( the directory path given is valid... ...and...  the directory does not exist)
-                {
-                    Console.WriteLine($"Directory '{directoryPath}' does not exist. Creating...");
-                    Directory.CreateDirectory(directoryPath);
-                    Console.WriteLine("Directory created successfully.");
-                }
-
-                //ensure the file exists
-                if (!File.Exists(filePath))
-                {
-                    Console.WriteLine($"File '{filePath}' does not exist. Creating empty file...");
-                    using (File.Create(filePath)) { } // safely create & close
-                    Console.WriteLine("File created successfully.");
-                }
+                EnsureDirectoryExists(filePath);
+                EnsureFileExists(filePath);
 
                 //Read the file contents
                 fileData = File.ReadAllBytes(filePath);
@@ -100,15 +85,7 @@ namespace PayrollSystem
 
             try
             {
-                string directoryPath = Path.GetDirectoryName(filePath);
-
-                //ensure the directory exists
-                if (!string.IsNullOrWhiteSpace(directoryPath) && !Directory.Exists(directoryPath))//if ( the directory path given is valid... ...and...  the directory does not exist)
-                {
-                    Console.WriteLine($"Directory '{directoryPath}' does not exist. Creating...");
-                    Directory.CreateDirectory(directoryPath);
-                    Console.WriteLine("Directory created successfully.");
-                }
+                EnsureDirectoryExists(filePath);
 
                 // Write the data
                 File.WriteAllBytes(filePath, data);
