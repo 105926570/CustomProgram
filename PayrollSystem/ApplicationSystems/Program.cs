@@ -195,14 +195,8 @@ namespace PayrollSystem
             Console.WriteLine($"Deserialising json at {filePath} with the contents:\n{File.ReadAllText(filePath)}");
 
             return JsonConvert.DeserializeObject(File.ReadAllText(filePath));
-
-
         }
-
-
     }
-
-
 }
 
 
@@ -212,3 +206,9 @@ namespace PayrollSystem
 ///     AND...
 ///     ANY CODE WITH "// &&&"
 ///     IS CODE THAT WAS AN ERROR AS A RESULT OF VARIABLES BEING DIFFERENT FROM APPLICATIONSYSTEM.CS.
+///     
+/// TODO:
+///     Create a function that searches all of the known company data
+///     generate a random id that is unique and not equal to any number on the list
+///     output the number
+///     
