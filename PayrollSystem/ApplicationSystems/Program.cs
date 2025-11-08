@@ -30,10 +30,11 @@ namespace PayrollSystem
             Application.Run(new LoginScreen());
         }
 
-    #region Properties
+        #region Properties
 
         /// <summary>returns weather or not a user is active.</summary>
-        /// <returns>if the active user is null [no one is active], false is returned. otherwise it returns true.</returns>
+        /// <example>if the active user is null [no one is active], false is returned. otherwise it returns true</example>
+        /// <returns>True or false, depending on the presence of a active user.</returns>
         public static bool isLoggedIn
         {
             get
@@ -45,7 +46,7 @@ namespace PayrollSystem
         }
 
         /// <returns>
-        /// returns active employee.
+        /// active employee.
         /// OUTPUT CAN BE NULL IF NO EMPLOYEE IS LOGGED IN
         /// </returns>
         public static Employee activeEmployee
@@ -56,14 +57,14 @@ namespace PayrollSystem
             }
         }
 
-        /// <returns>Returns the root folder directery as a string</returns>
+        /// <returns>Root folder directery as a string</returns>
         public static string RootFolder
         {
             get { return _rootFolder; }
         }
 
         /// <summary>temp function name</summary>
-        /// <returns>Returns the company loaded in from files.</returns>
+        /// <returns>company loaded in from files.</returns>
         public static Company CompanyLoadedInFromFiles
         {
             get { return _companyLoadedInFromFiles; }
