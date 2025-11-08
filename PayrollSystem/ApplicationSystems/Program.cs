@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -26,6 +27,11 @@ namespace PayrollSystem
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginScreen());
         }
+
+
+        #region Tests - To be deleted at the end of project
+        // tests go here
+        #endregion
 
 
         #region Properties
