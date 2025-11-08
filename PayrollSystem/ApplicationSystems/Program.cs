@@ -1,9 +1,5 @@
 ﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Linq.Expressions;
 using System.Windows.Forms;
 
 namespace PayrollSystem
@@ -45,7 +41,7 @@ namespace PayrollSystem
 
         public static Employee activeEmployee { get { return _activeEmployee; } }
         public static string RootFolder { get { return _rootFolder; } }
-        public static Company CompanyLoadedInFromFiles {  get { return _companyLoadedInFromFiles; } }
+        public static Company CompanyLoadedInFromFiles { get { return _companyLoadedInFromFiles; } }
         #endregion
 
         /// <summary>Reads a file as a byte. convert to whatever format you need after reading.</summary>
@@ -58,7 +54,7 @@ namespace PayrollSystem
 
             //Check if filePath input is null
             if (string.IsNullOrEmpty(filePath)) //then file doesn't exist
-            { 
+            {
                 Console.WriteLine($"file path {filePath} is null or empty"); return;
             }
 
@@ -67,7 +63,7 @@ namespace PayrollSystem
             {
                 string directoryPath = Path.GetDirectoryName(filePath);
 
-            //ensure the directory exists
+                //ensure the directory exists
                 if (!string.IsNullOrWhiteSpace(directoryPath) && !Directory.Exists(directoryPath))//if ( the directory path given is valid... ...and...  the directory does not exist)
                 {
                     Console.WriteLine($"Directory '{directoryPath}' does not exist. Creating...");
@@ -75,7 +71,7 @@ namespace PayrollSystem
                     Console.WriteLine("Directory created successfully.");
                 }
 
-            //ensire the file exists
+                //ensire the file exists
                 if (!File.Exists(filePath))
                 {
                     Console.WriteLine($"File '{filePath}' does not exist. Creating empty file...");
@@ -83,7 +79,7 @@ namespace PayrollSystem
                     Console.WriteLine("File created successfully.");
                 }
 
-            //Read the file contents
+                //Read the file contents
                 fileData = File.ReadAllBytes(filePath);
                 Console.WriteLine($"Successfully read {fileData.Length} bytes from file '{filePath}'");
             }
@@ -109,7 +105,7 @@ namespace PayrollSystem
             {
                 string directoryPath = Path.GetDirectoryName(filePath);
 
-            //ensure the directory exists
+                //ensure the directory exists
                 if (!string.IsNullOrWhiteSpace(directoryPath) && !Directory.Exists(directoryPath))//if ( the directory path given is valid... ...and...  the directory does not exist)
                 {
                     Console.WriteLine($"Directory '{directoryPath}' does not exist. Creating...");
@@ -117,7 +113,7 @@ namespace PayrollSystem
                     Console.WriteLine("Directory created successfully.");
                 }
 
-            // Write the data
+                // Write the data
                 File.WriteAllBytes(filePath, data);
                 Console.WriteLine($"Successfully wrote {data.Length} bytes to file '{filePath}'.");
             }
