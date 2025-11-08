@@ -1,21 +1,1415 @@
 ﻿{
   "Version": 3,
-  "AreNodeDescriptionsVisible": true,
+  "AreNodeDescriptionsVisible": false,
   "ContainerNodes": [
     {
-      "Id": 2,
+      "Id": 27,
       "ZIndex": 0,
       "Name": "PayrollSystem",
       "FullyQualifiedName": "PayrollSystem",
       "Stereotype": "Namespace",
       "ToolTip": "namespace PayrollSystem\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "Position": "-23.7371,56.8811",
-      "Size": "137.6867,73.8",
+      "Position": "350.2695,-1393.2399",
+      "Size": "896.3173,1466.0579",
       "IsPinned": false,
       "Symbols": [
         "{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}"
       ],
       "NamespaceLevel": 1
+    }
+  ],
+  "LeafNodes": [
+    {
+      "Id": 28,
+      "ParentId": 27,
+      "ZIndex": 1,
+      "Name": "EmployeeTaxCalculator",
+      "Stereotype": "Class",
+      "ToolTip": "class PayrollSystem.EmployeeTaxCalculator\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "575.3137,-452.4113",
+      "MemberAreaSize": "145.1533,0",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"NamedType\",\"N\":\"EmployeeTaxCalculator\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}"
+      ],
+      "FullName": "class PayrollSystem.EmployeeTaxCalculator",
+      "Description": "",
+      "IsDescriptionVisible": false,
+      "IsAbstract": false,
+      "IsStatic": false,
+      "Accessibility": "Internal",
+      "Origin": "SourceCode",
+      "IsDisposable": false
+    },
+    {
+      "Id": 29,
+      "ParentId": 27,
+      "ZIndex": 2,
+      "Name": "EmployeeTaxInfo",
+      "Stereotype": "Class",
+      "ToolTip": "class PayrollSystem.EmployeeTaxInfo\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "852.6509,-473.2719",
+      "MemberAreaSize": "132,0",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"NamedType\",\"N\":\"EmployeeTaxInfo\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}"
+      ],
+      "FullName": "class PayrollSystem.EmployeeTaxInfo",
+      "Description": "",
+      "IsDescriptionVisible": false,
+      "IsAbstract": false,
+      "IsStatic": false,
+      "Accessibility": "Public",
+      "Origin": "SourceCode",
+      "IsDisposable": false
+    },
+    {
+      "Id": 30,
+      "ParentId": 27,
+      "ZIndex": 3,
+      "Name": "PayCheck",
+      "Stereotype": "Class",
+      "ToolTip": "class PayrollSystem.PayCheck\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "377.8103,-463.5138",
+      "MemberAreaSize": "132,0",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"NamedType\",\"N\":\"PayCheck\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}"
+      ],
+      "FullName": "class PayrollSystem.PayCheck",
+      "Description": "",
+      "IsDescriptionVisible": false,
+      "IsAbstract": false,
+      "IsStatic": false,
+      "Accessibility": "Public",
+      "Origin": "SourceCode",
+      "IsDisposable": false
+    },
+    {
+      "Id": 31,
+      "ParentId": 27,
+      "ZIndex": 4,
+      "Name": "PayHistory",
+      "Stereotype": "Class",
+      "ToolTip": "class PayrollSystem.PayHistory\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "659.9028,-553.9649",
+      "MemberAreaSize": "132,0",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"NamedType\",\"N\":\"PayHistory\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}"
+      ],
+      "FullName": "class PayrollSystem.PayHistory",
+      "Description": "",
+      "IsDescriptionVisible": false,
+      "IsAbstract": false,
+      "IsStatic": false,
+      "Accessibility": "Public",
+      "Origin": "SourceCode",
+      "IsDisposable": false
+    },
+    {
+      "Id": 32,
+      "ParentId": 27,
+      "ZIndex": 5,
+      "Name": "Payroll",
+      "Stereotype": "Class",
+      "ToolTip": "class PayrollSystem.Payroll\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "923.6228,-398.5463",
+      "MemberAreaSize": "132,0",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"NamedType\",\"N\":\"Payroll\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}"
+      ],
+      "FullName": "class PayrollSystem.Payroll",
+      "Description": "",
+      "IsDescriptionVisible": false,
+      "IsAbstract": false,
+      "IsStatic": false,
+      "Accessibility": "Internal",
+      "Origin": "SourceCode",
+      "IsDisposable": false
+    },
+    {
+      "Id": 37,
+      "ParentId": 27,
+      "ZIndex": 10,
+      "Name": "Admin",
+      "Stereotype": "Class",
+      "ToolTip": "class PayrollSystem.Admin\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "879.2003,-678.5464",
+      "MemberAreaSize": "132,0",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"NamedType\",\"N\":\"Admin\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}"
+      ],
+      "FullName": "class PayrollSystem.Admin",
+      "Description": "",
+      "IsDescriptionVisible": false,
+      "IsAbstract": false,
+      "IsStatic": false,
+      "Accessibility": "Internal",
+      "Origin": "SourceCode",
+      "IsDisposable": false
+    },
+    {
+      "Id": 38,
+      "ParentId": 27,
+      "ZIndex": 11,
+      "Name": "Employee",
+      "Stereotype": "Class",
+      "ToolTip": "class PayrollSystem.Employee\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "958.2605,-778.5464",
+      "MemberAreaSize": "132,0",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"NamedType\",\"N\":\"Employee\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}"
+      ],
+      "FullName": "class PayrollSystem.Employee",
+      "Description": "",
+      "IsDescriptionVisible": false,
+      "IsAbstract": false,
+      "IsStatic": false,
+      "Accessibility": "Public",
+      "Origin": "SourceCode",
+      "IsDisposable": false
+    },
+    {
+      "Id": 39,
+      "ParentId": 27,
+      "ZIndex": 12,
+      "Name": "Manager",
+      "Stereotype": "Class",
+      "ToolTip": "class PayrollSystem.Manager\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "1021.2003,-328.5463",
+      "MemberAreaSize": "132,0",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"NamedType\",\"N\":\"Manager\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}"
+      ],
+      "FullName": "class PayrollSystem.Manager",
+      "Description": "",
+      "IsDescriptionVisible": false,
+      "IsAbstract": false,
+      "IsStatic": false,
+      "Accessibility": "Public",
+      "Origin": "SourceCode",
+      "IsDisposable": false
+    },
+    {
+      "Id": 40,
+      "ParentId": 27,
+      "ZIndex": 13,
+      "Name": "Pronoun",
+      "Stereotype": "Class",
+      "ToolTip": "class PayrollSystem.Pronoun\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "498.2035,-767.8045",
+      "MemberAreaSize": "132,0",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"NamedType\",\"N\":\"Pronoun\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}"
+      ],
+      "FullName": "class PayrollSystem.Pronoun",
+      "Description": "",
+      "IsDescriptionVisible": false,
+      "IsAbstract": false,
+      "IsStatic": false,
+      "Accessibility": "Public",
+      "Origin": "SourceCode",
+      "IsDisposable": false
+    },
+    {
+      "Id": 41,
+      "ParentId": 27,
+      "ZIndex": 14,
+      "Name": "User",
+      "Stereotype": "Class",
+      "ToolTip": "class PayrollSystem.User\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "963.364,-878.5464",
+      "MemberAreaSize": "132,0",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"NamedType\",\"N\":\"User\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}"
+      ],
+      "FullName": "class PayrollSystem.User",
+      "Description": "",
+      "IsDescriptionVisible": false,
+      "IsAbstract": false,
+      "IsStatic": false,
+      "Accessibility": "Public",
+      "Origin": "SourceCode",
+      "IsDisposable": false
+    },
+    {
+      "Id": 53,
+      "ParentId": 27,
+      "ZIndex": 26,
+      "Name": "Day",
+      "Stereotype": "Class",
+      "ToolTip": "class PayrollSystem.Day\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "562.509,-1364.4399",
+      "MemberAreaSize": "132,0",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"NamedType\",\"N\":\"Day\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}"
+      ],
+      "FullName": "class PayrollSystem.Day",
+      "Description": "",
+      "IsDescriptionVisible": false,
+      "IsAbstract": false,
+      "IsStatic": false,
+      "Accessibility": "Public",
+      "Origin": "SourceCode",
+      "IsDisposable": false
+    },
+    {
+      "Id": 54,
+      "ParentId": 27,
+      "ZIndex": 27,
+      "Name": "Month",
+      "Stereotype": "Class",
+      "ToolTip": "class PayrollSystem.Month\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "504.0752,-943.9941",
+      "MemberAreaSize": "132,0",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"NamedType\",\"N\":\"Month\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}"
+      ],
+      "FullName": "class PayrollSystem.Month",
+      "Description": "",
+      "IsDescriptionVisible": false,
+      "IsAbstract": false,
+      "IsStatic": false,
+      "Accessibility": "Public",
+      "Origin": "SourceCode",
+      "IsDisposable": false
+    },
+    {
+      "Id": 55,
+      "ParentId": 27,
+      "ZIndex": 28,
+      "Name": "PayPeriod",
+      "Stereotype": "Class",
+      "ToolTip": "class PayrollSystem.PayPeriod\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "1078.8977,-708.5463",
+      "MemberAreaSize": "132,0",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"NamedType\",\"N\":\"PayPeriod\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}"
+      ],
+      "FullName": "class PayrollSystem.PayPeriod",
+      "Description": "",
+      "IsDescriptionVisible": false,
+      "IsAbstract": false,
+      "IsStatic": false,
+      "Accessibility": "Internal",
+      "Origin": "SourceCode",
+      "IsDisposable": false
+    },
+    {
+      "Id": 56,
+      "ParentId": 27,
+      "ZIndex": 29,
+      "Name": "Schedule",
+      "Stereotype": "Class",
+      "ToolTip": "class PayrollSystem.Schedule\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "714.9589,-787.17",
+      "MemberAreaSize": "132,0",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"NamedType\",\"N\":\"Schedule\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}"
+      ],
+      "FullName": "class PayrollSystem.Schedule",
+      "Description": "",
+      "IsDescriptionVisible": false,
+      "IsAbstract": false,
+      "IsStatic": false,
+      "Accessibility": "Public",
+      "Origin": "SourceCode",
+      "IsDisposable": false
+    },
+    {
+      "Id": 57,
+      "ParentId": 27,
+      "ZIndex": 30,
+      "Name": "TimeFrame",
+      "Stereotype": "Class",
+      "ToolTip": "class PayrollSystem.TimeFrame\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "355.2695,-1364.4399",
+      "MemberAreaSize": "132,0",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"NamedType\",\"N\":\"TimeFrame\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}"
+      ],
+      "FullName": "class PayrollSystem.TimeFrame",
+      "Description": "",
+      "IsDescriptionVisible": false,
+      "IsAbstract": false,
+      "IsStatic": false,
+      "Accessibility": "Public",
+      "Origin": "SourceCode",
+      "IsDisposable": false
+    },
+    {
+      "Id": 58,
+      "ParentId": 27,
+      "ZIndex": 31,
+      "Name": "Week",
+      "Stereotype": "Class",
+      "ToolTip": "class PayrollSystem.Week\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "578.9813,-1176.4672",
+      "MemberAreaSize": "132,0",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"NamedType\",\"N\":\"Week\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}"
+      ],
+      "FullName": "class PayrollSystem.Week",
+      "Description": "",
+      "IsDescriptionVisible": false,
+      "IsAbstract": false,
+      "IsStatic": false,
+      "Accessibility": "Public",
+      "Origin": "SourceCode",
+      "IsDisposable": false
+    },
+    {
+      "Id": 59,
+      "ParentId": 27,
+      "ZIndex": 32,
+      "Name": "WorkedShift",
+      "Stereotype": "Class",
+      "ToolTip": "class PayrollSystem.WorkedShift\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "943.9542,-608.5464",
+      "MemberAreaSize": "132,0",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"NamedType\",\"N\":\"WorkedShift\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}"
+      ],
+      "FullName": "class PayrollSystem.WorkedShift",
+      "Description": "",
+      "IsDescriptionVisible": false,
+      "IsAbstract": false,
+      "IsStatic": false,
+      "Accessibility": "Internal",
+      "Origin": "SourceCode",
+      "IsDisposable": false
+    },
+    {
+      "Id": 72,
+      "ParentId": 27,
+      "ZIndex": 45,
+      "Name": "Program",
+      "Stereotype": "Class",
+      "ToolTip": "class PayrollSystem.Program\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "758.4752,-386.3542",
+      "MemberAreaSize": "132,0",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"NamedType\",\"N\":\"Program\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}"
+      ],
+      "FullName": "class PayrollSystem.Program",
+      "Description": "",
+      "IsDescriptionVisible": false,
+      "IsAbstract": false,
+      "IsStatic": true,
+      "Accessibility": "Internal",
+      "Origin": "SourceCode",
+      "IsDisposable": false
+    },
+    {
+      "Id": 73,
+      "ParentId": 27,
+      "ZIndex": 46,
+      "Name": "UsefullUniversalCommands",
+      "Stereotype": "Class",
+      "ToolTip": "class PayrollSystem.UsefullUniversalCommands\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "1004.8476,-468.5463",
+      "MemberAreaSize": "169.3767,0",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"NamedType\",\"N\":\"UsefullUniversalCommands\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}"
+      ],
+      "FullName": "class PayrollSystem.UsefullUniversalCommands",
+      "Description": "",
+      "IsDescriptionVisible": false,
+      "IsAbstract": false,
+      "IsStatic": true,
+      "Accessibility": "Public",
+      "Origin": "SourceCode",
+      "IsDisposable": false
+    },
+    {
+      "Id": 74,
+      "ParentId": 27,
+      "ZIndex": 47,
+      "Name": "Initialise",
+      "Stereotype": "Class",
+      "ToolTip": "class PayrollSystem.Initialise\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "533.2562,-679.1181",
+      "MemberAreaSize": "132,0",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"NamedType\",\"N\":\"Initialise\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}"
+      ],
+      "FullName": "class PayrollSystem.Initialise",
+      "Description": "",
+      "IsDescriptionVisible": false,
+      "IsAbstract": false,
+      "IsStatic": false,
+      "Accessibility": "Internal",
+      "Origin": "SourceCode",
+      "IsDisposable": false
+    },
+    {
+      "Id": 75,
+      "ParentId": 27,
+      "ZIndex": 48,
+      "Name": "Company",
+      "Stereotype": "Class",
+      "ToolTip": "class PayrollSystem.Company\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "986.3682,-538.5464",
+      "MemberAreaSize": "132,0",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"NamedType\",\"N\":\"Company\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}"
+      ],
+      "FullName": "class PayrollSystem.Company",
+      "Description": "",
+      "IsDescriptionVisible": false,
+      "IsAbstract": false,
+      "IsStatic": false,
+      "Accessibility": "Internal",
+      "Origin": "SourceCode",
+      "IsDisposable": false
+    },
+    {
+      "Id": 76,
+      "ParentId": 27,
+      "ZIndex": 49,
+      "Name": "Department",
+      "Stereotype": "Class",
+      "ToolTip": "class PayrollSystem.Department\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "1109.5868,-638.5463",
+      "MemberAreaSize": "132,0",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"NamedType\",\"N\":\"Department\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}"
+      ],
+      "FullName": "class PayrollSystem.Department",
+      "Description": "",
+      "IsDescriptionVisible": false,
+      "IsAbstract": false,
+      "IsStatic": false,
+      "Accessibility": "Public",
+      "Origin": "SourceCode",
+      "IsDisposable": false
+    }
+  ],
+  "Connectors": [
+    {
+      "Id": 33,
+      "SourceId": 31,
+      "TargetId": 30,
+      "ZIndex": 6,
+      "Stereotype": "Association",
+      "RoutePoints": [
+        [
+          659.90280594858723,
+          -507.80244981940905,
+          true
+        ],
+        [
+          509.81029825027395,
+          -459.6762532184224,
+          true
+        ]
+      ],
+      "IsCreatedFromModelItem": true
+    },
+    {
+      "Id": 35,
+      "SourceId": 32,
+      "TargetId": 31,
+      "ZIndex": 8,
+      "Stereotype": "Association",
+      "RoutePoints": [
+        [
+          947.20188727136463,
+          -398.54629757105067,
+          true
+        ],
+        [
+          768.323717288019,
+          -503.96492504468517,
+          true
+        ]
+      ],
+      "IsCreatedFromModelItem": true
+    },
+    {
+      "Id": 42,
+      "SourceId": 37,
+      "TargetId": 38,
+      "ZIndex": 15,
+      "Stereotype": "Inheritance",
+      "RoutePoints": [
+        [
+          964.96537031996172,
+          -678.54636045321047,
+          true
+        ],
+        [
+          1004.4954658271953,
+          -728.54636045321047,
+          true
+        ]
+      ],
+      "IsCreatedFromModelItem": true
+    },
+    {
+      "Id": 43,
+      "SourceId": 39,
+      "TargetId": 38,
+      "ZIndex": 16,
+      "Stereotype": "Association",
+      "RoutePoints": [
+        [
+          1083.7036670002092,
+          -328.54629757105073,
+          true
+        ],
+        [
+          1027.7571691469479,
+          -728.54636045321047,
+          true
+        ]
+      ],
+      "IsCreatedFromModelItem": true
+    },
+    {
+      "Id": 45,
+      "SourceId": 39,
+      "TargetId": 38,
+      "ZIndex": 18,
+      "Stereotype": "Inheritance",
+      "RoutePoints": [
+        [
+          1083.7036670002092,
+          -328.54629757105073,
+          true
+        ],
+        [
+          1027.7571691469479,
+          -728.54636045321047,
+          true
+        ]
+      ],
+      "IsCreatedFromModelItem": true
+    },
+    {
+      "Id": 46,
+      "SourceId": 38,
+      "TargetId": 41,
+      "ZIndex": 19,
+      "Stereotype": "Inheritance",
+      "RoutePoints": [
+        [
+          1025.5363767612325,
+          -778.54636045321047,
+          true
+        ],
+        [
+          1028.0881031220733,
+          -828.54636045321047,
+          true
+        ]
+      ],
+      "IsCreatedFromModelItem": true
+    },
+    {
+      "Id": 47,
+      "SourceId": 38,
+      "TargetId": 29,
+      "ZIndex": 20,
+      "Stereotype": "Association",
+      "RoutePoints": [
+        [
+          1015.6117686617997,
+          -728.54636045321047,
+          true
+        ],
+        [
+          927.29960649239229,
+          -473.27185820933158,
+          true
+        ]
+      ],
+      "IsCreatedFromModelItem": true
+    },
+    {
+      "Id": 49,
+      "SourceId": 38,
+      "TargetId": 31,
+      "ZIndex": 22,
+      "Stereotype": "Association",
+      "RoutePoints": [
+        [
+          991.04787212967256,
+          -728.54636045321047,
+          true
+        ],
+        [
+          759.1154473997268,
+          -553.96492504468517,
+          true
+        ]
+      ],
+      "IsCreatedFromModelItem": true
+    },
+    {
+      "Id": 51,
+      "SourceId": 32,
+      "TargetId": 38,
+      "ZIndex": 24,
+      "Stereotype": "Association",
+      "RoutePoints": [
+        [
+          991.90159527120363,
+          -398.54629757105067,
+          true
+        ],
+        [
+          1021.9817169204049,
+          -728.54636045321047,
+          true
+        ]
+      ],
+      "IsCreatedFromModelItem": true
+    },
+    {
+      "Id": 60,
+      "SourceId": 53,
+      "TargetId": 57,
+      "ZIndex": 33,
+      "Stereotype": "Association",
+      "RoutePoints": [
+        [
+          562.50902038869674,
+          -1339.4398666472041,
+          true
+        ],
+        [
+          487.2695239055036,
+          -1339.4398666472041,
+          true
+        ]
+      ],
+      "IsCreatedFromModelItem": true
+    },
+    {
+      "Id": 62,
+      "SourceId": 58,
+      "TargetId": 53,
+      "ZIndex": 35,
+      "Stereotype": "Association",
+      "RoutePoints": [
+        [
+          642.79048355825728,
+          -1176.46720788499,
+          true
+        ],
+        [
+          630.69979632590446,
+          -1314.4398666472041,
+          true
+        ]
+      ],
+      "IsCreatedFromModelItem": true
+    },
+    {
+      "Id": 64,
+      "SourceId": 56,
+      "TargetId": 54,
+      "ZIndex": 37,
+      "Stereotype": "Association",
+      "RoutePoints": [
+        [
+          747.34102937187674,
+          -787.16999138305437,
+          true
+        ],
+        [
+          603.69308757193789,
+          -893.99405898363,
+          true
+        ]
+      ],
+      "IsCreatedFromModelItem": true
+    },
+    {
+      "Id": 66,
+      "SourceId": 55,
+      "TargetId": 59,
+      "ZIndex": 39,
+      "Stereotype": "Association",
+      "RoutePoints": [
+        [
+          1111.1617700192974,
+          -658.54629757105079,
+          true
+        ],
+        [
+          1043.6900621268985,
+          -608.54636045321058,
+          true
+        ]
+      ],
+      "IsCreatedFromModelItem": true
+    },
+    {
+      "Id": 68,
+      "SourceId": 38,
+      "TargetId": 56,
+      "ZIndex": 41,
+      "Stereotype": "Association",
+      "RoutePoints": [
+        [
+          958.26051358081213,
+          -755.88567769749613,
+          true
+        ],
+        [
+          846.9589080546682,
+          -759.8306741387687,
+          true
+        ]
+      ],
+      "IsCreatedFromModelItem": true
+    },
+    {
+      "Id": 70,
+      "SourceId": 54,
+      "TargetId": 58,
+      "ZIndex": 43,
+      "Stereotype": "Association",
+      "RoutePoints": [
+        [
+          578.1305532332475,
+          -943.99405898363,
+          true
+        ],
+        [
+          636.92591515136382,
+          -1126.46720788499,
+          true
+        ]
+      ],
+      "IsCreatedFromModelItem": true
+    },
+    {
+      "Id": 77,
+      "SourceId": 72,
+      "TargetId": 38,
+      "ZIndex": 50,
+      "Stereotype": "Association",
+      "RoutePoints": [
+        [
+          837.21032673525735,
+          -386.35415766302611,
+          true
+        ],
+        [
+          1011.5253448174086,
+          -728.54636045321047,
+          true
+        ]
+      ],
+      "IsCreatedFromModelItem": true
+    },
+    {
+      "Id": 79,
+      "SourceId": 72,
+      "TargetId": 75,
+      "ZIndex": 52,
+      "Stereotype": "Association",
+      "RoutePoints": [
+        [
+          861.91023413615937,
+          -386.35415766302611,
+          true
+        ],
+        [
+          1014.9331499301069,
+          -488.54636045321,
+          true
+        ]
+      ],
+      "IsCreatedFromModelItem": true
+    },
+    {
+      "Id": 81,
+      "SourceId": 76,
+      "TargetId": 38,
+      "ZIndex": 54,
+      "Stereotype": "Association",
+      "RoutePoints": [
+        [
+          1148.5642692218548,
+          -638.54629757105079,
+          true
+        ],
+        [
+          1051.2830543789889,
+          -728.54636045321047,
+          true
+        ]
+      ],
+      "IsCreatedFromModelItem": true
+    },
+    {
+      "Id": 83,
+      "SourceId": 76,
+      "TargetId": 39,
+      "ZIndex": 56,
+      "Stereotype": "Association",
+      "RoutePoints": [
+        [
+          1168.458867483444,
+          -588.54629757105079,
+          true
+        ],
+        [
+          1094.3282651029326,
+          -328.54629757105073,
+          true
+        ]
+      ],
+      "IsCreatedFromModelItem": true
+    },
+    {
+      "Id": 85,
+      "SourceId": 75,
+      "TargetId": 76,
+      "ZIndex": 58,
+      "Stereotype": "Association",
+      "RoutePoints": [
+        [
+          1083.1728914464559,
+          -538.54636045321,
+          true
+        ],
+        [
+          1144.7821446679882,
+          -588.54629757105079,
+          true
+        ]
+      ],
+      "IsCreatedFromModelItem": true
+    },
+    {
+      "Id": 87,
+      "SourceId": 75,
+      "TargetId": 38,
+      "ZIndex": 60,
+      "Stereotype": "Association",
+      "RoutePoints": [
+        [
+          1049.4403393742457,
+          -538.54636045321,
+          true
+        ],
+        [
+          1027.1884003009789,
+          -728.54636045321047,
+          true
+        ]
+      ],
+      "IsCreatedFromModelItem": true
+    },
+    {
+      "Id": 89,
+      "SourceId": 75,
+      "TargetId": 32,
+      "ZIndex": 62,
+      "Stereotype": "Association",
+      "RoutePoints": [
+        [
+          1041.1636905049481,
+          -488.54636045321,
+          true
+        ],
+        [
+          1000.8273342002608,
+          -398.54629757105067,
+          true
+        ]
+      ],
+      "IsCreatedFromModelItem": true
+    },
+    {
+      "Id": 91,
+      "SourceId": 75,
+      "TargetId": 56,
+      "ZIndex": 64,
+      "Stereotype": "Association",
+      "RoutePoints": [
+        [
+          1025.0770433310643,
+          -538.54636045321,
+          true
+        ],
+        [
+          808.25009081801647,
+          -737.16999138305437,
+          true
+        ]
+      ],
+      "IsCreatedFromModelItem": true
+    }
+  ],
+  "Labels": [
+    {
+      "Id": 34,
+      "ConnectorId": 33,
+      "ZIndex": 7,
+      "AnchorKind": "End",
+      "AnchorVector": "0,0",
+      "Size": "65.4633,29",
+      "IsPinned": false,
+      "Entries": [
+        {
+          "TextColumn1": "*",
+          "TextColumn2": "payChecks",
+          "Tooltip": "public List<PayCheck> payChecks",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Field\",\"N\":\"payChecks\",\"C\":{\"K\":\"NamedType\",\"N\":\"PayHistory\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        },
+        {
+          "TextColumn1": "*",
+          "TextColumn2": "PayChecks",
+          "Tooltip": "public List<PayCheck> PayChecks { get; set; }",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Property\",\"N\":\"PayChecks\",\"C\":{\"K\":\"NamedType\",\"N\":\"PayHistory\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        }
+      ]
+    },
+    {
+      "Id": 36,
+      "ConnectorId": 35,
+      "ZIndex": 9,
+      "AnchorKind": "End",
+      "AnchorVector": "0,0",
+      "Size": "69.9067,17.5",
+      "IsPinned": false,
+      "Entries": [
+        {
+          "TextColumn1": "*",
+          "TextColumn2": "payHistories",
+          "Tooltip": "private List<PayHistory> payHistories",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Field\",\"N\":\"payHistories\",\"C\":{\"K\":\"NamedType\",\"N\":\"Payroll\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        }
+      ]
+    },
+    {
+      "Id": 44,
+      "ConnectorId": 43,
+      "ZIndex": 17,
+      "AnchorKind": "End",
+      "AnchorVector": "0,0",
+      "Size": "111.6033,29",
+      "IsPinned": false,
+      "Entries": [
+        {
+          "TextColumn1": "*",
+          "TextColumn2": "_managedEmployees",
+          "Tooltip": "private List<Employee> _managedEmployees",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Field\",\"N\":\"_managedEmployees\",\"C\":{\"K\":\"NamedType\",\"N\":\"Manager\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        },
+        {
+          "TextColumn1": "*",
+          "TextColumn2": "ManagedEmployees",
+          "Tooltip": "public List<Employee> ManagedEmployees { get; set; }",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Property\",\"N\":\"ManagedEmployees\",\"C\":{\"K\":\"NamedType\",\"N\":\"Manager\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        }
+      ]
+    },
+    {
+      "Id": 48,
+      "ConnectorId": 47,
+      "ZIndex": 21,
+      "AnchorKind": "End",
+      "AnchorVector": "0,0",
+      "Size": "90.1467,17.5",
+      "IsPinned": false,
+      "Entries": [
+        {
+          "TextColumn1": "",
+          "TextColumn2": "_employeeTaxInfo",
+          "Tooltip": "private EmployeeTaxInfo _employeeTaxInfo",
+          "CanBeHidden": true,
+          "Symbol": "{\"K\":\"Field\",\"N\":\"_employeeTaxInfo\",\"C\":{\"K\":\"NamedType\",\"N\":\"Employee\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        }
+      ]
+    },
+    {
+      "Id": 50,
+      "ConnectorId": 49,
+      "ZIndex": 23,
+      "AnchorKind": "End",
+      "AnchorVector": "0,0",
+      "Size": "61.7933,29",
+      "IsPinned": false,
+      "Entries": [
+        {
+          "TextColumn1": "",
+          "TextColumn2": "_payHistory",
+          "Tooltip": "private PayHistory _payHistory",
+          "CanBeHidden": true,
+          "Symbol": "{\"K\":\"Field\",\"N\":\"_payHistory\",\"C\":{\"K\":\"NamedType\",\"N\":\"Employee\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        },
+        {
+          "TextColumn1": "",
+          "TextColumn2": "PayHistory",
+          "Tooltip": "public PayHistory PayHistory { get; set; }",
+          "CanBeHidden": true,
+          "Symbol": "{\"K\":\"Property\",\"N\":\"PayHistory\",\"C\":{\"K\":\"NamedType\",\"N\":\"Employee\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        }
+      ]
+    },
+    {
+      "Id": 52,
+      "ConnectorId": 51,
+      "ZIndex": 25,
+      "AnchorKind": "End",
+      "AnchorVector": "0,0",
+      "Size": "112.7067,17.5",
+      "IsPinned": false,
+      "Entries": [
+        {
+          "TextColumn1": "*",
+          "TextColumn2": "_employeesOnPayroll",
+          "Tooltip": "private List<Employee> _employeesOnPayroll",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Field\",\"N\":\"_employeesOnPayroll\",\"C\":{\"K\":\"NamedType\",\"N\":\"Payroll\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        }
+      ]
+    },
+    {
+      "Id": 61,
+      "ConnectorId": 60,
+      "ZIndex": 34,
+      "AnchorKind": "End",
+      "AnchorVector": "0,0",
+      "Size": "73.23,17.5",
+      "IsPinned": false,
+      "Entries": [
+        {
+          "TextColumn1": "*",
+          "TextColumn2": "_timeFrames",
+          "Tooltip": "public List<TimeFrame> _timeFrames",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Field\",\"N\":\"_timeFrames\",\"C\":{\"K\":\"NamedType\",\"N\":\"Day\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        }
+      ]
+    },
+    {
+      "Id": 63,
+      "ConnectorId": 62,
+      "ZIndex": 36,
+      "AnchorKind": "End",
+      "AnchorVector": "0,0",
+      "Size": "56,29",
+      "IsPinned": false,
+      "Entries": [
+        {
+          "TextColumn1": "*",
+          "TextColumn2": "_Days",
+          "Tooltip": "public List<Day> _Days",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Field\",\"N\":\"_Days\",\"C\":{\"K\":\"NamedType\",\"N\":\"Week\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        },
+        {
+          "TextColumn1": "*",
+          "TextColumn2": "Days",
+          "Tooltip": "public List<Day> Days { get; set; }",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Property\",\"N\":\"Days\",\"C\":{\"K\":\"NamedType\",\"N\":\"Week\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        }
+      ]
+    },
+    {
+      "Id": 65,
+      "ConnectorId": 64,
+      "ZIndex": 38,
+      "AnchorKind": "End",
+      "AnchorVector": "0,0",
+      "Size": "56,29",
+      "IsPinned": false,
+      "Entries": [
+        {
+          "TextColumn1": "*",
+          "TextColumn2": "_months",
+          "Tooltip": "public List<Month> _months",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Field\",\"N\":\"_months\",\"C\":{\"K\":\"NamedType\",\"N\":\"Schedule\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        },
+        {
+          "TextColumn1": "*",
+          "TextColumn2": "Months",
+          "Tooltip": "public List<Month> Months { get; set; }",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Property\",\"N\":\"Months\",\"C\":{\"K\":\"NamedType\",\"N\":\"Schedule\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        }
+      ]
+    },
+    {
+      "Id": 67,
+      "ConnectorId": 66,
+      "ZIndex": 40,
+      "AnchorKind": "End",
+      "AnchorVector": "0,0",
+      "Size": "77.69,17.5",
+      "IsPinned": false,
+      "Entries": [
+        {
+          "TextColumn1": "*",
+          "TextColumn2": "_workedShifts",
+          "Tooltip": "private List<WorkedShift> _workedShifts",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Field\",\"N\":\"_workedShifts\",\"C\":{\"K\":\"NamedType\",\"N\":\"PayPeriod\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        }
+      ]
+    },
+    {
+      "Id": 69,
+      "ConnectorId": 68,
+      "ZIndex": 42,
+      "AnchorKind": "End",
+      "AnchorVector": "0,0",
+      "Size": "56,17.5",
+      "IsPinned": false,
+      "Entries": [
+        {
+          "TextColumn1": "",
+          "TextColumn2": "_schedule",
+          "Tooltip": "private Schedule _schedule",
+          "CanBeHidden": true,
+          "Symbol": "{\"K\":\"Field\",\"N\":\"_schedule\",\"C\":{\"K\":\"NamedType\",\"N\":\"Employee\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        }
+      ]
+    },
+    {
+      "Id": 71,
+      "ConnectorId": 70,
+      "ZIndex": 44,
+      "AnchorKind": "End",
+      "AnchorVector": "0,0",
+      "Size": "56,29",
+      "IsPinned": false,
+      "Entries": [
+        {
+          "TextColumn1": "*",
+          "TextColumn2": "_weeks",
+          "Tooltip": "public List<Week> _weeks",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Field\",\"N\":\"_weeks\",\"C\":{\"K\":\"NamedType\",\"N\":\"Month\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        },
+        {
+          "TextColumn1": "*",
+          "TextColumn2": "Weeks",
+          "Tooltip": "public List<Week> Weeks { get; set; }",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Property\",\"N\":\"Weeks\",\"C\":{\"K\":\"NamedType\",\"N\":\"Month\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        }
+      ]
+    },
+    {
+      "Id": 78,
+      "ConnectorId": 77,
+      "ZIndex": 51,
+      "AnchorKind": "End",
+      "AnchorVector": "0,0",
+      "Size": "85.1433,29",
+      "IsPinned": false,
+      "Entries": [
+        {
+          "TextColumn1": "",
+          "TextColumn2": "_activeEmployee",
+          "Tooltip": "public static Employee _activeEmployee",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Field\",\"N\":\"_activeEmployee\",\"C\":{\"K\":\"NamedType\",\"N\":\"Program\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        },
+        {
+          "TextColumn1": "",
+          "TextColumn2": "activeEmployee",
+          "Tooltip": "public static Employee activeEmployee { get; }",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Property\",\"N\":\"activeEmployee\",\"C\":{\"K\":\"NamedType\",\"N\":\"Program\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        }
+      ]
+    },
+    {
+      "Id": 80,
+      "ConnectorId": 79,
+      "ZIndex": 53,
+      "AnchorKind": "End",
+      "AnchorVector": "0,0",
+      "Size": "141.2733,29",
+      "IsPinned": false,
+      "Entries": [
+        {
+          "TextColumn1": "",
+          "TextColumn2": "_companyLoadedInFromFiles",
+          "Tooltip": "private static Company _companyLoadedInFromFiles",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Field\",\"N\":\"_companyLoadedInFromFiles\",\"C\":{\"K\":\"NamedType\",\"N\":\"Program\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        },
+        {
+          "TextColumn1": "",
+          "TextColumn2": "CompanyLoadedInFromFiles",
+          "Tooltip": "public static Company CompanyLoadedInFromFiles { get; }",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Property\",\"N\":\"CompanyLoadedInFromFiles\",\"C\":{\"K\":\"NamedType\",\"N\":\"Program\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        }
+      ]
+    },
+    {
+      "Id": 82,
+      "ConnectorId": 81,
+      "ZIndex": 55,
+      "AnchorKind": "End",
+      "AnchorVector": "0,0",
+      "Size": "68.8033,17.5",
+      "IsPinned": false,
+      "Entries": [
+        {
+          "TextColumn1": "*",
+          "TextColumn2": "_employees",
+          "Tooltip": "private List<Employee> _employees",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Field\",\"N\":\"_employees\",\"C\":{\"K\":\"NamedType\",\"N\":\"Department\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        }
+      ]
+    },
+    {
+      "Id": 84,
+      "ConnectorId": 83,
+      "ZIndex": 57,
+      "AnchorKind": "End",
+      "AnchorVector": "0,0",
+      "Size": "64.91,17.5",
+      "IsPinned": false,
+      "Entries": [
+        {
+          "TextColumn1": "*",
+          "TextColumn2": "_managers",
+          "Tooltip": "private List<Manager> _managers",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Field\",\"N\":\"_managers\",\"C\":{\"K\":\"NamedType\",\"N\":\"Department\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        }
+      ]
+    },
+    {
+      "Id": 86,
+      "ConnectorId": 85,
+      "ZIndex": 59,
+      "AnchorKind": "End",
+      "AnchorVector": "0,0",
+      "Size": "76.0233,29",
+      "IsPinned": false,
+      "Entries": [
+        {
+          "TextColumn1": "*",
+          "TextColumn2": "_departments",
+          "Tooltip": "private List<Department> _departments",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Field\",\"N\":\"_departments\",\"C\":{\"K\":\"NamedType\",\"N\":\"Company\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        },
+        {
+          "TextColumn1": "*",
+          "TextColumn2": "Departments",
+          "Tooltip": "public List<Department> Departments { get; set; }",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Property\",\"N\":\"Departments\",\"C\":{\"K\":\"NamedType\",\"N\":\"Company\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        }
+      ]
+    },
+    {
+      "Id": 88,
+      "ConnectorId": 87,
+      "ZIndex": 61,
+      "AnchorKind": "End",
+      "AnchorVector": "0,0",
+      "Size": "68.8033,29",
+      "IsPinned": false,
+      "Entries": [
+        {
+          "TextColumn1": "*",
+          "TextColumn2": "_employees",
+          "Tooltip": "private List<Employee> _employees",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Field\",\"N\":\"_employees\",\"C\":{\"K\":\"NamedType\",\"N\":\"Company\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        },
+        {
+          "TextColumn1": "*",
+          "TextColumn2": "Employees",
+          "Tooltip": "public List<Employee> Employees { get; set; }",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Property\",\"N\":\"Employees\",\"C\":{\"K\":\"NamedType\",\"N\":\"Company\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        }
+      ]
+    },
+    {
+      "Id": 90,
+      "ConnectorId": 89,
+      "ZIndex": 63,
+      "AnchorKind": "End",
+      "AnchorVector": "0,0",
+      "Size": "82.36,29",
+      "IsPinned": false,
+      "Entries": [
+        {
+          "TextColumn1": "",
+          "TextColumn2": "_payroll",
+          "Tooltip": "private Payroll _payroll",
+          "CanBeHidden": true,
+          "Symbol": "{\"K\":\"Field\",\"N\":\"_payroll\",\"C\":{\"K\":\"NamedType\",\"N\":\"Company\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        },
+        {
+          "TextColumn1": "",
+          "TextColumn2": "CompanyPayroll",
+          "Tooltip": "public Payroll CompanyPayroll { get; set; }",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Property\",\"N\":\"CompanyPayroll\",\"C\":{\"K\":\"NamedType\",\"N\":\"Company\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        }
+      ]
+    },
+    {
+      "Id": 92,
+      "ConnectorId": 91,
+      "ZIndex": 65,
+      "AnchorKind": "End",
+      "AnchorVector": "0,0",
+      "Size": "96.8233,29",
+      "IsPinned": false,
+      "Entries": [
+        {
+          "TextColumn1": "",
+          "TextColumn2": "_companySchedule",
+          "Tooltip": "private Schedule _companySchedule",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Field\",\"N\":\"_companySchedule\",\"C\":{\"K\":\"NamedType\",\"N\":\"Company\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        },
+        {
+          "TextColumn1": "",
+          "TextColumn2": "CompanySchedule",
+          "Tooltip": "public Schedule CompanySchedule { get; set; }",
+          "CanBeHidden": false,
+          "Symbol": "{\"K\":\"Property\",\"N\":\"CompanySchedule\",\"C\":{\"K\":\"NamedType\",\"N\":\"Company\",\"C\":{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}}}"
+        }
+      ]
     }
   ]
 }
