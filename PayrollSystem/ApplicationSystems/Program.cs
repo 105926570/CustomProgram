@@ -182,6 +182,31 @@ namespace PayrollSystem
             System.Console.WriteLine($"created serialised json {Path.GetFileName(filePath)}");
         }
 
+        public static Object ReadJsonObjectFromFile(string filePath)
+        {
+            string directoryPath = Path.GetDirectoryName(filePath);
+
+            if (!string.IsNullOrWhiteSpace(directoryPath) && !Directory.Exists(directoryPath))//if ( the directory path given is valid... ...and...  the directory does not exist)
+            {
+                Console.WriteLine($"Directory '{directoryPath}' does not exist. Creating...");
+                Directory.CreateDirectory(directoryPath);
+                Console.WriteLine("... Directory created");
+            }
+
+            if (!File.Exists(filePath))
+            {
+                Console.WriteLine($"File '{filePath}' does not exist. Creating empty file...");
+                using (File.Create(filePath)) { } // safely create & close
+                Console.WriteLine("...File created");
+            }
+
+            Console.WriteLine($"Deserialising json at {filePath} with the contents:\n{File.ReadAllText(filePath)}");
+            
+            return JsonConvert.DeserializeObject(File.ReadAllText(filePath));
+
+
+        }
+
 
     }
 
