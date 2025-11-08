@@ -2,7 +2,7 @@
 
 namespace PayrollSystem
 {
-    public class EmployeeTaxCalculator
+    internal class EmployeeTaxCalculator
     {
 
         private readonly double[] bracketStarts = new double[] { 0, 18200, 45000, 135000, 190000 }; //if above, then the index of that number is the tax bracket

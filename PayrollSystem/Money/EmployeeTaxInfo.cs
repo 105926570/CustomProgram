@@ -2,12 +2,12 @@
 
 namespace PayrollSystem
 {
-    public class EmployeeTaxInfo : EmployeeTaxCalculator
+    public class EmployeeTaxInfo
     {
         private EmployeeTaxCalculator _taxCalculator;
         private int _tfn;
 
-        public EmployeeTaxInfo(float yearlyIncome) : base(yearlyIncome)
+        public EmployeeTaxInfo(float yearlyIncome)
         { }
 
         public int TFN
