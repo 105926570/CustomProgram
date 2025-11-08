@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnClose = new System.Windows.Forms.Button();
             this.btnViewSchedule = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.errProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // lblWelcome
@@ -55,17 +58,6 @@
             this.panel1.Size = new System.Drawing.Size(286, 629);
             this.panel1.TabIndex = 1;
             // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.RosyBrown;
-            this.btnClose.Location = new System.Drawing.Point(53, 18);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(181, 78);
-            this.btnClose.TabIndex = 14;
-            this.btnClose.Text = "Exit";
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // btnViewSchedule
             // 
             this.btnViewSchedule.BackColor = System.Drawing.Color.RosyBrown;
@@ -77,17 +69,33 @@
             this.btnViewSchedule.UseVisualStyleBackColor = false;
             this.btnViewSchedule.Click += new System.EventHandler(this.btnViewSchedule_Click);
             // 
-            // Employee
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.RosyBrown;
+            this.btnClose.Location = new System.Drawing.Point(53, 18);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(181, 78);
+            this.btnClose.TabIndex = 14;
+            this.btnClose.Text = "Exit";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // errProvider
+            // 
+            this.errProvider.ContainerControl = this;
+            // 
+            // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1304, 666);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblWelcome);
-            this.Name = "Employee";
+            this.Name = "EmployeeForm";
             this.Text = "Employee";
             this.Load += new System.EventHandler(this.Employee_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -99,5 +107,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnViewSchedule;
+        private System.Windows.Forms.ErrorProvider errProvider;
     }
 }

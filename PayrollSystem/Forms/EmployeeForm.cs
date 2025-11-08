@@ -46,8 +46,17 @@ namespace PayrollSystem.Forms
         //suposed to view the schedule.
         //this can be done by either openning it in a new window, or displaying it on this window.
         private void btnViewSchedule_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
+        {       
+            MessageBox.Show(
+                        // Body Text
+                            $"{e}\n" +
+                            $"{sender}\n" +
+                            $"\n" +
+                            $"{btnViewSchedule.Name}'s function not yet implimented.\n" +
+                            $"this dialoguebox aims to demonstrate that the button works, by having it being shown as a temporary output." +
+                            $"Press 'OK' to continue...",
+                        // alt text
+                            $"Temporary Output for {btnViewSchedule.Text}");
         }
     }
 }
