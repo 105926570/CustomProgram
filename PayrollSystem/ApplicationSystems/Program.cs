@@ -30,6 +30,8 @@ namespace PayrollSystem
             Application.Run(new LoginScreen());
         }
 
+    #region Properties
+
         /// <summary>returns weather or not a user is active.</summary>
         /// <returns>if the active user is null [no one is active], false is returned. otherwise it returns true.</returns>
         public static bool isLoggedIn
@@ -66,6 +68,8 @@ namespace PayrollSystem
         {
             get { return _companyLoadedInFromFiles; }
         }
+
+    #endregion
 
         /// <summary>changes active employee to whatever is given</summary>
         /// <param name="privliage">level of priviliage of the executor. must be => 2.</param>
