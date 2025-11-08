@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace PayrollSystem
 {
@@ -14,10 +10,10 @@ namespace PayrollSystem
 
         public List<Month> Months
         {
-            get { return _months; } 
+            get { return _months; }
             set { _months = value; }
         }
-        
+
         public Month MonthFromIndex(int index)
         {
             return _months[index];

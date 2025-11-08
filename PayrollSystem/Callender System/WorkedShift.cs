@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PayrollSystem.CallenderSystem
 {
@@ -16,7 +12,7 @@ namespace PayrollSystem.CallenderSystem
         private bool _isPublicHoliday;
         private bool _isWeekend;
 
-#region Constructors
+        #region Constructors
         //Default constructor
         public WorkedShift()
         {
@@ -29,7 +25,7 @@ namespace PayrollSystem.CallenderSystem
         }
 
 
-    #region Hours worked Not Given
+        #region Hours worked Not Given
         // Hours Not Worked Constructors
         public WorkedShift(DateTime start, float baseRate) : base()
         {
@@ -49,12 +45,12 @@ namespace PayrollSystem.CallenderSystem
             _endDateTime = end;
             _hoursWorked = end.CompareTo(start);
         }
-    #endregion
+        #endregion
 
 
-    #region Hours worked is given
+        #region Hours worked is given
         // Hours Worked Constructors
-        public WorkedShift(DateTime start, float baseRate, float hoursWorked) :base() 
+        public WorkedShift(DateTime start, float baseRate, float hoursWorked) : base()
         {
             _startDateTime = start;
             _baseRate = baseRate;
@@ -68,10 +64,10 @@ namespace PayrollSystem.CallenderSystem
             _isTraining = training;
         }
 
-    #endregion
-#endregion
+        #endregion
+        #endregion
 
-#region Properties
+        #region Properties
         //Properties of a shift that an employee may want to know
         public DateTime startDateTime { get { return _startDateTime; } }
         public DateTime endDateTime { get { return _endDateTime; } }
@@ -84,11 +80,11 @@ namespace PayrollSystem.CallenderSystem
         private float casualBonus { get { return this.baseEarnings * 0.25f; } }
         private float trainingBonus { get { return this.baseEarnings * 0.25f; } }
         private float weekendBonus { get { return this.baseEarnings * 0.25f; } }
-        private float publicHolidayBonus { get { return this.baseEarnings * 0.25f;  } }
+        private float publicHolidayBonus { get { return this.baseEarnings * 0.25f; } }
 
         public float Earnings
         {
-            get 
+            get
             {
                 float earnings = this.baseEarnings;
                 if (_isCasual == true) earnings += this.casualBonus;
@@ -98,8 +94,8 @@ namespace PayrollSystem.CallenderSystem
                 return earnings;
             }
         }
-    #endregion
-#endregion
+        #endregion
+        #endregion
     }
 }
 

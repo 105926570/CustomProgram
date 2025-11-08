@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
 
 namespace PayrollSystem
 {
@@ -15,10 +11,10 @@ namespace PayrollSystem
         private List<Employee> employees = new List<Employee> { };
 
         public ApplicationSystem() //Default Constructor
-            { _rootFolder = "C:\\PayrollSystem"; }
+        { _rootFolder = "C:\\PayrollSystem"; }
 
         public ApplicationSystem(string rootFolder) //Constructor given a directory
-            { _rootFolder = rootFolder; }
+        { _rootFolder = rootFolder; }
 
         public void readLoginFile()
         {
@@ -31,7 +27,7 @@ namespace PayrollSystem
                 int i = File.ReadAllLines(_rootFolder + "\\accounts.txt").Count();
                 int count = 0;
 
-                while (i > count) 
+                while (i > count)
                 {
                     int ID = int.Parse(reader.ReadLine());
                     string username = reader.ReadLine();
@@ -86,7 +82,7 @@ namespace PayrollSystem
                 }
                 catch (Exception ex) { Console.WriteLine($"Failed to create directory: {ex}"); }
                 finally { Console.WriteLine("Done"); }
-                
+
             }
             if (!File.Exists(fullDirectory))
             {

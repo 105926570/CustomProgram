@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace PayrollSystem
 {
@@ -26,7 +20,7 @@ namespace PayrollSystem
             _privilege = 0;
         }
 
-        public Employee(string firstName, string lastName) :base() //Constructor with all peramaters given manually
+        public Employee(string firstName, string lastName) : base() //Constructor with all peramaters given manually
         {
             _FirstName = firstName;
             _LastName = lastName;

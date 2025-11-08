@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing.Text;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PayrollSystem
 {
@@ -41,7 +37,7 @@ namespace PayrollSystem
         /// </summary>
         public static int GenerateRandomNumberGivenSeed(int highestNumber, int seed)
         {
-            return new Random(seed).Next(0, highestNumber); 
+            return new Random(seed).Next(0, highestNumber);
         }
 
         /// <summary>
@@ -49,8 +45,8 @@ namespace PayrollSystem
         /// witch are between 0 and the specified highest number using the provided seed,
         /// as an array of integers.
         /// </summary>
-        public static List<int> GenerateANumberOfUniqueNumbers(int highestNumber, int desiredNumberOfNumbers) 
-        { 
+        public static List<int> GenerateANumberOfUniqueNumbers(int highestNumber, int desiredNumberOfNumbers)
+        {
             List<int> generatedNumbers = new List<int>();
             int numberCreated = 0;
             int generatedRandomNumber;
@@ -68,7 +64,8 @@ namespace PayrollSystem
                     generatedNumbers.Add(generatedRandomNumber);
                     numberCreated++;
                 }
-            } return generatedNumbers;
+            }
+            return generatedNumbers;
         }
         #endregion
     }

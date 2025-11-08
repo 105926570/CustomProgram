@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static PayrollSystem.UsefullUniversalCommands;
 
 namespace PayrollSystem
@@ -71,7 +67,7 @@ namespace PayrollSystem
         {
             get { return _companySchedule; }
             set { _companySchedule = value; }
-        }   
+        }
 
         public void CreateEmployee(Employee emp) //This should be the only way to add and create employees
         {
@@ -80,9 +76,9 @@ namespace PayrollSystem
             int randomID = GenerateRandomNumber(9999999);
             foreach (Employee e in _employees)
             {
-                if(e.ID == emp.ID)
+                if (e.ID == emp.ID)
                 {
-                   matchingId = true;
+                    matchingId = true;
                 }
             }
 

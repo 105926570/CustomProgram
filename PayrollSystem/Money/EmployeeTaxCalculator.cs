@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows.Forms;
 
 namespace PayrollSystem
 {
@@ -27,7 +26,7 @@ namespace PayrollSystem
             if (_isResident == true) //is resident
                 return CalcResident(yearlyIncome, taxBracket);
             else // not resident
-                return CalcNonResident(yearlyIncome, taxBracket);           
+                return CalcNonResident(yearlyIncome, taxBracket);
         }
 
         public double AmountToBeTaxedAtEndOfYearRounded(double yearlyIncome) //This is the function run when generating tax.
@@ -57,7 +56,7 @@ namespace PayrollSystem
             double remainder = yearlyIncome - bracketStarts[taxBracket];
 
             switch (taxBracket)
-            {   
+            {
                 case 1:
                     return remainder * taxPercentages[taxBracket];
 

@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace PayrollSystem
 {
@@ -15,10 +10,10 @@ namespace PayrollSystem
         public EmployeeTaxInfo(float yearlyIncome) : base(yearlyIncome)
         { }
 
-        public int TFN 
+        public int TFN
         {
-            get { return _tfn; } 
-            set 
+            get { return _tfn; }
+            set
             {
                 int i = 0;
                 while (value > 0)
@@ -31,7 +26,7 @@ namespace PayrollSystem
                 {
                     throw new ArgumentOutOfRangeException("Error: TFN does not have 9 digits in it.");
                 }
-                _tfn = value;                
+                _tfn = value;
             }
         }
 
