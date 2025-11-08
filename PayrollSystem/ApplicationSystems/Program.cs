@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using System.Xml;
-using Newtonsoft.Json;
 
 namespace PayrollSystem
 {
@@ -24,9 +25,25 @@ namespace PayrollSystem
         static void Main()
         {
             _rootFolder = "C:\\CustomProgram";
+            jsonTesting();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginScreen());
+        }
+
+
+        private static void jsonTesting()
+        {
+            Console.WriteLine("Starting Test 1");
+
+            CreateJsonFromObjet(new User(), _rootFolder + "\\jsons\\testUserJson.json");
+            CreateJsonFromObjet(new Employee(), _rootFolder + "\\jsons\\testEmployeeJson.json");
+            Employee test1 = new Employee(124, "username123", "password123", "foist noim", "loist naime");
+            Employee test2 = new Employee(187343, "asfasdfasdf", "asdfasdf", "foist sadfasdf", "loist asdfasdf");
+            List<Employee> h = new List<Employee> { test1, test2 };
+            Company company = new Company() { Name = "the big company lol", Employees = h };
+            Console.WriteLine("Now... The big boy test...");
+            CreateJsonFromObjet(company, _rootFolder + "\\jsons\\BigBoyTest.json");
         }
 
 
