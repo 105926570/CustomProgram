@@ -36,5 +36,11 @@ namespace PayrollSystem.Forms
         {
             lblWelcome.Text = $"Welcome {_welcomeName}";
         }
+
+        // Suposed to close the window, and "sign out" of the active user.
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

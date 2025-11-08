@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.lblWelcome = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblWelcome
@@ -41,15 +44,37 @@
             this.lblWelcome.TabIndex = 0;
             this.lblWelcome.Text = "Welcome  User";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel1.Controls.Add(this.btnClose);
+            this.panel1.Location = new System.Drawing.Point(1006, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(286, 629);
+            this.panel1.TabIndex = 1;
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.RosyBrown;
+            this.btnClose.Location = new System.Drawing.Point(80, 26);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(147, 52);
+            this.btnClose.TabIndex = 14;
+            this.btnClose.Text = "Exit";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // Employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1304, 666);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblWelcome);
             this.Name = "Employee";
             this.Text = "Employee";
             this.Load += new System.EventHandler(this.Employee_Load);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -58,5 +83,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblWelcome;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnClose;
     }
 }
