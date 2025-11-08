@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PayrollSystem.CallenderSystem
+namespace PayrollSystem
 {
     internal class WorkedShift
     {

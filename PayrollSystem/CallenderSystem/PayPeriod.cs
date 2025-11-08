@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PayrollSystem.CallenderSystem
+namespace PayrollSystem
 {
     internal class PayPeriod
     {
