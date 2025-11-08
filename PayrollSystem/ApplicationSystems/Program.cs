@@ -1,7 +1,9 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Windows.Forms;
 
 namespace PayrollSystem
@@ -14,7 +16,6 @@ namespace PayrollSystem
         private static bool _isLoggedIn;
         //Root folder where all files are stored
         private static string _rootFolder;
-        private static string _roamingDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         //Company loaded in from class. this is to be done at the start of main.
         private static Company _companyLoadedInFromFiles;
 
@@ -24,7 +25,7 @@ namespace PayrollSystem
         [STAThread]
         static void Main()
         {
-            _rootFolder = Path.Combine(_roamingDataPath, "CustomProgram");
+            _rootFolder = "C:\\CustomProgram";
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginScreen());
@@ -99,31 +100,57 @@ namespace PayrollSystem
             CheckFileExistance(_rootFolder, "\\accounts.txt");
             StreamReader reader = new StreamReader(_rootFolder + "\\accounts.txt");
 
-            List<Employee> employees = _companyLoadedInFromFiles.Employees; //***
+            //check for an exception with loading the file
+            bool succeed = true;
             try
             {
-                int i = File.ReadAllLines(_rootFolder + "\\accounts.txt").Count();
-                int count = 0;
+                if (_companyLoadedInFromFiles.Employees == null)
+                    throw new InvalidOperationException();
 
-                while (i > count)
-                {
-                    int ID = int.Parse(reader.ReadLine());
-                    string username = reader.ReadLine();
-                    string password = reader.ReadLine();
-                    string firstname = reader.ReadLine();
-                    string lastname = reader.ReadLine();
-
-                    Console.WriteLine($"Read employee with this info: {ID}, {username}, {password}, {firstname} {lastname}");
-
-                    Employee emp = new Employee(ID, username, password, firstname, lastname);
-                    employees.Add(emp); //&&&
-
-                    count += 5;
-                }
+                List<Employee> employees = _companyLoadedInFromFiles.Employees; //***
             }
-            catch (Exception ex) { Console.WriteLine("Error when reading employee file: " + ex); }
-            finally { reader.Close(); }
-            reader.Close();// incase not closed allready
+            catch(InvalidOperationException ex)
+            {
+                MessageBox.Show($"{ex}\n\nNo employees have been asociated with the company");
+                succeed = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex}\n\nerror");
+                succeed = false;
+            }
+
+
+
+            if (succeed)
+            {
+                try
+                {
+                    List<Employee> employees = _companyLoadedInFromFiles.Employees; //***
+                    int i = File.ReadAllLines(_rootFolder + "\\accounts.txt").Count();
+                    int count = 0;
+
+                    while (i > count)
+                    {
+                        int ID = int.Parse(reader.ReadLine());
+                        string username = reader.ReadLine();
+                        string password = reader.ReadLine();
+                        string firstname = reader.ReadLine();
+                        string lastname = reader.ReadLine();
+
+                        Console.WriteLine($"Read employee with this info: {ID}, {username}, {password}, {firstname} {lastname}");
+
+                        Employee emp = new Employee(ID, username, password, firstname, lastname);
+                        employees.Add(emp); //&&&
+
+                        count += 5;
+                    }
+                }
+                catch (Exception ex) { Console.WriteLine("Error when reading employee file: " + ex); }
+                finally { reader.Close(); }
+                reader.Close();// incase not closed allready
+            }
+            reader.Close();
         }
 
         /// <summary>
