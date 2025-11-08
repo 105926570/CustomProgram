@@ -163,6 +163,38 @@ namespace PayrollSystem
             }
         }
         #endregion
+
+        #region encryption functions - initially coppied from ProgramSystem.cs
+        //------------------------------------//
+        // ALL OF THESE FUNCTIONS, AS OF NOW  //
+        //    WERE DIRECTLY COPIED FROM       //
+        // PROGRAM SYSTEM, AND MODIFIED SO    //
+        //    THAT IT IS COMPILEABLE          //
+        //------------------------------------//
+        public static void EncryptData()
+        {
+            // Placeholder for encryption logic
+            Console.WriteLine("Data encrypted using root file path: " + _rootFolder);
+        }
+
+        public static void DecryptData()
+        {
+            // Placeholder for decryption logic
+            Console.WriteLine("Data decrypted using root file path: " + _rootFolder);
+        }
+
+        public static void SaveData()
+        {
+            // Placeholder for save logic
+            Console.WriteLine("Data saved to root file path: " + _rootFolder);
+        }
+
+        public static void LoadData()
+        {
+            // Placeholder for load logic
+            Console.WriteLine("Data loaded from root file path: " + _rootFolder);
+        }
+        #endregion 
     }
 }
 
