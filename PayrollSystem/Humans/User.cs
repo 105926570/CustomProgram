@@ -21,6 +21,11 @@ namespace PayrollSystem
             Password = password;
         }
 
+        public User(string username, string password, string email) 
+        {
+            //make this please
+        }
+
         public User(string username) : this()
         {
             Username = username;
