@@ -46,7 +46,9 @@ namespace PayrollSystem
 
 
         #region reading and writing
-        /// <summary>Reads a file as a byte. convert to whatever format you need after reading.</summary>
+        /// <summary>Reads a file as a byte. convert to whatever format you need after reading.
+        /// Checks if the directery exists and creates it if it doesnt.
+        /// Checks if the file being read exists, and creates it if it doesn't.</summary>
         /// <returns>Array of bytes that is the contents of tile file.</returns>
         /// <param name="filePath">The path of the file. eg: <example>"C:\\Folder\\OtherFolder\\file.txt"</example></param>
         /// <param name="fileData">The output byte. Put here the variable you want to equal to the file.</param>
@@ -92,7 +94,9 @@ namespace PayrollSystem
             }
         }
 
-        /// <summary>Writes data to a given filepath</summary>
+        /// <summary>Writes data to a given filepath.
+        /// Checks if the directery exists and creates it if it doesnt.
+        /// Checks if the file being written to exists, and creates it if it doesn't.</summary>
         /// <param name="filePath">The path of the file you wish to write too. eg: <example>"C:\\Folder\\OtherFolder\\file.txt"</example></param>
         /// <param name="data">The data you wish to be written to the file.</param>
         public static void WriteDataToFile(string filePath, byte[] data)
