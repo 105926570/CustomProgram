@@ -23,5 +23,13 @@ namespace PayrollSystem
         public static Employee activeEmployee
             { get { return _activeEmployee; } }
             
+        public static void ChangeActiveEmployee(int privliage, Employee newActiveEmployee)
+        {
+            if (privliage >= 2) _activeEmployee = newActiveEmployee;
+            else MessageBox.Show("Privliage isnt high enought. Active Employee not changing...");
+        }
+
+        public static void RemoveActiveEmployee()
+            { _activeEmployee = null; }
     }
 }
