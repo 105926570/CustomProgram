@@ -64,10 +64,16 @@ namespace PayrollSystem
 
         public void DisplayUserInfo()
         {
-            Console.WriteLine("Employee ID: " + _EmployeeID);
-            Console.WriteLine("Username: " + _Username);
-            Console.WriteLine("Password: " + _Password);
-            Console.WriteLine("Email: " + _email);
+            Console.WriteLine("Displaying user info:");
+            Console.WriteLine(CreateUserInfo());
+        }
+
+        private string CreateUserInfo()
+        {
+            return $"Employee ID: {_EmployeeID}\n" +
+                   $"Username: {_Username}\n" +
+                   $"Password: {_Password}\n" +
+                   $"Email: {_email}";
         }
     }
 }
