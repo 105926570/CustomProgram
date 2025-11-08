@@ -12,7 +12,6 @@ namespace PayrollSystem
     {
         public string _Username, _Password, _email;
         public int _EmployeeID;
-        public DateTime datetime = DateTime.Now;
 
         public User()
         {
