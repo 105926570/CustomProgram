@@ -62,30 +62,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin.cs" />
-    <Compile Include="Forms\AdminDebug.cs">
+    <Compile Include="Humans\Admin.cs" />
+    <Compile Include="Forms\TestForms\AdminDebug.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AdminDebug.Designer.cs">
+    <Compile Include="Forms\TestForms\AdminDebug.Designer.cs">
       <DependentUpon>AdminDebug.cs</DependentUpon>
     </Compile>
-    <Compile Include="ApplicationSystem.cs" />
+    <Compile Include="ApplicationSystems\ApplicationSystem.cs" />
     <Compile Include="Company.cs" />
     <Compile Include="Callender System\Day.cs" />
     <Compile Include="Department.cs" />
-    <Compile Include="Employee.cs" />
-    <Compile Include="Forms\EmployeeDebug.cs">
+    <Compile Include="Humans\Employee.cs" />
+    <Compile Include="Forms\TestForms\EmployeeDebug.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EmployeeDebug.Designer.cs">
+    <Compile Include="Forms\TestForms\EmployeeDebug.Designer.cs">
       <DependentUpon>EmployeeDebug.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmployeeTaxCalculator.cs" />
-    <Compile Include="EmployeeTaxInfo.cs" />
-    <Compile Include="Forms\fgsifghs.cs">
+    <Compile Include="Money\EmployeeTaxCalculator.cs" />
+    <Compile Include="Money\EmployeeTaxInfo.cs" />
+    <Compile Include="Forms\TestForms\fgsifghs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\fgsifghs.Designer.cs">
+    <Compile Include="Forms\TestForms\fgsifghs.Designer.cs">
       <DependentUpon>fgsifghs.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoginScreen.cs">
@@ -94,47 +94,47 @@
     <Compile Include="Forms\LoginScreen.Designer.cs">
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manager.cs" />
-    <Compile Include="Forms\ManagerDebug.cs">
+    <Compile Include="Humans\Manager.cs" />
+    <Compile Include="Forms\TestForms\ManagerDebug.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ManagerDebug.Designer.cs">
+    <Compile Include="Forms\TestForms\ManagerDebug.Designer.cs">
       <DependentUpon>ManagerDebug.cs</DependentUpon>
     </Compile>
     <Compile Include="Callender System\Month.cs" />
-    <Compile Include="PayCheck.cs" />
-    <Compile Include="PayHistory.cs" />
+    <Compile Include="Money\PayCheck.cs" />
+    <Compile Include="Money\PayHistory.cs" />
     <Compile Include="Callender System\PayPeriod.cs" />
-    <Compile Include="Payroll.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="ProgramSystem.cs" />
-    <Compile Include="Pronoun.cs" />
+    <Compile Include="Money\Payroll.cs" />
+    <Compile Include="ApplicationSystems\Program.cs" />
+    <Compile Include="ApplicationSystems\ProgramSystem.cs" />
+    <Compile Include="Humans\Pronoun.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Callender System\Schedule.cs" />
-    <Compile Include="Forms\TestingPageHub.cs">
+    <Compile Include="Forms\TestForms\TestingPageHub.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\TestingPageHub.Designer.cs">
+    <Compile Include="Forms\TestForms\TestingPageHub.Designer.cs">
       <DependentUpon>TestingPageHub.cs</DependentUpon>
     </Compile>
     <Compile Include="Callender System\TimeFrame.cs" />
-    <Compile Include="UsefullUniversalCommands.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="ApplicationSystems\UsefullUniversalCommands.cs" />
+    <Compile Include="Humans\User.cs" />
     <Compile Include="Callender System\Week.cs" />
     <Compile Include="Callender System\WorkedShift.cs" />
-    <EmbeddedResource Include="Forms\AdminDebug.resx">
+    <EmbeddedResource Include="Forms\TestForms\AdminDebug.resx">
       <DependentUpon>AdminDebug.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EmployeeDebug.resx">
+    <EmbeddedResource Include="Forms\TestForms\EmployeeDebug.resx">
       <DependentUpon>EmployeeDebug.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\fgsifghs.resx">
+    <EmbeddedResource Include="Forms\TestForms\fgsifghs.resx">
       <DependentUpon>fgsifghs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginScreen.resx">
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ManagerDebug.resx">
+    <EmbeddedResource Include="Forms\TestForms\ManagerDebug.resx">
       <DependentUpon>ManagerDebug.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -147,7 +147,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Forms\TestingPageHub.resx">
+    <EmbeddedResource Include="Forms\TestForms\TestingPageHub.resx">
       <DependentUpon>TestingPageHub.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
