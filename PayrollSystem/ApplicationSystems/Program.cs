@@ -69,9 +69,8 @@ namespace PayrollSystem
             _activeEmployee = null;
         }
 
-
-
         #region Functions for reading in values into memory
+
         /// <summary>
         /// reads in the login file and saves the employees to company.
         /// </summary>
@@ -171,24 +170,34 @@ namespace PayrollSystem
         // PROGRAM SYSTEM, AND MODIFIED SO    //
         //    THAT IT IS COMPILEABLE          //
         //------------------------------------//
+
+
+        /// <summary>Encrypts data</summary>
+        /// <output>does nothing at the moment but write a console line.</output>
         public static void EncryptData()
         {
             // Placeholder for encryption logic
             Console.WriteLine("Data encrypted using root file path: " + _rootFolder);
         }
 
+        /// <summary>Decrypts data</summary>
+        /// <output>does nothing at the moment but write a console line.</output>
         public static void DecryptData()
         {
             // Placeholder for decryption logic
             Console.WriteLine("Data decrypted using root file path: " + _rootFolder);
         }
 
+        /// <summary>Saves data to a file</summary>
+        /// <output>does nothing at the moment but write a console line.</output>
         public static void SaveData()
         {
             // Placeholder for save logic
             Console.WriteLine("Data saved to root file path: " + _rootFolder);
         }
 
+        /// <summary>loads data from a file.</summary>
+        /// <output>does nothing at the moment but write a console line.</output>
         public static void LoadData()
         {
             // Placeholder for load logic
