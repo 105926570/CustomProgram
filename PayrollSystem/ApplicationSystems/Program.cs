@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace PayrollSystem
@@ -10,6 +12,10 @@ namespace PayrollSystem
         //Upon login, the user is read, and saved to this variable in the program.
         public static Employee _activeEmployee;
         private static bool _isLoggedIn;
+        //Root folder where all files are stored
+        private static string _rootFolder;
+        //Company loaded in from class. this is to be done at the start of main.
+        private static Company _companyLoadedInFromFiles;
 
         /// <summary>
         /// The main entry point for the application.
@@ -62,5 +68,108 @@ namespace PayrollSystem
         {
             _activeEmployee = null;
         }
+
+
+
+        #region Functions for reading in values into memory
+        /// <summary>
+        /// reads in the login file and saves the employees to company.
+        /// </summary>
+        public static void readLoginFile()
+        {
+            CheckFileExistance(_rootFolder, "\\accounts.txt");
+            StreamReader reader = new StreamReader(_rootFolder + "\\accounts.txt");
+
+            List<Employee> employees = _companyLoadedInFromFiles.Employees; //***
+            try
+            {
+                int i = File.ReadAllLines(_rootFolder + "\\accounts.txt").Count();
+                int count = 0;
+
+                while (i > count)
+                {
+                    int ID = int.Parse(reader.ReadLine());
+                    string username = reader.ReadLine();
+                    string password = reader.ReadLine();
+                    string firstname = reader.ReadLine();
+                    string lastname = reader.ReadLine();
+
+                    Console.WriteLine($"Read employee with this info: {ID}, {username}, {password}, {firstname} {lastname}");
+
+                    Employee emp = new Employee(ID, username, password, firstname, lastname);
+                    employees.Add(emp); //&&&
+
+                    count += 5;
+                }
+            }
+            catch (Exception ex) { Console.WriteLine("Error when reading employee file: " + ex); }
+            finally { reader.Close(); }
+            reader.Close();// incase not closed allready
+        }
+
+        /// <summary>
+        /// overites the employee.txt file with all of the employees provided.
+        /// </summary>
+        /// <param name="EmployeesToBeSaved">the list of the employees that must be saved to the file.</param>
+        public static void saveLoginFile(List<Employee> EmployeesToBeSaved)
+        {
+            CheckFileExistance(_rootFolder, "\\accounts.txt");
+            StreamWriter writer = new StreamWriter(_rootFolder + "\\accounts.txt");
+
+            try
+            {
+                foreach (Employee emp in EmployeesToBeSaved)
+                {
+                    writer.WriteLine(emp.ID);
+                    writer.WriteLine(emp.Username);
+                    writer.WriteLine(emp.Password);
+                    writer.WriteLine(emp.FirstName);
+                    writer.WriteLine(emp.LastName);
+                }
+            }
+            catch (Exception ex) { Console.WriteLine("Error when writing employee file: " + ex); }
+            finally { writer.Close(); }
+            writer.Close(); //incase not closed allready
+        }
+
+        /// <summary>Checks that a file exists</summary>
+        /// <param name="inDirectory">directery the file is in</param>
+        /// <param name="Filename">name of file</param>
+        /// <example>("C:\\Location\\Folder", "fileToCheckTheExistanceOf.txt") *notice that the '.txt' is included...</example>
+        public static void CheckFileExistance(string inDirectory, string Filename)
+        {
+            string fullDirectory = inDirectory + Filename;
+
+            if (!Directory.Exists(inDirectory))
+            {
+                try
+                {
+                    Console.WriteLine($"Directory {inDirectory} does not exist. Creating...");
+                    Directory.CreateDirectory(inDirectory);
+                }
+                catch (Exception ex) { Console.WriteLine($"Failed to create directory: {ex}"); }
+                finally { Console.WriteLine("Done"); }
+
+            }
+            if (!File.Exists(fullDirectory))
+            {
+                try
+                {
+                    Console.WriteLine($"The file {Filename} does not exist in directory {inDirectory} creating it now...");
+                    File.Create(fullDirectory).Dispose();
+                }
+                catch (Exception ex) { Console.WriteLine($"Failed to create file: {ex}"); }
+                finally { Console.WriteLine("Done"); }
+            }
+        }
+        #endregion
     }
 }
+
+
+/// NOTE:
+///     ANY CODE WITH "// ***"
+///     IS THERE TO DENOTE CODE ADDED TO FIX CODE COPIED FROM APPLICATIONSYSTEM.CS
+///     AND...
+///     ANY CODE WITH "// &&&"
+///     IS CODE THAT WAS AN ERROR AS A RESULT OF VARIABLES BEING DIFFERENT FROM APPLICATIONSYSTEM.CS.

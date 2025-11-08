@@ -78,7 +78,6 @@
     <Compile Include="Forms\TestForms\AdminDebug.Designer.cs">
       <DependentUpon>AdminDebug.cs</DependentUpon>
     </Compile>
-    <Compile Include="ApplicationSystems\ApplicationSystem.cs" />
     <Compile Include="Company.cs" />
     <Compile Include="Callender System\Day.cs" />
     <Compile Include="Department.cs" />
