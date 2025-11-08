@@ -62,6 +62,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Employee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Employee.Designer.cs">
+      <DependentUpon>Employee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Humans\Admin.cs" />
     <Compile Include="Forms\TestForms\AdminDebug.cs">
       <SubType>Form</SubType>
@@ -122,6 +128,9 @@
     <Compile Include="Humans\User.cs" />
     <Compile Include="Callender System\Week.cs" />
     <Compile Include="Callender System\WorkedShift.cs" />
+    <EmbeddedResource Include="Forms\Employee.resx">
+      <DependentUpon>Employee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\TestForms\AdminDebug.resx">
       <DependentUpon>AdminDebug.cs</DependentUpon>
     </EmbeddedResource>
