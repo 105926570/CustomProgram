@@ -1,17 +1,22 @@
 ﻿using System;
+using static PayrollSystem.UsefullUniversalCommands;
 
 namespace PayrollSystem
 {
     public class EmployeeTaxInfo
     {
-        private EmployeeTaxCalculator _taxCalculator;
         private int _tfn;
         private bool _isResident;
         private int _taxBracket;
         private double _yearlyIncome;
 
-        public EmployeeTaxInfo(float yearlyIncome)
-        { }
+        public EmployeeTaxInfo() //Default Constructor
+        {
+            _tfn = GenerateRandomNumber(999999999);
+            _isResident = true;
+            _yearlyIncome = 0;
+            _taxBracket = 0;
+        }
 
         public int TFN
         {
@@ -20,19 +25,19 @@ namespace PayrollSystem
         }
 
         public bool IsResident
-            {
+        {
             get { return _isResident; }
             set {  _isResident = value; }
         }
 
         public int taxBracket
-                {
+        {
             get { return _taxBracket; }
             set { _taxBracket = value; }
-                }
+        }
 
         public double YearlyIncome
-                {
+        {
             get { return _yearlyIncome; }
             set { _yearlyIncome = value; }
         }
