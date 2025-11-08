@@ -10,7 +10,7 @@ namespace PayrollSystem
 {
     public class User
     {
-        public string _Username, _Password;
+        public string _Username, _Password, _email;
         public int _EmployeeID;
         public DateTime datetime = DateTime.Now;
 
@@ -19,6 +19,7 @@ namespace PayrollSystem
             _Username = "DefaultUser";
             _Password = "password123";
             _EmployeeID = GenerateRandomNumber(9999999); //User ID should be a random number generated when creating a new employee, and not equal to any other existing User ID.
+            _email = $"{_EmployeeID}@company.com";
         }
 
         public User(string firstName, string lastName) //Constructor with all peramaters given manually
@@ -26,6 +27,7 @@ namespace PayrollSystem
             _Username = "jhondoe123"; //[PREFERABLY]: $"{_FirstName}+{new Random().Next(999)}"; //Generates a username based on first name and a random 3 digit number. Add a check to ensure there is no other username
             _Password = "password123";
             _EmployeeID = GenerateRandomNumber(9999999); //User ID should be a random number generated when creating a new employee, and not equal to any other existing User ID.
+            _email = $"{_EmployeeID}@company.com";
         }
 
         public User(int employeeID, string username, string password) //Constructor with all peramaters given manually
@@ -33,6 +35,13 @@ namespace PayrollSystem
             _Username = username;
             _Password = password;
             _EmployeeID = employeeID; //User ID should be a random number generated when creating a new employee, and not equal to any other existing User ID.
+            _email = $"{_EmployeeID}@company.com";
+        }
+
+        public string Email
+        {
+            get { return _Username; }
+            set { _Username = value; }
         }
 
         public string Username
@@ -58,6 +67,7 @@ namespace PayrollSystem
             Console.WriteLine("Employee ID: " + _EmployeeID);
             Console.WriteLine("Username: " + _Username);
             Console.WriteLine("Password: " + _Password);
+            Console.WriteLine("Email: " + _email);
         }
     }
 }
