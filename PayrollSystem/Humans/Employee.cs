@@ -4,11 +4,11 @@ namespace PayrollSystem
 {
     public class Employee : User
     {
-        string _FirstName, _LastName;
-        EmployeeTaxInfo employeeTaxInfo;
+        private string _FirstName, _LastName;
+        private EmployeeTaxInfo _employeeTaxInfo;
         //Department department;
         //Schedule schedule;
-        public PayHistory _payHistory = new PayHistory();
+        private PayHistory _payHistory;
         //TaxInfo EmployeeTaxInfo;
         private int _privilege; // Privilege level of a regular employee is level 0
         private bool _isResident;

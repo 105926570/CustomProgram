@@ -5,8 +5,8 @@ namespace PayrollSystem
 {
     public class User
     {
-        public string _Username, _Password, _email;
-        public int _EmployeeID;
+        private string _Username, _Password, _email;
+        private int _EmployeeID;
 
         public User()
         {
