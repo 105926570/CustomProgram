@@ -138,7 +138,37 @@ namespace PayrollSystem
         {
             _activeEmployee = null;
         }
+
+        public static void CreateJsonFromObjet(Object obj, string filePath)
+        {
+            // Serialize the object to a JSON string
+            string jsonString = JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.Indented); // Formatting.Indented for readability
+
+            string directoryPath = Path.GetDirectoryName(filePath);
+
+            if (!string.IsNullOrWhiteSpace(directoryPath) && !Directory.Exists(directoryPath))//if ( the directory path given is valid... ...and...  the directory does not exist)
+            {
+                Console.WriteLine($"Directory '{directoryPath}' does not exist. Creating...");
+                Directory.CreateDirectory(directoryPath);
+                Console.WriteLine("... Directory created");
+            }
+
+            if (!File.Exists(filePath))
+            {
+                Console.WriteLine($"File '{filePath}' does not exist. Creating empty file...");
+                using (File.Create(filePath)) { } // safely create & close
+                Console.WriteLine("...File created");
+            }
+
+            //write the contents to the filepath
+            File.WriteAllText(filePath, jsonString);
+            System.Console.WriteLine($"created serialised json {Path.GetFileName(filePath)}");
+        }
+
+
     }
+
+
 }
 
 
