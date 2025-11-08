@@ -1,5 +1,4 @@
-﻿using System;
-using static PayrollSystem.UsefullUniversalCommands;
+﻿using static PayrollSystem.UsefullUniversalCommands;
 
 namespace PayrollSystem
 {
@@ -21,13 +20,13 @@ namespace PayrollSystem
         public int TFN
         {
             get { return _tfn; }
-            set {  _tfn = value; }
+            set { _tfn = value; }
         }
 
         public bool IsResident
         {
             get { return _isResident; }
-            set {  _isResident = value; }
+            set { _isResident = value; }
         }
 
         public int taxBracket

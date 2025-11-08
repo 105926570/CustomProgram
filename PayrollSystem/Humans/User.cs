@@ -17,11 +17,11 @@ namespace PayrollSystem
         }
 
         public User(string username, string password) : this(username)
-        { 
+        {
             Password = password;
         }
 
-        public User(string username, string password, string email) 
+        public User(string username, string password, string email)
         {
             //make this please
         }

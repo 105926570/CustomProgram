@@ -7,8 +7,8 @@ namespace PayrollSystem
         private List<Employee> _employeesOnPayroll;
         private List<PayHistory> _payHistories;
 
-        
-        
+
+
         public Payroll()
         {
             PayHistories = new List<PayHistory>() { };
