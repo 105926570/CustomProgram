@@ -28,34 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnTest1 = new System.Windows.Forms.Button();
-            this.cmdTest2 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnOpenEmployeeForm = new System.Windows.Forms.Button();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.lblExampleName = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // btnTest1
-            // 
-            this.btnTest1.Location = new System.Drawing.Point(25, 14);
-            this.btnTest1.Name = "btnTest1";
-            this.btnTest1.Size = new System.Drawing.Size(199, 85);
-            this.btnTest1.TabIndex = 0;
-            this.btnTest1.Text = "test Reading";
-            this.btnTest1.UseVisualStyleBackColor = true;
-            this.btnTest1.Click += new System.EventHandler(this.btnTest1_Click);
-            // 
-            // cmdTest2
-            // 
-            this.cmdTest2.Location = new System.Drawing.Point(12, 121);
-            this.cmdTest2.Name = "cmdTest2";
-            this.cmdTest2.Size = new System.Drawing.Size(199, 85);
-            this.cmdTest2.TabIndex = 1;
-            this.cmdTest2.Text = "testWriting";
-            this.cmdTest2.UseVisualStyleBackColor = true;
-            this.cmdTest2.Click += new System.EventHandler(this.cmdTest2_Click);
             // 
             // button2
             // 
@@ -113,8 +91,6 @@
             this.Controls.Add(this.btnOpenEmployeeForm);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.cmdTest2);
-            this.Controls.Add(this.btnTest1);
             this.Name = "TestingPageHub";
             this.Text = "TestingPageHub";
             this.ResumeLayout(false);
@@ -123,9 +99,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnTest1;
-        private System.Windows.Forms.Button cmdTest2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnOpenEmployeeForm;

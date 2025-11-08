@@ -13,27 +13,6 @@ namespace PayrollSystem
             InitializeComponent();
         }
 
-        private void btnTest1_Click(object sender, EventArgs e)
-        {
-            // setup
-            Company company = new Company();
-
-            //test reading
-            Program.readLoginFile();
-            Console.WriteLine("finsished this test");
-        }
-
-        private void cmdTest2_Click(object sender, EventArgs e)
-        {
-            // setup
-            List<Employee> emps = new List<Employee> { new Employee(GenerateRandomNumber(999999999), "bob123", "password123", "Bob", "the fuy") };
-            Company company = new Company();
-            company.Employees = emps;
-
-            //test writing
-            Program.saveLoginFile(emps);
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             //Generate 100 random numbers
