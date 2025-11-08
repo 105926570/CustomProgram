@@ -8,6 +8,7 @@ namespace PayrollSystem
         //This is where the active employees informaton is stored.
         //Upon login, the user is read, and saved to this variable in the program.
         public static Employee _activeEmployee;
+        private static bool _isLoggedIn;
 
         /// <summary>
         /// The main entry point for the application.
@@ -18,6 +19,16 @@ namespace PayrollSystem
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginScreen());
+        }
+
+        public static bool isLoggedIn
+        {
+            get
+            {
+                if (_activeEmployee == null) _isLoggedIn = false;
+                else _isLoggedIn = true;
+                return _isLoggedIn;
+            }
         }
 
         public static Employee activeEmployee
