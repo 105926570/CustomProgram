@@ -6,6 +6,9 @@ namespace PayrollSystem
     {
         private EmployeeTaxCalculator _taxCalculator;
         private int _tfn;
+        private bool _isResident;
+        private int _taxBracket;
+        private double _yearlyIncome;
 
         public EmployeeTaxInfo(float yearlyIncome)
         { }
