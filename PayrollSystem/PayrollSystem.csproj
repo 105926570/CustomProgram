@@ -116,7 +116,6 @@
     <Compile Include="Callender System\PayPeriod.cs" />
     <Compile Include="Money\Payroll.cs" />
     <Compile Include="ApplicationSystems\Program.cs" />
-    <Compile Include="ApplicationSystems\ProgramSystem.cs" />
     <Compile Include="Humans\Pronoun.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Callender System\Schedule.cs" />
