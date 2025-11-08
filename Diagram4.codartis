@@ -1,0 +1,21 @@
+﻿{
+  "Version": 3,
+  "AreNodeDescriptionsVisible": true,
+  "ContainerNodes": [
+    {
+      "Id": 2,
+      "ZIndex": 0,
+      "Name": "PayrollSystem",
+      "FullyQualifiedName": "PayrollSystem",
+      "Stereotype": "Namespace",
+      "ToolTip": "namespace PayrollSystem\r\nassembly: PayrollSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Position": "-23.7371,56.8811",
+      "Size": "137.6867,73.8",
+      "IsPinned": false,
+      "Symbols": [
+        "{\"K\":\"Namespace\",\"N\":\"PayrollSystem\",\"C\":{\"K\":\"Assembly\",\"N\":\"PayrollSystem\",\"V\":\"1.0.0.0\"}}"
+      ],
+      "NamespaceLevel": 1
+    }
+  ]
+}
