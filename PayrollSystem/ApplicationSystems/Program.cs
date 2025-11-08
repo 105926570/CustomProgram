@@ -47,6 +47,52 @@ namespace PayrollSystem
         public static Company CompanyLoadedInFromFiles {  get { return _companyLoadedInFromFiles; } }
     #endregion
 
+        /// <summary>Reads a file as a byte. convert to whatever format you need after reading.</summary>
+        /// <returns>Array of bytes that is the contents of tile file.</returns>
+        /// <param name="filePath">The path of the file. eg: <example>"C:\\Folder\\OtherFolder\\file.txt"</example></param>
+        /// <param name="fileData">The output byte. Put here the variable you want to equal to the file.</param>
+        public static void ReadFileContents(string filePath, out byte[] fileData)
+        {
+            fileData = Array.Empty<byte>();
+
+            //Check if filePath input is null
+            if (string.IsNullOrEmpty(filePath)) //then file doesn't exist
+            { 
+                Console.WriteLine($"file path {filePath} is null or empty"); return;
+            }
+
+            //try reading the file
+            try
+            {
+                string directoryPath = Path.GetDirectoryName(filePath);
+
+            //ensure the directory exists
+                if (!string.IsNullOrWhiteSpace(directoryPath) && !Directory.Exists(directoryPath))//if ( the directory path given is valid... ...and...  the directory does not exist)
+                {
+                    Console.WriteLine($"Directory '{directoryPath}' does not exist. Creating...");
+                    Directory.CreateDirectory(directoryPath);
+                    Console.WriteLine("Directory created successfully.");
+                }
+
+            //ensire the file exists
+                if (!File.Exists(filePath))
+                    {
+                        Console.WriteLine($"File '{filePath}' does not exist. Creating empty file...");
+                        using (File.Create(filePath)) { } // safely create & close
+                        Console.WriteLine("File created successfully.");
+                    }
+
+            //Read the file contents
+                fileData = File.ReadAllBytes(filePath);
+                Console.WriteLine($"Successfully read {fileData.Length} bytes from file '{filePath}'");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to create directory for file '{filePath}'. Details: {ex.Message}");
+                return;
+            }
+        }
+
         /// <summary>changes active employee to whatever is given</summary>
         /// <param name="privliage">level of priviliage of the executor. must be => 2.</param>
         /// <param name="newActiveEmployee">the desired employee to become the active employee.</param>
