@@ -14,6 +14,7 @@ namespace PayrollSystem
             _privilege = 1;
         }
 
+        /* COMMENTED OUT AS CONSTRUCTORS HAVE BEEN REMOVED
         //All values provided except employees
         public Manager(int employeeID, string username, string password, string firstName, string lastName)
         : base(employeeID, username, password, firstName, lastName)
@@ -28,6 +29,7 @@ namespace PayrollSystem
             _managedEmployees = employees;
             _privilege = 1;
         }
+        */
 
         public List<Employee> ManagedEmployees
         {
