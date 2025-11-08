@@ -8,30 +8,20 @@ namespace PayrollSystem
         private readonly double[] bracketStarts = new double[] { 0, 18200, 45000, 135000, 190000 }; //if above, then the index of that number is the tax bracket
         private readonly double[] taxPercentagesResident = new double[] { 0f, 0.16f, 0.30f, 0.37f, 0.45f };
         private readonly double[] taxPercentagesNonResident = new double[] { 0.30f, 0.30f, 0.30f, 0.37f, 0.45f };
-        private bool _isResident;
-        private int _taxBracket = 0;
-        private double _yearlyIncome = 0.0;
 
-
-        public EmployeeTaxCalculator(double yearlyIncome)
-        {
-            _yearlyIncome = yearlyIncome;
-        }
-
-
-        public double AmountToBeTaxedAtEndOfYear(double yearlyIncome) //This is the function run when generating tax.
+        public double AmountToBeTaxedAtEndOfYear(bool isResident, double yearlyIncome) //This is the function run when generating tax.
         {
             int taxBracket = CalculateTaxBracket(yearlyIncome);
             //Check if user is a resident or not and calculate tax acordingly.
-            if (_isResident == true) //is resident
+            if (isResident == true) //is resident
                 return CalcResident(yearlyIncome, taxBracket);
             else // not resident
                 return CalcNonResident(yearlyIncome, taxBracket);
         }
 
-        public double AmountToBeTaxedAtEndOfYearRounded(double yearlyIncome) //This is the function run when generating tax.
+        public double AmountToBeTaxedAtEndOfYearRounded(bool isResident, double yearlyIncome) //This is the function run when generating tax.
         {
-            return Math.Round(AmountToBeTaxedAtEndOfYear(yearlyIncome), 2);
+            return Math.Round(AmountToBeTaxedAtEndOfYear(isResident, yearlyIncome), 2);
         }
 
 
@@ -116,22 +106,6 @@ namespace PayrollSystem
                 default:
                     return 0.0;
             }
-        }
-
-        //properties:
-        public double YearlyIncome
-        {
-            set
-            {
-                _yearlyIncome = value;
-                _taxBracket = CalculateTaxBracket(_yearlyIncome); // update bracket automatically
-            }
-            get { return _yearlyIncome; }
-        }
-
-        public int TaxBracket
-        {
-            get { return _taxBracket; }
         }
     }
 }
