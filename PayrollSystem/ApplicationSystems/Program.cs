@@ -26,9 +26,21 @@ namespace PayrollSystem
         static void Main()
         {
             _rootFolder = "C:\\CustomProgram";
+            test();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginScreen());
+        }
+
+        static void test()
+        {
+            string output;
+            byte[] fileOutput = new byte[] { };
+            Console.WriteLine(fileOutput);
+            ReadFileContents(_rootFolder + "\\accounts.txt", out fileOutput);
+            Console.WriteLine(fileOutput);
+            output = System.Text.Encoding.UTF8.GetString(fileOutput);
+            Console.WriteLine(output);
         }
 
         #region Properties
@@ -45,7 +57,7 @@ namespace PayrollSystem
         public static Employee activeEmployee { get { return _activeEmployee; } }
         public static string RootFolder { get { return _rootFolder; } }
         public static Company CompanyLoadedInFromFiles {  get { return _companyLoadedInFromFiles; } }
-    #endregion
+        #endregion
 
         /// <summary>Reads a file as a byte. convert to whatever format you need after reading.</summary>
         /// <returns>Array of bytes that is the contents of tile file.</returns>
@@ -76,11 +88,11 @@ namespace PayrollSystem
 
             //ensire the file exists
                 if (!File.Exists(filePath))
-                    {
-                        Console.WriteLine($"File '{filePath}' does not exist. Creating empty file...");
-                        using (File.Create(filePath)) { } // safely create & close
-                        Console.WriteLine("File created successfully.");
-                    }
+                {
+                    Console.WriteLine($"File '{filePath}' does not exist. Creating empty file...");
+                    using (File.Create(filePath)) { } // safely create & close
+                    Console.WriteLine("File created successfully.");
+                }
 
             //Read the file contents
                 fileData = File.ReadAllBytes(filePath);
@@ -90,6 +102,39 @@ namespace PayrollSystem
             {
                 Console.WriteLine($"Failed to create directory for file '{filePath}'. Details: {ex.Message}");
                 return;
+            }
+        }
+
+        /// <summary>Writes data to a given filepath</summary>
+        /// <param name="filePath">The path of the file you wish to write too. eg: <example>"C:\\Folder\\OtherFolder\\file.txt"</example></param>
+        /// <param name="data">The data you wish to be written to the file.</param>
+        public static void WriteDataToFile(string filePath, byte[] data)
+        {
+            //Check if filePath input is null
+            if (string.IsNullOrEmpty(filePath)) //then file doesn't exist
+            {
+                Console.WriteLine($"file path {filePath} is null or empty"); return;
+            }
+
+            try
+            {
+                string directoryPath = Path.GetDirectoryName(filePath);
+
+            //ensure the directory exists
+                if (!string.IsNullOrWhiteSpace(directoryPath) && !Directory.Exists(directoryPath))//if ( the directory path given is valid... ...and...  the directory does not exist)
+                {
+                    Console.WriteLine($"Directory '{directoryPath}' does not exist. Creating...");
+                    Directory.CreateDirectory(directoryPath);
+                    Console.WriteLine("Directory created successfully.");
+                }
+
+            // Write the data
+                File.WriteAllBytes(filePath, data);
+                Console.WriteLine($"Successfully wrote {data.Length} bytes to file '{filePath}'.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error writing file '{filePath}': {ex.Message}");
             }
         }
 
