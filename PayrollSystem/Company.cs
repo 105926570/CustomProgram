@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json.Linq;
+using PayrollSystem;
+using System.Collections.Generic;
 using System.Drawing;
 using static PayrollSystem.UsefullUniversalCommands;
 
@@ -113,3 +115,18 @@ namespace PayrollSystem
 
 /// TODO:
 /// Change it so it is just the largest employee ID + 1 instead of a stupid random number that is annoying and stupid (why didnt i think of that XD)
+/// 
+/// Pseudocode for Employees Property:
+//
+/*        public List<Employee> Employees
+        {
+            get
+            {
+                //read the file called "company.json"
+                //use the application functions in here to create a list of employees
+                //return that list
+                return _employees;
+            }
+            set { _employees = value; }
+        }
+*/
