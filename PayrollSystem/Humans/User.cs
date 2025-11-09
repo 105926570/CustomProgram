@@ -1,7 +1,4 @@
-﻿using System;
-using static PayrollSystem.UsefullUniversalCommands;
-
-namespace PayrollSystem
+﻿namespace PayrollSystem
 {
     public class User : IdentifiableObject
     {

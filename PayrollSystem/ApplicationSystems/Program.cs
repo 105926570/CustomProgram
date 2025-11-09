@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-using System.Xml;
 
 namespace PayrollSystem
 {
@@ -37,7 +36,7 @@ namespace PayrollSystem
             employeesDirectory = $"{_rootFolder}\\employees";
         }
 
-#region Tests - To be deleted at the end of project
+        #region Tests - To be deleted at the end of project
 
         private static void jsonTesting()
         {
@@ -65,10 +64,10 @@ namespace PayrollSystem
             }
         }
 
-#endregion
+        #endregion
 
 
-#region Properties
+        #region Properties
 
         public static bool isLoggedIn
         {
@@ -87,9 +86,9 @@ namespace PayrollSystem
         #endregion
 
 
-#region Functions
+        #region Functions
 
-    #region reading and writing
+        #region reading and writing
 
         private static void EnsureDirectoryExists(string directory)
         {
@@ -134,7 +133,7 @@ namespace PayrollSystem
             catch (Exception ex)
             {
                 MessageBox.Show($"Error:\n\n{ex}\n\nPress 'OK' to continue...");
-                Console.WriteLine($"{DateTime.Now.ToString()} {ex}");                
+                Console.WriteLine($"{DateTime.Now.ToString()} {ex}");
             }
         }
 
@@ -174,8 +173,8 @@ namespace PayrollSystem
             foreach (string filedir in filedirs)
             {
                 //if the file directory contains the id (if the filename contains the id)
-                if (filedir.Contains(ID.ToString()) == true) 
-                {                    
+                if (filedir.Contains(ID.ToString()) == true)
+                {
                     emp = (Employee)ReadObjectFromJson(filedir);   //check if the files ID also matches the id found...          
                     if (emp.ID == ID) return emp;                  //... and if it does return it.
                 }
@@ -184,7 +183,7 @@ namespace PayrollSystem
             return null; //when both checks fail
         }
 
-    #endregion
+        #endregion
 
         public static void ChangeActiveEmployee(int privliage, Employee newActiveEmployee)
         {
@@ -201,7 +200,7 @@ namespace PayrollSystem
         {
             //DIRECTORY SHOULD BE LIKE THIS:
             string ErrorLogDirectory = "C:\\CustomPayrollProgramDebug\\errorLog.log";
-            
+
             //Ensure the directory and the file exists. if it doesnt, create it.
             EnsureDirectoryExists(ErrorLogDirectory);
             EnsureFileExists(ErrorLogDirectory);

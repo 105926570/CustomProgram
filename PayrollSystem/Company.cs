@@ -23,7 +23,7 @@ namespace PayrollSystem
             CompanySchedule = new Schedule();
         }
 
-        public Company(string name):this()
+        public Company(string name) : this()
         {
             Name = name; //im not sure why anyone would want to name their company anything but "The Big Company that needs a better name, and also a payroll system", but ok.
         }
