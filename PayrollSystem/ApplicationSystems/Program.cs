@@ -63,7 +63,7 @@ namespace PayrollSystem
             foreach (string file in files)
             {
                 Console.WriteLine($"{file}");
-        }
+            }
         }
 
 #endregion
@@ -152,6 +152,39 @@ namespace PayrollSystem
         #endregion
 
         public static void SaveEmployee(Employee emp)
+        {
+            CreateJsonFromObjet(emp, $"{_rootFolder}\\employees\\{emp.ID.ToString()}.json");
+        }
+
+        public static Employee LoadEmployeeGivenID(int ID)
+        {
+            //get all files within folder
+            string[] filedirs = Directory.GetFiles($"{_rootFolder}\\employees");
+            Employee emp;
+            //Check the ID within the files
+            foreach (string filedir in filedirs)
+            {
+                emp = (Employee)ReadJsonObjectFromFile(filedir);
+                if (emp.ID == ID) return emp;
+            }
+
+            Console.WriteLine("Could not find the ID within the files. checking the names instead...");
+
+            //Check if there is a file with the name of that ID
+            foreach (string filedir in filedirs)
+            {
+                //if the file directory contains the id (if the filename contains the id)
+                if (filedir.Contains(ID.ToString()) == true) 
+                {                    
+                    emp = (Employee)ReadJsonObjectFromFile(filedir);   //check if the files ID also matches the id found...          
+                                       if (emp.ID == ID) return emp;   //... and if it does return it.
+                }
+            }
+
+            //when both checks fail
+            return null;
+        }
+
     #endregion
 
         public static void ChangeActiveEmployee(int privliage, Employee newActiveEmployee)
@@ -183,7 +216,6 @@ namespace PayrollSystem
         }
 
         #endregion
-
     }
 }
 
