@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using PayrollSystem;
 using System.Collections.Generic;
 using System.Drawing;
@@ -15,6 +16,7 @@ namespace PayrollSystem
         private Color _secondaryColor, _primaryColor, _accentColur; //NOT PUBLIC IN ANY WAY YET!!!!
         private Payroll _payroll;
         private Schedule _companySchedule;
+        private static List<int> _employeeIDs, _departmentIDs; //This is what is saved to a json instead, rather than the whole entire employee info.
 
         public Company() //Default Constructor
         {
@@ -69,12 +71,14 @@ namespace PayrollSystem
             set { _companyName = value; }
         }
 
+        [JsonIgnore]
         public List<Department> Departments
         {
             get { return _departments; }
             set { _departments = value; }
         }
 
+        [JsonIgnore]
         public List<Employee> Employees
         {
             get { return _employees; }
@@ -98,6 +102,27 @@ namespace PayrollSystem
             get { return _companySchedule; }
             set { _companySchedule = value; }
         }
+
+        public List<int> EmployeeIDs
+        {
+            get
+            {
+                List<int> ids = new List<int> { };
+                foreach (Employee emp in Employees) ids.Add(emp.ID);
+                return ids;
+            }
+        }
+
+        public List<int> DepartmentIDs
+        {
+            get
+            {
+                List<int> ids = new List<int> { };
+                foreach (Department dep in Departments) ids.Add(dep.ID);
+                return ids;
+            }
+        }
+
 
         public void CreateEmployee(Employee employee) //This should be the only way to add and create employees
         {
