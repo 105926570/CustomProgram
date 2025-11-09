@@ -118,15 +118,11 @@ namespace PayrollSystem
                 //write the contents to the filepath
                 File.WriteAllText(filePath, jsonString);
                 System.Console.WriteLine($"created serialised json {Path.GetFileName(filePath)}");
-
-                Console.WriteLine($"Succsess!");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"{DateTime.Now.ToString()}: ERROR HAS OCCOURED IN Application.CreateJsonFromObject:" +
-                                  $"{GenerateVerboseErrorMessage(ex)}\n" +
-                                  $"End of verboseErrorMessage");
-                MessageBox.Show("An Error has occoured. see console for output", $"ERROR - {DateTime.Now.ToString()}");
+                MessageBox.Show($"Error:\n\n{ex}\n\nPress 'OK' to continue...");
+                Console.WriteLine($"{DateTime.Now.ToString()} {ex}");                
             }
         }
 
@@ -153,17 +149,6 @@ namespace PayrollSystem
         public static void RemoveActiveEmployee()
         {
             _activeEmployee = null;
-        }
-
-        public static string GenerateVerboseErrorMessage(Exception ex)
-        {
-            string output = $"Message: {ex.Message}\n" +
-                            $"InnerException: {ex.InnerException}\n" +
-                            $"StackTrace: {ex.StackTrace}\n" +
-                            $"Type: {ex.GetType()}\n" +
-                            $"Data: {ex.Data}\n" +
-                            $"Source: {ex.Source}";
-            return output;
         }
 
 #endregion
