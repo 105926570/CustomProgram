@@ -37,6 +37,12 @@ namespace PayrollSystem
             //initialise subdirectorys from root
             employeesDirectory = $"{_rootFolder}\\employees";
             companyDirectory = $"{_rootFolder}";
+
+            fullProgramTesting();
+            //ReadObjectFromJson("C:\\CustomProgram\\jsons\\BigBoyTest.json");
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new LoginScreen());
         }
 
         #region Tests - To be deleted at the end of project
