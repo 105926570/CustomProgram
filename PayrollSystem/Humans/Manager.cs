@@ -36,10 +36,6 @@ namespace PayrollSystem
             set { _managedEmployees = value; }
         }
 
-        public int Privilege
-        {
-            get { return _privilege; }
-        }
 
         public void DisplayManagedEmployees()
         {
