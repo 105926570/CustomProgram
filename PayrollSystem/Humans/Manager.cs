@@ -6,12 +6,11 @@ namespace PayrollSystem
     public class Manager : Employee
     {
         private List<Employee> _managedEmployees = new List<Employee> { };
-        private int _privilege; // Privilege level of a manager is level 1
 
         //Default constructor / Test constructor
         public Manager() : base()
         {
-            _privilege = 1;
+            Privliage = 1; //Manager will allways have a privliage of 1
         }
 
         /* COMMENTED OUT AS CONSTRUCTORS HAVE BEEN REMOVED

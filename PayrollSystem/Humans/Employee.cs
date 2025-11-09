@@ -9,7 +9,6 @@ namespace PayrollSystem
         //Department department;
         private Schedule _schedule;
         private PayHistory _payHistory;
-        private int _privilege; // Privilege level of a regular employee is level 0
 
         public Employee() : base() //Constructor with default values
         {
@@ -17,7 +16,6 @@ namespace PayrollSystem
             _lastName = "Doe";
             _employeeTaxInfo = new EmployeeTaxInfo();
             _payHistory = new PayHistory();
-            _privilege = 0;
             _schedule = new Schedule();
         }
 
@@ -52,11 +50,6 @@ namespace PayrollSystem
             set { _payHistory = value; }
         }
 
-        public int Privilege
-        {
-            get { return _privilege; }
-            set { _privilege = value; }
-        }
 
         // Maybe change to string so that its up to the caller to print it?
         public void DisplayEmployeeInfo()

@@ -7,9 +7,11 @@ namespace PayrollSystem
     {
         private string _username, _password, _email;
         private int _employeeID;
+        private int _privliage;
 
         public User() //Default constructor
         {
+            Privliage = 0; //starts off as 0
             Username = "DefaultUser";
             Password = "password123";
             ID = GenerateRandomNumber(9999999); //User ID should be a random number generated when creating a new employee, and not equal to any other existing User ID.
@@ -37,6 +39,12 @@ namespace PayrollSystem
             return $"{ID}@company.com"; //make it company name from application perhaps?
         }
 
+
+        public int Privliage
+        {
+            get { return _privliage; }
+            set { _privliage = value; }
+        }
 
         public string Email
         {
