@@ -18,6 +18,12 @@ namespace PayrollSystem
         //Company loaded in from class. this is to be done at the start of main.
         private static Company _companyLoadedInFromFiles;
 
+        //folder names for different types of jsons
+        private static readonly string userFolderName = "users";         // root/users
+        private static readonly string EmployeeFolderName = "employees"; // root/users/employees
+        private static readonly string ManagerFolderName = "managers";   // root/users/managers
+        private static readonly string AdminFolderName = "admins";       // root/users/admins
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
