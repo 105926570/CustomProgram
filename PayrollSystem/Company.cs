@@ -28,13 +28,18 @@ namespace PayrollSystem
             Name = name; //im not sure why anyone would want to name their company anything but "The Big Company that needs a better name, and also a payroll system", but ok.
         }
 
-        public Company(string companyName, List<Department> departments, List<Employee> employees, Payroll payroll, Schedule companySchedule) : this(companyName)
+        public Company(string companyName, List<Department> departments, Payroll payroll, Schedule companySchedule) : this(companyName)
         {
             Name = companyName;
             Departments = departments;
-            Employees = employees;
             CompanyPayroll = payroll;
             CompanySchedule = companySchedule;
+        }
+
+        // Privatised, as Employees should be generated from looking through departments.
+        private Company(string companyName, List<Department> departments, List<Employee> employees, Payroll payroll, Schedule companySchedule) : this(companyName, departments, payroll, companySchedule)
+        {
+            Employees = employees;
         }
 
         public string Name
