@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace PayrollSystem
 {
@@ -104,28 +105,29 @@ namespace PayrollSystem
 
         public static void CreateJsonFromObjet(Object obj, string filePath)
         {
-            // Serialize the object to a JSON string
-            string jsonString = JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.Indented); // Formatting.Indented for readability
+            Console.WriteLine($"Attempting to create json file at {filePath}");
 
-            string directoryPath = Path.GetDirectoryName(filePath);
-
-            if (!string.IsNullOrWhiteSpace(directoryPath) && !Directory.Exists(directoryPath))//if ( the directory path given is valid... ...and...  the directory does not exist)
+            try
             {
-                Console.WriteLine($"Directory '{directoryPath}' does not exist. Creating...");
-                Directory.CreateDirectory(directoryPath);
-                Console.WriteLine("... Directory created");
-            }
+                // Serialize the object to a JSON string
+                string jsonString = JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.Indented); // Formatting.Indented for readability
 
-            if (!File.Exists(filePath))
+                EnsureDirectoryExists(filePath);
+                EnsureFileExists(filePath);
+
+                //write the contents to the filepath
+                File.WriteAllText(filePath, jsonString);
+                System.Console.WriteLine($"created serialised json {Path.GetFileName(filePath)}");
+
+                Console.WriteLine($"Succsess!");
+            }
+            catch (Exception ex)
             {
-                Console.WriteLine($"File '{filePath}' does not exist. Creating empty file...");
-                using (File.Create(filePath)) { } // safely create & close
-                Console.WriteLine("...File created");
+                Console.WriteLine($"{DateTime.Now.ToString()}: ERROR HAS OCCOURED IN Application.CreateJsonFromObject:" +
+                                  $"{GenerateVerboseErrorMessage(ex)}\n" +
+                                  $"End of verboseErrorMessage");
+                MessageBox.Show("An Error has occoured. see console for output", $"ERROR - {DateTime.Now.ToString()}");
             }
-
-            //write the contents to the filepath
-            File.WriteAllText(filePath, jsonString);
-            System.Console.WriteLine($"created serialised json {Path.GetFileName(filePath)}");
         }
 
         public static Object ReadJsonObjectFromFile(string filePath)
