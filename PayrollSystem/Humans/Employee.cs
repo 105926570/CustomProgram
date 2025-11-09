@@ -31,8 +31,7 @@ namespace PayrollSystem
         // FullName should ALLWAYS reflect: $"{FirstName} {LastName}"
         public string FullName
         {
-            set { FullName = $"{FirstName} {LastName}"; }
-            get { return FullName ; }
+            get { return _firstName + " " + _lastName; } //test if this updates every time its ran.
         }
 
         public string FirstName
