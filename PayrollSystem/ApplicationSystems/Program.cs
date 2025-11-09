@@ -32,7 +32,7 @@ namespace PayrollSystem
         {
             _rootFolder = "C:\\CustomProgram";
             jsonTesting();
-            ReadJsonObjectFromFile("C:\\CustomProgram\\jsons\\BigBoyTest.json");
+            ReadObjectFromJson("C:\\CustomProgram\\jsons\\BigBoyTest.json");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginScreen());
@@ -44,19 +44,19 @@ namespace PayrollSystem
         {
             Console.WriteLine("Starting Test 1");
 
-            CreateJsonFromObjet(new User(), _rootFolder + "\\jsons\\testUserJson.json");
-            CreateJsonFromObjet(new Employee(), _rootFolder + "\\jsons\\testEmployeeJson.json");
+            CreateJsonFromObject(new User(), _rootFolder + "\\jsons\\testUserJson.json");
+            CreateJsonFromObject(new Employee(), _rootFolder + "\\jsons\\testEmployeeJson.json");
             Employee test1 = new Employee("Bob", "lastname", "bob123", "bobssupersecretpassword123");
             Employee test2 = new Employee("firstName", "lastName", "username123", "password123");
             List<Employee> h = new List<Employee> { test1, test2 };
             Company company = new Company() { Name = "the big company lol", Employees = h };
             Console.WriteLine("Now... The big boy test...");
-            CreateJsonFromObjet(company, _rootFolder + "\\jsons\\BigBoyTest.json");
+            CreateJsonFromObject(company, _rootFolder + "\\jsons\\BigBoyTest.json");
 
             //Test reading a JSON then saving what is read
             string testamondo = Path.GetDirectoryName(_rootFolder + "\\jsons\\BigBoyTest.json");
             testamondo = testamondo + "\\bigFatTestBruv.json";
-            CreateJsonFromObjet(JsonConvert.DeserializeObject(File.ReadAllText(_rootFolder + "\\jsons\\BigBoyTest.json")), testamondo);
+            CreateJsonFromObject(JsonConvert.DeserializeObject(File.ReadAllText(_rootFolder + "\\jsons\\BigBoyTest.json")), testamondo);
 
             //test getting file directories.
             string[] files = Directory.GetFiles($"{_rootFolder}\\jsons");
@@ -116,7 +116,7 @@ namespace PayrollSystem
 
         #region json
 
-        public static void CreateJsonFromObjet(Object obj, string filePath)
+        public static void CreateJsonFromObject(Object obj, string filePath)
         {
             Console.WriteLine($"Attempting to create json file at {filePath}");
 
@@ -139,7 +139,7 @@ namespace PayrollSystem
             }
         }
 
-        public static Object ReadJsonObjectFromFile(string filePath)
+        public static Object ReadObjectFromJson(string filePath)
         {
             EnsureDirectoryExists(filePath);
             EnsureFileExists(filePath);
@@ -153,7 +153,7 @@ namespace PayrollSystem
 
         public static void SaveEmployee(Employee emp)
         {
-            CreateJsonFromObjet(emp, $"{_rootFolder}\\employees\\{emp.ID.ToString()}.json");
+            CreateJsonFromObject(emp, $"{_rootFolder}\\employees\\{emp.ID.ToString()}.json");
         }
 
         public static Employee LoadEmployeeGivenID(int ID)
@@ -164,7 +164,7 @@ namespace PayrollSystem
             //Check the ID within the files
             foreach (string filedir in filedirs)
             {
-                emp = (Employee)ReadJsonObjectFromFile(filedir);
+                emp = (Employee)ReadObjectFromJson(filedir);
                 if (emp.ID == ID) return emp;
             }
 
@@ -176,7 +176,7 @@ namespace PayrollSystem
                 //if the file directory contains the id (if the filename contains the id)
                 if (filedir.Contains(ID.ToString()) == true) 
                 {                    
-                    emp = (Employee)ReadJsonObjectFromFile(filedir);   //check if the files ID also matches the id found...          
+                    emp = (Employee)ReadObjectFromJson(filedir);   //check if the files ID also matches the id found...          
                                        if (emp.ID == ID) return emp;   //... and if it does return it.
                 }
             }
