@@ -33,5 +33,22 @@ namespace PayrollSystem
             get { return _departmentID; }
             set { _departmentID = value; }
         }
+        public string Name
+        {
+            get { return _departmentName; }
+            set { _departmentName = value; }
+        }
+
+        public List<Employee> Employees
+        {
+            get { return _employees; }
+            set { _employees = value; }
+        }
+
+        public List<Manager> Managers
+        {
+            get{ return _managers; }
+            set { _managers = value; }
+        }
     }
 }
