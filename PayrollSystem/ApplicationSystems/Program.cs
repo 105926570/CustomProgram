@@ -169,8 +169,13 @@ namespace PayrollSystem
 
             try
             {
+                //create the JSON settings
+                JsonSerializerSettings settings = new JsonSerializerSettings();
+                settings.TypeNameHandling = TypeNameHandling.All;
+                settings.Formatting = Formatting.Indented;
+
                 // Serialize the object to a JSON string
-                string jsonString = JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.Indented); // Formatting.Indented for readability
+                string jsonString = JsonConvert.SerializeObject(obj, settings); // Formatting.Indented for readability
 
                 EnsureDirectoryExists(filePath);
                 EnsureFileExists(filePath);
