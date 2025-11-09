@@ -57,6 +57,13 @@ namespace PayrollSystem
             string testamondo = Path.GetDirectoryName(_rootFolder + "\\jsons\\BigBoyTest.json");
             testamondo = testamondo + "\\bigFatTestBruv.json";
             CreateJsonFromObjet(JsonConvert.DeserializeObject(File.ReadAllText(_rootFolder + "\\jsons\\BigBoyTest.json")), testamondo);
+
+            //test getting file directories.
+            string[] files = Directory.GetFiles($"{_rootFolder}\\jsons");
+            foreach (string file in files)
+            {
+                Console.WriteLine($"{file}");
+        }
         }
 
 #endregion
