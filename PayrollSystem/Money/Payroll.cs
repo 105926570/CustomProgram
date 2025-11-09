@@ -19,10 +19,10 @@ namespace PayrollSystem
         /// This is just for generating a payroll. run this with company.Employees as the parameter, and it generates the companies payroll. Upoon the creation of an employee, their PayHistory should be created. an Employees payhistory must be consistently updated with schedule, shift, ect. 
         /// </summary>
         /// <param name="employees"></param>
-        public Payroll(List<Employee> employees)
+        public Payroll(List<Employee> employees) : this()
         {
             EmployeesOnPayroll = employees;
-            foreach (Employee emp in EmployeesOnPayroll)
+            foreach (Employee emp in employees)
             {
                 PayHistories.Add(emp.PayHistory);
             }

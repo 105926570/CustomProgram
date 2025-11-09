@@ -28,11 +28,6 @@ namespace PayrollSystem
         static void Main()
         {
             _rootFolder = "C:\\CustomProgram";
-            jsonTesting();
-            ReadObjectFromJson("C:\\CustomProgram\\jsons\\BigBoyTest.json");
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginScreen());
 
             //initialise subdirectorys from root
             employeesDirectory = $"{_rootFolder}\\employees";
@@ -112,7 +107,10 @@ namespace PayrollSystem
 
             Company company = new Company("TestCompany", new List<Department> { departmentDefault, departmentCleaning, departmentSales, departmentHR});
 
+            SaveCompany(company);
 
+
+            Console.WriteLine("saved everyting");
         }
 
         #endregion
