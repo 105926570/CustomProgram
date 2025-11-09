@@ -16,7 +16,7 @@ namespace PayrollSystem
         private Payroll _payroll;
         private Schedule _companySchedule;
 
-        public Company()
+        public Company() //Default Constructor
         {
             Name = "The Big Company that needs a better name, and also a payroll system";
             Departments = new List<Department>();
@@ -25,17 +25,14 @@ namespace PayrollSystem
             CompanySchedule = new Schedule();
         }
 
-        public Company(string name) : this()
+        public Company(string companyName) : this()
         {
-            Name = name; //im not sure why anyone would want to name their company anything but "The Big Company that needs a better name, and also a payroll system", but ok.
+            Name = companyName; //im not sure why anyone would want to name their company anything but "The Big Company that needs a better name, and also a payroll system", but ok.
         }
 
-        public Company(string companyName, List<Department> departments, Schedule companySchedule) : this(companyName)
+        public Company(string companyName, List<Department> departments) : this(companyName)
         {
-            Name = companyName;
             Departments = departments;
-            CompanySchedule = companySchedule;
-
 
             List<Employee> emps = new List<Employee> { };
             foreach (Department department in Departments)
@@ -45,6 +42,14 @@ namespace PayrollSystem
             }
 
             CompanyPayroll = new Payroll(emps);
+
+            //Make it here so that it generates the company Schedule and payroll automatically using the employees from departments.
+        }
+
+        public Company(string companyName, List<Department> departments, Schedule companySchedule) : this(companyName, departments)
+        {
+            CompanySchedule = companySchedule; // Make it so that there is a function, similar to the one above, in witch the company schedule becomes the combined schedule of all of the users within the departments.
+                                               // OR make it so that it combines the schedules of the departments only, OF WITCH are just a combination of the employees schedules.
         }
 
         public Company(string companyName, List<Department> departments, Payroll payroll, Schedule companySchedule) : this(companyName, departments, companySchedule)
