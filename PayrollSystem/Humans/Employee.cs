@@ -4,7 +4,7 @@ namespace PayrollSystem
 {
     public class Employee : User
     {
-        private string _FirstName, _LastName;
+        private string _firstName, _lastName;
         private EmployeeTaxInfo _employeeTaxInfo;
         //Department department;
         private Schedule _schedule;
@@ -13,8 +13,8 @@ namespace PayrollSystem
 
         public Employee() : base() //Constructor with default values
         {
-            _FirstName = "Jhon";
-            _LastName = "Doe";
+            _firstName = "Jhon";
+            _lastName = "Doe";
             _employeeTaxInfo = new EmployeeTaxInfo();
             _payHistory = new PayHistory();
             _privilege = 0;
@@ -33,14 +33,14 @@ namespace PayrollSystem
 
         public string FirstName
         {
-            get { return _FirstName; }
-            set { _FirstName = value; }
+            get { return _firstName; }
+            set { _firstName = value; }
         }
 
         public string LastName
         {
-            get { return _LastName; }
-            set { _LastName = value; }
+            get { return _lastName; }
+            set { _lastName = value; }
         }
 
         public PayHistory PayHistory
@@ -55,11 +55,13 @@ namespace PayrollSystem
             set { _privilege = value; }
         }
 
+        // Maybe change to string so that its up to the caller to print it?
         public void DisplayEmployeeInfo()
         {
             Console.WriteLine($"Name: {FullName} - ID: {ID}");
         }
 
+        // Maybe change to string so that its up to the caller to print it?
         public void DisplayAllEmployeeInfo()
         {
             Console.WriteLine(ReturnUserInfoAsString());
