@@ -252,6 +252,15 @@ namespace PayrollSystem
             }
             return null;
         }
+
+        public static void FullCompanySave(Company company)
+        {
+            SaveCompany(company);
+            foreach (Employee emp in company.Employees)
+            {
+                SaveEmployee(emp);
+            }
+        }
         #endregion
 
         public static void ChangeActiveEmployee(int privliage, Employee newActiveEmployee)
@@ -316,6 +325,18 @@ namespace PayrollSystem
             "Price", "Alvarez", "Castillo", "Sanders", "Patel", "Myers", "Long", "Ross", "Foster", "Jimenez"
             }; return s[GenerateRandomNumber(s.Length - 1)];
         }
+
+        #region startup and shutdown
+        public static void Startup()
+        {
+            _companyLoadedInFromFiles = LoadCompany();
+        }
+
+        public static void Shutdown()
+        {
+            FullCompanySave(_companyLoadedInFromFiles);
+        }
+        #endregion
     }
 }
 
