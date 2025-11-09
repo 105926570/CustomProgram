@@ -33,8 +33,8 @@ namespace PayrollSystem
 
         public string Email
         {
-            get { return _Username; }
-            set { _Username = value; }
+            get { return _email; }
+            set { _email = value; }
         }
 
         public string Username
