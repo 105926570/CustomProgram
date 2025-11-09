@@ -69,6 +69,16 @@ namespace PayrollSystem
             }
         }
 
+        public static List<int> DepartmentIDs
+        {
+            get
+            {
+                List<int> ids = new List<int> { };
+                foreach (Department dep in _companyLoadedInFromFiles.Departments) ids.Add(dep.ID);
+                return ids;
+            }
+        }
+
 
         #endregion
 
