@@ -19,7 +19,7 @@ namespace PayrollSystem
         //Company loaded in from class. this is to be done at the start of main.
         private static Company _companyLoadedInFromFiles;
 
-        private static string employeesDirectory;
+        private static string employeesDirectory, companyDirectory;
 
         /// <summary>
         /// The main entry point for the application.
@@ -36,6 +36,7 @@ namespace PayrollSystem
 
             //initialise subdirectorys from root
             employeesDirectory = $"{_rootFolder}\\employees";
+            companyDirectory = $"{_rootFolder}";
         }
 
         #region Tests - To be deleted at the end of project
@@ -103,7 +104,9 @@ namespace PayrollSystem
             departmentHR.Employees.Add(emp11);
             departmentHR.Employees.Add(emp12);
 
-            Company company = new Company("TestCompany", new List<Department> { departmentDefault, departmentCleaning, departmentSales, departmentHR}, new Payroll());
+            Company company = new Company("TestCompany", new List<Department> { departmentDefault, departmentCleaning, departmentSales, departmentHR});
+
+
         }
 
         #endregion
@@ -196,6 +199,11 @@ namespace PayrollSystem
             CreateJsonFromObject(emp, $"{employeesDirectory}\\{emp.ID.ToString()}.json");
         }
 
+        public static void SaveCompany(Company com)
+        {
+            CreateJsonFromObject(com, $"{companyDirectory}\\company.json");
+        }
+
         public static Employee LoadEmployeeGivenID(int ID)
         {
             //get all files within folder
@@ -225,6 +233,16 @@ namespace PayrollSystem
             return null; //when both checks fail
         }
 
+        public static Company LoadCompany()
+        {
+            string[] filedirs = Directory.GetFiles(companyDirectory);
+            foreach (string filedir in filedirs)
+            {
+                if (filedir == $"{companyDirectory}\\company.json")
+                    return (Company)ReadObjectFromJson(filedir);
+            }
+            return null;
+        }
         #endregion
 
         public static void ChangeActiveEmployee(int privliage, Employee newActiveEmployee)
