@@ -177,12 +177,12 @@ namespace PayrollSystem
                 if (filedir.Contains(ID.ToString()) == true) 
                 {                    
                     emp = (Employee)ReadObjectFromJson(filedir);   //check if the files ID also matches the id found...          
-                                       if (emp.ID == ID) return emp;   //... and if it does return it.
+                    if (emp.ID == ID)
+                        return emp;   //... and if it does return it.
                 }
             }
 
-            //when both checks fail
-            return null;
+            return null; //when both checks fail
         }
 
     #endregion
