@@ -15,6 +15,7 @@ namespace PayrollSystem
         private Color _secondaryColor, _primaryColor, _accentColur; //NOT PUBLIC IN ANY WAY YET!!!!
         private Payroll _payroll;
         private Schedule _companySchedule;
+        private static List<int> _employeeIDs, _departmentIDs; //This is what is saved to a json instead, rather than the whole entire employee info.
 
         public Company() //Default Constructor
         {
@@ -98,6 +99,27 @@ namespace PayrollSystem
             get { return _companySchedule; }
             set { _companySchedule = value; }
         }
+
+        public List<int> EmployeeIDs
+        {
+            get
+            {
+                List<int> ids = new List<int> { };
+                foreach (Employee emp in Employees) ids.Add(emp.ID);
+                return ids;
+            }
+        }
+
+        public List<int> DepartmentIDs
+        {
+            get
+            {
+                List<int> ids = new List<int> { };
+                foreach (Department dep in Departments) ids.Add(dep.ID);
+                return ids;
+            }
+        }
+
 
         public void CreateEmployee(Employee employee) //This should be the only way to add and create employees
         {

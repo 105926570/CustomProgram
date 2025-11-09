@@ -23,8 +23,6 @@ namespace PayrollSystem
 
         private static string employeesDirectory, companyDirectory;
 
-        private static List<int> _employeeIDs, _departmentIDs; //This is what is saved to a json instead, rather than the whole entire employee info.
-
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -59,26 +57,6 @@ namespace PayrollSystem
         public static Employee activeEmployee { get { return _activeEmployee; } }
         public static string RootFolder { get { return _rootFolder; } }
         public static Company CompanyLoadedInFromFiles { get { return _companyLoadedInFromFiles; } }
-        public static List<int> EmployeeIDs
-        {
-            get
-            {
-                List<int> ids = new List<int> { };
-                foreach (Employee emp in _companyLoadedInFromFiles.Employees) ids.Add(emp.ID);
-                return ids;
-            }
-        }
-
-        public static List<int> DepartmentIDs
-        {
-            get
-            {
-                List<int> ids = new List<int> { };
-                foreach (Department dep in _companyLoadedInFromFiles.Departments) ids.Add(dep.ID);
-                return ids;
-            }
-        }
-
 
         #endregion
 
