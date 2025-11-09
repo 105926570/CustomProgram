@@ -35,6 +35,16 @@ namespace PayrollSystem
             Name = companyName;
             Departments = departments;
             CompanySchedule = companySchedule;
+
+
+            List<Employee> emps = new List<Employee> { };
+            foreach (Department department in Departments)
+            {
+                foreach (Employee employee in department.Employees)
+                    emps.Add(employee);
+            }
+
+            CompanyPayroll = new Payroll(emps);
         }
 
         public Company(string companyName, List<Department> departments, Payroll payroll, Schedule companySchedule) : this(companyName, departments, companySchedule)
