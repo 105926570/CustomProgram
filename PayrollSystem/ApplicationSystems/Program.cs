@@ -144,6 +144,7 @@ namespace PayrollSystem
 
         #endregion
 
+        public static void SaveEmployee(Employee emp)
     #endregion
 
         public static void ChangeActiveEmployee(int privliage, Employee newActiveEmployee)
