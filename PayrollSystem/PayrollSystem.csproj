@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationSystems\MiscFunctions.cs" />
+    <Compile Include="ApplicationSystems\TestingFunctions.cs" />
     <Compile Include="Forms\EmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
