@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static PayrollSystem.UsefullUniversalCommands;
 
 namespace PayrollSystem
 {
@@ -10,14 +11,16 @@ namespace PayrollSystem
     {
         private int _id;
 
+        /// <summary>ID is randomly generated with length 7</summary>
         public IdentifiableObject() //default constructor
         {
-            _id = 0; //should be application.generateuniqeid
+            ID = GenerateRandomNumberGivenItsLength(7); //User ID should be a random number generated when creating a new employee, and not equal to any other existing User ID.
         }
 
+        /// <summary>ID is defined</summary>
         public IdentifiableObject(int id) //to be used when loading something from a json for example
         {
-            _id = id;
+            ID = id;
         }
 
         public int ID
