@@ -18,11 +18,7 @@ namespace PayrollSystem
         //Company loaded in from class. this is to be done at the start of main.
         private static Company _companyLoadedInFromFiles;
 
-        //folder names for different types of jsons
-        private static readonly string userFolderName = "users";         // root/users
-        private static readonly string EmployeeFolderName = "employees"; // root/users/employees
-        private static readonly string ManagerFolderName = "managers";   // root/users/managers
-        private static readonly string AdminFolderName = "admins";       // root/users/admins
+        private static string employeesDirectory;
 
         /// <summary>
         /// The main entry point for the application.
@@ -36,6 +32,9 @@ namespace PayrollSystem
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginScreen());
+
+            //initialise subdirectorys from root
+            employeesDirectory = $"{_rootFolder}\\employees";
         }
 
 #region Tests - To be deleted at the end of project
@@ -153,14 +152,15 @@ namespace PayrollSystem
 
         public static void SaveEmployee(Employee emp)
         {
-            CreateJsonFromObject(emp, $"{_rootFolder}\\employees\\{emp.ID.ToString()}.json");
+            CreateJsonFromObject(emp, $"{employeesDirectory}\\{emp.ID.ToString()}.json");
         }
 
         public static Employee LoadEmployeeGivenID(int ID)
         {
             //get all files within folder
-            string[] filedirs = Directory.GetFiles($"{_rootFolder}\\employees");
+            string[] filedirs = Directory.GetFiles(employeesDirectory);
             Employee emp;
+
             //Check the ID within the files
             foreach (string filedir in filedirs)
             {
