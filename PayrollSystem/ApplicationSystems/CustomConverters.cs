@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace PayrollSystem.ApplicationSystems
 {
-    internal class CustomConverters
+    public class CompanyConverter
     {
+
+    }
+
+    public class DepartmentConverter
+    {
+
+    }
+
+    public class EmployeeConverter
+    {
+
     }
 }
