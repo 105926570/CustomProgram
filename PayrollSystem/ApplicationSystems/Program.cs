@@ -153,6 +153,17 @@ namespace PayrollSystem
             _activeEmployee = null;
         }
 
+        public static string GenerateVerboseErrorMessage(Exception ex)
+        {
+            string output = $"Message: {ex.Message}\n" +
+                            $"InnerException: {ex.InnerException}\n" +
+                            $"StackTrace: {ex.StackTrace}\n" +
+                            $"Type: {ex.GetType()}\n" +
+                            $"Data: {ex.Data}\n" +
+                            $"Source: {ex.Source}";
+            return output;
+        }
+
 #endregion
     
     }
