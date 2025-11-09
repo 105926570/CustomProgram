@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using PayrollSystem;
 using System.Collections.Generic;
 using System.Drawing;
@@ -70,12 +71,14 @@ namespace PayrollSystem
             set { _companyName = value; }
         }
 
+        [JsonIgnore]
         public List<Department> Departments
         {
             get { return _departments; }
             set { _departments = value; }
         }
 
+        [JsonIgnore]
         public List<Employee> Employees
         {
             get { return _employees; }
