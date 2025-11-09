@@ -7,24 +7,25 @@ namespace PayrollSystem
     {
         int _departmentID;
         private string _departmentName;
-        private List<Employee> _employees = new List<Employee> { };
-        private List<Manager> _managers = new List<Manager> { };
+        private List<Employee> _employees;
+        private List<Manager> _managers;
 
         public Department()
         {
             _departmentID = GenerateRandomNumber(99);
             _departmentName = "Default Department";
+            _employees = new List<Employee> { };
+            _managers = new List<Manager> { };
         }
 
-        public Department(string name)
+        public Department(string name) : this() 
         {
             _departmentName = name;
         }
 
-        public Department(string name, int ID)
+        public Department(string name, int ID) : this(name) 
         {
             _departmentID = ID;
-            _departmentName = name;
         }
 
         public int ID
