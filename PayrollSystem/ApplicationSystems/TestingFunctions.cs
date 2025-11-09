@@ -80,7 +80,7 @@ namespace PayrollSystem.ApplicationSystems
 
             Company company = new Company("TestCompany", new List<Department> { departmentDefault, departmentCleaning, departmentSales, departmentHR });
 
-            SaveCompany(company);
+            OldSaveCompany(company);
 
 
             Console.WriteLine("saved everyting");

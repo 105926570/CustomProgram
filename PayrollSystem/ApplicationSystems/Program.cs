@@ -134,7 +134,7 @@ namespace PayrollSystem
             CreateJsonFromObject(emp, $"{employeesDirectory}\\{emp.ID.ToString()}.json");
         }
 
-        public static void SaveCompany(Company com)
+        public static void OldSaveCompany(Company com)
         {
             CreateJsonFromObject(com, $"{companyDirectory}\\company.json");
         }
@@ -168,7 +168,7 @@ namespace PayrollSystem
             return null; //when both checks fail
         }
 
-        public static Company LoadCompany()
+        public static Company OldLoadCompany()
         {
             string[] filedirs = Directory.GetFiles(companyDirectory);
             foreach (string filedir in filedirs)
@@ -181,7 +181,7 @@ namespace PayrollSystem
 
         public static void FullCompanySave(Company company)
         {
-            SaveCompany(company);
+            OldSaveCompany(company);
             foreach (Employee emp in company.Employees)
             {
                 SaveEmployee(emp);
@@ -223,7 +223,7 @@ namespace PayrollSystem
         #region startup and shutdown
         public static void Startup()
         {
-            _companyLoadedInFromFiles = LoadCompany();
+            _companyLoadedInFromFiles = OldLoadCompany();
         }
 
         public static void Shutdown()
