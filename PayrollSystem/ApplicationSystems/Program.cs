@@ -31,7 +31,8 @@ namespace PayrollSystem
             Application.Run(new LoginScreen());
         }
 
-        #region Tests - To be deleted at the end of project
+#region Tests - To be deleted at the end of project
+
         private static void jsonTesting()
         {
             Console.WriteLine("Starting Test 1");
@@ -50,10 +51,12 @@ namespace PayrollSystem
             testamondo = testamondo + "\\bigFatTestBruv.json";
             CreateJsonFromObjet(JsonConvert.DeserializeObject(File.ReadAllText(_rootFolder + "\\jsons\\BigBoyTest.json")), testamondo);
         }
-        #endregion
+
+#endregion
 
 
-        #region Properties
+#region Properties
+
         public static bool isLoggedIn
         {
             get
@@ -67,10 +70,13 @@ namespace PayrollSystem
         public static Employee activeEmployee { get { return _activeEmployee; } }
         public static string RootFolder { get { return _rootFolder; } }
         public static Company CompanyLoadedInFromFiles { get { return _companyLoadedInFromFiles; } }
+
         #endregion
 
 
-        #region reading and writing
+#region Functions
+
+    #region reading and writing
 
         private static void EnsureDirectoryExists(string directory)
         {
@@ -95,6 +101,7 @@ namespace PayrollSystem
         }
 
         #region json
+
         public static void CreateJsonFromObjet(Object obj, string filePath)
         {
             // Serialize the object to a JSON string
@@ -130,9 +137,10 @@ namespace PayrollSystem
 
             return JsonConvert.DeserializeObject(File.ReadAllText(filePath));
         }
-        #endregion
+
         #endregion
 
+    #endregion
 
         public static void ChangeActiveEmployee(int privliage, Employee newActiveEmployee)
         {
@@ -144,6 +152,9 @@ namespace PayrollSystem
         {
             _activeEmployee = null;
         }
+
+#endregion
+    
     }
 }
 
