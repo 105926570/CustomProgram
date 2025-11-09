@@ -71,56 +71,6 @@ namespace PayrollSystem
 
 
         #region reading and writing
-        public static void ReadFileContents(string filePath, out byte[] fileData)
-        {
-            fileData = Array.Empty<byte>();
-
-            //Check if filePath input is null
-            if (string.IsNullOrEmpty(filePath)) //then file doesn't exist
-            {
-                Console.WriteLine($"file path {filePath} is null or empty");
-                return;
-            }
-
-            //try reading the file
-            try
-            {
-                EnsureDirectoryExists(filePath);
-                EnsureFileExists(filePath);
-
-                //Read the file contents
-                fileData = File.ReadAllBytes(filePath);
-                Console.WriteLine($"Successfully read {fileData.Length} bytes from file '{filePath}'");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Failed to create directory for file '{filePath}'. Details: {ex.Message}");
-                return;
-            }
-        }
-
-        public static void WriteDataToFile(string filePath, byte[] data)
-        {
-            //Check if filePath input is null
-            if (string.IsNullOrEmpty(filePath)) //then file doesn't exist
-            {
-                Console.WriteLine($"file path {filePath} is null or empty");
-                return;
-            }
-
-            try
-            {
-                EnsureDirectoryExists(filePath);
-
-                // Write the data
-                File.WriteAllBytes(filePath, data);
-                Console.WriteLine($"Successfully wrote {data.Length} bytes to file '{filePath}'.");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Unexpected error writing file '{filePath}': {ex.Message}");
-            }
-        }
 
         private static void EnsureDirectoryExists(string directory)
         {
@@ -143,24 +93,8 @@ namespace PayrollSystem
                 Console.WriteLine($"...File '{filePath}' created successfully.");
             }
         }
-        #endregion
 
-        public static string BytesToString(byte[] dataBytes)
-        {
-            return System.Text.Encoding.UTF8.GetString(dataBytes);
-        }
-
-        public static void ChangeActiveEmployee(int privliage, Employee newActiveEmployee)
-        {
-            if (privliage >= 2) _activeEmployee = newActiveEmployee;
-            else MessageBox.Show("Privliage isnt high enought. Active Employee not changing...");
-        }
-
-        public static void RemoveActiveEmployee()
-        {
-            _activeEmployee = null;
-        }
-
+        #region json
         public static void CreateJsonFromObjet(Object obj, string filePath)
         {
             // Serialize the object to a JSON string
@@ -195,6 +129,20 @@ namespace PayrollSystem
             Console.WriteLine($"Deserialising json at {filePath} with the contents:\n{File.ReadAllText(filePath)}");
 
             return JsonConvert.DeserializeObject(File.ReadAllText(filePath));
+        }
+        #endregion
+        #endregion
+
+
+        public static void ChangeActiveEmployee(int privliage, Employee newActiveEmployee)
+        {
+            if (privliage >= 2) _activeEmployee = newActiveEmployee;
+            else MessageBox.Show("Privliage isnt high enought. Active Employee not changing...");
+        }
+
+        public static void RemoveActiveEmployee()
+        {
+            _activeEmployee = null;
         }
     }
 }
