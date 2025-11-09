@@ -57,11 +57,10 @@ namespace PayrollSystem
 
         public string ReturnUserInfoAsString()
         {
-            Console.WriteLine("Displaying user info:");
-            return $"Employee ID: {_employeeID}\n" +
-                   $"Username: {_username}\n" +
-                   $"Password: {_password}\n" +
-                   $"Email: {_email}";
+            return $"Employee ID: {ID}\n" +
+                   $"Username: {Username}\n" +
+                   $"Password: {Password}\n" +
+                   $"Email: {Email}";
         }
     }
 }
