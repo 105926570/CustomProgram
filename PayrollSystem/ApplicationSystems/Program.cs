@@ -38,8 +38,8 @@ namespace PayrollSystem
 
             CreateJsonFromObjet(new User(), _rootFolder + "\\jsons\\testUserJson.json");
             CreateJsonFromObjet(new Employee(), _rootFolder + "\\jsons\\testEmployeeJson.json");
-            Employee test1 = new Employee(124, "username123", "password123", "foist noim", "loist naime");
-            Employee test2 = new Employee(187343, "asfasdfasdf", "asdfasdf", "foist sadfasdf", "loist asdfasdf");
+            Employee test1 = new Employee("Bob", "lastname", "bob123", "bobssupersecretpassword123");
+            Employee test2 = new Employee("firstName", "lastName", "username123", "password123");
             List<Employee> h = new List<Employee> { test1, test2 };
             Company company = new Company() { Name = "the big company lol", Employees = h };
             Console.WriteLine("Now... The big boy test...");

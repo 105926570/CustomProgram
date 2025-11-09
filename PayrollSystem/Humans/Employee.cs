@@ -21,14 +21,18 @@ namespace PayrollSystem
             _schedule = new Schedule();
         }
 
-        //Read only Property
+        public Employee(string firstName, string lastName, string Username, string Password) : base(Username, Password)
+        {
+            _firstName = firstName;
+            _lastName = lastName;
+        }
+
+        // Read only Property - as in can only be changed by the class and not by a function.
+        // FullName should ALLWAYS reflect: $"{FirstName} {LastName}"
         public string FullName
         {
-            get
-            {
-                string s = FirstName + " " + LastName;
-                return s;
-            }
+            set { FullName = $"{FirstName} {LastName}"; }
+            get { return FullName ; }
         }
 
         public string FirstName
