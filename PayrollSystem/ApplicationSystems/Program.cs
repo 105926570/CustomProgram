@@ -151,8 +151,25 @@ namespace PayrollSystem
             _activeEmployee = null;
         }
 
-#endregion
-    
+        public static void SaveErrorToLog(Exception ex)
+        {
+            //DIRECTORY SHOULD BE LIKE THIS:
+            string ErrorLogDirectory = "C:\\CustomPayrollProgramDebug\\errorLog.log";
+            
+            //Ensure the directory and the file exists. if it doesnt, create it.
+            EnsureDirectoryExists(ErrorLogDirectory);
+            EnsureFileExists(ErrorLogDirectory);
+
+            //READ FILE IN THE DIRECTORY [ErrorLogDirectory]
+
+            //ADD [Exception ex] TO THE END OF FILE
+
+            //WHAT SHOULD BE ADDED TO THE FILE SHOULD LOOK LIKE THIS:
+            Console.WriteLine($"{DateTime.Now.ToString()} : {ex}");
+        }
+
+        #endregion
+
     }
 }
 
