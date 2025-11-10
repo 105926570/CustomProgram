@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using static PayrollSystem.UsefullUniversalCommands;
+using static PayrollSystem.Program;
 
 namespace PayrollSystem
 {
@@ -12,7 +13,7 @@ namespace PayrollSystem
 
         public Department()
         {
-            _departmentID = GenerateRandomNumber(99);
+            _departmentID = rand.Next(99);
             _departmentName = "Default Department";
             _employees = new List<Employee> { };
             _managers = new List<Manager> { };
