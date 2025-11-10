@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using static PayrollSystem.Program;
 
 namespace PayrollSystem
@@ -39,10 +40,21 @@ namespace PayrollSystem
             set { _departmentName = value; }
         }
 
+        [JsonIgnore]
         public List<Employee> Employees
         {
             get { return _employees; }
             set { _employees = value; }
+        }
+
+        public List<int> EmployeeIDs
+        {
+            get
+            {
+                List<int> ids = new List<int> { };
+                foreach (Employee emp in Employees) ids.Add(emp.ID);
+                return ids;
+            }
         }
 
         public List<Manager> Managers

@@ -208,6 +208,35 @@ namespace PayrollSystem
             return readEmployee(employeeId, employeesDirectory);
         }
 
+        //when writing this, think from the perspective of an manager viewing their department
+        public static Department loadDepartment(int departmentID)
+        {
+            return loadDepartment(departmentID, employeesDirectory);
+        }
+
+        public static Department loadDepartment(int departmentID, string directory)
+        {
+            string[] empDirs = Directory.GetFiles(directory);
+
+            foreach (string dir in empDirs)
+            {
+                if (dir.Contains(departmentID.ToString()))
+                {
+                    string json = File.ReadAllText(dir);
+                    Department dep = JsonConvert.DeserializeObject<Department>(json);
+
+                    List<Employee> emps = new List<Employee>() { };
+                    foreach (int ID in dep.EmployeeIDs)
+                    {
+                        emps.Add(readEmployee(ID));
+                    }
+                    dep.Employees = emps;
+                    return dep;
+                }
+            }
+            return null;
+        }
+
         #endregion
 
         /// <summary> loads a file in the rootfolder called "company.json" and returns it as a company</summary>
