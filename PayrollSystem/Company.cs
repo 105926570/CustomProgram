@@ -7,7 +7,7 @@ using static PayrollSystem.UsefullUniversalCommands;
 
 namespace PayrollSystem
 {
-    internal class Company
+    public class Company
     {
         private string _companyName;
         private List<Department> _departments;
