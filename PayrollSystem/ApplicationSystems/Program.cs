@@ -241,12 +241,14 @@ namespace PayrollSystem
 
         public static Company LoadCompany()
         {
-            string[] filedirs = Directory.GetFiles(companyDirectory);
-            foreach (string filedir in filedirs)
+            try
             {
-                if (filedir == $"{companyDirectory}\\company.json")
-                    return (Company)ReadObjectFromJson(filedir);
+                Object obj = ReadObjectFromJson($"{companyDirectory}\\company.json");
+                Company comp = (Company)obj;
+                if (comp == null) throw new ArgumentNullException();
+                return comp;
             }
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
             return null;
         }
 
