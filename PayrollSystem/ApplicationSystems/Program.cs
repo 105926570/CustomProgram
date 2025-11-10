@@ -209,11 +209,6 @@ namespace PayrollSystem
 
         #endregion
 
-        public static void SaveEmployee(Employee emp)
-        {
-            CreateJsonFromObject(emp, $"{employeesDirectory}\\{emp.ID.ToString()}.json");
-        }
-
         /// <summary> loads a file in the rootfolder called "company.json" and returns it as a company</summary>
         /// <returns>a company</returns>
         public static Company LoadCompany()
