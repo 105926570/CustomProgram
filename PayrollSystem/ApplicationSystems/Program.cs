@@ -260,10 +260,10 @@ namespace PayrollSystem
         }
         #endregion
 
-        public static void ChangeActiveEmployee(int privliage, Employee newActiveEmployee)
+        public static void ChangeActiveEmployee(Employee newActiveEmployee)
         {
-            if (privliage >= 2) _activeEmployee = newActiveEmployee;
-            else MessageBox.Show("Privliage isnt high enought. Active Employee not changing...");
+            if (newActiveEmployee.Privliage >= 0 && newActiveEmployee.Privliage <= 2) _activeEmployee = newActiveEmployee;
+            else MessageBox.Show("privliage is not acceptable");
         }
 
         public static void RemoveActiveEmployee()

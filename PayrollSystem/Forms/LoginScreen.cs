@@ -47,7 +47,7 @@ namespace PayrollSystem
                     if (employee.Password == passwordInputBox.Text)
                     {
                         MessageBox.Show("Username and password correct!");
-                        ChangeActiveEmployee(employee.Privliage, employee);
+                        ChangeActiveEmployee(employee);
                         pageOpenner(employee);
                     }
                     else MessageBox.Show("Password was incorrect");
