@@ -50,5 +50,15 @@ namespace PayrollSystem
             get { return _managers; }
             set { _managers = value; }
         }
+
+        public void Save()
+        {
+            Save(departmentDirectory);
+        }
+
+        public void Save(string departmentDirectory)
+        {
+            CreateJsonFromObject(this, $"{departmentDirectory}\\{this.ID}.json");
+        }
     }
 }

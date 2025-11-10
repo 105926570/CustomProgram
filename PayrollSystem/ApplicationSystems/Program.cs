@@ -19,7 +19,7 @@ namespace PayrollSystem
         private static Company _activeCompany; // This is what should be changed with ever addition and modification to the company
         public static Random rand = new Random();
 
-        private static string employeesDirectory, companyDirectory;
+        public static string employeesDirectory, companyDirectory, departmentDirectory;
 
         /// <summary>
         /// The main entry point for the appliation.
@@ -31,6 +31,7 @@ namespace PayrollSystem
 
             //initialise subdirectorys from root
             employeesDirectory = $"{_rootFolder}\\employees";
+            departmentDirectory = $"{_rootFolder}\\departments";
             companyDirectory = $"{_rootFolder}";
 
             //testing
