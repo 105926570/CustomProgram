@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace PayrollSystem
 {
@@ -96,5 +97,19 @@ namespace PayrollSystem
             return generatedNumbers;
         }
         #endregion
+
+        /// <summary> prints to console and msg box simultaiously with just one function. 
+        /// <example>Output: [currentdateandtime] - [message]</example></summary>
+        /// <param name="message">mesage you wish to be printed</param>
+        public static void shMsgBoxT(string message)
+        {
+            shMsgBox($"{DateTime.Now.ToString()} - {message}");
+        }
+
+        public static void shMsgBox(string msg)
+        {
+            MessageBox.Show(msg);
+            Console.WriteLine(msg);
+        }
     }
 }
