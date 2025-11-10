@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,7 +23,7 @@ namespace PayrollSystem
         private static string employeesDirectory, companyDirectory;
 
         /// <summary>
-        /// The main entry point for the application.
+        /// The main entry point for the appliation.
         /// </summary>
         [STAThread]
         static void Main()
@@ -107,9 +108,10 @@ namespace PayrollSystem
 
             Company company = new Company("TestCompany", new List<Department> { departmentDefault, departmentCleaning, departmentSales, departmentHR });
 
-            company.Save(RootFolder);
+            company.Save(_rootFolder);
 
             Console.WriteLine("saved everyting");
+            MessageBox.Show("Saved The New Thing i think");
         }
 
         #endregion
@@ -241,15 +243,9 @@ namespace PayrollSystem
 
         public static Company LoadCompany()
         {
-            try
-            {
-                Object obj = ReadObjectFromJson($"{companyDirectory}\\company.json");
-                Company comp = (Company)obj;
-                if (comp == null) throw new ArgumentNullException();
-                return comp;
-            }
-            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
-            return null;
+            string json = File.ReadAllText($"{companyDirectory}\\company.json");
+            Company cmp = JsonConvert.DeserializeObject<Company>(json);
+            return cmp;
         }
 
         public static void FullCompanySave(Company company)

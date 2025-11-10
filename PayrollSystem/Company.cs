@@ -75,14 +75,14 @@ namespace PayrollSystem
             set { _companyLogo = value; }
         }
 
-        [JsonIgnore]
         public List<Department> Departments
         {
             get { return _departments; }
             set { _departments = value; }
         }
 
-        [JsonIgnore]
+        //make it so this just returns each of the employees in the departmeetns
+        [JsonIgnore]//ignored, because when loading a company, company data is retrived from the department instead.
         public List<Employee> Employees
         {
             get { return _employees; }

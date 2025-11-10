@@ -1,5 +1,6 @@
 ﻿using PayrollSystem.Forms;
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 using static PayrollSystem.Program;
 using static PayrollSystem.UsefullUniversalCommands;
@@ -39,22 +40,35 @@ namespace PayrollSystem
 
         private void loginButton_Click(object sender, EventArgs e)
         {
+            Console.WriteLine("login clicked");
             Company companyToSearch = LoadCompany();
+            Console.WriteLine("company to search loaded");
 
-            foreach (Employee employee in companyToSearch.Employees)
+            foreach (Department department in companyToSearch.Departments)
             {
-                if (employee.Username == usernameInputBox.Text)
+                Console.WriteLine($"looking in {department.Name}");
+                foreach (Employee employee in department.Employees)
                 {
-                    if (employee.Password == passwordInputBox.Text)
+                    Console.WriteLine($"looking in {employee.FirstName}");
+                    Console.WriteLine($"{employee.Username} = {usernameInputBox.Text}???");
+                    if (employee.Username == usernameInputBox.Text)
                     {
-                        MessageBox.Show("Username and password correct!");
-                        ChangeActiveEmployee(employee);
-                        pageOpenner(employee);
+                        Console.WriteLine($"yes");
+                        Console.WriteLine($"{employee.Password} = {passwordInputBox.Text}???");
+                        if (employee.Password == passwordInputBox.Text)
+                        {
+                            Console.WriteLine($"yes");
+                            Console.WriteLine($"changing active employee");
+                            ChangeActiveEmployee(employee);
+                            pageOpenner(employee);
+                            return; //prevent loop from continuing.
+                        }
+                        else Console.WriteLine("No it does not");
                     }
-                    else MessageBox.Show("Password was incorrect");
+                    else Console.WriteLine($"no");
                 }
-                else MessageBox.Show("Could not find someone with that username.");               
-            } 
+            }
+            MessageBox.Show("Unable to find a user with that username.");
         }
 
         private void pageOpenner(Employee emp)
@@ -65,20 +79,25 @@ namespace PayrollSystem
                 case 0:
                     Console.Write($"Loading {emp.FullName} as a Standard Employee");
                     newForm = new EmployeeForm();
+                    newForm.Show();
                     break;
                 case 1:
                     Console.Write($"Loading {emp.FullName} as a Manager");
                     newForm = new ManagerForm();
+                    newForm.Show();
                     break;
                 case 2:
                     Console.Write($"Loading {emp.FullName} as an Admin");
                     newForm = new AdminForm();
+                    newForm.Show();
                     break;
                 default:
                     shMsgBox($"INVALID PRIVLIAGE: {emp.Privliage}\n" +
                              $"Privliage must be between 0 - 2\n" +
                              $"\n" +
                              $"Loading as Standard Employee...");
+                    newForm = new EmployeeForm();
+                    newForm.Show();
                     break;
             }
         }
