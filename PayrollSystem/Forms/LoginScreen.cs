@@ -64,11 +64,14 @@ namespace PayrollSystem
                             return; //prevent loop from continuing.
                         }
                         else Console.WriteLine("No it does not");
+                        MessageBox.Show("incorrect password");
+                        return;
                     }
                     else Console.WriteLine($"no");
                 }
             }
-            MessageBox.Show("Unable to find a user with that username.");
+            Console.WriteLine("looked through all");
+            MessageBox.Show("Unable to find a user with that username");
         }
 
         private void pageOpenner(Employee emp)
