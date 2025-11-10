@@ -336,11 +336,12 @@ namespace PayrollSystem
             _companyLoadedInFromFiles = LoadCompany();
             foreach (Department department in _companyLoadedInFromFiles.Departments) { } //Save Department
             foreach (Employee emp in _companyLoadedInFromFiles.Employees) SaveEmployee(emp);
+            _activeCompany = _companyLoadedInFromFiles;
         }
 
         public static void Shutdown()
         {
-            FullCompanySave(_companyLoadedInFromFiles);
+            FullCompanySave(_activeCompany);
         }
         #endregion
     }
