@@ -1,4 +1,5 @@
 ﻿using static PayrollSystem.UsefullUniversalCommands;
+using static PayrollSystem.Program;
 
 namespace PayrollSystem
 {
@@ -11,7 +12,7 @@ namespace PayrollSystem
 
         public EmployeeTaxInfo() //Default Constructor
         {
-            _tfn = GenerateRandomNumber(999999999);
+            _tfn = rand.Next(999999999);
             _isResident = true;
             _yearlyIncome = 0;
             _taxBracket = 0;

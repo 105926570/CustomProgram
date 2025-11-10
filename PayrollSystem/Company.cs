@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using static PayrollSystem.UsefullUniversalCommands;
+using static PayrollSystem.Program;
 
 namespace PayrollSystem
 {
@@ -126,7 +127,7 @@ namespace PayrollSystem
         {
             bool matchingId = false;
             bool newIdMatching = false;
-            int randomID = GenerateRandomNumber(9999999);
+            int randomID = rand.Next(9999999);
 
             foreach (Employee emp in Employees)
             {
@@ -143,7 +144,7 @@ namespace PayrollSystem
                 if (newIdMatching == true)
                 {
                     matchingId = true;
-                    randomID = GenerateRandomNumber(9999999);
+                    randomID = rand.Next(9999999);
                 }
                 else matchingId = false;
 

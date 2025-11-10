@@ -77,18 +77,18 @@ namespace PayrollSystem
             Department departmentSales = new Department("Sales");
             Department departmentHR = new Department("HR");
 
-            Employee emp1 = new Employee(RandomFirstName(), RandomLastName(), $"username123{GenerateRandomNumber(99)}", $"password123{GenerateRandomNumber(99)}");
-            Employee emp2 = new Employee(RandomFirstName(), RandomLastName(), $"username123{GenerateRandomNumber(99)}", $"password123{GenerateRandomNumber(99)}");
-            Employee emp3 = new Employee(RandomFirstName(), RandomLastName(), $"username123{GenerateRandomNumber(99)}", $"password123{GenerateRandomNumber(99)}");
-            Employee emp4 = new Employee(RandomFirstName(), RandomLastName(), $"username123{GenerateRandomNumber(99)}", $"password123{GenerateRandomNumber(99)}");
-            Employee emp5 = new Employee(RandomFirstName(), RandomLastName(), $"username123{GenerateRandomNumber(99)}", $"password123{GenerateRandomNumber(99)}");
-            Employee emp6 = new Employee(RandomFirstName(), RandomLastName(), $"username123{GenerateRandomNumber(99)}", $"password123{GenerateRandomNumber(99)}");
-            Employee emp7 = new Employee(RandomFirstName(), RandomLastName(), $"username123{GenerateRandomNumber(99)}", $"password123{GenerateRandomNumber(99)}");
-            Employee emp8 = new Employee(RandomFirstName(), RandomLastName(), $"username123{GenerateRandomNumber(99)}", $"password123{GenerateRandomNumber(99)}");
-            Employee emp9 = new Employee(RandomFirstName(), RandomLastName(), $"username123{GenerateRandomNumber(99)}", $"password123{GenerateRandomNumber(99)}");
-            Employee emp10 = new Employee(RandomFirstName(), RandomLastName(), $"username123{GenerateRandomNumber(99)}", $"password123{GenerateRandomNumber(99)}");
-            Employee emp11 = new Employee(RandomFirstName(), RandomLastName(), $"username123{GenerateRandomNumber(99)}", $"password123{GenerateRandomNumber(99)}");
-            Employee emp12 = new Employee(RandomFirstName(), RandomLastName(), $"username123{GenerateRandomNumber(99)}", $"password123{GenerateRandomNumber(99)}");
+            Employee emp1 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp2 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp3 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp4 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp5 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp6 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp7 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp8 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp9 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp10 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp11 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp12 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
 
             // Add employees to the departments
             departmentDefault.Employees.Add(emp1);

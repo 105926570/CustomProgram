@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using static PayrollSystem.Program;
 
 namespace PayrollSystem
 {
@@ -15,14 +16,6 @@ namespace PayrollSystem
         public static int GenerateRandomNumber(int highestNumber, int lowestNumber)
         {
             return new Random(DateTime.Now.Millisecond).Next(lowestNumber, highestNumber);
-        }
-
-        /// <summary>
-        /// Generates a random number between 0 and the specified highest number using the current time in milliseconds as the seed.
-        /// </summary>
-        public static int GenerateRandomNumber(int highestNumber)
-        {
-            return new Random(DateTime.Now.Millisecond).Next(0, highestNumber);
         }
 
         /// <summary>
@@ -54,7 +47,7 @@ namespace PayrollSystem
             //add a random number to the list for each number in the expected output
             while (index < length)
             {
-                numbers.Add(GenerateRandomNumber(9));
+                numbers.Add(rand.Next(9));
                 index++;
             }
 
@@ -82,7 +75,7 @@ namespace PayrollSystem
 
             while (numberCreated < desiredNumberOfNumbers)
             {
-                generatedRandomNumber = GenerateRandomNumber(highestNumber);
+                generatedRandomNumber = rand.Next(highestNumber);
                 bool unique = true;
 
                 foreach (int numb in generatedNumbers)
