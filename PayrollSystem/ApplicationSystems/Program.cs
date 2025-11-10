@@ -290,7 +290,7 @@ namespace PayrollSystem
         #endregion
 
         public static string RandomFirstName()
-        {
+        {         
             string[] s = {
             "James", "Mary", "Robert", "Patricia", "John", "Jennifer", "Michael", "Linda", "William", "Elizabeth",
             "David", "Barbara", "Richard", "Susan", "Joseph", "Jessica", "Thomas", "Sarah", "Charles", "Karen",
@@ -302,7 +302,8 @@ namespace PayrollSystem
             "Jonathan", "Anna", "Larry", "Brenda", "Justin", "Pamela", "Scott", "Emma", "Brandon", "Nicole",
             "Frank", "Samantha", "Benjamin", "Katherine", "Gregory", "Christine", "Raymond", "Debra", "Samuel", "Rachel",
             "Patrick", "Catherine", "Alexander", "Carolyn", "Jack", "Janet", "Dennis", "Ruth", "Jerry", "Maria"
-            }; return s[GenerateRandomNumber(s.Length - 1)];
+            };
+            return s[rand.Next(0, s.Length - 1)];
 
         }
 
@@ -319,7 +320,8 @@ namespace PayrollSystem
             "Peterson", "Bailey", "Reed", "Kelly", "Howard", "Ramos", "Kim", "Cox", "Ward", "Richardson",
             "Watson", "Brooks", "Chavez", "Wood", "James", "Bennett", "Gray", "Mendoza", "Ruiz", "Hughes",
             "Price", "Alvarez", "Castillo", "Sanders", "Patel", "Myers", "Long", "Ross", "Foster", "Jimenez"
-            }; return s[GenerateRandomNumber(s.Length - 1)];
+            };
+            return s[rand.Next(0, s.Length - 1)];
         }
 
         #region startup and shutdown
