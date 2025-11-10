@@ -109,7 +109,7 @@ namespace PayrollSystem
 
             Company company = new Company("TestCompany", new List<Department> { departmentDefault, departmentCleaning, departmentSales, departmentHR });
 
-            company.Save(_rootFolder);
+            company.Save();
 
             Console.WriteLine("saved everyting");
             MessageBox.Show("Saved The New Thing i think");
@@ -251,7 +251,7 @@ namespace PayrollSystem
 
         public static void FullCompanySave(Company company)
         {
-            company.Save(RootFolder);
+            company.Save();
             foreach (Employee emp in company.Employees)
             {
                 SaveEmployee(emp);
