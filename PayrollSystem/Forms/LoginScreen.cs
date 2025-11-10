@@ -1,6 +1,5 @@
 ﻿using PayrollSystem.Forms;
 using System;
-using System.Diagnostics;
 using System.Windows.Forms;
 using static PayrollSystem.Program;
 using static PayrollSystem.UsefullUniversalCommands;
@@ -41,7 +40,7 @@ namespace PayrollSystem
         private void loginButton_Click(object sender, EventArgs e)
         {
             //Check if username or password is left blank
-            if (usernameInputBox.Text == "" && passwordInputBox.Text != "") 
+            if (usernameInputBox.Text == "" && passwordInputBox.Text != "")
             {
                 MessageBox.Show("Please enter a username");
                 return;

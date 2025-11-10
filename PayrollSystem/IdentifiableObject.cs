@@ -1,5 +1,4 @@
-﻿using static PayrollSystem.UsefullUniversalCommands;
-using static PayrollSystem.Program;
+﻿using static PayrollSystem.Program;
 
 namespace PayrollSystem
 {

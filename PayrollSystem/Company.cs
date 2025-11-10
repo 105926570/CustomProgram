@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Drawing;
-using static PayrollSystem.UsefullUniversalCommands;
 using static PayrollSystem.Program;
 
 namespace PayrollSystem

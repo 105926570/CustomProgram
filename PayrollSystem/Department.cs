@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using static PayrollSystem.UsefullUniversalCommands;
 using static PayrollSystem.Program;
 
 namespace PayrollSystem

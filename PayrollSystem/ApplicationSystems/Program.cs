@@ -1,10 +1,8 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-using static PayrollSystem.UsefullUniversalCommands;
 
 namespace PayrollSystem
 {
@@ -290,7 +288,7 @@ namespace PayrollSystem
         #endregion
 
         public static string RandomFirstName()
-        {         
+        {
             string[] s = {
             "James", "Mary", "Robert", "Patricia", "John", "Jennifer", "Michael", "Linda", "William", "Elizabeth",
             "David", "Barbara", "Richard", "Susan", "Joseph", "Jessica", "Thomas", "Sarah", "Charles", "Karen",
