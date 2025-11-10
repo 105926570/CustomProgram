@@ -18,12 +18,12 @@ namespace PayrollSystem
             _managers = new List<Manager> { };
         }
 
-        public Department(string name) : this() 
+        public Department(string name) : this()
         {
             _departmentName = name;
         }
 
-        public Department(string name, int ID) : this(name) 
+        public Department(string name, int ID) : this(name)
         {
             _departmentID = ID;
         }
@@ -47,7 +47,7 @@ namespace PayrollSystem
 
         public List<Manager> Managers
         {
-            get{ return _managers; }
+            get { return _managers; }
             set { _managers = value; }
         }
     }

@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Security.Cryptography;
 using System.Windows.Forms;
 using static PayrollSystem.UsefullUniversalCommands;
 
@@ -106,7 +105,7 @@ namespace PayrollSystem
             departmentHR.Employees.Add(emp11);
             departmentHR.Employees.Add(emp12);
 
-            Company company = new Company("TestCompany", new List<Department> { departmentDefault, departmentCleaning, departmentSales, departmentHR});
+            Company company = new Company("TestCompany", new List<Department> { departmentDefault, departmentCleaning, departmentSales, departmentHR });
 
             company.Save(RootFolder);
 
