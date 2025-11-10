@@ -11,30 +11,6 @@ namespace PayrollSystem
         #region "Random Number Generation"
 
         /// <summary>
-        /// Generates a random number between the specified lowest and highest numbers using the current time in milliseconds as the seed.
-        /// </summary>
-        public static int GenerateRandomNumber(int highestNumber, int lowestNumber)
-        {
-            return new Random(DateTime.Now.Millisecond).Next(lowestNumber, highestNumber);
-        }
-
-        /// <summary>
-        /// Generates a random number between the specified lowest and highest numbers using the provided seed.
-        /// </summary>
-        public static int GenerateRandomNumberGivenSeed(int highestNumber, int lowestNumber, int seed)
-        {
-            return new Random(seed).Next(lowestNumber, highestNumber);
-        }
-
-        /// <summary>
-        /// Generates a random number between 0 and the specified highest number using the provided seed.
-        /// </summary>
-        public static int GenerateRandomNumberGivenSeed(int highestNumber, int seed)
-        {
-            return new Random(seed).Next(0, highestNumber);
-        }
-
-        /// <summary>
         /// Generates a random number given a length
         /// </summary>
         /// <param name="length">this is the length of the number, i.e, the amount of didgits that appear in the outputted number.</param>
