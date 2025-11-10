@@ -287,13 +287,12 @@ namespace PayrollSystem
         public static void Startup()
         {
             _companyLoadedInFromFiles = LoadCompany();
-
             _activeCompany = _companyLoadedInFromFiles;
         }
 
         public static void Shutdown()
         {
-            foreach (Department department in _activeCompany.Departments) { department.Save(); }
+            foreach (Department dep in _activeCompany.Departments) dep.Save(); 
             foreach (Employee emp in _activeCompany.Employees) emp.Save();
         }
     }
