@@ -58,7 +58,7 @@ namespace PayrollSystem
 
         public void Save(string departmentDirectory)
         {
-            CreateJsonFromObject(this, $"{departmentDirectory}\\{this.ID}.json");
+            CreateJsonFromObject(this, $"{departmentDirectory}\\dep{this.ID}.json");
         }
     }
 }
