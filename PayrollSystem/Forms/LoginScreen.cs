@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PayrollSystem.Forms;
+using System;
 using System.Windows.Forms;
 using static PayrollSystem.Program;
 using static PayrollSystem.UsefullUniversalCommands;
@@ -52,25 +53,26 @@ namespace PayrollSystem
                     }
                     else MessageBox.Show("Password was incorrect");
                 }
-                else MessageBox.Show("Could not find someone with that username.");
+                else MessageBox.Show("Could not find someone with that username.");               
             } 
         }
 
         private void pageOpenner(Employee emp)
         {
+            Form newForm;
             switch (emp.Privliage)
             {
                 case 0:
                     Console.Write($"Loading {emp.FullName} as a Standard Employee");
-                    //Open Employee Form
+                    newForm = new EmployeeForm();
                     break;
                 case 1:
                     Console.Write($"Loading {emp.FullName} as a Manager");
-                    //Open Manager Form
+                    newForm = new ManagerForm();
                     break;
                 case 2:
                     Console.Write($"Loading {emp.FullName} as an Admin");
-                    //Open Admin Form
+                    newForm = new AdminForm();
                     break;
                 default:
                     shMsgBox($"INVALID PRIVLIAGE: {emp.Privliage}\n" +
