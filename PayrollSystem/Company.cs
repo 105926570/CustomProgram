@@ -20,7 +20,7 @@ namespace PayrollSystem
         {
             Name = "The Big Company that needs a better name, and also a payroll system";
             Departments = new List<Department>();
-            Employees = new List<Employee>();
+            //Employees = new List<Employee>();
             CompanyPayroll = new Payroll();
             CompanySchedule = new Schedule();
         }
@@ -57,12 +57,6 @@ namespace PayrollSystem
             CompanyPayroll = payroll;
         }
 
-        // Privatised, as Employees should be generated from looking through departments.
-        private Company(string companyName, List<Department> departments, List<Employee> employees, Payroll payroll, Schedule companySchedule) : this(companyName, departments, payroll, companySchedule)
-        {
-            Employees = employees;
-        }
-
         public string Name
         {
             get { return _companyName; }
@@ -85,8 +79,16 @@ namespace PayrollSystem
         [JsonIgnore]//ignored, because when loading a company, company data is retrived from the department instead.
         public List<Employee> Employees
         {
-            get { return _employees; }
-            set { _employees = value; }
+            get
+            {
+                List<Employee> emps = new List<Employee> { };
+                foreach (Department department in Departments)
+                {
+                    foreach (Employee employee in department.Employees)
+                        emps.Add(employee);
+                }
+                return emps;
+            }
         }
 
         public Payroll CompanyPayroll
@@ -155,7 +157,7 @@ namespace PayrollSystem
 
         public void Save()
         {
-            Save(RootFolder);
+            Save(companyDirectory);
         }
 
         public void Save(string companyDirectory)
