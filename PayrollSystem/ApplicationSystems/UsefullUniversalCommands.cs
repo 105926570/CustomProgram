@@ -43,27 +43,19 @@ namespace PayrollSystem
         /// witch are between 0 and the specified highest number using the provided seed,
         /// as an array of integers.
         /// </summary>
-        public static List<int> GenerateANumberOfUniqueNumbers(int highestNumber, int desiredNumberOfNumbers)
+        public static List<int> RandomArray(int highestNumber, int desiredNumberOfNumbers)
         {
-            List<int> generatedNumbers = new List<int>();
-            int numberCreated = 0;
-            int generatedRandomNumber;
+            List<int> randomNumbers = new List<int>();
+            int numberOfNumbersAdded = 0;
 
-            while (numberCreated < desiredNumberOfNumbers)
-            {
-                generatedRandomNumber = rand.Next(highestNumber);
-                bool unique = true;
+            while (desiredNumberOfNumbers > numberOfNumbersAdded)
+                    randomNumbers.Add(rand.Next(highestNumber));
 
-                foreach (int numb in generatedNumbers)
-                { if (numb == generatedRandomNumber) unique = false; }
+            //check if length is invalid or wrong:
+            if (randomNumbers.Count != desiredNumberOfNumbers)
+                    throw new ArgumentException();
 
-                if (unique)
-                {
-                    generatedNumbers.Add(generatedRandomNumber);
-                    numberCreated++;
-                }
-            }
-            return generatedNumbers;
+            return randomNumbers;
         }
         #endregion
 
