@@ -41,7 +41,17 @@ namespace PayrollSystem
         private void loginButton_Click(object sender, EventArgs e)
         {
             //Check if username or password is left blank
-            if (usernameInputBox.Text == "" || passwordInputBox.Text == "")
+            if (usernameInputBox.Text == "" && passwordInputBox.Text != "") 
+            {
+                MessageBox.Show("Please enter a username");
+                return;
+            }
+            else if (passwordInputBox.Text == "" && usernameInputBox.Text != "")
+            {
+                MessageBox.Show("Please enter a password");
+                return;
+            }
+            else if (usernameInputBox.Text == "" && passwordInputBox.Text == "")
             {
                 MessageBox.Show("An empty input has been detected.\n" +
                                 "Please enter a username AND password");
