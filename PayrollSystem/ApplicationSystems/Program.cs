@@ -131,6 +131,7 @@ namespace PayrollSystem
         public static Employee activeEmployee { get { return _activeEmployee; } }
         public static string RootFolder { get { return _rootFolder; } }
         public static Company CompanyLoadedInFromFiles { get { return _companyLoadedInFromFiles; } }
+        public static Company ActiveCompany { get { return _activeCompany; } set { _activeCompany = value; } }
 
         #endregion
 
