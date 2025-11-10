@@ -17,7 +17,8 @@ namespace PayrollSystem
         //Root folder where all files are stored
         private static string _rootFolder;
         //Company loaded in from class. this is to be done at the start of main.
-        private static Company _companyLoadedInFromFiles;
+        private static Company _companyLoadedInFromFiles; // This is the company loaded in from files on startup
+        private static Company _activeCompany; // This is what should be changed with ever addition and modification to the company
 
         private static string employeesDirectory, companyDirectory;
 
@@ -139,6 +140,8 @@ namespace PayrollSystem
 
         #region reading and writing
 
+        #region reading and writing checks
+
         private static void EnsureDirectoryExists(string directory)
         {
             string directoryPath = Path.GetDirectoryName(directory); //incase the input references a file's path rather than a directory, then get just the directory.
@@ -161,6 +164,8 @@ namespace PayrollSystem
             }
         }
 
+        #endregion
+
         #region json
 
         public static void CreateJsonFromObject(Object obj, string filePath)
@@ -171,7 +176,6 @@ namespace PayrollSystem
             {
                 //create the JSON settings
                 JsonSerializerSettings settings = new JsonSerializerSettings();
-                settings.TypeNameHandling = TypeNameHandling.All;
                 settings.Formatting = Formatting.Indented;
 
                 // Serialize the object to a JSON string
@@ -182,7 +186,7 @@ namespace PayrollSystem
 
                 //write the contents to the filepath
                 File.WriteAllText(filePath, jsonString);
-                System.Console.WriteLine($"created serialised json {Path.GetFileName(filePath)}");
+                Console.WriteLine($"created serialised json {Path.GetFileName(filePath)}");
             }
             catch (Exception ex)
             {
@@ -330,6 +334,8 @@ namespace PayrollSystem
         public static void Startup()
         {
             _companyLoadedInFromFiles = LoadCompany();
+            foreach (Department department in _companyLoadedInFromFiles.Departments) { } //Save Department
+            foreach (Employee emp in _companyLoadedInFromFiles.Employees) SaveEmployee(emp);
         }
 
         public static void Shutdown()
