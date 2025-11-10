@@ -11,34 +11,6 @@ namespace PayrollSystem
         #region "Random Number Generation"
 
         /// <summary>
-        /// Generates a random number given a length
-        /// </summary>
-        /// <param name="length">this is the length of the number, i.e, the amount of didgits that appear in the outputted number.</param>
-        /// <returns>integer of a given length.</returns>
-        public static int GenerateRandomNumberGivenItsLength(int length)
-        {
-            List<int> numbers = new List<int> { };
-            int index = 0;
-
-            //add a random number to the list for each number in the expected output
-            while (index < length)
-            {
-                numbers.Add(rand.Next(9));
-                index++;
-            }
-
-            int multiplier = 1;
-            int output = 0;
-            foreach (int num in numbers)
-            {
-                output += num * multiplier;
-                multiplier *= 10;
-            }
-
-            return output;
-        }
-
-        /// <summary>
         /// Generates a set number of random random numbers,
         /// witch are between 0 and the specified highest number using the provided seed,
         /// as an array of integers.
