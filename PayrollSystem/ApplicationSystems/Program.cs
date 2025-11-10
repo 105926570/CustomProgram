@@ -19,6 +19,7 @@ namespace PayrollSystem
         //Company loaded in from class. this is to be done at the start of main.
         private static Company _companyLoadedInFromFiles; // This is the company loaded in from files on startup
         private static Company _activeCompany; // This is what should be changed with ever addition and modification to the company
+        public static Random rand = new Random();
 
         private static string employeesDirectory, companyDirectory;
 
