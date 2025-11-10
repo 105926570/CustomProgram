@@ -1,4 +1,5 @@
 ﻿using System;
+using static PayrollSystem.Program;
 
 namespace PayrollSystem
 {
@@ -62,6 +63,16 @@ namespace PayrollSystem
         {
             Console.WriteLine(ReturnUserInfoAsString());
             Console.WriteLine("Name: " + FullName);
+        }
+
+        public void Save()
+        {
+            Save(employeesDirectory);
+        }
+
+        public void Save(string employeesDirectory)
+        {
+            CreateJsonFromObject(this, $"{employeesDirectory}\\{this.ID}.json");
         }
     }
 }
