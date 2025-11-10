@@ -1,10 +1,10 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Security.Cryptography;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Windows.Forms;
-using static PayrollSystem.UsefullUniversalCommands;
 
 namespace PayrollSystem
 {
@@ -17,12 +17,14 @@ namespace PayrollSystem
         //Root folder where all files are stored
         private static string _rootFolder;
         //Company loaded in from class. this is to be done at the start of main.
-        private static Company _companyLoadedInFromFiles;
+        private static Company _companyLoadedInFromFiles; // This is the company loaded in from files on startup
+        private static Company _activeCompany; // This is what should be changed with ever addition and modification to the company
+        public static Random rand = new Random();
 
-        private static string employeesDirectory, companyDirectory;
+        public static string employeesDirectory, companyDirectory, departmentDirectory;
 
         /// <summary>
-        /// The main entry point for the application.
+        /// The main entry point for the appliation.
         /// </summary>
         [STAThread]
         static void Main()
@@ -31,6 +33,7 @@ namespace PayrollSystem
 
             //initialise subdirectorys from root
             employeesDirectory = $"{_rootFolder}\\employees";
+            departmentDirectory = $"{_rootFolder}\\departments";
             companyDirectory = $"{_rootFolder}";
 
             //fullProgramTesting();
@@ -77,18 +80,18 @@ namespace PayrollSystem
             Department departmentSales = new Department("Sales");
             Department departmentHR = new Department("HR");
 
-            Employee emp1 = new Employee(RandomFirstName(), RandomLastName(), $"username123{GenerateRandomNumber(99)}", $"password123{GenerateRandomNumber(99)}");
-            Employee emp2 = new Employee(RandomFirstName(), RandomLastName(), $"username123{GenerateRandomNumber(99)}", $"password123{GenerateRandomNumber(99)}");
-            Employee emp3 = new Employee(RandomFirstName(), RandomLastName(), $"username123{GenerateRandomNumber(99)}", $"password123{GenerateRandomNumber(99)}");
-            Employee emp4 = new Employee(RandomFirstName(), RandomLastName(), $"username123{GenerateRandomNumber(99)}", $"password123{GenerateRandomNumber(99)}");
-            Employee emp5 = new Employee(RandomFirstName(), RandomLastName(), $"username123{GenerateRandomNumber(99)}", $"password123{GenerateRandomNumber(99)}");
-            Employee emp6 = new Employee(RandomFirstName(), RandomLastName(), $"username123{GenerateRandomNumber(99)}", $"password123{GenerateRandomNumber(99)}");
-            Employee emp7 = new Employee(RandomFirstName(), RandomLastName(), $"username123{GenerateRandomNumber(99)}", $"password123{GenerateRandomNumber(99)}");
-            Employee emp8 = new Employee(RandomFirstName(), RandomLastName(), $"username123{GenerateRandomNumber(99)}", $"password123{GenerateRandomNumber(99)}");
-            Employee emp9 = new Employee(RandomFirstName(), RandomLastName(), $"username123{GenerateRandomNumber(99)}", $"password123{GenerateRandomNumber(99)}");
-            Employee emp10 = new Employee(RandomFirstName(), RandomLastName(), $"username123{GenerateRandomNumber(99)}", $"password123{GenerateRandomNumber(99)}");
-            Employee emp11 = new Employee(RandomFirstName(), RandomLastName(), $"username123{GenerateRandomNumber(99)}", $"password123{GenerateRandomNumber(99)}");
-            Employee emp12 = new Employee(RandomFirstName(), RandomLastName(), $"username123{GenerateRandomNumber(99)}", $"password123{GenerateRandomNumber(99)}");
+            Employee emp1 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp2 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp3 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp4 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp5 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp6 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp7 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp8 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp9 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp10 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp11 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp12 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
 
             // Add employees to the departments
             departmentDefault.Employees.Add(emp1);
@@ -107,12 +110,12 @@ namespace PayrollSystem
             departmentHR.Employees.Add(emp11);
             departmentHR.Employees.Add(emp12);
 
-            Company company = new Company("TestCompany", new List<Department> { departmentDefault, departmentCleaning, departmentSales, departmentHR});
+            Company company = new Company("TestCompany", new List<Department> { departmentDefault, departmentCleaning, departmentSales, departmentHR });
 
-            SaveCompany(company);
-
+            company.Save();
 
             Console.WriteLine("saved everyting");
+            MessageBox.Show("Saved The New Thing i think");
         }
 */
 
@@ -134,6 +137,7 @@ namespace PayrollSystem
         public static Employee activeEmployee { get { return _activeEmployee; } }
         public static string RootFolder { get { return _rootFolder; } }
         public static Company CompanyLoadedInFromFiles { get { return _companyLoadedInFromFiles; } }
+        public static Company ActiveCompany { get { return _activeCompany; } set { _activeCompany = value; } }
 
         #endregion
 
@@ -141,6 +145,8 @@ namespace PayrollSystem
         #region Functions
 
         #region reading and writing
+
+        #region reading and writing checks
 
         private static void EnsureDirectoryExists(string directory)
         {
@@ -164,6 +170,8 @@ namespace PayrollSystem
             }
         }
 
+        #endregion
+
         #region json
 
         public static void CreateJsonFromObject(Object obj, string filePath)
@@ -174,7 +182,6 @@ namespace PayrollSystem
             {
                 //create the JSON settings
                 JsonSerializerSettings settings = new JsonSerializerSettings();
-                settings.TypeNameHandling = TypeNameHandling.All;
                 settings.Formatting = Formatting.Indented;
 
                 // Serialize the object to a JSON string
@@ -185,7 +192,7 @@ namespace PayrollSystem
 
                 //write the contents to the filepath
                 File.WriteAllText(filePath, jsonString);
-                System.Console.WriteLine($"created serialised json {Path.GetFileName(filePath)}");
+                Console.WriteLine($"created serialised json {Path.GetFileName(filePath)}");
             }
             catch (Exception ex)
             {
@@ -204,72 +211,89 @@ namespace PayrollSystem
             return JsonConvert.DeserializeObject(File.ReadAllText(filePath));
         }
 
-        #endregion
-
-        public static void SaveEmployee(Employee emp)
+        //for loading in their schedule for example, as it would be stored here.
+        public static Employee readEmployee(int employeeId, string directory)
         {
-            CreateJsonFromObject(emp, $"{employeesDirectory}\\{emp.ID.ToString()}.json");
-        }
+            string[] empDirs = Directory.GetFiles(directory);
 
-        public static void SaveCompany(Company com)
-        {
-            CreateJsonFromObject(com, $"{companyDirectory}\\company.json");
-        }
-
-        public static Employee LoadEmployeeGivenID(int ID)
-        {
-            //get all files within folder
-            string[] filedirs = Directory.GetFiles(employeesDirectory);
-            Employee emp;
-
-            //Check the ID within the files
-            foreach (string filedir in filedirs)
+            foreach (string dir in empDirs)
             {
-                emp = (Employee)ReadObjectFromJson(filedir);
-                if (emp.ID == ID) return emp;
-            }
-
-            Console.WriteLine("Could not find the ID within the files. checking the names instead...");
-
-            //Check if there is a file with the name of that ID
-            foreach (string filedir in filedirs)
-            {
-                //if the file directory contains the id (if the filename contains the id)
-                if (filedir.Contains(ID.ToString()) == true)
+                if (dir.Contains(employeeId.ToString()))
                 {
-                    emp = (Employee)ReadObjectFromJson(filedir);   //check if the files ID also matches the id found...          
-                    if (emp.ID == ID) return emp;                  //... and if it does return it.
+                    string json = File.ReadAllText(dir);
+                    Employee emp = JsonConvert.DeserializeObject<Employee>(json);
+                    return emp;
                 }
             }
-
-            return null; //when both checks fail
+            return null;
+        }
+        public static Employee readEmployee(int employeeId)
+        {
+            return readEmployee(employeeId, employeesDirectory);
         }
 
-        public static Company LoadCompany()
+        //when writing this, think from the perspective of an manager viewing their department
+        public static Department loadDepartment(int departmentID)
         {
-            string[] filedirs = Directory.GetFiles(companyDirectory);
-            foreach (string filedir in filedirs)
+            return loadDepartment(departmentID, employeesDirectory);
+        }
+
+        public static Department loadDepartment(int departmentID, string directory)
+        {
+            string[] empDirs = Directory.GetFiles(directory);
+
+            foreach (string dir in empDirs)
             {
-                if (filedir == $"{companyDirectory}\\company.json")
-                    return (Company)ReadObjectFromJson(filedir);
+                if (dir.Contains(departmentID.ToString()))
+                {
+                    string json = File.ReadAllText(dir);
+                    Department dep = JsonConvert.DeserializeObject<Department>(json);
+
+                    List<Employee> emps = new List<Employee>() { };
+                    foreach (int ID in dep.EmployeeIDs)
+                    {
+                        emps.Add(readEmployee(ID));
+                    }
+                    dep.Employees = emps;
+                    return dep;
+                }
             }
             return null;
         }
 
+        #endregion
+
+        /// <summary> loads a file in the rootfolder called "company.json" and returns it as a company</summary>
+        /// <returns>a company</returns>
+        public static Company LoadCompany()
+        {
+            return LoadCompany(RootFolder);
+        }
+
+        /// <summary> loads a file in a given folder called "company.json" and returns it as a company</summary>
+        /// <param name="directory">directory witch the json file is stored</param>
+        /// <returns>a company</returns>
+        public static Company LoadCompany(string directory)
+        {
+            string json = File.ReadAllText($"{directory}\\company.json");
+            Company cmp = JsonConvert.DeserializeObject<Company>(json);
+            return cmp;
+        }
+
         public static void FullCompanySave(Company company)
         {
-            SaveCompany(company);
+            company.Save();
             foreach (Employee emp in company.Employees)
             {
-                SaveEmployee(emp);
+                emp.Save();
             }
         }
         #endregion
 
-        public static void ChangeActiveEmployee(int privliage, Employee newActiveEmployee)
+        public static void ChangeActiveEmployee(Employee newActiveEmployee)
         {
-            if (privliage >= 2) _activeEmployee = newActiveEmployee;
-            else MessageBox.Show("Privliage isnt high enought. Active Employee not changing...");
+            if (newActiveEmployee.Privliage >= 0 && newActiveEmployee.Privliage <= 2) _activeEmployee = newActiveEmployee;
+            else MessageBox.Show("privliage is not acceptable");
         }
 
         public static void RemoveActiveEmployee()
@@ -309,7 +333,8 @@ namespace PayrollSystem
             "Jonathan", "Anna", "Larry", "Brenda", "Justin", "Pamela", "Scott", "Emma", "Brandon", "Nicole",
             "Frank", "Samantha", "Benjamin", "Katherine", "Gregory", "Christine", "Raymond", "Debra", "Samuel", "Rachel",
             "Patrick", "Catherine", "Alexander", "Carolyn", "Jack", "Janet", "Dennis", "Ruth", "Jerry", "Maria"
-            }; return s[GenerateRandomNumber(s.Length - 1)];
+            };
+            return s[rand.Next(0, s.Length - 1)];
 
         }
 
@@ -326,20 +351,21 @@ namespace PayrollSystem
             "Peterson", "Bailey", "Reed", "Kelly", "Howard", "Ramos", "Kim", "Cox", "Ward", "Richardson",
             "Watson", "Brooks", "Chavez", "Wood", "James", "Bennett", "Gray", "Mendoza", "Ruiz", "Hughes",
             "Price", "Alvarez", "Castillo", "Sanders", "Patel", "Myers", "Long", "Ross", "Foster", "Jimenez"
-            }; return s[GenerateRandomNumber(s.Length - 1)];
+            };
+            return s[rand.Next(0, s.Length - 1)];
         }
 
-        #region startup and shutdown
         public static void Startup()
         {
             _companyLoadedInFromFiles = LoadCompany();
+            _activeCompany = _companyLoadedInFromFiles;
         }
 
         public static void Shutdown()
         {
-            FullCompanySave(_companyLoadedInFromFiles);
+            foreach (Department dep in _activeCompany.Departments) dep.Save(); 
+            foreach (Employee emp in _activeCompany.Employees) emp.Save();
         }
-        #endregion
     }
 }
 

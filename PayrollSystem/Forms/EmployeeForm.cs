@@ -6,12 +6,23 @@ namespace PayrollSystem.Forms
     public partial class EmployeeForm : Form
     {
         private string _welcomeName = "User";
+        private Employee _activeEmployee;
 
         /// <summary>
         /// Initialise with the default name [User]
         /// </summary>
         public EmployeeForm()
         {
+            InitializeComponent();
+        }
+
+        /// <summary>
+        /// Initialise by assigning an active employee, and setting the name to the employees name.
+        /// </summary>
+        public EmployeeForm(Employee employee)
+        {
+            _activeEmployee = employee;
+            _welcomeName = employee.FirstName;
             InitializeComponent();
         }
 

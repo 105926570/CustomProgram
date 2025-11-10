@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
-using static PayrollSystem.UsefullUniversalCommands;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
+using static PayrollSystem.Program;
 
 namespace PayrollSystem
 {
@@ -12,18 +13,18 @@ namespace PayrollSystem
 
         public Department()
         {
-            _departmentID = GenerateRandomNumber(99);
+            _departmentID = rand.Next(99);
             _departmentName = "New Department";
             _employees = new List<Employee> { };
             _managers = new List<Manager> { };
         }
 
-        public Department(string name) : this() 
+        public Department(string name) : this()
         {
             _departmentName = name;
         }
 
-        public Department(string name, int ID) : this(name) 
+        public Department(string name, int ID) : this(name)
         {
             _departmentID = ID;
         }
@@ -39,16 +40,37 @@ namespace PayrollSystem
             set { _departmentName = value; }
         }
 
+        [JsonIgnore]
         public List<Employee> Employees
         {
             get { return _employees; }
             set { _employees = value; }
         }
 
+        public List<int> EmployeeIDs
+        {
+            get
+            {
+                List<int> ids = new List<int> { };
+                foreach (Employee emp in Employees) ids.Add(emp.ID);
+                return ids;
+            }
+        }
+
         public List<Manager> Managers
         {
-            get{ return _managers; }
+            get { return _managers; }
             set { _managers = value; }
+        }
+
+        public void Save()
+        {
+            Save(departmentDirectory);
+        }
+
+        public void Save(string departmentDirectory)
+        {
+            CreateJsonFromObject(this, $"{departmentDirectory}\\dep{this.ID}.json");
         }
     }
 }

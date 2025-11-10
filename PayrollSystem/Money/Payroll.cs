@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace PayrollSystem
 {
-    internal class Payroll
+    public class Payroll
     {
         private List<Employee> _employeesOnPayroll;
         private List<PayHistory> _payHistories;
@@ -28,6 +29,7 @@ namespace PayrollSystem
             }
         }
 
+        [JsonIgnore] //as EmployeesOnPayroll is the same as Company Departments Employees, and thus does not need to be saved twice.
         public List<Employee> EmployeesOnPayroll
         {
             get { return _employeesOnPayroll; }

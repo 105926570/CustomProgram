@@ -1,13 +1,11 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using PayrollSystem;
 using System.Collections.Generic;
 using System.Drawing;
-using static PayrollSystem.UsefullUniversalCommands;
+using static PayrollSystem.Program;
 
 namespace PayrollSystem
 {
-    internal class Company
+    public class Company
     {
         private string _companyName;
         private List<Department> _departments;
@@ -22,7 +20,7 @@ namespace PayrollSystem
         {
             Name = "The Big Company that needs a better name, and also a payroll system";
             Departments = new List<Department>();
-            Employees = new List<Employee>();
+            //Employees = new List<Employee>();
             CompanyPayroll = new Payroll();
             CompanySchedule = new Schedule();
         }
@@ -59,36 +57,38 @@ namespace PayrollSystem
             CompanyPayroll = payroll;
         }
 
-        // Privatised, as Employees should be generated from looking through departments.
-        private Company(string companyName, List<Department> departments, List<Employee> employees, Payroll payroll, Schedule companySchedule) : this(companyName, departments, payroll, companySchedule)
-        {
-            Employees = employees;
-        }
-
         public string Name
         {
             get { return _companyName; }
             set { _companyName = value; }
         }
 
-        [JsonIgnore]
+        public Image Logo
+        {
+            get { return _companyLogo; }
+            set { _companyLogo = value; }
+        }
+
         public List<Department> Departments
         {
             get { return _departments; }
             set { _departments = value; }
         }
 
-        [JsonIgnore]
+        //make it so this just returns each of the employees in the departmeetns
+        [JsonIgnore]//ignored, because when loading a company, company data is retrived from the department instead.
         public List<Employee> Employees
         {
-            get { return _employees; }
-            set { _employees = value; }
-        }
-
-        public Image Logo
-        {
-            get { return _companyLogo; }
-            set { _companyLogo = value; }
+            get
+            {
+                List<Employee> emps = new List<Employee> { };
+                foreach (Department department in Departments)
+                {
+                    foreach (Employee employee in department.Employees)
+                        emps.Add(employee);
+                }
+                return emps;
+            }
         }
 
         public Payroll CompanyPayroll
@@ -128,7 +128,7 @@ namespace PayrollSystem
         {
             bool matchingId = false;
             bool newIdMatching = false;
-            int randomID = GenerateRandomNumber(9999999);
+            int randomID = rand.Next(9999999);
 
             foreach (Employee emp in Employees)
             {
@@ -145,7 +145,7 @@ namespace PayrollSystem
                 if (newIdMatching == true)
                 {
                     matchingId = true;
-                    randomID = GenerateRandomNumber(9999999);
+                    randomID = rand.Next(9999999);
                 }
                 else matchingId = false;
 
@@ -153,6 +153,16 @@ namespace PayrollSystem
             }
 
             Employees.Add(employee);
+        }
+
+        public void Save()
+        {
+            Save(companyDirectory);
+        }
+
+        public void Save(string companyDirectory)
+        {
+            CreateJsonFromObject(this, $"{companyDirectory}\\company.json");
         }
     }
 }
