@@ -13,7 +13,7 @@ namespace PayrollSystem
         public Department()
         {
             _departmentID = GenerateRandomNumber(99);
-            _departmentName = "Default Department";
+            _departmentName = "New Department";
             _employees = new List<Employee> { };
             _managers = new List<Manager> { };
         }
