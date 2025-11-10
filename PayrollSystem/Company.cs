@@ -71,6 +71,12 @@ namespace PayrollSystem
             set { _companyName = value; }
         }
 
+        public Image Logo
+        {
+            get { return _companyLogo; }
+            set { _companyLogo = value; }
+        }
+
         [JsonIgnore]
         public List<Department> Departments
         {
@@ -83,12 +89,6 @@ namespace PayrollSystem
         {
             get { return _employees; }
             set { _employees = value; }
-        }
-
-        public Image Logo
-        {
-            get { return _companyLogo; }
-            set { _companyLogo = value; }
         }
 
         public Payroll CompanyPayroll
