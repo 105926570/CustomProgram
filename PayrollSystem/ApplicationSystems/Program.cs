@@ -214,7 +214,7 @@ namespace PayrollSystem
             company.Save();
             foreach (Employee emp in company.Employees)
             {
-                SaveEmployee(emp);
+                emp.Save();
             }
         }
         #endregion
@@ -293,8 +293,8 @@ namespace PayrollSystem
 
         public static void Shutdown()
         {
-            foreach (Department department in _activeCompany.Departments) { department.Save() }
-            foreach (Employee emp in _activeCompany.Employees) SaveEmployee(emp);
+            foreach (Department department in _activeCompany.Departments) { department.Save(); }
+            foreach (Employee emp in _activeCompany.Employees) emp.Save();
         }
     }
 }
