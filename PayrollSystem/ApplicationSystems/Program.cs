@@ -48,32 +48,6 @@ namespace PayrollSystem
 
         #region Tests - To be deleted at the end of project
 
-        private static void jsonTesting()
-        {
-            Console.WriteLine("Starting Test 1");
-
-            CreateJsonFromObject(new User(), _rootFolder + "\\jsons\\testUserJson.json");
-            CreateJsonFromObject(new Employee(), _rootFolder + "\\jsons\\testEmployeeJson.json");
-            Employee test1 = new Employee("Bob", "lastname", "bob123", "bobssupersecretpassword123");
-            Employee test2 = new Employee("firstName", "lastName", "username123", "password123");
-            List<Employee> h = new List<Employee> { test1, test2 };
-            Company company = new Company() { Name = "the big company lol", Employees = h };
-            Console.WriteLine("Now... The big boy test...");
-            CreateJsonFromObject(company, _rootFolder + "\\jsons\\BigBoyTest.json");
-
-            //Test reading a JSON then saving what is read
-            string testamondo = Path.GetDirectoryName(_rootFolder + "\\jsons\\BigBoyTest.json");
-            testamondo = testamondo + "\\bigFatTestBruv.json";
-            CreateJsonFromObject(JsonConvert.DeserializeObject(File.ReadAllText(_rootFolder + "\\jsons\\BigBoyTest.json")), testamondo);
-
-            //test getting file directories.
-            string[] files = Directory.GetFiles($"{_rootFolder}\\jsons");
-            foreach (string file in files)
-            {
-                Console.WriteLine($"{file}");
-            }
-        }
-
         public static void fullProgramTesting()
         {
             Department departmentDefault = new Department();
