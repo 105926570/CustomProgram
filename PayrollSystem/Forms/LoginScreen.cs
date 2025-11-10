@@ -40,6 +40,14 @@ namespace PayrollSystem
 
         private void loginButton_Click(object sender, EventArgs e)
         {
+            //Check if username or password is left blank
+            if (usernameInputBox.Text == "" || passwordInputBox.Text == "")
+            {
+                MessageBox.Show("An empty input has been detected.\n" +
+                                "Please enter a username AND password");
+                return;
+            }
+
             Console.WriteLine("login clicked");
             Company companyToSearch = LoadCompany();
             Console.WriteLine("company to search loaded");
