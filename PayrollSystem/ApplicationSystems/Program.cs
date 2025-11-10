@@ -313,9 +313,14 @@ namespace PayrollSystem
         public static void Startup()
         {
             _companyLoadedInFromFiles = LoadCompany();
-            foreach (Department department in _companyLoadedInFromFiles.Departments) { } //Save Department
-            foreach (Employee emp in _companyLoadedInFromFiles.Employees) SaveEmployee(emp);
+
             _activeCompany = _companyLoadedInFromFiles;
+        }
+
+        public static void Shutdown()
+        {
+            foreach (Department department in _activeCompany.Departments) { department.Save() }
+            foreach (Employee emp in _activeCompany.Employees) SaveEmployee(emp);
         }
     }
 }
