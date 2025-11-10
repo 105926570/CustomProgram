@@ -130,6 +130,7 @@ namespace PayrollSystem
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            FullCompanySave(CompanyLoadedInFromFiles);
             Application.Exit();
         }
 
