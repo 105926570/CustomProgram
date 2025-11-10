@@ -154,6 +154,11 @@ namespace PayrollSystem
 
             Employees.Add(employee);
         }
+
+        public void Save(string companyDirectory)
+        {
+            Program.CreateJsonFromObject(this, $"{companyDirectory}\\company.json");
+        }
     }
 }
 

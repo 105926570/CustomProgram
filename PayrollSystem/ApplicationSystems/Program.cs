@@ -108,8 +108,7 @@ namespace PayrollSystem
 
             Company company = new Company("TestCompany", new List<Department> { departmentDefault, departmentCleaning, departmentSales, departmentHR});
 
-            SaveCompany(company);
-
+            company.Save(RootFolder);
 
             Console.WriteLine("saved everyting");
         }
@@ -212,11 +211,6 @@ namespace PayrollSystem
             CreateJsonFromObject(emp, $"{employeesDirectory}\\{emp.ID.ToString()}.json");
         }
 
-        public static void SaveCompany(Company com)
-        {
-            CreateJsonFromObject(com, $"{companyDirectory}\\company.json");
-        }
-
         public static Employee LoadEmployeeGivenID(int ID)
         {
             //get all files within folder
@@ -259,7 +253,7 @@ namespace PayrollSystem
 
         public static void FullCompanySave(Company company)
         {
-            SaveCompany(company);
+            company.Save(RootFolder);
             foreach (Employee emp in company.Employees)
             {
                 SaveEmployee(emp);

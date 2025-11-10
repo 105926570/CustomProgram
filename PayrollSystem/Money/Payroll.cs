@@ -2,7 +2,7 @@
 
 namespace PayrollSystem
 {
-    internal class Payroll
+    public class Payroll
     {
         private List<Employee> _employeesOnPayroll;
         private List<PayHistory> _payHistories;
