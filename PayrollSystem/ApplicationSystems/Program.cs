@@ -187,6 +187,7 @@ namespace PayrollSystem
             return JsonConvert.DeserializeObject(File.ReadAllText(filePath));
         }
 
+        //for loading in their schedule for example, as it would be stored here.
         public static Employee readEmployee(int employeeId, string directory)
         {
             string[] empDirs = Directory.GetFiles(directory);
