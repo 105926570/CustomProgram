@@ -212,35 +212,6 @@ namespace PayrollSystem
             CreateJsonFromObject(emp, $"{employeesDirectory}\\{emp.ID.ToString()}.json");
         }
 
-        public static Employee LoadEmployeeGivenID(int ID)
-        {
-            //get all files within folder
-            string[] filedirs = Directory.GetFiles(employeesDirectory);
-            Employee emp;
-
-            //Check the ID within the files
-            foreach (string filedir in filedirs)
-            {
-                emp = (Employee)ReadObjectFromJson(filedir);
-                if (emp.ID == ID) return emp;
-            }
-
-            Console.WriteLine("Could not find the ID within the files. checking the names instead...");
-
-            //Check if there is a file with the name of that ID
-            foreach (string filedir in filedirs)
-            {
-                //if the file directory contains the id (if the filename contains the id)
-                if (filedir.Contains(ID.ToString()) == true)
-                {
-                    emp = (Employee)ReadObjectFromJson(filedir);   //check if the files ID also matches the id found...          
-                    if (emp.ID == ID) return emp;                  //... and if it does return it.
-                }
-            }
-
-            return null; //when both checks fail
-        }
-
         public static Company LoadCompany()
         {
             string json = File.ReadAllText($"{companyDirectory}\\company.json");
