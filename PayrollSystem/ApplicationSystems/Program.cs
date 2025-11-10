@@ -33,7 +33,12 @@ namespace PayrollSystem
             employeesDirectory = $"{_rootFolder}\\employees";
             companyDirectory = $"{_rootFolder}";
 
+            //testing
             fullProgramTesting();
+
+            //load company into memory
+            Startup();
+
             //ReadObjectFromJson("C:\\CustomProgram\\jsons\\BigBoyTest.json");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -212,9 +217,19 @@ namespace PayrollSystem
             CreateJsonFromObject(emp, $"{employeesDirectory}\\{emp.ID.ToString()}.json");
         }
 
+        /// <summary> loads a file in the rootfolder called "company.json" and returns it as a company</summary>
+        /// <returns>a company</returns>
         public static Company LoadCompany()
         {
-            string json = File.ReadAllText($"{companyDirectory}\\company.json");
+            return LoadCompany(RootFolder);
+        }
+
+        /// <summary> loads a file in a given folder called "company.json" and returns it as a company</summary>
+        /// <param name="directory">directory witch the json file is stored</param>
+        /// <returns>a company</returns>
+        public static Company LoadCompany(string directory)
+        {
+            string json = File.ReadAllText($"{directory}\\company.json");
             Company cmp = JsonConvert.DeserializeObject<Company>(json);
             return cmp;
         }
@@ -294,7 +309,6 @@ namespace PayrollSystem
             return s[rand.Next(0, s.Length - 1)];
         }
 
-        #region startup and shutdown
         public static void Startup()
         {
             _companyLoadedInFromFiles = LoadCompany();
@@ -302,12 +316,6 @@ namespace PayrollSystem
             foreach (Employee emp in _companyLoadedInFromFiles.Employees) SaveEmployee(emp);
             _activeCompany = _companyLoadedInFromFiles;
         }
-
-        public static void Shutdown()
-        {
-            FullCompanySave(_activeCompany);
-        }
-        #endregion
     }
 }
 
