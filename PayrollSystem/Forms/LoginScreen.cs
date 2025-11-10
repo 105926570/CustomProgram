@@ -88,7 +88,7 @@ namespace PayrollSystem
                 }
             }
             Console.WriteLine("looked through all");
-            MessageBox.Show("Unable to find a user with that username");
+            MessageBox.Show("Unable to find a user with that username and password");
         }
 
         private void pageOpenner(Employee emp)
