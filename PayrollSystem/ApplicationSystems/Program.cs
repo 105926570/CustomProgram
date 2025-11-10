@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Windows.Forms;
 
 namespace PayrollSystem
@@ -183,6 +185,26 @@ namespace PayrollSystem
             Console.WriteLine($"Deserialising json at {filePath} with the contents:\n{File.ReadAllText(filePath)}");
 
             return JsonConvert.DeserializeObject(File.ReadAllText(filePath));
+        }
+
+        public static Employee readEmployee(int employeeId, string directory)
+        {
+            string[] empDirs = Directory.GetFiles(directory);
+
+            foreach (string dir in empDirs)
+            {
+                if (dir.Contains(employeeId.ToString()))
+                {
+                    string json = File.ReadAllText(dir);
+                    Employee emp = JsonConvert.DeserializeObject<Employee>(json);
+                    return emp;
+                }
+            }
+            return null;
+        }
+        public static Employee readEmployee(int employeeId)
+        {
+            return readEmployee(employeeId, employeesDirectory);
         }
 
         #endregion
