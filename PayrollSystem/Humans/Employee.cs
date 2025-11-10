@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using static PayrollSystem.Program;
 
 namespace PayrollSystem
@@ -28,6 +29,7 @@ namespace PayrollSystem
 
         // Read only Property - as in can only be changed by the class and not by a function.
         // FullName should ALLWAYS reflect: $"{FirstName} {LastName}"
+        [JsonIgnore]
         public string FullName
         {
             get { return _firstName + " " + _lastName; } //test if this updates every time its ran.
