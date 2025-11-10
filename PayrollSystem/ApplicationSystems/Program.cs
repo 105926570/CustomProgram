@@ -33,7 +33,7 @@ namespace PayrollSystem
             employeesDirectory = $"{_rootFolder}\\employees";
             companyDirectory = $"{_rootFolder}";
 
-            fullProgramTesting();
+            //fullProgramTesting();
             //ReadObjectFromJson("C:\\CustomProgram\\jsons\\BigBoyTest.json");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -42,6 +42,7 @@ namespace PayrollSystem
 
         #region Tests - To be deleted at the end of project
 
+/*
         private static void jsonTesting()
         {
             Console.WriteLine("Starting Test 1");
@@ -68,6 +69,7 @@ namespace PayrollSystem
             }
         }
 
+/// IF YOU WISH TO GENERATE A RANDOM COMPANY, UNCOMMENT THE FOLLOWING
         public static void fullProgramTesting()
         {
             Department departmentDefault = new Department();
@@ -112,6 +114,7 @@ namespace PayrollSystem
 
             Console.WriteLine("saved everyting");
         }
+*/
 
         #endregion
 
