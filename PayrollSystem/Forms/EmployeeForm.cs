@@ -5,40 +5,19 @@ namespace PayrollSystem.Forms
 {
     public partial class EmployeeForm : Form
     {
-        private string _welcomeName = "User";
-        private Employee _activeEmployee;
-
         /// <summary>
         /// Initialise with the default name [User]
         /// </summary>
         public EmployeeForm()
         {
             InitializeComponent();
-        }
-
-        /// <summary>
-        /// Initialise by assigning an active employee, and setting the name to the employees name.
-        /// </summary>
-        public EmployeeForm(Employee employee)
-        {
-            _activeEmployee = employee;
-            _welcomeName = employee.FirstName;
-            InitializeComponent();
-        }
-
-        /// <summary>
-        /// Initialise with a given name [User]
-        /// </summary>
-        /// <param name="name"></param>
-        public EmployeeForm(string name) : this() //Users name should be included when the menu is launched from the login.
-        {
-            _welcomeName = name;
+            lblWelcome.Text = $"Welcome {Program.activeEmployee.FirstName}";
         }
 
         // Upon load, change the welcome text to include the users name.
         private void Employee_Load(object sender, EventArgs e)
         {
-            lblWelcome.Text = $"Welcome {_welcomeName}";
+            
         }
 
         // Suposed to close the window, and "sign out" of the active user.
