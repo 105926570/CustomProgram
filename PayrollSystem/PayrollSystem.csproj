@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CallenderSystem\Leave.cs" />
     <Compile Include="CallenderSystem\Shift.cs" />
     <Compile Include="Forms\AdminForm.cs">
       <SubType>Form</SubType>
