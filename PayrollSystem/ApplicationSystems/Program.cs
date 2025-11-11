@@ -10,15 +10,12 @@ namespace PayrollSystem
 {
     internal static class Program
     {
-        //This is where the active employees informaton is stored.
-        //Upon login, the user is read, and saved to this variable in the program.
+        private static Company _companyLoadedInFromFiles;
+        private static Company _activeCompany;
         private static Employee _activeEmployee;
         private static bool _isLoggedIn;
-        //Root folder where all files are stored
         private static string _rootFolder;
-        //Company loaded in from class. this is to be done at the start of main.
-        private static Company _companyLoadedInFromFiles; // This is the company loaded in from files on startup
-        private static Company _activeCompany; // This is what should be changed with ever addition and modification to the company
+
         public static Random rand = new Random();
 
         public static string employeesDirectory, companyDirectory, departmentDirectory;
