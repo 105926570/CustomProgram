@@ -40,7 +40,6 @@ namespace PayrollSystem
             set { _departmentName = value; }
         }
 
-        [JsonIgnore]
         public List<Employee> Employees
         {
             get { return _employees; }

@@ -93,7 +93,6 @@
             this.Controls.Add(this.lblWelcome);
             this.Name = "EmployeeForm";
             this.Text = "Employee";
-            this.Load += new System.EventHandler(this.Employee_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errProvider)).EndInit();
             this.ResumeLayout(false);

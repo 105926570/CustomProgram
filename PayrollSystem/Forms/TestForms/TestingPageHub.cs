@@ -48,7 +48,7 @@ namespace PayrollSystem
         {
             string defaultName = "User";
             if (txtUser.Text != "") defaultName = txtUser.Text;
-            new EmployeeForm(defaultName).Show();
+            new EmployeeForm().Show();
             this.Close();
         }
     }
