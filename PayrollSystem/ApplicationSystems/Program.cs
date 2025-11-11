@@ -10,6 +10,7 @@ namespace PayrollSystem
 {
     internal static class Program
     {
+        static bool generateRandomCompany = false; //change this to true to generate a random company and save it to files.
         private static Company _companyLoadedInFromFiles;
         private static Company _activeCompany;
         private static Employee _activeEmployee;
@@ -33,91 +34,12 @@ namespace PayrollSystem
             departmentDirectory = $"{_rootFolder}\\departments";
             companyDirectory = $"{_rootFolder}";
 
-            //fullProgramTesting();
-            //ReadObjectFromJson("C:\\CustomProgram\\jsons\\BigBoyTest.json");
             Startup();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginScreen());
         }
 
-        #region Tests - To be deleted at the end of project
-
-/*
-        private static void jsonTesting()
-        {
-            Console.WriteLine("Starting Test 1");
-
-            CreateJsonFromObject(new User(), _rootFolder + "\\jsons\\testUserJson.json");
-            CreateJsonFromObject(new Employee(), _rootFolder + "\\jsons\\testEmployeeJson.json");
-            Employee test1 = new Employee("Bob", "lastname", "bob123", "bobssupersecretpassword123");
-            Employee test2 = new Employee("firstName", "lastName", "username123", "password123");
-            List<Employee> h = new List<Employee> { test1, test2 };
-            Company company = new Company() { Name = "the big company lol", Employees = h };
-            Console.WriteLine("Now... The big boy test...");
-            CreateJsonFromObject(company, _rootFolder + "\\jsons\\BigBoyTest.json");
-
-            //Test reading a JSON then saving what is read
-            string testamondo = Path.GetDirectoryName(_rootFolder + "\\jsons\\BigBoyTest.json");
-            testamondo = testamondo + "\\bigFatTestBruv.json";
-            CreateJsonFromObject(JsonConvert.DeserializeObject(File.ReadAllText(_rootFolder + "\\jsons\\BigBoyTest.json")), testamondo);
-
-            //test getting file directories.
-            string[] files = Directory.GetFiles($"{_rootFolder}\\jsons");
-            foreach (string file in files)
-            {
-                Console.WriteLine($"{file}");
-            }
-        }
-
-/// IF YOU WISH TO GENERATE A RANDOM COMPANY, UNCOMMENT THE FOLLOWING
-        public static void fullProgramTesting()
-        {
-            Department departmentDefault = new Department();
-            Department departmentCleaning = new Department("Cleaning");
-            Department departmentSales = new Department("Sales");
-            Department departmentHR = new Department("HR");
-
-            Employee emp1 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
-            Employee emp2 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
-            Employee emp3 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
-            Employee emp4 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
-            Employee emp5 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
-            Employee emp6 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
-            Employee emp7 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
-            Employee emp8 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
-            Employee emp9 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
-            Employee emp10 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
-            Employee emp11 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
-            Employee emp12 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
-
-            // Add employees to the departments
-            departmentDefault.Employees.Add(emp1);
-            departmentDefault.Employees.Add(emp2);
-            departmentDefault.Employees.Add(emp3);
-
-            departmentCleaning.Employees.Add(emp4);
-            departmentCleaning.Employees.Add(emp5);
-            departmentCleaning.Employees.Add(emp6);
-
-            departmentSales.Employees.Add(emp7);
-            departmentSales.Employees.Add(emp8);
-            departmentSales.Employees.Add(emp9);
-
-            departmentHR.Employees.Add(emp10);
-            departmentHR.Employees.Add(emp11);
-            departmentHR.Employees.Add(emp12);
-
-            Company company = new Company("TestCompany", new List<Department> { departmentDefault, departmentCleaning, departmentSales, departmentHR });
-
-            company.Save();
-
-            Console.WriteLine("saved everyting");
-            MessageBox.Show("Saved The New Thing i think");
-        }
-*/
-
-        #endregion
 
 
         #region Properties
@@ -140,7 +62,9 @@ namespace PayrollSystem
         #endregion
 
 
-        #region Functions
+
+
+        #region Methods
 
         #region reading and writing
 
@@ -285,8 +209,16 @@ namespace PayrollSystem
             {
                 emp.Save();
             }
+        /* untested. plus can change code so this just saves departments, and in dep.save save employees.
+            foreach (Department dep in company.Departments)
+            {
+                dep.Save();
+            }
+        */
         }
         #endregion
+
+        #region changing active employees
 
         public static void ChangeActiveEmployee(Employee newActiveEmployee)
         {
@@ -294,10 +226,15 @@ namespace PayrollSystem
             else MessageBox.Show("privliage is not acceptable");
         }
 
+        // to be used when signing out for example:
         public static void RemoveActiveEmployee()
         {
             _activeEmployee = null;
         }
+
+        #endregion
+
+        #region error stuff
 
         public static void SaveErrorToLog(Exception ex)
         {
@@ -317,6 +254,25 @@ namespace PayrollSystem
         }
 
         #endregion
+
+        #region startup and shutdown methods
+
+        public static void Startup()
+        {
+            if (generateRandomCompany == true) GenerateRandomCompany();
+            _companyLoadedInFromFiles = LoadCompany();
+            _activeCompany = _companyLoadedInFromFiles;
+        }
+
+        public static void Shutdown()
+        {
+            foreach (Department dep in _activeCompany.Departments) dep.Save(); 
+            foreach (Employee emp in _activeCompany.Employees) emp.Save();
+        }
+
+        #endregion
+
+        #region random names
 
         public static string RandomFirstName()
         {
@@ -353,17 +309,58 @@ namespace PayrollSystem
             return s[rand.Next(0, s.Length - 1)];
         }
 
-        public static void Startup()
+        #endregion
+
+        #region Tests - To be deleted at the end of project
+
+        public static void GenerateRandomCompany()
         {
-            _companyLoadedInFromFiles = LoadCompany();
-            _activeCompany = _companyLoadedInFromFiles;
+            Department departmentDefault = new Department();
+            Department departmentCleaning = new Department("Cleaning");
+            Department departmentSales = new Department("Sales");
+            Department departmentHR = new Department("HR");
+
+            Employee emp1 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp2 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp3 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp4 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp5 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp6 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp7 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp8 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp9 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp10 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp11 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+            Employee emp12 = new Employee(RandomFirstName(), RandomLastName(), $"username123{rand.Next(99)}", $"password123{rand.Next(99)}");
+
+            // Add employees to the departments
+            departmentDefault.Employees.Add(emp1);
+            departmentDefault.Employees.Add(emp2);
+            departmentDefault.Employees.Add(emp3);
+
+            departmentCleaning.Employees.Add(emp4);
+            departmentCleaning.Employees.Add(emp5);
+            departmentCleaning.Employees.Add(emp6);
+
+            departmentSales.Employees.Add(emp7);
+            departmentSales.Employees.Add(emp8);
+            departmentSales.Employees.Add(emp9);
+
+            departmentHR.Employees.Add(emp10);
+            departmentHR.Employees.Add(emp11);
+            departmentHR.Employees.Add(emp12);
+
+            Company company = new Company("TestCompany", new List<Department> { departmentDefault, departmentCleaning, departmentSales, departmentHR });
+
+            company.Save();
+
+            Console.WriteLine("saved everyting");
+            MessageBox.Show("Saved The New Thing i think");
         }
 
-        public static void Shutdown()
-        {
-            foreach (Department dep in _activeCompany.Departments) dep.Save(); 
-            foreach (Employee emp in _activeCompany.Employees) emp.Save();
-        }
+        #endregion
+
+        #endregion
     }
 }
 
