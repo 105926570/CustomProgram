@@ -15,7 +15,7 @@ namespace PayrollSystem
         /// <summary>ID is defined</summary>
         public IdentifiableObject(int id) //to be used when loading something from a json for example
         {
-            
+            ID = id;
         }
     }
 }
