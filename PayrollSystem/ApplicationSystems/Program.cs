@@ -62,7 +62,9 @@ namespace PayrollSystem
         #endregion
 
 
-        #region Functions
+
+
+        #region Methods
 
         #region reading and writing
 
@@ -216,6 +218,8 @@ namespace PayrollSystem
         }
         #endregion
 
+        #region changing active employees
+
         public static void ChangeActiveEmployee(Employee newActiveEmployee)
         {
             if (newActiveEmployee.Privliage >= 0 && newActiveEmployee.Privliage <= 2) _activeEmployee = newActiveEmployee;
@@ -227,6 +231,10 @@ namespace PayrollSystem
         {
             _activeEmployee = null;
         }
+
+        #endregion
+
+        #region error stuff
 
         public static void SaveErrorToLog(Exception ex)
         {
@@ -349,6 +357,8 @@ namespace PayrollSystem
             Console.WriteLine("saved everyting");
             MessageBox.Show("Saved The New Thing i think");
         }
+
+        #endregion
 
         #endregion
     }
