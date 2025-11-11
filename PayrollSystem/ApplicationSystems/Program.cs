@@ -207,6 +207,12 @@ namespace PayrollSystem
             {
                 emp.Save();
             }
+        /* untested. plus can change code so this just saves departments, and in dep.save save employees.
+            foreach (Department dep in company.Departments)
+            {
+                dep.Save();
+            }
+        */
         }
         #endregion
 
@@ -216,6 +222,7 @@ namespace PayrollSystem
             else MessageBox.Show("privliage is not acceptable");
         }
 
+        // to be used when signing out for example:
         public static void RemoveActiveEmployee()
         {
             _activeEmployee = null;
