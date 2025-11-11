@@ -5,22 +5,9 @@ namespace PayrollSystem
 {
     public class Payroll
     {
-        private List<PayHistory> _payHistories;
-
-
-
+        public List<PayHistory> PayHistories { get; set; }
         public Payroll() : this(new List<PayHistory>()) { }
-
-        public Payroll(List<PayHistory> payHistories)
-        {
-            PayHistories = payHistories;
-        }
-
-        public List<PayHistory> PayHistories
-        {
-            get { return _payHistories; }
-            set { _payHistories = value; }
-        }
+        public Payroll(List<PayHistory> payHistories) { PayHistories = payHistories; }
     }
 }
 
