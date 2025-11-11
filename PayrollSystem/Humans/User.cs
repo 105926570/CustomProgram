@@ -2,8 +2,10 @@
 {
     public class User : IdentifiableObject
     {
-        private string _username, _password, _email;
-        private int _privliage;
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public string Username { get; set; }
+        public int Privliage { get; set; }
 
         public User() : base() //Default constructor
         {
@@ -26,30 +28,6 @@
         {
             // add a check to see if it's a valid email.
             Email = email;
-        }
-
-        public int Privliage
-        {
-            get { return _privliage; }
-            set { _privliage = value; }
-        }
-
-        public string Email
-        {
-            get { return _email; }
-            set { _email = value; }
-        }
-
-        public string Username
-        {
-            get { return _username; }
-            set { _username = value; }
-        }
-
-        public string Password
-        {
-            get { return _password; }
-            set { _password = value; }
         }
 
         public string ReturnUserInfoAsString()
