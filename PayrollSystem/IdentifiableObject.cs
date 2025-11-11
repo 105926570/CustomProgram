@@ -4,7 +4,7 @@ namespace PayrollSystem
 {
     public class IdentifiableObject
     {
-        private int _id;
+        public int ID { get; set; }
 
         /// <summary>ID is randomly generated with length 7</summary>
         public IdentifiableObject() //default constructor
@@ -15,13 +15,7 @@ namespace PayrollSystem
         /// <summary>ID is defined</summary>
         public IdentifiableObject(int id) //to be used when loading something from a json for example
         {
-            ID = id;
-        }
-
-        public int ID
-        {
-            get { return _id; }
-            set { _id = value; }
+            
         }
     }
 }
