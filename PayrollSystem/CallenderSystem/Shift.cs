@@ -12,5 +12,12 @@ namespace PayrollSystem.CallenderSystem
         public DateTime endDateTime { get; set; }
 
         public bool isWeekend { get { return startDateTime.DayOfWeek == DayOfWeek.Saturday || startDateTime.DayOfWeek == DayOfWeek.Sunday; } }
+        public float HoursScheduled
+        {
+            get
+            {
+                return startDateTime.CompareTo(endDateTime);
+            }
+        }
     }
 }

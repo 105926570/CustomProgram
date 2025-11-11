@@ -5,7 +5,7 @@ namespace PayrollSystem
 {
     public class WorkedShift : Shift
     {
-        private float _baseRate;
+        private float _baseRate; //input from user
         private float _hoursWorked;
         private bool _isCasual;
         private bool _isTraining;
