@@ -35,7 +35,7 @@ namespace PayrollSystem
             departmentDirectory = $"{_rootFolder}\\departments";
             companyDirectory = $"{_rootFolder}";
 
-            WorkedShift shift = new WorkedShift(AssemblyLoadEventArgs, );
+            WorkedShift shift = new WorkedShift();
 
             Startup();
             Application.EnableVisualStyles();
