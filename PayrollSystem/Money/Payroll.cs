@@ -5,8 +5,22 @@ namespace PayrollSystem
     public class Payroll
     {
         public List<PayHistory> PayHistories { get; set; }
+
+
+
+        //Default Constructor
         public Payroll() : this(new List<PayHistory>()) { }
+
+        public Payroll(List<Employee> employees) :base()
+        {
+            foreach (Employee employee in employees)
+            {
+                PayHistories.Add(employee.PayHistory);
+            }
+        }
+
         public Payroll(List<PayHistory> payHistories) { PayHistories = payHistories; }
+
     }
 }
 
