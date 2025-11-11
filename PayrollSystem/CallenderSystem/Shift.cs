@@ -4,14 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PayrollSystem.CallenderSystem
+namespace PayrollSystem
 {
-    public class Shift
+    public class Shift : TimeFrame
     {
-        public DateTime startDateTime { get; set; }
-        public DateTime endDateTime { get; set; }
-
-        public bool isWeekend { get { return startDateTime.DayOfWeek == DayOfWeek.Saturday || startDateTime.DayOfWeek == DayOfWeek.Sunday; } }
-        public float HoursScheduled { get { return startDateTime.CompareTo(endDateTime); } }
+        public bool isWeekend { get { return StartDateTime.DayOfWeek == DayOfWeek.Saturday || StartDateTime.DayOfWeek == DayOfWeek.Sunday; } }
+        public float HoursScheduled { get { return StartDateTime.CompareTo(EndDateTime); } }
     }
 }
