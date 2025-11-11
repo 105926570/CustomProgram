@@ -95,7 +95,7 @@
       <DependentUpon>AdminDebug.cs</DependentUpon>
     </Compile>
     <Compile Include="Company.cs" />
-    <Compile Include="CallenderSystem\Old Callender System\Day.cs" />
+    <Compile Include="CallenderSystem\Day.cs" />
     <Compile Include="Department.cs" />
     <Compile Include="Humans\Employee.cs" />
     <Compile Include="Forms\TestForms\EmployeeDebug.cs">
@@ -127,15 +127,15 @@
     <Compile Include="Forms\TestForms\ManagerDebug.Designer.cs">
       <DependentUpon>ManagerDebug.cs</DependentUpon>
     </Compile>
-    <Compile Include="CallenderSystem\Old Callender System\Month.cs" />
+    <Compile Include="CallenderSystem\Month.cs" />
     <Compile Include="Money\PayCheck.cs" />
     <Compile Include="Money\PayHistory.cs" />
-    <Compile Include="CallenderSystem\Old Callender System\PayPeriod.cs" />
+    <Compile Include="CallenderSystem\PayPeriod.cs" />
     <Compile Include="Money\Payroll.cs" />
     <Compile Include="ApplicationSystems\Program.cs" />
     <Compile Include="Humans\Pronoun.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CallenderSystem\Old Callender System\Schedule.cs" />
+    <Compile Include="CallenderSystem\Schedule.cs" />
     <Compile Include="Forms\TestForms\TestingPageHub.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,8 +145,8 @@
     <Compile Include="CallenderSystem\TimeFrame.cs" />
     <Compile Include="ApplicationSystems\UsefullUniversalCommands.cs" />
     <Compile Include="Humans\User.cs" />
-    <Compile Include="CallenderSystem\Old Callender System\Week.cs" />
-    <Compile Include="CallenderSystem\Old Callender System\WorkedShift.cs" />
+    <Compile Include="CallenderSystem\Week.cs" />
+    <Compile Include="CallenderSystem\WorkedShift.cs" />
     <EmbeddedResource Include="Forms\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
