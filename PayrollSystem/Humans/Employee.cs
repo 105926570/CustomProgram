@@ -26,7 +26,7 @@ namespace PayrollSystem
             FirstName = RandomFirstName();
             LastName = RandomLastName();
             EmployeeTaxInfo = new EmployeeTaxInfo();
-            PayHistory = new PayHistory();
+            PayHistory = new PayHistory(this);
             Schedule = new Schedule();
         }
 

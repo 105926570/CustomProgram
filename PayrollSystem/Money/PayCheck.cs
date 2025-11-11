@@ -5,11 +5,13 @@ namespace PayrollSystem
     public class PayCheck
     {
         private Shift[] ShiftsWorked;
+        public float Rate { get; set; }
 
         //Default Constructor
-        public PayCheck()
+        public PayCheck(float rate)
         {
             ShiftsWorked = new Shift[] { };
+            Rate = rate;
         }
     }
 }

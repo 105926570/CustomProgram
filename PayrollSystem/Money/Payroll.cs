@@ -20,7 +20,6 @@ namespace PayrollSystem
         }
 
         public Payroll(List<PayHistory> payHistories) { PayHistories = payHistories; }
-
     }
 }
 
