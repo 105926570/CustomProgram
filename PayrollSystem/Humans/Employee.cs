@@ -7,7 +7,7 @@ namespace PayrollSystem
     public class Employee : User
     {
 
-/******************** PROPERTIES ********************/
+        /******************** PROPERTIES ********************/
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -18,7 +18,7 @@ namespace PayrollSystem
         public string FullName { get { return FirstName + " " + LastName; } }
         private DateTime _birthDate; //to be inputted when creating employee
 
-/****************************************************/
+        /****************************************************/
 
         //Defaul Constructor
         public Employee() : base()
@@ -85,8 +85,8 @@ namespace PayrollSystem
                     case 20:
                         return federalMinimumWage * 0.977f;
                     default:
-                    if (ageInYears < 16) { return federalMinimumWage * 0.368f; }
-                    else { return federalMinimumWage; }
+                        if (ageInYears < 16) { return federalMinimumWage * 0.368f; }
+                        else { return federalMinimumWage; }
                 }
             }
         }

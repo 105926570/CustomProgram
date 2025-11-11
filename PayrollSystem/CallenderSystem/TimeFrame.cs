@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PayrollSystem
+namespace PayrollSystem.CallenderSystem
 {
     public class TimeFrame
     {

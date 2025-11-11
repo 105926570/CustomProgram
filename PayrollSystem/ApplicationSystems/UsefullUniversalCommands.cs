@@ -21,11 +21,11 @@ namespace PayrollSystem
             int numberOfNumbersAdded = 0;
 
             while (desiredNumberOfNumbers > numberOfNumbersAdded)
-                    randomNumbers.Add(rand.Next(highestNumber));
+                randomNumbers.Add(rand.Next(highestNumber));
 
             //check if length is invalid or wrong:
             if (randomNumbers.Count != desiredNumberOfNumbers)
-                    throw new ArgumentException();
+                throw new ArgumentException();
 
             return randomNumbers;
         }

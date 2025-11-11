@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PayrollSystem.CallenderSystem;
+using System;
 using System.Collections.Generic;
 
 namespace PayrollSystem
@@ -6,7 +7,7 @@ namespace PayrollSystem
     internal class PayPeriod
     {
         private DateTime _startDate, _endDate;
-        private List<WorkedShift> _workedShifts;
+        private List<Shift> _workedShifts;
 
         public PayPeriod()
         {

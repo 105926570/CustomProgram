@@ -25,14 +25,14 @@ namespace PayrollSystem.Forms
         private void btnViewSchedule_Click(object sender, EventArgs e)
         {
             MessageBox.Show(
-                        // Body Text
+                            // Body Text
                             $"{e}\n" +
                             $"{sender}\n" +
                             $"\n" +
                             $"{btnViewSchedule.Name}'s function not yet implimented.\n" +
                             $"this dialoguebox aims to demonstrate that the button works, by having it being shown as a temporary output." +
                             $"Press 'OK' to continue...",
-                        // alt text
+                            // alt text
                             $"Temporary Output for {btnViewSchedule.Text}");
         }
     }

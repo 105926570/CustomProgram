@@ -1,14 +1,15 @@
-﻿namespace PayrollSystem
+﻿using PayrollSystem.CallenderSystem;
+
+namespace PayrollSystem
 {
     public class PayCheck
     {
-
-        private WorkedShift[] ShiftsWorked;
+        private Shift[] ShiftsWorked;
 
         //Default Constructor
-        public PayCheck() 
+        public PayCheck()
         {
-            ShiftsWorked = new WorkedShift[] { };
+            ShiftsWorked = new Shift[] { };
         }
     }
 }

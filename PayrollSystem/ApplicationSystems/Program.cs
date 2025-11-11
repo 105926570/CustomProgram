@@ -1,9 +1,8 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using PayrollSystem.CallenderSystem;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Windows.Forms;
 
 namespace PayrollSystem
@@ -35,7 +34,7 @@ namespace PayrollSystem
             departmentDirectory = $"{_rootFolder}\\departments";
             companyDirectory = $"{_rootFolder}";
 
-            WorkedShift shift = new WorkedShift();
+            Shift shift = new Shift();
             Startup();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -211,12 +210,12 @@ namespace PayrollSystem
             {
                 emp.Save();
             }
-        /* untested. plus can change code so this just saves departments, and in dep.save save employees.
-            foreach (Department dep in company.Departments)
-            {
-                dep.Save();
-            }
-        */
+            /* untested. plus can change code so this just saves departments, and in dep.save save employees.
+                foreach (Department dep in company.Departments)
+                {
+                    dep.Save();
+                }
+            */
         }
         #endregion
 
@@ -268,7 +267,7 @@ namespace PayrollSystem
 
         public static void Shutdown()
         {
-            foreach (Department dep in _activeCompany.Departments) dep.Save(); 
+            foreach (Department dep in _activeCompany.Departments) dep.Save();
             foreach (Employee emp in _activeCompany.Employees) emp.Save();
         }
 
