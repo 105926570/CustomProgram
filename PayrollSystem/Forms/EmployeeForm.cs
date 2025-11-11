@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-
+using static PayrollSystem.Program;
 namespace PayrollSystem.Forms
 {
     public partial class EmployeeForm : Form
@@ -34,6 +34,7 @@ namespace PayrollSystem.Forms
                             $"Press 'OK' to continue...",
                             // alt text
                             $"Temporary Output for {btnViewSchedule.Text}");
+            activeEmployee.DisplayAllEmployeeInfo();
         }
     }
 }
