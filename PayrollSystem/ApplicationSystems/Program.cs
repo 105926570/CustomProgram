@@ -16,6 +16,7 @@ namespace PayrollSystem
         private static Employee _activeEmployee;
         private static bool _isLoggedIn;
         private static string _rootFolder;
+        public static float federalMinimumWage { get; } = 24.95f;
 
         public static Random rand = new Random();
 
