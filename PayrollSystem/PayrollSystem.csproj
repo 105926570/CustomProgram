@@ -107,7 +107,6 @@
       <DependentUpon>EmployeeDebug.cs</DependentUpon>
     </Compile>
     <Compile Include="IdentifiableObject.cs" />
-    <Compile Include="Initialise.cs" />
     <Compile Include="Money\EmployeeTaxCalculator.cs" />
     <Compile Include="Money\EmployeeTaxInfo.cs" />
     <Compile Include="Forms\TestForms\fgsifghs.cs">
