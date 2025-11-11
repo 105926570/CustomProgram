@@ -1,23 +1,22 @@
-﻿using System;
+﻿using PayrollSystem.CallenderSystem;
+using System;
 
 namespace PayrollSystem
 {
-    internal class WorkedShift
+    public class WorkedShift : Shift
     {
-        private DateTime _startDateTime, _endDateTime;
-        private float _baseRate;
+        private float _baseRate; //input from user
         private float _hoursWorked;
         private bool _isCasual;
         private bool _isTraining;
         private bool _isPublicHoliday;
-        private bool _isWeekend;
 
         #region Constructors
         //Default constructor
         public WorkedShift()
         {
-            _startDateTime = DateTime.Now;
-            _endDateTime = DateTime.Now.AddHours(3);  //make it company minumum shift length
+            startDateTime = DateTime.Now;
+            endDateTime = DateTime.Now.AddHours(3);  //make it company minumum shift length
             _baseRate = 24.95f;  //make it update with adult minimum wage
             _hoursWorked = 3;//make it company minumum shift length
             _isCasual = false;
@@ -29,8 +28,8 @@ namespace PayrollSystem
         // Hours Not Worked Constructors
         public WorkedShift(DateTime start, float baseRate) : base()
         {
-            _startDateTime = start;
-            _endDateTime = _startDateTime.AddHours(_hoursWorked);
+            startDateTime = start;
+            endDateTime = startDateTime.AddHours(_hoursWorked);
             _baseRate = baseRate;
         }
 
@@ -42,7 +41,7 @@ namespace PayrollSystem
 
         public WorkedShift(DateTime start, DateTime end, float baseRate, bool casual, bool training) : this(start, baseRate, casual, training)
         {
-            _endDateTime = end;
+            endDateTime = end;
             _hoursWorked = end.CompareTo(start);
         }
         #endregion
@@ -52,10 +51,10 @@ namespace PayrollSystem
         // Hours Worked Constructors
         public WorkedShift(DateTime start, float baseRate, float hoursWorked) : base()
         {
-            _startDateTime = start;
+            startDateTime = start;
             _baseRate = baseRate;
             _hoursWorked = hoursWorked;
-            _endDateTime = _startDateTime.AddHours(_hoursWorked);
+            endDateTime = startDateTime.AddHours(_hoursWorked);
         }
 
         public WorkedShift(DateTime start, float baseRate, float hoursWorked, bool casual, bool training) : this(start, baseRate, hoursWorked)
@@ -69,9 +68,7 @@ namespace PayrollSystem
 
         #region Properties
         //Properties of a shift that an employee may want to know
-        public DateTime startDateTime { get { return _startDateTime; } }
-        public DateTime endDateTime { get { return _endDateTime; } }
-        public DayOfWeek dayOfWeek { get { return _startDateTime.DayOfWeek; } }
+        public DayOfWeek dayOfWeek { get { return startDateTime.DayOfWeek; } }
 
 
         #region Properties for calculating earnings
@@ -89,7 +86,7 @@ namespace PayrollSystem
                 float earnings = this.baseEarnings;
                 if (_isCasual == true) earnings += this.casualBonus;
                 if (_isTraining == true) earnings += this.trainingBonus;
-                if (_isWeekend == true) earnings += this.weekendBonus;
+                if (isWeekend == true) earnings += this.weekendBonus;
                 if (_isPublicHoliday == true) earnings += this.publicHolidayBonus;
                 return earnings;
             }

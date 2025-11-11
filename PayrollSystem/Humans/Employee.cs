@@ -11,6 +11,8 @@ namespace PayrollSystem
         //Department department;
         private Schedule _schedule;
         private PayHistory _payHistory;
+        private float _hourlyRate;
+        private DateTime _birthDate; //to be inputted when creating employee
 
         public Employee() : base() //Constructor with default values
         {
@@ -75,6 +77,31 @@ namespace PayrollSystem
         public void Save(string employeesDirectory)
         {
             CreateJsonFromObject(this, $"{employeesDirectory}\\emp{this.ID}.json");
+        }
+
+        public float Rate
+        {
+            get
+            {
+                float ageInYears = DateTime.Now.Year - _birthDate.Year;
+
+                switch (ageInYears)
+                {
+                    case 16:
+                        return federalMinimumWage * 0.473f;
+                    case 17:
+                        return federalMinimumWage * 0.578f;
+                    case 18:
+                        return federalMinimumWage * 0.683f;
+                    case 19:
+                        return federalMinimumWage * 0.825f;
+                    case 20:
+                        return federalMinimumWage * 0.977f;
+                    default:
+                    if (ageInYears < 16) { return federalMinimumWage * 0.368f; }
+                    else { return federalMinimumWage; }
+                }
+            }
         }
     }
 }

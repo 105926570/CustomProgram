@@ -5,9 +5,9 @@ namespace PayrollSystem
     internal class EmployeeTaxCalculator
     {
 
-        private readonly double[] bracketStarts = new double[] { 0, 18200, 45000, 135000, 190000 }; //if above, then the index of that number is the tax bracket
-        private readonly double[] taxPercentagesResident = new double[] { 0f, 0.16f, 0.30f, 0.37f, 0.45f };
-        private readonly double[] taxPercentagesNonResident = new double[] { 0.30f, 0.30f, 0.30f, 0.37f, 0.45f };
+        private readonly double[] BracketStarts = { 0, 18200, 45000, 135000, 190000 }; //if above, then the index of that number is the tax bracket
+        private readonly double[] TaxPercentagesResident = { 0f, 0.16f, 0.30f, 0.37f, 0.45f };
+        private readonly double[] TaxPercentagesNonResident = { 0.30f, 0.30f, 0.30f, 0.37f, 0.45f };
 
         public double AmountToBeTaxedAtEndOfYear(bool isResident, double yearlyIncome) //This is the function run when generating tax.
         {
@@ -20,20 +20,18 @@ namespace PayrollSystem
         }
 
         public double AmountToBeTaxedAtEndOfYearRounded(bool isResident, double yearlyIncome) //This is the function run when generating tax.
-        {
-            return Math.Round(AmountToBeTaxedAtEndOfYear(isResident, yearlyIncome), 2);
-        }
+        { return Math.Round(AmountToBeTaxedAtEndOfYear(isResident, yearlyIncome), 2); }
 
 
         private int CalculateTaxBracket(double yearlyIncome)
         {
-            if (/*yearlyIncome > bracketStarts[0] &&*/ yearlyIncome <= bracketStarts[1])
+            if (/*yearlyIncome > bracketStarts[0] &&*/ yearlyIncome <= BracketStarts[1])
                 return 0;
-            else if (yearlyIncome > bracketStarts[1] && yearlyIncome <= bracketStarts[2])
+            else if (yearlyIncome > BracketStarts[1] && yearlyIncome <= BracketStarts[2])
                 return 1;
-            else if (yearlyIncome > bracketStarts[2] && yearlyIncome <= bracketStarts[3])
+            else if (yearlyIncome > BracketStarts[2] && yearlyIncome <= BracketStarts[3])
                 return 2;
-            else if (yearlyIncome > bracketStarts[3] && yearlyIncome <= bracketStarts[4])
+            else if (yearlyIncome > BracketStarts[3] && yearlyIncome <= BracketStarts[4])
                 return 3;
             else
                 return 4;
@@ -42,8 +40,8 @@ namespace PayrollSystem
 
         private double CalcResident(double yearlyIncome, int taxBracket)
         {
-            double[] taxPercentages = taxPercentagesResident;
-            double remainder = yearlyIncome - bracketStarts[taxBracket];
+            double[] taxPercentages = TaxPercentagesResident;
+            double remainder = yearlyIncome - BracketStarts[taxBracket];
 
             switch (taxBracket)
             {
@@ -52,18 +50,18 @@ namespace PayrollSystem
 
                 case 2:
                     return (remainder * taxPercentages[taxBracket])
-                         + ((bracketStarts[2] - bracketStarts[1]) * taxPercentages[1]);
+                         + ((BracketStarts[2] - BracketStarts[1]) * taxPercentages[1]);
 
                 case 3:
                     return (remainder * taxPercentages[taxBracket])
-                         + ((bracketStarts[3] - bracketStarts[2]) * taxPercentages[2])
-                         + ((bracketStarts[2] - bracketStarts[1]) * taxPercentages[1]);
+                         + ((BracketStarts[3] - BracketStarts[2]) * taxPercentages[2])
+                         + ((BracketStarts[2] - BracketStarts[1]) * taxPercentages[1]);
 
                 case 4:
                     return (remainder * taxPercentages[taxBracket])
-                         + ((bracketStarts[4] - bracketStarts[3]) * taxPercentages[3])
-                         + ((bracketStarts[3] - bracketStarts[2]) * taxPercentages[2])
-                         + ((bracketStarts[2] - bracketStarts[1]) * taxPercentages[1]);
+                         + ((BracketStarts[4] - BracketStarts[3]) * taxPercentages[3])
+                         + ((BracketStarts[3] - BracketStarts[2]) * taxPercentages[2])
+                         + ((BracketStarts[2] - BracketStarts[1]) * taxPercentages[1]);
 
                 default:
                     return 0.0;
@@ -73,8 +71,8 @@ namespace PayrollSystem
 
         private double CalcNonResident(double yearlyIncome, int taxBracket)
         {
-            double[] taxPercentages = taxPercentagesNonResident;
-            double remainder = yearlyIncome - bracketStarts[taxBracket];
+            double[] taxPercentages = TaxPercentagesNonResident;
+            double remainder = yearlyIncome - BracketStarts[taxBracket];
 
             switch (taxBracket)
             {
@@ -83,25 +81,25 @@ namespace PayrollSystem
 
                 case 1:
                     return (remainder * taxPercentages[taxBracket])
-                         + (bracketStarts[1] * taxPercentages[0]);
+                         + (BracketStarts[1] * taxPercentages[0]);
 
                 case 2:
                     return (remainder * taxPercentages[taxBracket])
-                         + ((bracketStarts[2] - bracketStarts[1]) * taxPercentages[1])
-                         + (bracketStarts[1] * taxPercentages[0]);
+                         + ((BracketStarts[2] - BracketStarts[1]) * taxPercentages[1])
+                         + (BracketStarts[1] * taxPercentages[0]);
 
                 case 3:
                     return (remainder * taxPercentages[taxBracket])
-                         + ((bracketStarts[3] - bracketStarts[2]) * taxPercentages[2])
-                         + ((bracketStarts[2] - bracketStarts[1]) * taxPercentages[1])
-                         + (bracketStarts[1] * taxPercentages[0]);
+                         + ((BracketStarts[3] - BracketStarts[2]) * taxPercentages[2])
+                         + ((BracketStarts[2] - BracketStarts[1]) * taxPercentages[1])
+                         + (BracketStarts[1] * taxPercentages[0]);
 
                 case 4:
                     return (remainder * taxPercentages[taxBracket])
-                         + ((bracketStarts[4] - bracketStarts[3]) * taxPercentages[3])
-                         + ((bracketStarts[3] - bracketStarts[2]) * taxPercentages[2])
-                         + ((bracketStarts[2] - bracketStarts[1]) * taxPercentages[1])
-                         + (bracketStarts[1] * taxPercentages[0]);
+                         + ((BracketStarts[4] - BracketStarts[3]) * taxPercentages[3])
+                         + ((BracketStarts[3] - BracketStarts[2]) * taxPercentages[2])
+                         + ((BracketStarts[2] - BracketStarts[1]) * taxPercentages[1])
+                         + (BracketStarts[1] * taxPercentages[0]);
 
                 default:
                     return 0.0;
