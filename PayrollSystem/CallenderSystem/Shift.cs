@@ -8,6 +8,9 @@ namespace PayrollSystem.CallenderSystem
 {
     public class Shift
     {
+        public DateTime startDateTime { get; set; }
+        public DateTime endDateTime { get; set; }
 
+        public bool isWeekend { get { return startDateTime.DayOfWeek == DayOfWeek.Saturday || startDateTime.DayOfWeek == DayOfWeek.Sunday; } }
     }
 }
