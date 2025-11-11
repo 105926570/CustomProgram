@@ -38,6 +38,7 @@ namespace PayrollSystem
 
             //fullProgramTesting();
             //ReadObjectFromJson("C:\\CustomProgram\\jsons\\BigBoyTest.json");
+            Startup();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginScreen());
