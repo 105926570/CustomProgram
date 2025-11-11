@@ -36,6 +36,7 @@ namespace PayrollSystem
             companyDirectory = $"{_rootFolder}";
 
             WorkedShift shift = new WorkedShift();
+
             Startup();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
