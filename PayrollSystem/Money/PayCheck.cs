@@ -10,7 +10,6 @@
         {
             ShiftsWorked = new WorkedShift[] { };
         }
-
     }
 }
 
