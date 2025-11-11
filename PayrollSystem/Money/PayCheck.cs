@@ -2,6 +2,15 @@
 {
     public class PayCheck
     {
+
+        private WorkedShift[] ShiftsWorked;
+
+        //Default Constructor
+        public PayCheck() 
+        {
+            ShiftsWorked = new WorkedShift[] { };
+        }
+
     }
 }
 
