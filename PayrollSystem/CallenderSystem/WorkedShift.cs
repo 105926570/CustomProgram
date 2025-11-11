@@ -2,7 +2,7 @@
 
 namespace PayrollSystem
 {
-    public class WorkedShift
+    public class WorkedShift : Shift
     {
         private DateTime _startDateTime, _endDateTime;
         private float _baseRate;
