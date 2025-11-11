@@ -64,6 +64,31 @@ namespace PayrollSystem
         {
             CreateJsonFromObject(this, $"{employeesDirectory}\\emp{this.ID}.json");
         }
+
+        public float Rate
+        {
+            get
+            {
+                float ageInYears = DateTime.Now.Year - _birthDate.Year;
+
+                switch (ageInYears)
+                {
+                    case 16:
+                        return federalMinimumWage * 0.473f;
+                    case 17:
+                        return federalMinimumWage * 0.578f;
+                    case 18:
+                        return federalMinimumWage * 0.683f;
+                    case 19:
+                        return federalMinimumWage * 0.825f;
+                    case 20:
+                        return federalMinimumWage * 0.977f;
+                    default:
+                    if (ageInYears < 16) { return federalMinimumWage * 0.368f; }
+                    else { return federalMinimumWage; }
+                }
+            }
+        }
     }
 }
 
