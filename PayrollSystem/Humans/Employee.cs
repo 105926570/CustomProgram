@@ -16,8 +16,9 @@ namespace PayrollSystem
         public PayHistory PayHistory { get; set; }
         [JsonIgnore]
         public string FullName { get { return FirstName + " " + LastName; } }
+        private DateTime _birthDate; //to be inputted when creating employee
 
-/****************************************************/
+        /****************************************************/
 
         //Defaul Constructor
         public Employee() : base()
