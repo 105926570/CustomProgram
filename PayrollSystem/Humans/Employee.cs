@@ -9,7 +9,7 @@ namespace PayrollSystem
         private string _firstName, _lastName;
         private EmployeeTaxInfo _employeeTaxInfo;
         //Department department;
-        private Schedule _schedule;
+        public Schedule Schedule { get; set; }
         private PayHistory _payHistory;
 
         public Employee() : base() //Constructor with default values
@@ -18,7 +18,7 @@ namespace PayrollSystem
             _lastName = "Doe";
             _employeeTaxInfo = new EmployeeTaxInfo();
             _payHistory = new PayHistory();
-            _schedule = new Schedule();
+            Schedule = new Schedule();
         }
 
         public Employee(string firstName, string lastName, string Username, string Password) : base(Username, Password)
