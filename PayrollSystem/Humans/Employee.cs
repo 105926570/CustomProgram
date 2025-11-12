@@ -13,7 +13,7 @@ namespace PayrollSystem
         public string LastName { get; set; }
         public EmployeeTaxInfo EmployeeTaxInfo { get; set; }
         public Schedule Schedule { get; set; }
-        public PayHistory PayHistory { get; set; }
+        public PayHistory PayHist { get; set; }
         [JsonIgnore]
         public string FullName { get { return FirstName + " " + LastName; } }
         private DateTime _birthDate; //to be inputted when creating employee
@@ -26,7 +26,7 @@ namespace PayrollSystem
             FirstName = RandomFirstName();
             LastName = RandomLastName();
             EmployeeTaxInfo = new EmployeeTaxInfo();
-            PayHistory = new PayHistory(this);
+            PayHist = new PayHistory(this);
             Schedule = new Schedule();
         }
 
@@ -39,7 +39,7 @@ namespace PayrollSystem
         public Employee(string firstName, string lastName, string Username, string Password, EmployeeTaxInfo taxInfo, Schedule schedule, PayHistory payHistory) : this(firstName, lastName, Username, Password)
         {
             EmployeeTaxInfo = taxInfo;
-            PayHistory = payHistory;
+            PayHist = payHistory;
             Schedule = schedule;
         }
 
@@ -54,6 +54,11 @@ namespace PayrollSystem
         {
             Console.WriteLine(ReturnUserInfoAsString());
             Console.WriteLine("Name: " + FullName);
+            Console.WriteLine($"Schedule: {PayHist}");
+            foreach (PayCheck pc in PayHist.PayChecks)
+            {
+                Console.WriteLine($"Paychecks {pc.Rate}");
+            }
         }
 
         public void Save()
