@@ -162,7 +162,7 @@ namespace PayrollSystem
 
         public void Save(string companyDirectory)
         {
-            CreateJsonFromObject(this, $"{companyDirectory}\\company.json");
+            CreateJsonFileFromObject(this, $"{companyDirectory}\\company.json");
         }
     }
 }

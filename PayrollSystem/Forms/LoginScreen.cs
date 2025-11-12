@@ -112,7 +112,7 @@ namespace PayrollSystem
                     newForm.Show();
                     break;
                 default:
-                    shMsgBox($"INVALID PRIVLIAGE: {emp.Privliage}\n" +
+                    ShowMessageBoxGivenString($"INVALID PRIVLIAGE: {emp.Privliage}\n" +
                              $"Privliage must be between 0 - 2\n" +
                              $"\n" +
                              $"Loading as Standard Employee...");

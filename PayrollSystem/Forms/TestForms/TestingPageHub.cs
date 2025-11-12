@@ -16,7 +16,7 @@ namespace PayrollSystem
         private void button2_Click(object sender, EventArgs e)
         {
             //Generate 100 random numbers
-            List<int> randomNumbers = RandomArray(999999999, 100);
+            List<int> randomNumbers = GenerateListOfRandomIntegers(999999999, 100);
 
             //Print all numbers for testing - to be removed later
             foreach (int i in randomNumbers) Console.WriteLine($"{i}");

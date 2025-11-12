@@ -35,7 +35,7 @@ namespace PayrollSystem
             companyDirectory = $"{_rootFolder}";
 
             Shift shift = new Shift();
-            Startup();
+            StartupFunctions();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginScreen());
@@ -71,6 +71,8 @@ namespace PayrollSystem
 
         #region reading and writing checks
 
+        /// <summary>Ensures a directory exists and creates it if it doesnt </summary>
+        /// <param name="directory">file\folder directory</param>
         private static void EnsureDirectoryExists(string directory)
         {
             string directoryPath = Path.GetDirectoryName(directory); //incase the input references a file's path rather than a directory, then get just the directory.
@@ -83,8 +85,13 @@ namespace PayrollSystem
             }
         }
 
+        /// <summary>Ensures a File exists and creates it if it doesnt </summary>
+        /// <param name="directory">file\folder directory</param>
         private static void EnsureFileExists(string filePath)
         {
+           
+            //Add a check to see if the inut actually directs to a file.
+
             if (!File.Exists(filePath))
             {
                 Console.WriteLine($"File '{filePath}' does not exist. Creating empty file...");
@@ -97,7 +104,10 @@ namespace PayrollSystem
 
         #region json
 
-        public static void CreateJsonFromObject(Object obj, string filePath)
+        /// <summary>saves an object as a .json file in a given directory</summary>
+        /// <param name="obj">the object you wish to save</param>
+        /// <param name="filePath">the filepath you want the file to be saved in</param>
+        public static void CreateJsonFileFromObject(Object obj, string filePath)
         {
             Console.WriteLine($"Attempting to create json file at {filePath}");
 
@@ -124,6 +134,9 @@ namespace PayrollSystem
             }
         }
 
+        /// <summary>reads an .json file in a given directory and returns it as a Object</summary>
+        /// <param name="filePath">the filepath of the json to be read</param>
+        /// <returns>object deserialised from the json</returns>
         public static Object ReadObjectFromJson(string filePath)
         {
             EnsureDirectoryExists(filePath);
@@ -134,8 +147,11 @@ namespace PayrollSystem
             return JsonConvert.DeserializeObject(File.ReadAllText(filePath));
         }
 
-        //for loading in their schedule for example, as it would be stored here.
-        public static Employee readEmployee(int employeeId, string directory)
+        /// <summary>reads a json file and returns it as an employee</summary>
+        /// <param name="employeeId">the ID of the employee "Employee.ID" [Employee.User.IdentifiableObject.ID]</param>
+        /// <param name="directory">the filepath of the json to be read</param>
+        /// <returns>Employee of the json file</returns>
+        public static Employee ReadJsonFileOfEmployeeGivenFileDirectory(int employeeId, string directory)
         {
             string[] empDirs = Directory.GetFiles(directory);
 
@@ -150,18 +166,28 @@ namespace PayrollSystem
             }
             return null;
         }
-        public static Employee readEmployee(int employeeId)
+
+        /// <summary>reads a json file and returns it as an employee in the system assigned directory for employees</summary>
+        /// <param name="employeeId">the ID of the employee "Employee.ID" [Employee.User.IdentifiableObject.ID]</param>
+        /// <returns>Employee of the json file</returns>
+        public static Employee ReadJsonFileOfEmployee(int employeeId)
         {
-            return readEmployee(employeeId, employeesDirectory);
+            return ReadJsonFileOfEmployeeGivenFileDirectory(employeeId, employeesDirectory);
         }
 
-        //when writing this, think from the perspective of an manager viewing their department
-        public static Department loadDepartment(int departmentID)
+        /// <summary>Loads a json file of a department given its id in the system assigned department directory</summary>
+        /// <param name="departmentID">the ID of the department</param>
+        /// <returns>Department of the json file</returns>
+        public static Department ReadJsonFileOfDepartment(int departmentID)
         {
-            return loadDepartment(departmentID, employeesDirectory);
+            return ReadJsonFileOfDepartmentGivenDirectory(departmentID, employeesDirectory);
         }
 
-        public static Department loadDepartment(int departmentID, string directory)
+        /// <summary>Loads a json file of a department given its id in the system assigned department directory</summary>
+        /// <param name="departmentID">the ID of the department</param>
+        /// <param name="directory">the filepath of the json to be read</param>
+        /// <returns>Department of the json file</returns>
+        public static Department ReadJsonFileOfDepartmentGivenDirectory(int departmentID, string directory)
         {
             string[] empDirs = Directory.GetFiles(directory);
 
@@ -175,7 +201,7 @@ namespace PayrollSystem
                     List<Employee> emps = new List<Employee>() { };
                     foreach (int ID in dep.EmployeeIDs)
                     {
-                        emps.Add(readEmployee(ID));
+                        emps.Add(ReadJsonFileOfEmployee(ID));
                     }
                     dep.Employees = emps;
                     return dep;
@@ -208,7 +234,7 @@ namespace PayrollSystem
             company.Save();
             foreach (Employee emp in company.Employees)
             {
-                emp.Save();
+                emp.SaveEmployeeUsingDefaulSystemDirectory();
             }
             /* untested. plus can change code so this just saves departments, and in dep.save save employees.
                 foreach (Department dep in company.Departments)
@@ -221,14 +247,16 @@ namespace PayrollSystem
 
         #region changing active employees
 
+        /// <summary>Changes the active employee to the employee inputted</summary>
+        /// <param name="newActiveEmployee">what the new active employee should be</param>
         public static void ChangeActiveEmployee(Employee newActiveEmployee)
         {
             if (newActiveEmployee.Privliage >= 0 && newActiveEmployee.Privliage <= 2) _activeEmployee = newActiveEmployee;
             else MessageBox.Show("privliage is not acceptable");
         }
 
-        // to be used when signing out for example:
-        public static void RemoveActiveEmployee()
+        /// <summary>sets active employee to null</summary>
+        public static void SetActiveEmployeeAsNull()
         {
             _activeEmployee = null;
         }
@@ -258,23 +286,27 @@ namespace PayrollSystem
 
         #region startup and shutdown methods
 
-        public static void Startup()
+        /// <summary>Functions to be run on startup</summary>
+        public static void StartupFunctions()
         {
             if (generateRandomCompany == true) GenerateRandomCompany();
             _companyLoadedInFromFiles = LoadCompany();
             _activeCompany = _companyLoadedInFromFiles;
         }
 
+        /// <summary>Functions to be run before the app closes</summary>
         public static void Shutdown()
         {
             foreach (Department dep in _activeCompany.Departments) dep.Save();
-            foreach (Employee emp in _activeCompany.Employees) emp.Save();
+            foreach (Employee emp in _activeCompany.Employees) emp.SaveEmployeeUsingDefaulSystemDirectory();
         }
 
         #endregion
 
         #region random names
 
+        /// <summary>Generates a random first name from an array of several pre generated names</summary>
+        /// <returns>A string of a first name</returns>
         public static string RandomFirstName()
         {
             string[] s = {
@@ -293,6 +325,8 @@ namespace PayrollSystem
 
         }
 
+        /// <summary>Generates a random last name from an array of several pre generated names</summary>
+        /// <returns>A string of a last name</returns>
         public static string RandomLastName()
         {
             string[] s = {
@@ -314,6 +348,11 @@ namespace PayrollSystem
 
         #region Tests - To be deleted at the end of project
 
+        /// <summary> 
+        /// Generates a random company with:
+        ///     4 Departments
+        ///     Each Department has 3 Employees
+        /// </summary>
         public static void GenerateRandomCompany()
         {
             Department departmentDefault = new Department();

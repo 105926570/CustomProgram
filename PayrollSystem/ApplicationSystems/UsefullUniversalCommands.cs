@@ -15,17 +15,13 @@ namespace PayrollSystem
         /// witch are between 0 and the specified highest number using the provided seed,
         /// as an array of integers.
         /// </summary>
-        public static List<int> RandomArray(int highestNumber, int desiredNumberOfNumbers)
+        public static List<int> GenerateListOfRandomIntegers(int HighestNumber, int listLength)
         {
             List<int> randomNumbers = new List<int>();
             int numberOfNumbersAdded = 0;
 
-            while (desiredNumberOfNumbers > numberOfNumbersAdded)
-                randomNumbers.Add(rand.Next(highestNumber));
-
-            //check if length is invalid or wrong:
-            if (randomNumbers.Count != desiredNumberOfNumbers)
-                throw new ArgumentException();
+            while (listLength > numberOfNumbersAdded)
+                randomNumbers.Add(rand.Next(HighestNumber));
 
             return randomNumbers;
         }
@@ -34,15 +30,15 @@ namespace PayrollSystem
         /// <summary> prints to console and msg box simultaiously with just one function. 
         /// <example>Output: [currentdateandtime] - [message]</example></summary>
         /// <param name="message">mesage you wish to be printed</param>
-        public static void shMsgBoxT(string message)
+        public static void ShowMessageBoxGivenString_StartingWithTime(string message)
         {
-            shMsgBox($"{DateTime.Now.ToString()} - {message}");
+            ShowMessageBoxGivenString($"{DateTime.Now.ToString()} - {message}");
         }
 
-        public static void shMsgBox(string msg)
+        public static void ShowMessageBoxGivenString(string message)
         {
-            MessageBox.Show(msg);
-            Console.WriteLine(msg);
+            MessageBox.Show(message);
+            Console.WriteLine(message);
         }
     }
 }

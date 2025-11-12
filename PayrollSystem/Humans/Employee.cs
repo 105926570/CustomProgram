@@ -68,14 +68,14 @@ namespace PayrollSystem
             }
         }
 
-        public void Save()
+        public void SaveEmployeeUsingDefaulSystemDirectory()
         {
             Save(employeesDirectory);
         }
 
         public void Save(string employeesDirectory)
         {
-            CreateJsonFromObject(this, $"{employeesDirectory}\\emp{this.ID}.json");
+            CreateJsonFileFromObject(this, $"{employeesDirectory}\\emp{this.ID}.json");
         }
 
         public float Rate

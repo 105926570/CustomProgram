@@ -7,7 +7,6 @@ namespace PayrollSystem
         public List<PayHistory> PayHistories { get; set; }
 
 
-
         //Default Constructor
         public Payroll() : this(new List<PayHistory>()) { }
 
@@ -22,7 +21,6 @@ namespace PayrollSystem
         public Payroll(List<PayHistory> payHistories) { PayHistories = payHistories; }
     }
 }
-
 
 
 
