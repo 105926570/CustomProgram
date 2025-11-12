@@ -33,10 +33,13 @@ namespace PayrollSystem
         }
 
         public Employee(string Username, string Password) : base(Username, Password) { }
-
-        public Employee(string firstName, string lastName, string Username, string Password) : this(Username, Password)
+        private Employee(string firstName, string Username, string Password) : this(Username, Password)
         {
             FirstName = firstName;
+        }
+
+        public Employee(string firstName, string lastName, string Username, string Password) : this(firstName, Username, Password)
+        {
             LastName = lastName;
         }
 
