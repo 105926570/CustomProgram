@@ -15,9 +15,10 @@ namespace PayrollSystem
         public Schedule Schedule { get; set; }
         private PayHistory PayHist;
         public PayHistory PayHistory { get { return PayHist;  } set { PayHist = value;  } }
+        private DateTime _birthDate; //to be inputted when creating employee
         [JsonIgnore]
         public string FullName { get { return FirstName + " " + LastName; } }
-        private DateTime _birthDate; //to be inputted when creating employee
+
 
         /****************************************************/
 
