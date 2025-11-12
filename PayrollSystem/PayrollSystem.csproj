@@ -147,6 +147,12 @@
     <Compile Include="ApplicationSystems\UsefullUniversalCommands.cs" />
     <Compile Include="Humans\User.cs" />
     <Compile Include="CallenderSystem\Old Callender System\Week.cs" />
+    <Compile Include="Forms\ScheduleCrator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ScheduleCrator.Designer.cs">
+      <DependentUpon>ScheduleCrator.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ManagerForm.resx">
       <DependentUpon>ManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ScheduleCrator.resx">
+      <DependentUpon>ScheduleCrator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TestForms\AdminDebug.resx">
       <DependentUpon>AdminDebug.cs</DependentUpon>
