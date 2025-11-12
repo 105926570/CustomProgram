@@ -32,7 +32,9 @@ namespace PayrollSystem
             Schedule = new Schedule();
         }
 
-        public Employee(string firstName, string lastName, string Username, string Password) : base(Username, Password)
+        public Employee(string Username, string Password) : base(Username, Password) { }
+
+        public Employee(string firstName, string lastName, string Username, string Password) : this(Username, Password)
         {
             FirstName = firstName;
             LastName = lastName;
