@@ -15,7 +15,7 @@ namespace PayrollSystem
         {
             foreach (Employee employee in employees)
             {
-                PayHistories.Add(employee.PayHist);
+                PayHistories.Add(employee.PayHistory);
             }
         }
 
