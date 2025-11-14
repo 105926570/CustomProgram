@@ -5,3 +5,13 @@ The program is a system that allows for employees to view their work schedules, 
 
 
 the above text is taken from my milestone submittion
+
+
+what i learnt:
+
+follow a structure when programming. something like this:
+1.create branch
+2.create method
+3.create test for method and ensure it works
+4.test other tests that use the new method
+5.merge
