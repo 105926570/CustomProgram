@@ -41,8 +41,6 @@ namespace PayrollSystem
             Application.Run(new LoginScreen());
         }
 
-
-
         #region Properties
 
         public static bool isLoggedIn

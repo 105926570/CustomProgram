@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PayrollSystem.Program" Collapsed="true">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABKABIACBABASCQAAAQwITABQQAAIIEggACABAEAAgQ=</HashCode>
+      <FileName>ApplicationSystems\Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.UsefullUniversalCommands" Collapsed="true">
+    <Position X="7.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ApplicationSystems\UsefullUniversalCommands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.Day" Collapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAwBAAAAAAAAAAAA=</HashCode>
+      <FileName>CallenderSystem\Old Callender System\Day.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.Month" Collapsed="true">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAIAAAAAAAAAAgAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>CallenderSystem\Old Callender System\Month.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.PayPeriod" Collapsed="true">
+    <Position X="14.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAIAAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>CallenderSystem\Old Callender System\PayPeriod.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.Week" Collapsed="true">
+    <Position X="9.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAQAAEIAAAAAA=</HashCode>
+      <FileName>CallenderSystem\Old Callender System\Week.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.Schedule" Collapsed="true">
+    <Position X="13" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>CallenderSystem\Schedule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.Company" Collapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAaAgAEAAAACAACAQAAQIGAREAAAgAAAAAAAgCEI=</HashCode>
+      <FileName>Company.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.Department" Collapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAEAAgAAAAAAgAQQACAAAAAAAAAACAAAgAAA=</HashCode>
+      <FileName>Department.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.LoginScreen" Collapsed="true">
+    <Position X="14.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAIAAAIAESBIggIAAACSABACQGEgABAAAAhAAQAAAIA=</HashCode>
+      <FileName>Forms\LoginScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.AdminDebug" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAgCAAAAAAAACAAAACAACAAgCBAkAAAgQgEAA=</HashCode>
+      <FileName>Forms\TestForms\AdminDebug.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.EmployeeDebug" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forms\TestForms\EmployeeDebug.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.GeneratedCreateForm" Collapsed="true">
+    <Position X="13" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>eACAAAAAACAABAAAAAiAAAACEAAEAACoAsQDEQUAAAA=</HashCode>
+      <FileName>Forms\TestForms\fgsifghs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.ManagerDebug" Collapsed="true">
+    <Position X="16.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forms\TestForms\ManagerDebug.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.TestingPageHub" Collapsed="true">
+    <Position X="16.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAhAAACAAABAgAACAAAACAAAQAAAAAGAAAAAAAAA=</HashCode>
+      <FileName>Forms\TestForms\TestingPageHub.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.Admin" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Humans\Admin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.Employee" Collapsed="true">
+    <Position X="1.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QIAAAMAAQAQIAIAAAAAAAAAAAEAAAAAAAAAAAAAABAg=</HashCode>
+      <FileName>Humans\Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.Manager" Collapsed="true">
+    <Position X="2.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAEAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Humans\Manager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.Pronoun" Collapsed="true">
+    <Position X="9.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Humans\Pronoun.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.User" Collapsed="true">
+    <Position X="1.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAQAAAAAABAAAAAACAAAAAAAEAAA=</HashCode>
+      <FileName>Humans\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.IdentifiableObject" Collapsed="true">
+    <Position X="1.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IdentifiableObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.EmployeeTaxCalculator" Collapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAFAAAAEAAAAAAAAAAAAgAAAAAAAAAIgQAA=</HashCode>
+      <FileName>Money\EmployeeTaxCalculator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.EmployeeTaxInfo" Collapsed="true">
+    <Position X="11.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAgAAAAAgAAAEAAAABAAAAEAAAAAIAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Money\EmployeeTaxInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.PayCheck" Collapsed="true">
+    <Position X="11.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Money\PayCheck.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.PayHistory" Collapsed="true">
+    <Position X="13" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Money\PayHistory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.Payroll" Collapsed="true">
+    <Position X="16.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Money\Payroll.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.CallenderSystem.Avaliability" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CallenderSystem\Avaliability.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.CallenderSystem.Leave" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CallenderSystem\Leave.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.CallenderSystem.Shift" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>CallenderSystem\Shift.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.CallenderSystem.TimeFrame" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CallenderSystem\TimeFrame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.Forms.AdminForm" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forms\AdminForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.Forms.EmployeeForm" Collapsed="true">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAACAAAAAAAACAAAACAAAAQAAAAIAACQACAAI=</HashCode>
+      <FileName>Forms\EmployeeForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.Forms.ManagerForm" Collapsed="true">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Forms\ManagerForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.Properties.Resources" Collapsed="true">
+    <Position X="11.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PayrollSystem.Properties.Settings" Collapsed="true">
+    <Position X="14.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

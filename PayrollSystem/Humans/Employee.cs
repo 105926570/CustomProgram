@@ -37,13 +37,12 @@ namespace PayrollSystem
         {
             FirstName = firstName;
         }
-
         public Employee(string firstName, string lastName, string Username, string Password) : this(firstName, Username, Password)
         {
             LastName = lastName;
         }
-
-        public Employee(string firstName, string lastName, string Username, string Password, EmployeeTaxInfo taxInfo, Schedule schedule, PayHistory payHistory) : this(firstName, lastName, Username, Password)
+        public Employee(string firstName, string lastName, string Username, string Password,
+            EmployeeTaxInfo taxInfo, Schedule schedule, PayHistory payHistory) : this(firstName, lastName, Username, Password)
         {
             EmployeeTaxInfo = taxInfo;
             PayHistory = payHistory;
