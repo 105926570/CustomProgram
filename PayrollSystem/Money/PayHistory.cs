@@ -4,7 +4,7 @@ namespace PayrollSystem
 {
     public class PayHistory
     {
-        public List<PayCheck> PayChecks { get; set; }
+        public List<PayCheck> PayChecks { get; set; } = new List<PayCheck> { new PayCheck(20f) };
         public Employee payHistoriesEmployee { get; set; }
         public PayHistory(Employee employee)
         {

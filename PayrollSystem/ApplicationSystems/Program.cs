@@ -381,3 +381,8 @@ namespace PayrollSystem
 /// RandomFirstName and RandomLastName's arrays were generated from CHATGPT and to be used for TESTING PURPOSES ONLY WHILE DEVELOPING.
 /// This code is intended to be removed before final release / submittion.
 /// https://chatgpt.com/share/69104974-6154-800d-b804-575a2820f3de
+/// 
+
+/// for testing
+/// username12362
+/// password12332

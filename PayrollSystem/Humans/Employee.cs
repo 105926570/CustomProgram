@@ -61,9 +61,10 @@ namespace PayrollSystem
             Console.WriteLine(ReturnUserInfoAsString());
             Console.WriteLine("Name: " + FullName);
             Console.WriteLine($"Schedule: {PayHistory}");
-            foreach (PayCheck pc in PayHistory.PayChecks)
+            if (this.PayHist == null) PayHist = new PayHistory(this);
+            foreach (PayCheck pc in PayHist.PayChecks)
             {
-                Console.WriteLine($"Paychecks {pc.Rate}");
+                Console.WriteLine($"Paycheck Rate: {pc.Rate}");
             }
         }
 
