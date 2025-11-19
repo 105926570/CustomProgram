@@ -15,3 +15,8 @@ follow a structure when programming. something like this:
 3. create test for method and ensure it works
 4. test other tests that use the new method
 5. merge
+
+
+
+## TODO:
+ - Make a fork of this github starting from the version that was submitted, and ensure no changes can be made to that one to serve as an archive
